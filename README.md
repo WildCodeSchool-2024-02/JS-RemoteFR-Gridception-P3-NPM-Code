@@ -1,87 +1,92 @@
-# .
+# Description P3 - NPM CODE 
 
-This project uses Harmonia. Harmonia is a framework meant to serve as a foundation for every project following the React-Express-MySQL stack, as learned in Wild Code School.
-It's pre-configured with a set of tools which'll help students produce industry-quality and easier-to-maintain code, while staying a pedagogical tool.
+## 🚀 Bienvenue sur notre projet 3 réalisé à la Wild Code School <br>
 
-## Setup & Use
+## 💡 Le concept
 
-**Windows users:** be sure to run these commands in a git terminal to avoid [issues with newline formats](https://en.wikipedia.org/wiki/Newline#Issues_with_different_newline_formats):
+Nous devons réaliser un application qui permet d'ajouter des street art en se servant de la localisation.
 
-```
-git config --global core.eol lf
-git config --global core.autocrlf false
-```
 
-- In VSCode, install plugins **Prettier - Code formatter** and **ESLint** and configure them
-- Clone this repo, enter it
-- Run command `npm install`
-- Create environment files (`.env`) in both `server` and `client`: you can copy `.env.sample` files as starters (**don't** delete them)
+## 🛠️ Fonctionnalités:
 
-### Available Commands
+### 👥 Partie Visiteur: 
 
-- `db:migrate` : Run the database migration script
-- `db:seed` : Run the database seed script
-- `dev` : Starts both servers (client + server) in one terminal
-- `dev:client` : Starts the React client
-- `dev:back` : Starts the Express server
-- `lint` : Runs validation tools (will be executed on every _commit_, and refuse unclean code)
+- L'utilisateur pourra s'inscire ou se connecter.
+- L'utilisateur pourra se situer sur une carte interactive et voir les oeuvres de street art autour de lui.
+- L'utilisateur pourra accéder aux pages instructions, actualités, et au classement général.
 
-## FAQ
+### 🔒 Partie Utilisateur connecté: 
 
-### Tools
+- L'utilisateur pourra se déconnecter.
+- L'utilisateur pourra modifier son profil (mettre à jour ses informations, changer sa photo de profil)
+- L'utilisateur pourra ajouter un street art, signaler qu'une oeuvre n'existe plus.
+- L'utilisateur pourra gagner des points en fonction de son activité sur le site.
 
-- _Concurrently_ : Allows for several commands to run concurrently in the same CLI
-- _Husky_ : Allows to execute specific commands that trigger on _git_ events
-- _Vite_ : Alternative to _Create-React-App_, packaging less tools for a more fluid experience
-- _ESLint_ : "Quality of code" tool, ensures chosen rules will be enforced
-- _Prettier_ : "Quality of code" tool as well, focuses on the styleguide
-- _ Airbnb Standard_ : One of the most known "standards", even though it's not officially linked to ES/JS
+### 🛡️ Partie Administrateur: 
 
-## Deployment with Traefik
+- L'administrateur pourra accéder au panel d'administration.
+- L'administrateur pourra accéder à la liste des utilisateurs et la liste des street arts.
+- L'administrateur pourra valider des oeuvres et traiter les signalements d'oeuvres disparu. 
+- L'administrateur pourra créer des pages artistes.
 
-> ⚠️ Prerequisites : You must have installed and configured Traefik on your VPS beforehand.
-> https://github.com/WildCodeSchool/vps-traefik-starter-kit/
+### 📝 Dans cette version: 
 
-For deployment, you have to go to `secrets` → app `actions` on the github repo to insert via `New repository secret` :
+- Il y aura les fonctionnalités qui fonctionnent
+- Mais
+- Rien ne fonctionne pour l'instant
 
-- SSH_HOST : IP address of your VPS
-- SSH_USER : SSH login to your VPS
-- SSH_PASSWORD : SSH connection password to your VPS
+### 🔜 A venir: 
 
-And a public variable from the tab `/settings/variables/actions` :
+-Beaucoup
+-De
+-Chose
+-à
+-Mettre
 
-- PROJECT_NAME : the name of the project used to create the subdomain.
+## 🏗️ Structure de l'application
 
-> ⚠️ Warning : underscores are not allowed. They can cause trouble with the let's encrypt certificate
+TABLE MODÉLISATION
 
-Use this same tab to add the other environment variables required for the project if any.
+## 📈 Statut du projet 
 
-Only the server will be accessible. The root path `"/"` will redirect to the dist folder of your client. In order to allow that, please uncomment the line as explained in `server/src/app.js` (Line 102).
-Because the server will also serve the client, the global variable VITE_SERVER_URL will be set with an empty string.
+v0.0 en cours 
 
-Your url will be ` https://${PROJECT-NAME}.${subdomain}.wilders.dev/`.
+## Technos utilisé
 
-### About the database
+![React](https://img.shields.io/badge/-React-61DAFB?style=for-the-badge&logo=react&logoColor=white)
+![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)
+![HTML5](https://img.shields.io/badge/-HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/-CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 
-The database is automaticaly deployed with the name of your repo. During the build of the projet (`docker-entry.sh`), the `node migrate.js` command is executed in the server. If you want to seed automaticaly your database using the `seed.js` script, replace the `cd ./server && node ./bin/migrate.js && node index.js` by `cd ./server && node ./bin/migrate.js && node ./bin/seed.js && node index.js`
+## 🛠️ Setup & utilisation
 
-### About public assets (pictures, fonts...)
+### 📜 Commande disponibles
 
-Don't use any public folder on your client. This folder won't be accessible online. You may move your public assets in the `server/public` folder. Prefer [static assets](https://vitejs.dev/guide/assets) when possible.
+- `setup` :  Initialisation du frontend et du backend, ainsi que de tous les outils
+- `migrate` : Exécute le script de migration de la base de données
+- `dev` : Démarre les deux serveurs (frontend + backend) dans un seul terminal
+- `dev-front` : Démarre le serveur frontend React
+- `dev-back` : Démarre le serveur backend Express
+- `lint` : Exécute les outils de validation et refuse le code non conforme (sera exécuté à chaque _commit_)
+- `fix` : Corrige les erreurs de linter (exécutez-le si `lint` grogne sur votre code !)
 
-### About Specific Environment Variables (e.g., Email)
+## 📄 Plus d'informations 
 
-Students should use the template provided in the `*.env.sample*` file as `<PROJECT_NAME><SPECIFIC_NAME>=<THE_VARIABLE>`.
+- Le modèle utilisé pour ce projet est un modèle de fondation Fullstack réalisé par la Wild Code School.
 
-> ⚠️ **Warning:** The `PROJECT_NAME` should match the one used in the Git public variable.
+- N'oubliez pas de créer vos fichiers .env pour le frontend et le backend en copiant les fichiers .env.sample de chaque répertoire.
 
-To add it during deployment, follow these 2 steps:
+### 🔧 Outils utilisé : 
 
-- Add the following variable to the `docker-compose.prod.yml` file (as shown in the example: `PROJECT_NAME_SPECIFIC_NAME: ${PROJECT_NAME_SPECIFIC_NAME}`).
-- Connect to your server via SSH. Open the global `.env` file in Traefik (`nano ./traefik/data/.env`). Add the variable with the correct value and save the file.
-- Afterward, you can initiate automatic deployment. Docker will not refresh during this process.
+- _Concurrently_ : Permet de lancer plusieurs commandes simultanément dans la même interface de ligne de commande (CLI).
+- _Husky_ : Permet d'exécuter des commandes spécifiques déclenchées par des événements git.
+- _Vite_ : Alternative à Create-React-App, offrant moins d'outils pour une expérience plus fluide.
+- _ESLint_ : Outil de "qualité du code", garantit que les règles choisies seront appliquées.
+- _Prettier_ : Outil de "qualité du code" également, se concentre sur le guide de style.
+- _Airbnb Standard_ : L'un des "standards" les plus connus, bien qu'il ne soit pas officiellement lié à ES/JS.
+- _Nodemon_ : Permet de redémarrer le serveur à chaque mise à jour d'un fichier .js.
 
-### About Logs
+### 👥 Créateurs : 
 
-If you want to access the logs of your online projet (to follow the deployement or to watch any bug error), connect to your VPS (`ssh user@host`).
-Then, go on your specific project and run  `docker compose logs -t -f`.
+[Mégane AUTHEMAYOU](https://github.com/megmayou) - [Nicolas GERIN](https://github.com/NicoGER1) - [Pierre DELAROCQUE](https://github.com/PierreDelarocque) - [Maxime MAUSSION](https://github.com/XamTV) - [Nicolas JUCHEREAU](https://github.com/Nicolas-jchr)
