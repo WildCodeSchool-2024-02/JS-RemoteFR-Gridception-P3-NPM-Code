@@ -3,6 +3,8 @@ const LocalisationsRepository = require("./models/LocalisationsRepository");
 const StreetArtsRepository = require("./models/StreetArtsRepository");
 const UsersRepository = require("./models/UsersRepository");
 const PicturesRepository= require("./models/PicturesRepository");
+const StreetArtsUsersRepository= require ("./models/StreetArtsUsersRepository")
+const StreetArtsPicturesRepository= require ("./models/StreetArtsPicturesRepository")
 
 const tables = {};
 
@@ -13,7 +15,8 @@ tables.streetArts = new StreetArtsRepository()
 tables.localisations = new LocalisationsRepository();
 tables.users = new UsersRepository();
 tables.picturesRepository = new PicturesRepository();
-
+tables.streetArtsUsers = new StreetArtsUsersRepository()
+tables.streetArtsPictures = new StreetArtsPicturesRepository()
 /* ************************************************************************* */
 
 // Use a Proxy to customize error messages when trying to access a non-existing table

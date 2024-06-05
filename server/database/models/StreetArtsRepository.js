@@ -1,10 +1,10 @@
 const AbstractRepository = require("./AbstractRepository");
 
-class streetArtssRepository extends AbstractRepository {
+class streetArtsRepository extends AbstractRepository {
   constructor() {
     // Call the constructor of the parent class (AbstractRepository)
     // and pass the table name "streetArts" as configuration
-    super({ table: "streetArtss" });
+    super({ table: "streetArts" });
   }
 
   // The C of CRUD - Create operation
@@ -34,10 +34,10 @@ class streetArtssRepository extends AbstractRepository {
   }
 
   async readAll() {
-    // Execute the SQL SELECT query to retrieve all streetArtss from the "streetArts" table
+    // Execute the SQL SELECT query to retrieve all streetArts from the "streetArts" table
     const [rows] = await this.database.query(`select * from ${this.table}`);
 
-    // Return the array of streetArtss
+    // Return the array of streetArts
     return rows;
   }
 
@@ -56,4 +56,4 @@ class streetArtssRepository extends AbstractRepository {
   // }
 }
 
-module.exports = streetArtssRepository;
+module.exports = streetArtsRepository;

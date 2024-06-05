@@ -7,8 +7,8 @@ create table localisations (
 
 create table street_arts (
   id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
-  FOREIGN KEY (localisation_id) REFERENCES localisations(id),
-  localisation_id INT NOT NULL,
+  FOREIGN KEY (localisations_id) REFERENCES localisations(id),
+  localisations_id INT NOT NULL,
   title VARCHAR(100) NOT NULL,
   description TEXT NOT NULL,
   artist VARCHAR(80),
@@ -35,16 +35,16 @@ create table pictures (
 
 create table street_arts_users (
   id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
-  FOREIGN KEY (users_id) REFERENCES users(id),
   FOREIGN KEY (street_arts_id) REFERENCES street_arts(id),
+  FOREIGN KEY (users_id) REFERENCES users(id),
   users_id INT NOT NULL,
   street_arts_id INT NOT NULL
 );
 
 create table street_arts_pictures (
   id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
-  FOREIGN KEY (street_art_id) REFERENCES street_arts(id),
+  FOREIGN KEY (street_arts_id) REFERENCES street_arts(id),
   FOREIGN KEY (pictures_id) REFERENCES pictures(id),
-  street_art_id INT NOT NULL,
+  street_arts_id INT NOT NULL,
   pictures_id INT NOT NULL
 );
