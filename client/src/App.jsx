@@ -1,5 +1,5 @@
 import { NavLink, Outlet } from "react-router-dom";
-import "./App.css";
+
 
 function App() {
 
@@ -28,8 +28,6 @@ function App() {
       </nav>
     </>
   );
-
-  return <h1>Street Art Hunter</h1>;
 
 }
 
