@@ -2,6 +2,7 @@ import { NavLink, Outlet } from "react-router-dom";
 import "./App.css";
 
 function App() {
+
   return (
     <>
       <main className="container">
@@ -27,6 +28,9 @@ function App() {
       </nav>
     </>
   );
+
+  return <h1>Street Art Hunter</h1>;
+
 }
 
 export default App;
