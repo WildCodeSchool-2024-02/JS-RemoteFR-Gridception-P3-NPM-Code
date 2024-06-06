@@ -13,22 +13,22 @@ function NavBar() {
         <nav>
           <menu>
             <li>
-              <NavLink href="/">
-                <img src={UserIcon} alt="page utilisateur" />
+              <NavLink href="/profil">
+                <img src={UserIcon} alt="page profil" />
               </NavLink>
             </li>
             <li>
-              <NavLink href="/">
-                <img src={GalleryIcon} alt="Galery street art" />
+              <NavLink href="/galerie">
+                <img src={GalleryIcon} alt="Galerie street art" />
               </NavLink>
             </li>
             <li>
-              <NavLink href="/">
+              <NavLink href="/add">
                 <img src={AddIcon} alt="ajouter un street art" />
               </NavLink>
             </li>
             <li>
-              <NavLink href="/">
+              <NavLink href="/classement">
                 <img src={TrophyIcon} alt="page classement" />
               </NavLink>
             </li>
@@ -43,13 +43,13 @@ function NavBar() {
       <section className="navbar-container">
         <nav>
           <li>
-            <NavLink to="/">Oeuvres</NavLink>
+            <NavLink to="/galerie">Oeuvres</NavLink>
           </li>
           <li>
             <NavLink to="/">Artistes</NavLink>
           </li>
           <li>
-            <NavLink to="/">Classement</NavLink>
+            <NavLink to="/classement">Classement</NavLink>
           </li>
         </nav>
       </section>
