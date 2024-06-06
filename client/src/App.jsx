@@ -1,7 +1,5 @@
 import { NavLink, Outlet } from "react-router-dom";
 
-import Map from "./components/Map";
-
 function App() {
   return (
     <>
@@ -10,10 +8,6 @@ function App() {
           <h1 className="block-primary">
             <span className="block-primary-main">Street Art Hunter</span>
           </h1>
-        </section>
-
-        <section>
-          <Map />
         </section>
       </main>
       <section>
