@@ -1,4 +1,6 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+
+import NavBar from "./components/NavBar";
 
 function App() {
   return (
@@ -13,13 +15,7 @@ function App() {
       <section>
         <Outlet />
       </section>
-      <nav>
-        <NavLink to="/">Profil</NavLink>
-        <NavLink to="/">Galerie</NavLink>
-        <NavLink to="/">+</NavLink>
-        <NavLink to="/">Classement</NavLink>
-        <NavLink to="/">Plus ...</NavLink>
-      </nav>
+      <NavBar />
     </>
   );
 }
