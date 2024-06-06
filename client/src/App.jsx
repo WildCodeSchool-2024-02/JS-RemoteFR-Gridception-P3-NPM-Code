@@ -1,10 +1,6 @@
 import { NavLink, Outlet } from "react-router-dom";
 
-import "./App.css";
-// import Map from "./components/Map";
-
 function App() {
-
   return (
     <>
       <main className="container">
