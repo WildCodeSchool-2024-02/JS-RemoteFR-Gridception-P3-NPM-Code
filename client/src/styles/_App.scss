@@ -4,7 +4,6 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap");
 
-
 body {
   font-family: "Fugaz One", sans-serif;
   font-weight: 400;
@@ -12,9 +11,16 @@ body {
   line-height: 1.7;
   color: #eee;
   margin: 0;
-  background-image: url("../assets/images/wallpaper.jpg");
-  height: 100vh;
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
+  background-image: none;
+}
+
+//Responsive pour l'apparition du background
+@media (min-width: 770px) {
+  body {
+    background-image: url("../assets/images/wallpaper.jpg");
+    height: 100vh;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
 }
