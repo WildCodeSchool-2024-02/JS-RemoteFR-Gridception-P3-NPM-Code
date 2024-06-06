@@ -1,4 +1,6 @@
-export function Home() {
+import Map from "../components/Map";
+
+function Home() {
 
   return (
     <section className="HomeComponent">
