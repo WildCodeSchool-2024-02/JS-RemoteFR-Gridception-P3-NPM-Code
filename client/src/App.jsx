@@ -1,7 +1,36 @@
+import { NavLink, Outlet } from "react-router-dom";
 import "./App.css";
 
 function App() {
+
+  return (
+    <>
+      <main className="container">
+        <header>
+          <h1 className="logo">NPM-Code</h1>
+        </header>
+
+        <section className="text-box">
+          <h2 className="block-primary">
+            <span className="block-primary-main">Street Art Hunter</span>
+          </h2>
+        </section>
+      </main>
+      <section>
+        <Outlet />
+      </section>
+      <nav>
+        <NavLink to="/">Profil</NavLink>
+        <NavLink to="/">Galerie</NavLink>
+        <NavLink to="/">+</NavLink>
+        <NavLink to="/">Classement</NavLink>
+        <NavLink to="/">Plus ...</NavLink>
+      </nav>
+    </>
+  );
+
   return <h1>Street Art Hunter</h1>;
+
 }
 
 export default App;
