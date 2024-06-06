@@ -1,9 +1,11 @@
-export function Home() {
+import Map from "../components/Map";
+
+function Home() {
   return (
     <section className="HomeComponent">
-      <h1>Home</h1>
+      <h1> coucou</h1>
 
-      <p>Home Component</p>
+      <Map />
     </section>
   );
 }
