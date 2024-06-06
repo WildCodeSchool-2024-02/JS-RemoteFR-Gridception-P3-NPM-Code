@@ -1,17 +1,19 @@
 import { NavLink, Outlet } from "react-router-dom";
 
+import Map from "./components/Map";
+
 function App() {
   return (
     <>
       <main className="container">
-        <header>
-          <h1 className="logo">NPM-Code</h1>
-        </header>
-
         <section className="text-box">
-          <h2 className="block-primary">
+          <h1 className="block-primary">
             <span className="block-primary-main">Street Art Hunter</span>
-          </h2>
+          </h1>
+        </section>
+
+        <section>
+          <Map />
         </section>
       </main>
       <section>
