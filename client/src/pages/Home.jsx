@@ -1,4 +1,4 @@
-function Home() {
+export function Home() {
   return (
     <section className="HomeComponent">
       <h1>Home</h1>
