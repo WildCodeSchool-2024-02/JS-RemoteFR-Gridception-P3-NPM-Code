@@ -3,13 +3,60 @@ import ReactDOM from "react-dom/client";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import App from "./App";
 import "./styles/import.scss";
+import App from "./App";
+import Home from "./pages/Home";
+import AddPictures from "./pages/AddPictures";
+import Contact from "./pages/Contact";
+import Gallery from "./pages/Gallery";
+import GCU from "./pages/GCU";
+import LegalNotice from "./pages/LegalNotice";
+import Profile from "./pages/Profile";
+import Ranking from "./pages/Ranking";
+import Register from "./pages/Register";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/add",
+        element: <AddPictures />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
+      {
+        path: "/galerie",
+        element: <Gallery />,
+      },
+      {
+        path: "/cgu",
+        element: <GCU />,
+      },
+      {
+        path: "/mentions_legales",
+        element: <LegalNotice />,
+      },
+      {
+        path: "/profil",
+        element: <Profile />,
+      },
+      {
+        path: "/classement",
+        element: <Ranking />,
+      },
+      {
+        path: "/inscription",
+        element: <Register />,
+      },
+    ],
   },
 ]);
 
