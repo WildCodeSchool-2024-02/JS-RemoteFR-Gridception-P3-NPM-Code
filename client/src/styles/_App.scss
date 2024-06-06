@@ -1,8 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap");
+
 :root {
   box-sizing: border-box;
+  --primary-color: rgba(194, 76, 246, 1);
+  --primary-text-color: rgba(255, 255, 102, 1);
+  --background-logo-color: rgba(37, 51, 137, 1);
 }
-
-@import url("https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap");
 
 body {
   font-family: "Fugaz One", sans-serif;
