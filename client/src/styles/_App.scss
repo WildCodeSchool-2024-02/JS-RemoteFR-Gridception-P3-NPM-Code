@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap");
+
+:root {
+  box-sizing: border-box;
+  --primary-color: rgba(194, 76, 246, 1);
+  --primary-text-color: rgba(255, 255, 102, 1);
+  --background-logo-color: rgba(37, 51, 137, 1);
+}
+
+body {
+  font-family: "Fugaz One", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #eee;
+  margin: 0;
+  background-image: none;
+}
+
+//Responsive pour l'apparition du background
+@media (min-width: 770px) {
+  body {
+    background-image: url("../assets/images/wallpaper.jpg");
+    height: 100vh;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+}
