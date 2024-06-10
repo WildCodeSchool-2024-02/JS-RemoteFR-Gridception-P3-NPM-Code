@@ -1,10 +1,13 @@
-import { NavLink } from "react-router-dom";
+import * as React from "react";
 
+import { NavLink } from "react-router-dom";
+import { StyledEngineProvider } from "@mui/material/styles";
 import UserIcon from "../assets/images/user_icon.png";
 import GalleryIcon from "../assets/images/gallery_icon.png";
 import AddIcon from "../assets/images/add_icon.png";
 import TrophyIcon from "../assets/images/trophy_icon.png";
-import DotIcon from "../assets/images/dot_icon.png";
+
+import Drawer from "./Drawer";
 
 function NavBar() {
   return (
@@ -30,17 +33,19 @@ function NavBar() {
             <li>
               <NavLink href="/classement">
                 <img src={TrophyIcon} alt="page classement" />
-              </NavLink>
+              </NavLink >
             </li>
             <li>
-              <NavLink href="/">
-                <img src={DotIcon} alt="plus d'option" />
-              </NavLink>
+              <React.StrictMode>
+                <StyledEngineProvider injectFirst>
+                  <Drawer />
+                </StyledEngineProvider>
+              </React.StrictMode>
             </li>
           </menu>
         </nav>
       </section>
-      <section className="navbar-container">
+      <section className="navbar-desktop">
         <nav>
           <li>
             <NavLink to="/galerie">Oeuvres</NavLink>
