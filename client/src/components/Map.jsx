@@ -5,11 +5,12 @@ import "mapbox-gl/dist/mapbox-gl.css";
 function Map() {
   const mapContainer = useRef(null);
   const map = useRef(null);
+  const mapBoxToken = import.meta.env.VITE_MAPBOX_TOKEN;
 
   useEffect(() => {
     if (map.current) return;
     mapboxgl.accessToken =
-      "pk.eyJ1IjoiYW5vbnltemUiLCJhIjoiY2wyZWppdWZjMDE5cjNmb2drejYzemswcSJ9.Ikuq09fwres0ikyw6J8qDw";
+      mapBoxToken;
 
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
