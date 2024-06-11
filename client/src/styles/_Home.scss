@@ -1,15 +1,77 @@
-.HomeComponent > .map-container {
+.main-desktop > .map-container {
   width: 100vw;
   height: 95vh;
   z-index: 1;
 }
+// NE PAS AFFICHER LE TEXTE ET LES BOUTONS
+
+.text-content {
+  display: none;
+}
+// VERSION DESKTOP
 
 @media (min-width: 770px) {
-  .HomeComponent > .map-container {
+  .main-desktop {
+    display: flex;
+  }
+
+  //PARTIE DES TEXTES
+  .text-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .main-title {
+    font-size: 4.5rem;
+    color: var(--primary-text-color);
+    margin: 4rem;
+  }
+
+  .second-title {
+    font-size: 3rem;
+    color: #63d1ff;
+  }
+
+  .button-connect {
+    background-color: #ff6c00;
+    color: var(--primary-text-color);
+    padding: 10px 20px;
+    margin-right: 2rem;
+    font-size: 3rem;
+    cursor: pointer;
+    border-radius: 10px;
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease;
+  }
+
+  .button-connect:hover {
+    background-color: #e65a00;
+  }
+
+  .button-add {
+    background-color: #ff6c00;
+    color: var(--primary-text-color);
+    padding: 10px 20px;
+    font-size: 3rem;
+    cursor: pointer;
+    border-radius: 50px;
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease;
+  }
+
+  .button-add:hover {
+    background-color: #e65a00;
+  }
+
+  //PARTIE MAP
+
+  .main-desktop > .map-container {
     top: 150px;
-    left: 800px;
-    bottom: 0;
-    width: 50vw;
+    width: 63vw;
     height: 75vh;
     border-radius: 25px;
   }

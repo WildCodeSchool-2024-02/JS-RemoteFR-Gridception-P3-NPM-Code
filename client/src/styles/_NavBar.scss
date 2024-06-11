@@ -26,3 +26,11 @@
 .navbar-desktop {
   display: none;
 }
+
+//MEDIA QUERY POUR DESKTOP
+
+@media (min-width: 770px) {
+  .navbar-logo-container {
+    display: none;
+  }
+}
