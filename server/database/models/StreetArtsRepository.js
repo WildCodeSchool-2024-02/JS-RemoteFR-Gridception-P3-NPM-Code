@@ -1,6 +1,6 @@
 const AbstractRepository = require("./AbstractRepository");
 
-class streetArtsRepository extends AbstractRepository {
+class StreetArtsRepository extends AbstractRepository {
   constructor() {
     // Call the constructor of the parent class (AbstractRepository)
     // and pass the table name "streetArts" as configuration
@@ -12,8 +12,16 @@ class streetArtsRepository extends AbstractRepository {
   async create(streetArts) {
     // Execute the SQL INSERT query to add a new streetArts to the "streetArts" table
     const [result] = await this.database.query(
-      `insert into ${this.table} (title, description, artist, is_valid ) values (?, ?, ?, ?)`,
-      [streetArts.title, streetArts.description, streetArts.artist, streetArts.is_valid]
+      `insert into ${this.table} (user_id, title, description, artist, latitude, longitude, is_valid ) values (?, ?, ?, ?, ?, ?, ?)`,
+      [
+        streetArts.user_id,
+        streetArts.title,
+        streetArts.description,
+        streetArts.artist,
+        streetArts.latitude,
+        streetArts.longitude,
+        streetArts.is_valid,
+      ]
     );
 
     // Return the ID of the newly inserted streetArts
@@ -56,4 +64,4 @@ class streetArtsRepository extends AbstractRepository {
   // }
 }
 
-module.exports = streetArtsRepository;
+module.exports = StreetArtsRepository;

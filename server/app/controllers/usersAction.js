@@ -5,7 +5,7 @@ const tables = require("../../database/tables");
 const browse = async (req, res, next) => {
   try {
     // Fetch all users from the database
-    const users = await tables.user.readAll();
+    const users = await tables.users.readAll();
 
     // Respond with the users in JSON format
     res.json(users);
@@ -19,7 +19,7 @@ const browse = async (req, res, next) => {
 const read = async (req, res, next) => {
   try {
     // Fetch a specific user from the database based on the provided ID
-    const user = await tables.user.read(req.params.id);
+    const user = await tables.users.read(req.params.id);
 
     // If the user is not found, respond with HTTP 404 (Not Found)
     // Otherwise, respond with the user in JSON format
@@ -44,7 +44,7 @@ const add = async (req, res, next) => {
 
   try {
     // Insert the user into the database
-    const insertId = await tables.user.create(user);
+    const insertId = await tables.users.create(user);
 
     // Respond with HTTP 201 (Created) and the ID of the newly inserted user
     res.status(201).json({ insertId });

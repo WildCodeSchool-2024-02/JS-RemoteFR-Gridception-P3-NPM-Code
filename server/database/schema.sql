@@ -1,4 +1,23 @@
 -- SQLBook: Code
+
+
+create table roles (
+  id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  name VARCHAR(80) NOT NULL
+);
+create table users (
+  id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  Foreign Key (roles_id) REFERENCES roles(id),
+  roles_id INT NOT NULL,
+  firstname VARCHAR(80) NOT NULL,
+  lastname VARCHAR(80) NOT NULL,
+  avatar VARCHAR(255),
+  points INT,
+  city VARCHAR(80),
+  email VARCHAR(255) NOT NULL unique,
+  password VARCHAR(50) NOT NULL 
+);
+
 create table street_arts (
   id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
   FOREIGN KEY (users_id) REFERENCES users(id),
@@ -10,35 +29,24 @@ create table street_arts (
   longitude INT NOT NULL,
   is_valid BOOLEAN NOT NULL
 );
-create table users (
-  id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
-  Foreign Key (role_id) REFERENCES role(id),
-  role_id INT NOT NULL,
-  firstname VARCHAR(80) NOT NULL,
-  lastname VARCHAR(80) NOT NULL,
-  avatar VARCHAR(255),
-  points INT,
-  city VARCHAR(80),
-  email VARCHAR(255) NOT NULL unique,
-  password VARCHAR(50) NOT NULL 
-);
+
 create table pictures (
     ID INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    Foreign Key (street_arts_id) REFERENCES street_arts(id)
-    street_arts_id INT NOT NULL
+    Foreign Key (street_arts_id) REFERENCES street_arts(id),
+    street_arts_id INT NOT NULL,
     name VARCHAR(255),
-    URL VARCHAR(255) NOT NULL,
-    DATE DATETIME,
+    url VARCHAR(255) NOT NULL,
+    date DATETIME,
     is_valid BOOLEAN
 );
 
 create table categories (
   id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   name VARCHAR(80) NOT NULL
-)
+);
 
 create table street_arts_categories (
-  id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  id int PRIMARY KEY NOT NULL AUTO_INCREMENT,
   FOREIGN KEY (street_arts_id) REFERENCES street_arts(id),
   FOREIGN KEY (categories_id) REFERENCES categories(id),
   categories_id INT NOT NULL,
