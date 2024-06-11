@@ -15,7 +15,7 @@ function Home() {
           <button type="button" className="button-connect">
             Se connecter
           </button>
-          <Link className="button-add" to="/add" activeClassName="active">
+          <Link className="button-add" to="/add">
             <img src={Addpicture} alt="Icone pour ajouter une oeuvre" />
           </Link>
         </div>
