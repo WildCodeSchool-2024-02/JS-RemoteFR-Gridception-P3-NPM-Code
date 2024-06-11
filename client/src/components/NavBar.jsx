@@ -33,7 +33,7 @@ function NavBar() {
             <li>
               <NavLink href="/classement">
                 <img src={TrophyIcon} alt="page classement" />
-              </NavLink >
+              </NavLink>
             </li>
             <li>
               <React.StrictMode>
