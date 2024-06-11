@@ -24,11 +24,13 @@
 .navIcon {
   width: 2.5rem;
   padding: 6px 12px 6px 12px;
+  filter: drop-shadow(10px 7px 10px rgb(71, 1, 92));
 }
 
 .addArt {
   width: 3.5rem;
   padding: 8px 10px 0 14px;
+  filter: drop-shadow(2px 2px 5px rgb(71, 1, 92));
 }
 .navbar-desktop {
   display: none;

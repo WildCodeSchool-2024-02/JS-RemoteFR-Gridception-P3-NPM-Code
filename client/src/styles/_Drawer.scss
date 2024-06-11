@@ -2,6 +2,7 @@
 
 .burgerLogo {
   width: 2.5rem;
+  filter: drop-shadow(10px 7px 10px rgb(71, 1, 92));
 }
 .drawerButton {
   padding: 0;
@@ -9,9 +10,11 @@
 .logoInDrawer {
   width: 150px;
   padding-bottom: 15rem;
+  align-self: center;
 }
+
 .NavIcon {
-  width: 30px;
+  width: 40px;
 }
 
 a {

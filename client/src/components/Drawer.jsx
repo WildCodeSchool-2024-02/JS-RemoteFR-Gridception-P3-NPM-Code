@@ -9,9 +9,14 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 
-import user from "../assets/images/user_icon.png";
+import tetrispurple from "../assets/images/tetrispurple.png";
+import tetrisyellow from "../assets/images/tetrisyellow.png";
+import tetrispurple2 from "../assets/images/tetrispurple2.png";
+import tetrisyellow2 from "../assets/images/tetrisyellow2.png";
 import dot from "../assets/images/dot_icon.png";
 import logo from "../assets/images/logo.png";
+
+
 
 export default function AnchorTemporaryDrawer() {
   const [state, setState] = React.useState({
@@ -49,11 +54,15 @@ export default function AnchorTemporaryDrawer() {
       <img src={logo} alt="logo du site " className="logoInDrawer" />
       <List>
         <a href="#Home" className="linkNav">
-          {["Accueil"].map((text) => (
-            <ListItem key={text} disablePadding>
+          {["test"].map((text) => (
+            <ListItem key={text}  disablePadding>
               <ListItemButton>
                 <ListItemIcon>
-                  <img src={user} alt="accueil icon" className="NavIcon" />
+                  <img
+                    src={tetrispurple}
+                    alt="accueil icon"
+                    className="NavIcon"
+                  />
                 </ListItemIcon>
                 <ListItemText primary={text} />
               </ListItemButton>
@@ -65,11 +74,15 @@ export default function AnchorTemporaryDrawer() {
       <Divider />
       <List>
         <a href="#AboutMe">
-          {["À propos"].map((text) => (
+          {["CGU / Regle"].map((text) => (
             <ListItem key={text} disablePadding>
               <ListItemButton>
                 <ListItemIcon>
-                  <img src={user} alt="a propos icon" className="NavIcon" />
+                  <img
+                    src={tetrisyellow}
+                    alt="a propos icon"
+                    className="NavIcon"
+                  />
                 </ListItemIcon>
                 <ListItemText primary={text} />
               </ListItemButton>
@@ -80,11 +93,15 @@ export default function AnchorTemporaryDrawer() {
       <Divider />
       <List>
         <a href="#Project">
-          {["Projets"].map((text) => (
+          {["test"].map((text) => (
             <ListItem key={text} disablePadding>
               <ListItemButton>
                 <ListItemIcon>
-                  <img src={user} alt="projets icon" className="NavIcon" />
+                  <img
+                    src={tetrispurple2}
+                    alt="projets icon"
+                    className="NavIcon"
+                  />
                 </ListItemIcon>
                 <ListItemText primary={text} />
               </ListItemButton>
@@ -99,7 +116,11 @@ export default function AnchorTemporaryDrawer() {
             <ListItem key={text} disablePadding>
               <ListItemButton>
                 <ListItemIcon>
-                  <img src={user} alt="contact icon" className="NavIcon" />
+                  <img
+                    src={tetrisyellow2}
+                    alt="contact icon"
+                    className="NavIcon"
+                  />
                 </ListItemIcon>
                 <ListItemText primary={text} />
               </ListItemButton>
