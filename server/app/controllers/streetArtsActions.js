@@ -5,7 +5,7 @@ const tables = require("../../database/tables");
 const browse = async (req, res, next) => {
   try {
     // Fetch all streetArts from the database
-    const streetArts = await tables.streetArt.readAll();
+    const streetArts = await tables.streetArts.readAll();
 
     // Respond with the streetArts in JSON format
     res.json(streetArts);
@@ -19,7 +19,7 @@ const browse = async (req, res, next) => {
 const read = async (req, res, next) => {
   try {
     // Fetch a specific streetArt from the database based on the provided ID
-    const streetArt = await tables.streetArt.read(req.params.id);
+    const streetArt = await tables.streetArts.read(req.params.id);
 
     // If the streetArt is not found, respond with HTTP 404 (Not Found)
     // Otherwise, respond with the streetArt in JSON format
@@ -44,7 +44,7 @@ const add = async (req, res, next) => {
 
   try {
     // Insert the streetArt into the database
-    const insertId = await tables.streetArt.create(streetArt);
+    const insertId = await tables.streetArts.create(streetArt);
 
     // Respond with HTTP 201 (Created) and the ID of the newly inserted streetArt
     res.status(201).json({ insertId });

@@ -12,8 +12,14 @@ class PicturesRepository extends AbstractRepository {
   async create(pictures) {
     // Execute the SQL INSERT query to add a new item to the "item" table
     const [result] = await this.database.query(
-      `insert into ${this.table} (name, URL, DATE, is_valid) values (?, ?)`,
-      [pictures.name, pictures.URL, pictures.DATE, pictures.is_valid, ]
+      `insert into ${this.table} (street_arts_id, name, URL, DATE, is_valid) values (?, ?, ?, ?, ?)`,
+      [
+        pictures.street_arts_id,
+        pictures.name,
+        pictures.URL,
+        pictures.DATE,
+        pictures.is_valid,
+      ]
     );
 
     // Return the ID of the newly inserted item
