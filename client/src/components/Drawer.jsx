@@ -8,6 +8,8 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
+import CssBaseline from "@mui/material/CssBaseline";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 import tetrispurple from "../assets/images/tetrispurple.png";
 import tetrisyellow from "../assets/images/tetrisyellow.png";
@@ -16,7 +18,12 @@ import tetrisyellow2 from "../assets/images/tetrisyellow2.png";
 import dot from "../assets/images/dot_icon.png";
 import logo from "../assets/images/logo.png";
 
-
+// theme personnalisé pour la font Fugaz One
+const theme = createTheme({
+  typography: {
+    fontFamily: "Fugaz One, Arial, sans-serif",
+  },
+});
 
 export default function AnchorTemporaryDrawer() {
   const [state, setState] = React.useState({
@@ -55,13 +62,13 @@ export default function AnchorTemporaryDrawer() {
       <List>
         <a href="#Home" className="linkNav">
           {["test"].map((text) => (
-            <ListItem key={text}  disablePadding>
+            <ListItem key={text} disablePadding>
               <ListItemButton>
                 <ListItemIcon>
                   <img
                     src={tetrispurple}
                     alt="accueil icon"
-                    className="NavIcon"
+                    className="drawerIcon"
                   />
                 </ListItemIcon>
                 <ListItemText primary={text} />
@@ -81,7 +88,7 @@ export default function AnchorTemporaryDrawer() {
                   <img
                     src={tetrisyellow}
                     alt="a propos icon"
-                    className="NavIcon"
+                    className="drawerIcon"
                   />
                 </ListItemIcon>
                 <ListItemText primary={text} />
@@ -100,7 +107,7 @@ export default function AnchorTemporaryDrawer() {
                   <img
                     src={tetrispurple2}
                     alt="projets icon"
-                    className="NavIcon"
+                    className="drawerIcon"
                   />
                 </ListItemIcon>
                 <ListItemText primary={text} />
@@ -119,7 +126,7 @@ export default function AnchorTemporaryDrawer() {
                   <img
                     src={tetrisyellow2}
                     alt="contact icon"
-                    className="NavIcon"
+                    className="drawerIcon"
                   />
                 </ListItemIcon>
                 <ListItemText primary={text} />
@@ -132,21 +139,27 @@ export default function AnchorTemporaryDrawer() {
   );
 
   return (
-    <div>
-      {["right"].map((anchor) => (
-        <React.Fragment key={anchor}>
-          <Button onClick={toggleDrawer(anchor, true)} className="drawerButton">
-            <img src={dot} alt="icon menu" className="burgerLogo" />
-          </Button>
-          <Drawer
-            anchor={anchor}
-            open={state[anchor]}
-            onClose={toggleDrawer(anchor, false)}
-          >
-            {list(anchor)}
-          </Drawer>
-        </React.Fragment>
-      ))}
-    </div>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <div>
+        {["right"].map((anchor) => (
+          <React.Fragment key={anchor}>
+            <Button
+              onClick={toggleDrawer(anchor, true)}
+              className="drawerButton"
+            >
+              <img src={dot} alt="icon menu" className="burgerLogo" />
+            </Button>
+            <Drawer
+              anchor={anchor}
+              open={state[anchor]}
+              onClose={toggleDrawer(anchor, false)}
+            >
+              {list(anchor)}
+            </Drawer>
+          </React.Fragment>
+        ))}
+      </div>
+    </ThemeProvider>
   );
 }
