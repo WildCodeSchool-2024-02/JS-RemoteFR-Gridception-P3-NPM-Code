@@ -1,6 +1,9 @@
+/* eslint-disable array-callback-return */
 import { useEffect, useRef } from "react";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
+
+import oeuvres from "../js/oeuvres";
 
 function Map() {
   const mapContainer = useRef(null);
@@ -9,8 +12,7 @@ function Map() {
 
   useEffect(() => {
     if (map.current) return;
-    mapboxgl.accessToken =
-      mapBoxToken;
+    mapboxgl.accessToken = mapBoxToken;
 
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
@@ -28,7 +30,16 @@ function Map() {
         showUserHeading: true,
       })
     );
-  }, []);
+
+    oeuvres.map((oeuvre) => {
+      new mapboxgl.Marker()
+        .setLngLat([oeuvre.longitude, oeuvre.latitude])
+        .setPopup(
+          new mapboxgl.Popup().setText(oeuvre.name).setText(oeuvre.name)
+        )
+        .addTo(map.current);
+    });
+  }, [mapBoxToken]);
 
   return <div ref={mapContainer} className="map-container" />;
 }
