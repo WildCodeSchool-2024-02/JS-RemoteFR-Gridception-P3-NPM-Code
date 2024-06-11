@@ -2,6 +2,9 @@ import japonaise from "../assets/images/imageOeuvres/soleillevant.jpg";
 import japonaise2 from "../assets/images/imageOeuvres/japonaiseparasol.jpg";
 import mermet from "../assets/images/imageOeuvres/escaliersmermet.webp";
 import van from "../assets/images/imageOeuvres/MissVan.jpg";
+import fish from "../assets/images/imageOeuvres/fish.jpg";
+import tito from "../assets/images/imageOeuvres/titomulk.jpg";
+import women from "../assets/images/imageOeuvres/women.jpg";
 
 const oeuvres = [
   {
@@ -39,6 +42,33 @@ const oeuvres = [
     description:
       "En flânant dans les rues du quartier des Carmes, on découvre une fresque imposante intitulée « La Symphonie des Songes ». Connue pour ses pin-up qui ont évolué avec le temps et ont gagné en expressivité, Miss Van a composé une œuvre gigantesque dans le cadre du festival des cultures urbaines Rose Béton. Cette fresque peinte intégralement au pinceau représente une figure féminine entourée de masques inspirés de différentes cultures du monde. L’harmonie des couleurs et la finesse du trait nous plongent dans l’univers onirique de l’artiste toulousaine.",
     localitée: "Toulouse",
+  },
+  {
+    name: "Fish",
+    image: fish,
+    longitude: 4.362843,
+    latitude: 43.841609,
+    description:
+      "En quelques années seulement, le quartier Gambetta (derrière le boulevard du même nom, entre la rue Robert et la rue de l’Enclos Rey) s’est métamorphosé en galerie urbaine à ciel ouvert.",
+    localitée: "Nimes",
+  },
+  {
+    name: "Tito et Mulk",
+    image: tito,
+    longitude: 4.362843,
+    latitude: 43.841609,
+    description:
+      "En quelques années seulement, le quartier Gambetta (derrière le boulevard du même nom, entre la rue Robert et la rue de l’Enclos Rey) s’est métamorphosé en galerie urbaine à ciel ouvert.",
+    localitée: "Nimes",
+  },
+  {
+    name: "Women",
+    image: women,
+    longitude: 5.944815,
+    latitude: 44.197072,
+    description:
+      "Street Art, Stickers, Graffiti, le pochoir, l’art du tract rythmeront un parcours artistique dans toute la ville. Performance d’artistes et de plasticiens",
+    localitée: "Sisteron",
   },
 ];
 
