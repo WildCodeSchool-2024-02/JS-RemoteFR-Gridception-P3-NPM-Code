@@ -9,11 +9,12 @@
     justify-content: center;
     align-items: center;
     position: fixed;
+    z-index: 1100;
     bottom: 0;
     width: 100%;
-    height: 5%;
+    height: 8%;
     padding: 10px 0;
-    font-size: 2rem;
+    font-size: calc(0.2rem + 1vw);
   }
 
   .footer li {
@@ -25,12 +26,12 @@
   .footer a {
     text-decoration: none;
     color: #ffff66;
-    font-size: 2rem;
+    font-size: calc(0.2rem + 1vw);
   }
 
   .github-icon {
-    width: 100px;
-    height: 70px;
+    width: 75px;
+    height: 75px;
     animation: float 3s ease-in-out infinite;
   }
 

@@ -20,21 +20,20 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     margin: 4rem;
   }
 
   .main-title {
-    font-size: 4.5rem;
+    font-size: 3.5rem;
     color: var(--primary-text-color);
-    padding: 4rem 4rem 0rem 4rem;
     margin: 5rem 0 0 0;
   }
 
   .second-title {
-    font-size: 3rem;
+    font-size: 2.5rem;
     color: #63d1ff;
-    margin: 0 0 10rem;
+    margin: 0 0 3rem;
   }
   //BOUTONS ET LEURS EFFETS
   .buttons {
@@ -46,9 +45,9 @@
     background-color: #ff6c00;
     color: var(--primary-text-color);
     font-family: var(--primary-font);
-    height: 5rem;
+    height: 3rem;
     margin-right: 2rem;
-    font-size: 3rem;
+    font-size: 1.5rem;
     cursor: pointer;
     border-radius: 10px;
     transition:
@@ -63,7 +62,7 @@
   .button-add {
     font-family: var(--primary-font);
     color: var(--primary-text-color);
-    padding: 10px 20px;
+    width: 65px;
     cursor: pointer;
     transition:
       background-color 0.3s ease,
@@ -89,9 +88,10 @@
   //PARTIE MAP
 
   .main-desktop > .map-container {
-    top: 150px;
-    width: 68vw;
-    height: 75vh;
+    position: fixed;
+    right: 50px;
+    width: 55vw;
+    height: 70vh;
     border-radius: 25px;
   }
 }

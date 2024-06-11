@@ -6,6 +6,7 @@ import UserIcon from "../assets/images/user_icon.png";
 import GalleryIcon from "../assets/images/gallery_icon.png";
 import AddIcon from "../assets/images/add_icon.png";
 import TrophyIcon from "../assets/images/trophy_icon.png";
+import Logo from "../assets/images/logo.png";
 
 import Drawer from "./Drawer";
 
@@ -58,14 +59,15 @@ function NavBar() {
         </nav>
       </section>
       <section className="navbar-desktop">
-        <nav>
-          <li>
+        <img src={Logo} alt="Logo Street Art Hunter" className="logoDesktop" />
+        <nav className="navbarTop">
+          <li className="navbarContent">
             <NavLink to="/galerie">Oeuvres</NavLink>
           </li>
-          <li>
+          <li className="navbarContent">
             <NavLink to="/">Artistes</NavLink>
           </li>
-          <li>
+          <li className="navbarContent">
             <NavLink to="/classement">Classement</NavLink>
           </li>
         </nav>

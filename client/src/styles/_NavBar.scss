@@ -43,4 +43,28 @@
   .navbar-logo-container {
     display: none;
   }
+  .navbar-desktop {
+    display: flex;
+    justify-content: space-between;
+    top: 0;
+  }
+  .navbarTop {
+    display: flex;
+    list-style: none;
+    padding-right: 2rem;
+  }
+
+  .navbarContent {
+    display: flex;
+    align-items: center;
+    padding-right: 5rem;
+  }
+
+  .navbarContent > a {
+    font-size: 1.5rem;
+  }
+
+  .logoDesktop {
+    width: 150px;
+  }
 }

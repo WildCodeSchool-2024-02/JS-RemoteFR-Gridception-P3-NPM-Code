@@ -34,9 +34,7 @@ function Map() {
     oeuvres.map((oeuvre) => {
       new mapboxgl.Marker()
         .setLngLat([oeuvre.longitude, oeuvre.latitude])
-        .setPopup(
-          new mapboxgl.Popup().setText(oeuvre.name).setText(oeuvre.name)
-        )
+        .setPopup(new mapboxgl.Popup().setText(oeuvre.name))
         .addTo(map.current);
     });
   }, [mapBoxToken]);
