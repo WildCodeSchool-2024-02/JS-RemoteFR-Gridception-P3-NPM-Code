@@ -7,6 +7,7 @@
     background-color: #c24cf6;
     display: flex;
     justify-content: center;
+    align-items: center;
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -18,11 +19,17 @@
   .footer li {
     list-style: none;
     margin: 0 10px;
+    color: #ffff66;
   }
 
   .footer a {
     text-decoration: none;
-    color: white;
+    color: #ffff66;
     font-size: 2rem;
+  }
+
+  .github-icon {
+    width: 100px;
+    height: 70px;
   }
 }
