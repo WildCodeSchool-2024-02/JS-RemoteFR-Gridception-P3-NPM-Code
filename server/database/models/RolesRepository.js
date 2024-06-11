@@ -1,6 +1,6 @@
 const AbstractRepository = require("./AbstractRepository");
 
-class UsersRepository extends AbstractRepository {
+class RolesRepository extends AbstractRepository {
   constructor() {
     // Call the constructor of the parent class (AbstractRepository)
     // and pass the table name "roles" as configuration
@@ -56,4 +56,4 @@ class UsersRepository extends AbstractRepository {
   // }
 }
 
-module.exports = UsersRepository;
+module.exports = RolesRepository;
