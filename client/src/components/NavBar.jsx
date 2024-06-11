@@ -17,23 +17,35 @@ function NavBar() {
           <menu>
             <li>
               <NavLink href="/profil">
-                <img src={UserIcon} alt="page profil" />
+                <img src={UserIcon} alt="page profil" className="navIcon" />
               </NavLink>
             </li>
             <li>
               <NavLink href="/galerie">
-                <img src={GalleryIcon} alt="Galerie street art" />
+                <img
+                  src={GalleryIcon}
+                  alt="Galerie street art"
+                  className="navIcon"
+                />
               </NavLink>
             </li>
             <li>
               <NavLink href="/add">
-                <img src={AddIcon} alt="ajouter un street art" />
+                <img
+                  src={AddIcon}
+                  alt="ajouter un street art"
+                  className="addArt"
+                />
               </NavLink>
             </li>
             <li>
               <NavLink href="/classement">
-                <img src={TrophyIcon} alt="page classement" />
-              </NavLink >
+                <img
+                  src={TrophyIcon}
+                  alt="page classement"
+                  className="navIcon"
+                />
+              </NavLink>
             </li>
             <li>
               <React.StrictMode>

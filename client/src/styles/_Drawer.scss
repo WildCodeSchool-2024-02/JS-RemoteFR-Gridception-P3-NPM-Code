@@ -3,9 +3,11 @@
 .burgerLogo {
   width: 2.5rem;
 }
+.drawerButton {
+  padding: 0;
+}
 .logoInDrawer {
   width: 150px;
-  align-self: center;
   padding-bottom: 15rem;
 }
 .NavIcon {
@@ -16,5 +18,4 @@ a {
   font-size: 1rem;
   color: var(--primary-text-color);
   text-decoration: none;
-  padding-right: 2rem;
 }

@@ -11,18 +11,25 @@
       flex-direction: row;
       justify-content: center;
       align-items: center;
+      padding: 0;
       li {
         list-style: none;
         a {
-          img {
-            width: 2.5rem;
-          }
+          padding: 0;
         }
       }
     }
   }
 }
+.navIcon {
+  width: 2.5rem;
+  padding: 6px 12px 6px 12px;
+}
 
+.addArt {
+  width: 3.5rem;
+  padding: 8px 10px 0 14px;
+}
 .navbar-desktop {
   display: none;
 }

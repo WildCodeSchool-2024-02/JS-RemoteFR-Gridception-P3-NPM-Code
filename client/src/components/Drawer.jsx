@@ -35,7 +35,6 @@ export default function AnchorTemporaryDrawer() {
         height: "100vh",
         backgroundColor: "#DEA9F6",
         paddingTop: "2rem",
-        paddingLeft: "0.8rem",
         display: "flex",
         justifyContent: "start",
         alignItems: "flex-start",
@@ -115,7 +114,7 @@ export default function AnchorTemporaryDrawer() {
     <div>
       {["right"].map((anchor) => (
         <React.Fragment key={anchor}>
-          <Button onClick={toggleDrawer(anchor, true)}>
+          <Button onClick={toggleDrawer(anchor, true)} className="drawerButton">
             <img src={dot} alt="icon menu" className="burgerLogo" />
           </Button>
           <Drawer
