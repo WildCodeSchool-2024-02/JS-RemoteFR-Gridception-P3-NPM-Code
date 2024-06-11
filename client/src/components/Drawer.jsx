@@ -8,10 +8,22 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
+import CssBaseline from "@mui/material/CssBaseline";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-import user from "../assets/images/user_icon.png";
+import tetrispurple from "../assets/images/tetrispurple.png";
+import tetrisyellow from "../assets/images/tetrisyellow.png";
+import tetrispurple2 from "../assets/images/tetrispurple2.png";
+import tetrisyellow2 from "../assets/images/tetrisyellow2.png";
 import dot from "../assets/images/dot_icon.png";
 import logo from "../assets/images/logo.png";
+
+// theme personnalisé pour la font Fugaz One
+const theme = createTheme({
+  typography: {
+    fontFamily: "Fugaz One, Arial, sans-serif",
+  },
+});
 
 export default function AnchorTemporaryDrawer() {
   const [state, setState] = React.useState({
@@ -35,26 +47,33 @@ export default function AnchorTemporaryDrawer() {
         height: "100vh",
         backgroundColor: "#DEA9F6",
         paddingTop: "2rem",
-        paddingLeft: "0.8rem",
         display: "flex",
         justifyContent: "start",
         alignItems: "flex-start",
         flexDirection: "column",
         width: anchor === "top" || anchor === "bottom" ? "auto" : 200,
-        zIndex: 2,
+        zIndex: 1200,
       }}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
-      <img src={logo} alt="logo du site " className="logoInDrawer" />
+      <div className="drawerLogTitle">
+        <h1 className="drawerTitle">Street Art</h1>
+        <img src={logo} alt="logo du site " className="logoInDrawer" />
+        <h2 className="drawerTitle2">Hunter</h2>
+      </div>
       <List>
         <a href="#Home" className="linkNav">
-          {["Accueil"].map((text) => (
+          {["test"].map((text) => (
             <ListItem key={text} disablePadding>
               <ListItemButton>
                 <ListItemIcon>
-                  <img src={user} alt="accueil icon" className="NavIcon" />
+                  <img
+                    src={tetrispurple}
+                    alt="accueil icon"
+                    className="drawerIcon"
+                  />
                 </ListItemIcon>
                 <ListItemText primary={text} />
               </ListItemButton>
@@ -66,11 +85,15 @@ export default function AnchorTemporaryDrawer() {
       <Divider />
       <List>
         <a href="#AboutMe">
-          {["À propos"].map((text) => (
+          {["CGU / Regle"].map((text) => (
             <ListItem key={text} disablePadding>
               <ListItemButton>
                 <ListItemIcon>
-                  <img src={user} alt="a propos icon" className="NavIcon" />
+                  <img
+                    src={tetrisyellow}
+                    alt="a propos icon"
+                    className="drawerIcon"
+                  />
                 </ListItemIcon>
                 <ListItemText primary={text} />
               </ListItemButton>
@@ -81,11 +104,15 @@ export default function AnchorTemporaryDrawer() {
       <Divider />
       <List>
         <a href="#Project">
-          {["Projets"].map((text) => (
+          {["test"].map((text) => (
             <ListItem key={text} disablePadding>
               <ListItemButton>
                 <ListItemIcon>
-                  <img src={user} alt="projets icon" className="NavIcon" />
+                  <img
+                    src={tetrispurple2}
+                    alt="projets icon"
+                    className="drawerIcon"
+                  />
                 </ListItemIcon>
                 <ListItemText primary={text} />
               </ListItemButton>
@@ -100,7 +127,11 @@ export default function AnchorTemporaryDrawer() {
             <ListItem key={text} disablePadding>
               <ListItemButton>
                 <ListItemIcon>
-                  <img src={user} alt="contact icon" className="NavIcon" />
+                  <img
+                    src={tetrisyellow2}
+                    alt="contact icon"
+                    className="drawerIcon"
+                  />
                 </ListItemIcon>
                 <ListItemText primary={text} />
               </ListItemButton>
@@ -112,21 +143,28 @@ export default function AnchorTemporaryDrawer() {
   );
 
   return (
-    <div>
-      {["right"].map((anchor) => (
-        <React.Fragment key={anchor}>
-          <Button onClick={toggleDrawer(anchor, true)}>
-            <img src={dot} alt="icon menu" className="burgerLogo" />
-          </Button>
-          <Drawer
-            anchor={anchor}
-            open={state[anchor]}
-            onClose={toggleDrawer(anchor, false)}
-          >
-            {list(anchor)}
-          </Drawer>
-        </React.Fragment>
-      ))}
-    </div>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <div className="drawerButtonContainer">
+        {["right"].map((anchor) => (
+          <React.Fragment key={anchor}>
+            <Button
+              onClick={toggleDrawer(anchor, true)}
+              className="drawerButton"
+            >
+              <img src={dot} alt="icon menu" className="burgerLogo" />
+            </Button>
+
+            <Drawer
+              anchor={anchor}
+              open={state[anchor]}
+              onClose={toggleDrawer(anchor, false)}
+            >
+              {list(anchor)}
+            </Drawer>
+          </React.Fragment>
+        ))}
+      </div>
+    </ThemeProvider>
   );
 }
