@@ -1,7 +1,7 @@
 .HomeComponent > .map-container {
   width: 100vw;
   height: 95vh;
-  z-index: 1;
+  z-index: 1000;
 }
 
 @media (min-width: 770px) {

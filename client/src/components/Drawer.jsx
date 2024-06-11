@@ -52,13 +52,17 @@ export default function AnchorTemporaryDrawer() {
         alignItems: "flex-start",
         flexDirection: "column",
         width: anchor === "top" || anchor === "bottom" ? "auto" : 200,
-        zIndex: 2,
+        zIndex: 1200,
       }}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
-      <img src={logo} alt="logo du site " className="logoInDrawer" />
+      <div className="drawerLogTitle">
+        <h1 className="drawerTitle">Street Art</h1>
+        <img src={logo} alt="logo du site " className="logoInDrawer" />
+        <h2 className="drawerTitle2">Hunter</h2>
+      </div>
       <List>
         <a href="#Home" className="linkNav">
           {["test"].map((text) => (
@@ -141,7 +145,7 @@ export default function AnchorTemporaryDrawer() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <div>
+      <div className="drawerButtonContainer">
         {["right"].map((anchor) => (
           <React.Fragment key={anchor}>
             <Button
@@ -150,6 +154,7 @@ export default function AnchorTemporaryDrawer() {
             >
               <img src={dot} alt="icon menu" className="burgerLogo" />
             </Button>
+
             <Drawer
               anchor={anchor}
               open={state[anchor]}
