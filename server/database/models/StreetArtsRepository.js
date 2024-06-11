@@ -13,7 +13,12 @@ class streetArtsRepository extends AbstractRepository {
     // Execute the SQL INSERT query to add a new streetArts to the "streetArts" table
     const [result] = await this.database.query(
       `insert into ${this.table} (title, description, artist, is_valid ) values (?, ?, ?, ?)`,
-      [streetArts.title, streetArts.description, streetArts.artist, streetArts.is_valid]
+      [
+        streetArts.title,
+        streetArts.description,
+        streetArts.artist,
+        streetArts.is_valid,
+      ]
     );
 
     // Return the ID of the newly inserted streetArts

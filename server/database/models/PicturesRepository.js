@@ -13,7 +13,7 @@ class PicturesRepository extends AbstractRepository {
     // Execute the SQL INSERT query to add a new item to the "item" table
     const [result] = await this.database.query(
       `insert into ${this.table} (name, URL, DATE, is_valid) values (?, ?)`,
-      [pictures.name, pictures.URL, pictures.DATE, pictures.is_valid, ]
+      [pictures.name, pictures.URL, pictures.DATE, pictures.is_valid]
     );
 
     // Return the ID of the newly inserted item

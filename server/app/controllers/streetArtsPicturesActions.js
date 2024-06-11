@@ -19,7 +19,9 @@ const browse = async (req, res, next) => {
 const read = async (req, res, next) => {
   try {
     // Fetch a specific streetArtsPicture from the database based on the provided ID
-    const streetArtsPicture = await tables.streetArtsPicture.read(req.params.id);
+    const streetArtsPicture = await tables.streetArtsPicture.read(
+      req.params.id
+    );
 
     // If the streetArtsPicture is not found, respond with HTTP 404 (Not Found)
     // Otherwise, respond with the streetArtsPicture in JSON format

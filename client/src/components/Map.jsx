@@ -9,8 +9,7 @@ function Map() {
 
   useEffect(() => {
     if (map.current) return;
-    mapboxgl.accessToken =
-      mapBoxToken;
+    mapboxgl.accessToken = mapBoxToken;
 
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
