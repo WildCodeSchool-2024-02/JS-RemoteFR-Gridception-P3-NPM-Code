@@ -6,7 +6,10 @@ function Footer() {
   return (
     <nav className="footer">
       <li>
-        <NavLink to="Legalnotice">Notice</NavLink>
+        <NavLink to="/mentions_legales">Conditions d'utilisation</NavLink>
+      </li>
+      <li>
+        <NavLink to="/cgu">CGU</NavLink>
       </li>
       <li>
         <a
@@ -16,6 +19,9 @@ function Footer() {
         >
           <img src={GithubIcon} alt="Github icon" className="github-icon" />
         </a>
+      </li>
+      <li>
+        <NavLink to="/cgu">Notre équipe</NavLink>
       </li>
       <li>© Copyright NPM Code</li>
     </nav>
