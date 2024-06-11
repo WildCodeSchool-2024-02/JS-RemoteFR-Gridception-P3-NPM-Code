@@ -1,22 +1,20 @@
-
-const LocalisationsRepository = require("./models/LocalisationsRepository");
 const StreetArtsRepository = require("./models/StreetArtsRepository");
 const UsersRepository = require("./models/UsersRepository");
-const PicturesRepository= require("./models/PicturesRepository");
-const StreetArtsUsersRepository= require ("./models/StreetArtsUsersRepository")
-const StreetArtsPicturesRepository= require ("./models/StreetArtsPicturesRepository")
+const PicturesRepository = require("./models/PicturesRepository");
+const StreetArtsCategoriesRepository = require("./models/StreetArtsCategoriesRepository");
+const CategoriesRepository = require("./models/CategoriesRepository");
+const RolesRepository = require("./models/RolesRepository");
 
 const tables = {};
 
-
-
 // Register each repository as data access point for its table
-tables.streetArts = new StreetArtsRepository()
-tables.localisations = new LocalisationsRepository();
+tables.streetArts = new StreetArtsRepository();
 tables.users = new UsersRepository();
-tables.picturesRepository = new PicturesRepository();
-tables.streetArtsUsers = new StreetArtsUsersRepository()
-tables.streetArtsPictures = new StreetArtsPicturesRepository()
+tables.pictures = new PicturesRepository();
+tables.streetArtsCategories = new StreetArtsCategoriesRepository();
+tables.categories = new CategoriesRepository();
+tables.roles = new RolesRepository();
+
 /* ************************************************************************* */
 
 // Use a Proxy to customize error messages when trying to access a non-existing table
