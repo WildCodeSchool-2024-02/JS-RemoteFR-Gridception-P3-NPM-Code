@@ -1,4 +1,5 @@
 const AbstractSeeder = require("./AbstractSeeder");
+
 const UsersSeeder = require("./UsersSeeder");
 
 class StreetArtsSeeder extends AbstractSeeder {

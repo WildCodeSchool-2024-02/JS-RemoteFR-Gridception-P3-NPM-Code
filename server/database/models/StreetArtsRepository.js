@@ -20,6 +20,7 @@ class StreetArtsRepository extends AbstractRepository {
         streetArts.artist,
         streetArts.latitude,
         streetArts.longitude,
+
         streetArts.is_valid,
       ]
     );
