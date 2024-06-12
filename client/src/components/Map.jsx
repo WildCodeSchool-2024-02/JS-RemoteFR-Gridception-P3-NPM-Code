@@ -10,9 +10,21 @@ function Map() {
   const mapBoxToken = import.meta.env.VITE_MAPBOX_TOKEN;
 
   const [datas, setDatas] = useState([]);
+  const [localisation, setLocalisation] = useState([]);
+
   useEffect(() => {
     axios
       .get(`http://127.0.0.1:3310/api/pictures`)
+      .then((results) => {
+        setLocalisation(results.data);
+        console.info(results);
+      })
+      .catch((err) => console.info(err));
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get(`http://127.0.0.1:3310/api/street_arts`)
       .then((results) => {
         setDatas(results.data);
         console.info(results);
@@ -48,8 +60,8 @@ function Map() {
     datas.map((oeuvre) => {
       const popupContent = `
        <div class="popup-container">
-          <h3>${oeuvre.name}</h3>
-          <img src="${oeuvre.image}" alt="${oeuvre.name}" class="popupimg-container" />
+          <h3>${oeuvre.title}</h3>
+          <img src="${localisation.url}" alt="${localisation.name}" class="popupimg-container" />
           <button>Ajouter une photo</button>
           <button>en savoir plus</button>
 
@@ -60,7 +72,7 @@ function Map() {
         .setPopup(new mapboxgl.Popup().setHTML(popupContent))
         .addTo(map.current);
     });
-  }, [datas]);
+  }, [datas, localisation]);
 
   return (
     <>
