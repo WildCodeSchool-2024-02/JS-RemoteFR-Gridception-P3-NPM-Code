@@ -1,9 +1,9 @@
 .navbar-logo-container {
   background-color: var(--primary-color);
   width: 100%;
-  position: absolute;
+  position: fixed;
+  z-index: 1300;
   bottom: 0;
-  z-index: 3;
 
   nav {
     menu {
@@ -11,18 +11,36 @@
       flex-direction: row;
       justify-content: center;
       align-items: center;
+      padding: 0;
       li {
         list-style: none;
         a {
-          img {
-            width: 2.5rem;
-          }
+          padding: 0;
         }
       }
     }
   }
 }
 
+.navIcon {
+  width: 3.5rem;
+  padding: 6px 12px 6px 12px;
+  filter: drop-shadow(10px 7px 10px rgb(71, 1, 92));
+}
+
+.addArt {
+  width: 4.5rem;
+  padding: 8px 10px 0 14px;
+  filter: drop-shadow(2px 2px 5px rgb(71, 1, 92));
+}
 .navbar-desktop {
   display: none;
+}
+
+//MEDIA QUERY POUR DESKTOP
+
+@media (min-width: 770px) {
+  .navbar-logo-container {
+    display: none;
+  }
 }

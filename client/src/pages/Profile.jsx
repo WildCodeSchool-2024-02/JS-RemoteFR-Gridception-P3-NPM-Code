@@ -1,28 +1,31 @@
 import * as React from "react";
 
-import { styled } from "@mui/material/styles";
-import { Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
-
+import {
+  Styles,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
+} from "@mui/material";
 import Typography from "@mui/material/Typography";
 // import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
 
 import User from "../assets/images/user_profil.png";
 
-const AccordionContainer = styled(Accordion)(() => ({
+const AccordionContainer = Styles(Accordion)(() => ({
   backgroundColor: "transparent",
 }));
 
-const AccordionTitle = styled(AccordionSummary)(({ theme }) => ({
+const AccordionTitle = Styles(AccordionSummary)(({ theme }) => ({
+  justifyContent: "center",
   "& .AccordionSummary-expandIconWrapper.Mui-expanded": {
     transform: "rotate(90deg)",
   },
   "& .AccordionSummary-content": {
     marginLeft: theme.spacing(1),
-    justifyContent: "center",
   },
 }));
 
-const AccordionElements = styled(AccordionDetails)(({ theme }) => ({
+const AccordionElements = Styles(AccordionDetails)(({ theme }) => ({
   padding: theme.spacing(2),
   backgroundColor: "color-mix(in srgb, var(--primary-color) 90%, transparent)",
 }));
