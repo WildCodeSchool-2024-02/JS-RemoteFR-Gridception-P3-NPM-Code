@@ -5,7 +5,7 @@ const tables = require("../../database/tables");
 const browse = async (req, res, next) => {
   try {
     // Fetch all catagories from the database
-    const catagories = await tables.catagory.readAll();
+    const catagories = await tables.categories.readAll();
 
     // Respond with the catagories in JSON format
     res.json(catagories);
@@ -19,7 +19,7 @@ const browse = async (req, res, next) => {
 const read = async (req, res, next) => {
   try {
     // Fetch a specific catagory from the database based on the provided ID
-    const catagory = await tables.catagory.read(req.params.id);
+    const catagory = await tables.categories.read(req.params.id);
 
     // If the catagory is not found, respond with HTTP 404 (Not Found)
     // Otherwise, respond with the catagory in JSON format
@@ -44,7 +44,7 @@ const add = async (req, res, next) => {
 
   try {
     // Insert the catagory into the database
-    const insertId = await tables.catagory.create(catagory);
+    const insertId = await tables.categories.create(catagory);
 
     // Respond with HTTP 201 (Created) and the ID of the newly inserted catagory
     res.status(201).json({ insertId });
