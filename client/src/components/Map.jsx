@@ -32,11 +32,18 @@ function Map() {
     );
 
     oeuvres.map((oeuvre) => {
+      const popupContent = `
+       <div class="popup-container">
+          <h3>${oeuvre.name}</h3>
+          <img src="${oeuvre.image}" alt="${oeuvre.name}" class="popupimg-container" />
+          <button>Ajouter une photo</button>
+          <button>en savoir plus</button>
+
+        </div>`;
+
       new mapboxgl.Marker()
         .setLngLat([oeuvre.longitude, oeuvre.latitude])
-        .setPopup(
-          new mapboxgl.Popup().setText(oeuvre.name).setText(oeuvre.name)
-        )
+        .setPopup(new mapboxgl.Popup().setHTML(popupContent))
         .addTo(map.current);
     });
   }, [mapBoxToken]);

@@ -1,40 +1,39 @@
-.main-desktop > .map-container {
+.mainDesktop > .map-container {
   width: 100vw;
   height: 95vh;
   z-index: 1000;
 }
 // NE PAS AFFICHER LE TEXTE ET LES BOUTONS
 
-.text-content {
+.textContent {
   display: none;
 }
 // VERSION DESKTOP
 
 @media (min-width: 770px) {
-  .main-desktop {
+  .mainDesktop {
     display: flex;
   }
 
   //PARTIE DES TEXTES
-  .text-content {
+  .textContent {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     margin: 4rem;
   }
 
-  .main-title {
-    font-size: 4.5rem;
+  .mainTitle {
+    font-size: calc(2.5rem + 1vw);
     color: var(--primary-text-color);
-    padding: 4rem 4rem 0rem 4rem;
     margin: 5rem 0 0 0;
   }
 
-  .second-title {
-    font-size: 3rem;
+  .secondTitle {
+    font-size: calc(1.5rem + 1vw);
     color: #63d1ff;
-    margin: 0 0 10rem;
+    margin: 0 0 3rem;
   }
   //BOUTONS ET LEURS EFFETS
   .buttons {
@@ -42,13 +41,13 @@
     align-items: center;
   }
 
-  .button-connect {
+  .buttonConnect {
     background-color: #ff6c00;
     color: var(--primary-text-color);
     font-family: var(--primary-font);
-    height: 5rem;
+    height: 3rem;
     margin-right: 2rem;
-    font-size: 3rem;
+    font-size: 1.5rem;
     cursor: pointer;
     border-radius: 10px;
     transition:
@@ -56,14 +55,14 @@
       color 0.3s ease;
   }
 
-  .button-connect:hover {
+  .buttonConnect:hover {
     background-color: #e65a00;
   }
 
-  .button-add {
+  .buttonAdd {
     font-family: var(--primary-font);
     color: var(--primary-text-color);
-    padding: 10px 20px;
+    width: 65px;
     cursor: pointer;
     transition:
       background-color 0.3s ease,
@@ -76,11 +75,11 @@
     border-radius: 10px;
   }
 
-  .button-add:hover {
+  .buttonAdd:hover {
     background-color: #e65a00;
   }
 
-  .button-add > img {
+  .buttonAdd > img {
     border-radius: 30%;
     width: 50px;
     height: 50px;
@@ -88,10 +87,28 @@
 
   //PARTIE MAP
 
-  .main-desktop > .map-container {
-    top: 150px;
-    width: 68vw;
-    height: 75vh;
+  .mainDesktop > .map-container {
+    position: absolute;
+    right: 50px;
+    width: 55vw;
+    height: 70vh;
     border-radius: 25px;
   }
+}
+// POPUP
+
+.popup-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: #dea9f6;
+  .popupimg-container {
+    width: 10rem;
+    height: auto;
+  }
+}
+
+.mapboxgl-popup-content {
+  padding: 0;
 }

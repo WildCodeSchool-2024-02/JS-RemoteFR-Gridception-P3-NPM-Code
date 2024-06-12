@@ -47,6 +47,16 @@ class PicturesRepository extends AbstractRepository {
     return rows;
   }
 
+  async readByUserId(id) {
+    const [rows] = await this.database.query(
+      `select p.url from ${this.table} p 
+inner join street_arts s on s.id = p.street_arts_id 
+inner join users u on u.id= s.users_id where u.id = ?`,
+      [id]
+    );
+    return rows;
+  }
+
   // The U of CRUD - Update operation
   // TODO: Implement the update operation to modify an existing item
 

@@ -5,6 +5,8 @@ import van from "../assets/images/imageOeuvres/MissVan.jpg";
 import fish from "../assets/images/imageOeuvres/fish.jpg";
 import tito from "../assets/images/imageOeuvres/titomulk.jpg";
 import women from "../assets/images/imageOeuvres/women.jpg";
+import pecheur from "../assets/images/imageOeuvres/pecheur.webp";
+import julverne from "../assets/images/imageOeuvres/jul.jpg";
 
 const oeuvres = [
   {
@@ -69,6 +71,23 @@ const oeuvres = [
     description:
       "Street Art, Stickers, Graffiti, le pochoir, l’art du tract rythmeront un parcours artistique dans toute la ville. Performance d’artistes et de plasticiens",
     localitée: "Sisteron",
+  },
+  {
+    name: "Le pêcheur Marseillais",
+    image: pecheur,
+    longitude: 43.2997638,
+    latitude: 5.3668033,
+    description:
+      "Le pêcheur Marseillais présent parmis de nombreux Street Art dans le célébre quartier du Panier",
+    localitée: "Marseille",
+  },
+  {
+    name: "Jul Verne",
+    image: julverne,
+    longitude: 49.8965067,
+    latitude: 2.2871701,
+    description: "Jules Verne qui fait le signe Jul",
+    localitée: "Amiens",
   },
 ];
 
