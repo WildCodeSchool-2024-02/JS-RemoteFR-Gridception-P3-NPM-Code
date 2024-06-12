@@ -1,22 +1,22 @@
-.main-desktop > .map-container {
+.mainDesktop > .map-container {
   width: 100vw;
   height: 95vh;
   z-index: 1000;
 }
 // NE PAS AFFICHER LE TEXTE ET LES BOUTONS
 
-.text-content {
+.textContent {
   display: none;
 }
 // VERSION DESKTOP
 
 @media (min-width: 770px) {
-  .main-desktop {
+  .mainDesktop {
     display: flex;
   }
 
   //PARTIE DES TEXTES
-  .text-content {
+  .textContent {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -24,14 +24,14 @@
     margin: 4rem;
   }
 
-  .main-title {
-    font-size: 3.5rem;
+  .mainTitle {
+    font-size: calc(2.5rem + 1vw);
     color: var(--primary-text-color);
     margin: 5rem 0 0 0;
   }
 
-  .second-title {
-    font-size: 2.5rem;
+  .secondTitle {
+    font-size: calc(1.5rem + 1vw);
     color: #63d1ff;
     margin: 0 0 3rem;
   }
@@ -41,7 +41,7 @@
     align-items: center;
   }
 
-  .button-connect {
+  .buttonConnect {
     background-color: #ff6c00;
     color: var(--primary-text-color);
     font-family: var(--primary-font);
@@ -55,11 +55,11 @@
       color 0.3s ease;
   }
 
-  .button-connect:hover {
+  .buttonConnect:hover {
     background-color: #e65a00;
   }
 
-  .button-add {
+  .buttonAdd {
     font-family: var(--primary-font);
     color: var(--primary-text-color);
     width: 65px;
@@ -75,11 +75,11 @@
     border-radius: 10px;
   }
 
-  .button-add:hover {
+  .buttonAdd:hover {
     background-color: #e65a00;
   }
 
-  .button-add > img {
+  .buttonAdd > img {
     border-radius: 30%;
     width: 50px;
     height: 50px;
@@ -87,8 +87,8 @@
 
   //PARTIE MAP
 
-  .main-desktop > .map-container {
-    position: fixed;
+  .mainDesktop > .map-container {
+    position: absolute;
     right: 50px;
     width: 55vw;
     height: 70vh;
