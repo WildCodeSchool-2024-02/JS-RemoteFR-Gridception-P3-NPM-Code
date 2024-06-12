@@ -1,28 +1,32 @@
 import * as React from "react";
-
+import { Link, useLoaderData } from "react-router-dom";
 import { Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
-import Styles from "@mui/styled-engine-sc";
+import { styled } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 
 import User from "../assets/images/user_profil.png";
 
-const AccordionContainer = Styles(Accordion)(() => ({
+const AccordionContainer = styled(Accordion)(() => ({
   backgroundColor: "transparent",
 }));
 
-const AccordionTitle = Styles(AccordionSummary)(({ theme }) => ({
+const AccordionTitle = styled(AccordionSummary)(({ theme }) => ({
   justifyContent: "center",
+
   "& .AccordionSummary-expandIconWrapper.Mui-expanded": {
     transform: "rotate(90deg)",
   },
   "& .AccordionSummary-content": {
     marginLeft: theme.spacing(1),
   },
+  borderRadius: "10px",
 }));
 
-const AccordionElements = Styles(AccordionDetails)(({ theme }) => ({
+const AccordionElements = styled(AccordionDetails)(({ theme }) => ({
+  color: "white",
   padding: theme.spacing(2),
-  backgroundColor: "color-mix(in srgb, var(--primary-color) 90%, transparent)",
+  backgroundColor: "color-mix(in srgb, var(--primary-color) 80%, transparent)",
+  borderRadius: "10px",
 }));
 
 function Profile() {
@@ -30,6 +34,8 @@ function Profile() {
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
   };
+
+  const pictures = useLoaderData();
 
   return (
     <section className="ProfileComponent">
@@ -48,7 +54,12 @@ function Profile() {
               <Typography variant="h2">Mes Oeuvres</Typography>
             </AccordionTitle>
             <AccordionElements>
-              <p>pour test</p>
+              <img src="" alt="" />
+              <Link
+                to={`/pictures/${pictures.id}/streetarts/:id/users/:id/edit`}
+              >
+                Modifier
+              </Link>
             </AccordionElements>
           </AccordionContainer>
         </section>
