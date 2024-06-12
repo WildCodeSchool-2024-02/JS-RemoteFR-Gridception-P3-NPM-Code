@@ -4,9 +4,9 @@ import { NavLink } from "react-router-dom";
 import { StyledEngineProvider } from "@mui/material/styles";
 import UserIcon from "../assets/images/user_icon.png";
 import GalleryIcon from "../assets/images/gallery_icon.png";
-import AddIcon from "../assets/images/add_icon.png";
 import TrophyIcon from "../assets/images/trophy_icon.png";
 import Logo from "../assets/images/logo.png";
+import AddIcon2 from "../assets/images/add_icon2.png";
 
 import Drawer from "./Drawer";
 
@@ -33,7 +33,7 @@ function NavBar() {
             <li>
               <NavLink to="/add">
                 <img
-                  src={AddIcon}
+                  src={AddIcon2}
                   alt="ajouter un street art"
                   className="addArt"
                 />
