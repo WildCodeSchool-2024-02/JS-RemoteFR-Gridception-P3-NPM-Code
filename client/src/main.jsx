@@ -9,7 +9,6 @@ import Home from "./pages/Home";
 import AddPictures from "./pages/AddPictures";
 import Contact from "./pages/Contact";
 import Gallery from "./pages/Gallery";
-import GCU from "./pages/GCU";
 import LegalNotice from "./pages/LegalNotice";
 import Profile from "./pages/Profile";
 import Ranking from "./pages/Ranking";
@@ -35,10 +34,6 @@ const router = createBrowserRouter([
       {
         path: "/galerie",
         element: <Gallery />,
-      },
-      {
-        path: "/cgu",
-        element: <GCU />,
       },
       {
         path: "/mentions_legales",
