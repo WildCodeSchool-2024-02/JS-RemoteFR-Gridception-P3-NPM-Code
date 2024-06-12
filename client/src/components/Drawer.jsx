@@ -11,6 +11,8 @@ import ListItemText from "@mui/material/ListItemText";
 import CssBaseline from "@mui/material/CssBaseline";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
+import { Link } from "react-router-dom";
+
 import tetrispurple from "../assets/images/tetrispurple.png";
 import tetrisyellow from "../assets/images/tetrisyellow.png";
 import tetrispurple2 from "../assets/images/tetrispurple2.png";
@@ -84,7 +86,7 @@ export default function AnchorTemporaryDrawer() {
 
       <Divider />
       <List>
-        <a href="#AboutMe">
+        <Link to="/mentions_legales">
           {["CGU / Regle"].map((text) => (
             <ListItem key={text} disablePadding>
               <ListItemButton>
@@ -99,11 +101,11 @@ export default function AnchorTemporaryDrawer() {
               </ListItemButton>
             </ListItem>
           ))}
-        </a>
+        </Link>
       </List>
       <Divider />
       <List>
-        <a href="#Project">
+        <Link to="/">
           {["test"].map((text) => (
             <ListItem key={text} disablePadding>
               <ListItemButton>
@@ -118,11 +120,11 @@ export default function AnchorTemporaryDrawer() {
               </ListItemButton>
             </ListItem>
           ))}
-        </a>
+        </Link>
       </List>
       <Divider />
       <List>
-        <a href="#Contact">
+        <Link to="/contact">
           {["Contact"].map((text) => (
             <ListItem key={text} disablePadding>
               <ListItemButton>
@@ -137,7 +139,7 @@ export default function AnchorTemporaryDrawer() {
               </ListItemButton>
             </ListItem>
           ))}
-        </a>
+        </Link>
       </List>
     </Box>
   );
