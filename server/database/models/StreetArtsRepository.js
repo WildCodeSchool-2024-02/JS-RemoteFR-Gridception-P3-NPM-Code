@@ -4,7 +4,7 @@ class StreetArtsRepository extends AbstractRepository {
   constructor() {
     // Call the constructor of the parent class (AbstractRepository)
     // and pass the table name "streetArts" as configuration
-    super({ table: "streetArts" });
+    super({ table: "street_arts" });
   }
 
   // The C of CRUD - Create operation
@@ -20,7 +20,6 @@ class StreetArtsRepository extends AbstractRepository {
         streetArts.artist,
         streetArts.latitude,
         streetArts.longitude,
-
         streetArts.is_valid,
       ]
     );

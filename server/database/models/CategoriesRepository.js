@@ -3,53 +3,53 @@ const AbstractRepository = require("./AbstractRepository");
 class CategoriesRepository extends AbstractRepository {
   constructor() {
     // Call the constructor of the parent class (AbstractRepository)
-    // and pass the table name "catagories" as configuration
-    super({ table: "catagories" });
+    // and pass the table name "categories" as configuration
+    super({ table: "categories" });
   }
 
   // The C of CRUD - Create operation
 
-  async create(catagories) {
-    // Execute the SQL INSERT query to add a new catagories to the "catagories" table
+  async create(categories) {
+    // Execute the SQL INSERT query to add a new categories to the "categories" table
     const [result] = await this.database.query(
       `insert into ${this.table} (name) values (?)`,
-      [catagories.name]
+      [categories.name]
     );
 
-    // Return the ID of the newly inserted catagories
+    // Return the ID of the newly inserted categories
     return result.insertId;
   }
 
   // The Rs of CRUD - Read operations
 
   async read(id) {
-    // Execute the SQL SELECT query to retrieve a specific catagories by its ID
+    // Execute the SQL SELECT query to retrieve a specific categories by its ID
     const [rows] = await this.database.query(
       `select * from ${this.table} where id = ?`,
       [id]
     );
 
-    // Return the first row of the result, which represents the catagories
+    // Return the first row of the result, which represents the categories
     return rows[0];
   }
 
   async readAll() {
-    // Execute the SQL SELECT query to retrieve all catagories from the "catagories" table
+    // Execute the SQL SELECT query to retrieve all categories from the "categories" table
     const [rows] = await this.database.query(`select * from ${this.table}`);
 
-    // Return the array of catagories
+    // Return the array of categories
     return rows;
   }
 
   // The U of CRUD - Update operation
-  // TODO: Implement the update operation to modify an existing catagories
+  // TODO: Implement the update operation to modify an existing categories
 
-  // async update(catagories) {
+  // async update(categories) {
   //   ...
   // }
 
   // The D of CRUD - Delete operation
-  // TODO: Implement the delete operation to remove an catagories by its ID
+  // TODO: Implement the delete operation to remove an categories by its ID
 
   // async delete(id) {
   //   ...
