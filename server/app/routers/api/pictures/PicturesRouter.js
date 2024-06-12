@@ -7,13 +7,21 @@ const router = express.Router();
 /* ************************************************************************* */
 
 // Import item-related actions
-const { browse, read, add } = require("../../../controllers/picturesActions");
+const {
+  browse,
+  read,
+  add,
+  readByUserId,
+} = require("../../../controllers/picturesActions");
 
 // Route to get a list of items
 router.get("/", browse);
 
-// Route to get a specific item by ID
-router.get("/streetarts/:id/users/:id", read);
+router.get("/", read);
+router.get("/:id", read);
+
+// Route to get a list of users posted pictures
+router.get("/streetarts/users/:id", readByUserId);
 
 // Route to add a new item
 router.post("/", add);
