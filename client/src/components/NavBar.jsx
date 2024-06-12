@@ -59,7 +59,13 @@ function NavBar() {
         </nav>
       </section>
       <section className="navbar-desktop">
-        <img src={Logo} alt="Logo Street Art Hunter" className="logoDesktop" />
+        <NavLink to="/">
+          <img
+            src={Logo}
+            alt="Logo Street Art Hunter"
+            className="logoDesktop"
+          />
+        </NavLink>
         <nav className="navbarTop">
           <li className="navbarContent">
             <NavLink to="/galerie">Oeuvres</NavLink>
