@@ -1,12 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap");
 
 :root {
-  box-sizing: border-box;
+  --background-image-mobile: url("../assets/images/wallpaper_mobile.png");
   --primary-color: rgba(194, 76, 246, 1);
   --primary-text-color: rgba(255, 255, 102, 1);
   --background-logo-color: rgba(37, 51, 137, 1);
+  --button-color: rgba(252, 110, 34, 1);
   --primary-font: "Fugaz One", sans-serif;
   --addArt-back-color: rgba(129, 33, 208, 1);
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
 }
 
 body {
@@ -16,16 +23,16 @@ body {
   line-height: 1.7;
   color: #eee;
   margin: 0;
-  background-image: none;
+  background-image: url("../assets/images/wallpaper_mobile.png");
+  height: 100dvh;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
 //Responsive pour l'apparition du background
-@media (min-width: 770px) {
+@media (min-width: 1024px) {
   body {
     background-image: url("../assets/images/wallpaper.jpg");
-    height: 100vh;
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
   }
 }

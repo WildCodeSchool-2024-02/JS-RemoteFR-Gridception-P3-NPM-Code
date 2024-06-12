@@ -15,6 +15,7 @@ class UsersRepository extends AbstractRepository {
       `insert into ${this.table} (roles_id, firstname, lastname, avatar, points, city, email, password) values (?, ?, ?, ?, ?, ?, ?, ?)`,
       [
         users.roles_id,
+
         users.firstname,
         users.lastname,
         users.avatar,

@@ -12,7 +12,7 @@ class PicturesRepository extends AbstractRepository {
   async create(pictures) {
     // Execute the SQL INSERT query to add a new item to the "item" table
     const [result] = await this.database.query(
-      `insert into ${this.table} ( name, URL, DATE, is_valid) values (?, ?, ?, ?, ?)`,
+      `insert into ${this.table} (street_arts_id, name, URL, DATE, is_valid) values (?, ?, ?, ?, ?)`,
       [
         pictures.street_arts_id,
         pictures.name,
@@ -44,6 +44,16 @@ class PicturesRepository extends AbstractRepository {
     const [rows] = await this.database.query(`select * from ${this.table}`);
 
     // Return the array of items
+    return rows;
+  }
+
+  async readByUserId(id) {
+    const [rows] = await this.database.query(
+      `select p.url from ${this.table} p 
+inner join street_arts s on s.id = p.street_arts_id 
+inner join users u on u.id= s.users_id where u.id = ?`,
+      [id]
+    );
     return rows;
   }
 
