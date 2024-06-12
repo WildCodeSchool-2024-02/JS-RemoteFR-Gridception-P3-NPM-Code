@@ -10,17 +10,6 @@ function Map() {
   const mapBoxToken = import.meta.env.VITE_MAPBOX_TOKEN;
 
   const [datas, setDatas] = useState([]);
-  const [localisation, setLocalisation] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get(`http://127.0.0.1:3310/api/pictures`)
-      .then((results) => {
-        setLocalisation(results.data);
-        console.info(results);
-      })
-      .catch((err) => console.info(err));
-  }, []);
 
   useEffect(() => {
     axios
@@ -60,10 +49,10 @@ function Map() {
     datas.map((oeuvre) => {
       const popupContent = `
        <div class="popup-container">
-          <h3>${oeuvre.title}</h3>
-          <img src="${localisation.url}" alt="${localisation.name}" class="popupimg-container" />
-          <button>Ajouter une photo</button>
-          <button>en savoir plus</button>
+          <h3 class="popuptitle">${oeuvre.title}</h3>
+          
+          <button class="button-popup-container"> Ajouter une photo</button>
+          <button class="button-popup-container">en savoir plus</button>
 
         </div>`;
 
@@ -72,11 +61,10 @@ function Map() {
         .setPopup(new mapboxgl.Popup().setHTML(popupContent))
         .addTo(map.current);
     });
-  }, [datas, localisation]);
+  }, [datas]);
 
   return (
     <>
-      <h1>{datas.name}</h1>
       <div ref={mapContainer} className="map-container" />;
     </>
   );
