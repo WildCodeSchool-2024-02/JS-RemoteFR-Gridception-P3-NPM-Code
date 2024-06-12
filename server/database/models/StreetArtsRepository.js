@@ -4,7 +4,7 @@ class StreetArtsRepository extends AbstractRepository {
   constructor() {
     // Call the constructor of the parent class (AbstractRepository)
     // and pass the table name "streetArts" as configuration
-    super({ table: "streetArts" });
+    super({ table: "street_arts" });
   }
 
   // The C of CRUD - Create operation
@@ -12,9 +12,9 @@ class StreetArtsRepository extends AbstractRepository {
   async create(streetArts) {
     // Execute the SQL INSERT query to add a new streetArts to the "streetArts" table
     const [result] = await this.database.query(
-      `insert into ${this.table} (user_id, title, description, artist, latitude, longitude, is_valid ) values (?, ?, ?, ?, ?, ?, ?)`,
+      `insert into ${this.table} (users_id, title, description, artist, latitude, longitude, is_valid ) values (?, ?, ?, ?, ?, ?, ?)`,
       [
-        streetArts.user_id,
+        streetArts.users_id,
         streetArts.title,
         streetArts.description,
         streetArts.artist,
@@ -50,14 +50,14 @@ class StreetArtsRepository extends AbstractRepository {
   }
 
   // The U of CRUD - Update operation
-  // TODO: Implement the update operation to modify an existing streetArts
+  // : Implement the update operation to modify an existing streetArts
 
   // async update(streetArts) {
   //   ...
   // }
 
   // The D of CRUD - Delete operation
-  // TODO: Implement the delete operation to remove an streetArts by its ID
+  //  Implement the delete operation to remove an streetArts by its ID
 
   // async delete(id) {
   //   ...
