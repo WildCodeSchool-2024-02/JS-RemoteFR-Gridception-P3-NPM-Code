@@ -1,13 +1,8 @@
 import * as React from "react";
 
-import {
-  Styles,
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
-} from "@mui/material";
+import { Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
+import Styles from "@mui/styled-engine-sc";
 import Typography from "@mui/material/Typography";
-// import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
 
 import User from "../assets/images/user_profil.png";
 
