@@ -1,14 +1,24 @@
 /* eslint-disable array-callback-return */
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import axios from "axios";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
-
-import oeuvres from "../js/oeuvres";
 
 function Map() {
   const mapContainer = useRef(null);
   const map = useRef(null);
   const mapBoxToken = import.meta.env.VITE_MAPBOX_TOKEN;
+
+  const [datas, setDatas] = useState([]);
+  useEffect(() => {
+    axios
+      .get(`http://127.0.0.1:3310/api/pictures`)
+      .then((results) => {
+        setDatas(results.data);
+        console.info(results);
+      })
+      .catch((err) => console.info(err));
+  }, []);
 
   useEffect(() => {
     if (map.current) return;
@@ -30,8 +40,12 @@ function Map() {
         showUserHeading: true,
       })
     );
+  }, [mapBoxToken]);
 
-    oeuvres.map((oeuvre) => {
+  useEffect(() => {
+    if (!map.current || datas.length === 0) return;
+
+    datas.map((oeuvre) => {
       const popupContent = `
        <div class="popup-container">
           <h3>${oeuvre.name}</h3>
@@ -46,9 +60,14 @@ function Map() {
         .setPopup(new mapboxgl.Popup().setHTML(popupContent))
         .addTo(map.current);
     });
-  }, [mapBoxToken]);
+  }, [datas]);
 
-  return <div ref={mapContainer} className="map-container" />;
+  return (
+    <>
+      <h1>{datas.name}</h1>
+      <div ref={mapContainer} className="map-container" />;
+    </>
+  );
 }
 
 export default Map;
