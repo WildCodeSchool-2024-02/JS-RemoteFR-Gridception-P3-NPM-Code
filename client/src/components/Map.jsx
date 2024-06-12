@@ -40,6 +40,10 @@ function Map() {
         showUserHeading: true,
       })
     );
+  }, [mapBoxToken]);
+
+  useEffect(() => {
+    if (!map.current || datas.length === 0) return;
 
     datas.map((oeuvre) => {
       const popupContent = `
@@ -56,10 +60,11 @@ function Map() {
         .setPopup(new mapboxgl.Popup().setHTML(popupContent))
         .addTo(map.current);
     });
-  }, [datas, mapBoxToken]);
+  }, [datas]);
 
   return (
     <>
+      <h1>{datas.name}</h1>
       <div ref={mapContainer} className="map-container" />;
     </>
   );
