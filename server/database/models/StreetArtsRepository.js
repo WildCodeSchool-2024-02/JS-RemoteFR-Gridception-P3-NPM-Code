@@ -53,7 +53,7 @@ class StreetArtsRepository extends AbstractRepository {
     // Execute the SQL SELECT query to retrieve all streetArts from the "streetArts" table
     const [rows] = await this.database.query(
       `select p.url, s.title, s.latitude, s.longitude from ${this.table} s 
-      inner join pictures p on p.street_arts_id = s.id `
+      inner join pictures p on s.id = p.street_arts_id`
     );
 
     // Return the array of streetArts
