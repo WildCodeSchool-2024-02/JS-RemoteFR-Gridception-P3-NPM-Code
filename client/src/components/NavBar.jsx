@@ -3,10 +3,10 @@ import * as React from "react";
 import { NavLink } from "react-router-dom";
 import { StyledEngineProvider } from "@mui/material/styles";
 import UserIcon from "../assets/images/user_icon.png";
-import GalleryIcon from "../assets/images/gallery_icon.png";
 import TrophyIcon from "../assets/images/trophy_icon.png";
 import Logo from "../assets/images/logo.png";
 import AddIcon2 from "../assets/images/add_icon2.png";
+import Home from "../assets/images/home.png";
 
 import Drawer from "./Drawer";
 
@@ -17,17 +17,13 @@ function NavBar() {
         <nav>
           <menu>
             <li>
-              <NavLink to="/profil">
-                <img src={UserIcon} alt="page profil" className="navIcon" />
+              <NavLink to="/">
+                <img src={Home} alt="Icône page accueil" className="navIcon" />
               </NavLink>
             </li>
             <li>
-              <NavLink to="/galerie">
-                <img
-                  src={GalleryIcon}
-                  alt="Galerie street art"
-                  className="navIcon"
-                />
+              <NavLink to="/profil">
+                <img src={UserIcon} alt="page profil" className="navIcon" />
               </NavLink>
             </li>
             <li>
@@ -68,13 +64,16 @@ function NavBar() {
         </NavLink>
         <nav className="navbarTop">
           <li className="navbarContent">
-            <NavLink to="/galerie">Oeuvres</NavLink>
+            <NavLink to="/About">À propos</NavLink>
           </li>
           <li className="navbarContent">
-            <NavLink to="/">Artistes</NavLink>
+            <NavLink to="/galerie">Galerie</NavLink>
           </li>
           <li className="navbarContent">
             <NavLink to="/classement">Classement</NavLink>
+          </li>
+          <li className="navbarContent">
+            <NavLink to="/profil">Profil</NavLink>
           </li>
         </nav>
       </section>

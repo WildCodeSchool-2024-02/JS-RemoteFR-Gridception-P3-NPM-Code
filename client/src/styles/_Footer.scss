@@ -6,6 +6,7 @@
   .footer {
     background-color: #c24cf6;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     position: fixed;
@@ -14,7 +15,6 @@
     width: 100%;
     height: 8%;
     padding: 10px 0;
-    font-size: calc(0.2rem + 1vw);
   }
 
   .footer li {
@@ -27,11 +27,12 @@
     text-decoration: none;
     color: #ffff66;
     font-size: calc(0.2rem + 1vw);
+    margin-top: -2rem;
   }
 
   .githubIcon {
-    width: 75px;
-    height: 75px;
+    width: 55px;
+    height: 55px;
     animation: float 3s ease-in-out infinite;
   }
 

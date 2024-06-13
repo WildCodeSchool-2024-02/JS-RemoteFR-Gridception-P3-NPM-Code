@@ -1,7 +1,13 @@
-import { useState } from "react";
+// import { useState } from "react";
+import NotFound from "./NotFound";
 
 function AddPictures() {
-  const [file, setFile] = useState();
+  return (
+    <section className="GalleryComponent">
+      <NotFound />
+    </section>
+  );
+  /* const [file, setFile] = useState();
   const [title, setTitle] = useState();
   const [description, setDescription] = useState();
   const [artist, setArtist] = useState();
@@ -85,7 +91,7 @@ function AddPictures() {
         </button>
       </form>
     </section>
-  );
+  ); */
 }
 
 export default AddPictures;
