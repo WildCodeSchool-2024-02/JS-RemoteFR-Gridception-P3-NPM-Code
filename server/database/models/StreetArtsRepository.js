@@ -49,6 +49,30 @@ class StreetArtsRepository extends AbstractRepository {
     return rows;
   }
 
+  async readAllByPictures() {
+    // Execute the SQL SELECT query to retrieve all streetArts from the "streetArts" table
+    const [rows] = await this.database.query(
+      `select p.url, s.title, s.latitude, s.longitude from ${this.table} s 
+      inner join pictures p on p.street_arts_id = s.id `
+    );
+
+    // Return the array of streetArts
+    return rows;
+  }
+
+  async readByPicture(id) {
+    // Execute the SQL SELECT query to retrieve a specific streetArts by its ID
+    const [rows] = await this.database.query(
+      `select p.url, s.title, s.latitude, s.longitude from ${this.table} s 
+      inner join pictures p on p.street_arts_id = s.id
+      where s.id = ?`,
+      [id]
+    );
+
+    // Return the first row of the result, which represents the streetArts
+    return rows[0];
+  }
+
   // The U of CRUD - Update operation
   // : Implement the update operation to modify an existing streetArts
 
