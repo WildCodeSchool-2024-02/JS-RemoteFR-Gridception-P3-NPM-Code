@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import axios from "axios";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -43,12 +42,6 @@ const router = createBrowserRouter([
       {
         path: "/profil",
         element: <Profile />,
-        loader: async ({ params }) => {
-          const response = await axios.get(
-            `/api/pictures/${params.id}streetarts/:id/users/:id`
-          );
-          return response.data;
-        },
       },
       {
         path: "/classement",

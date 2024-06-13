@@ -49,7 +49,7 @@ class PicturesRepository extends AbstractRepository {
 
   async readByUserId(id) {
     const [rows] = await this.database.query(
-      `select p.url from ${this.table} p 
+      `select p.url, p.name, p.id from ${this.table} p 
 inner join street_arts s on s.id = p.street_arts_id 
 inner join users u on u.id= s.users_id where u.id = ?`,
       [id]

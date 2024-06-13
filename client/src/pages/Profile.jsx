@@ -1,5 +1,5 @@
-import * as React from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
@@ -35,7 +35,16 @@ function Profile() {
     setExpanded(newExpanded ? panel : false);
   };
 
-  const pictures = useLoaderData();
+  const [picturesStreetArt, setPicturesStreetArt] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`http://127.0.0.1:3310/api/pictures/streetarts/users/6`)
+      .then((results) => {
+        setPicturesStreetArt(results.data);
+      })
+      .catch((err) => console.info(err));
+  });
 
   return (
     <section className="ProfileComponent">
@@ -54,12 +63,11 @@ function Profile() {
               <Typography variant="h2">Mes Oeuvres</Typography>
             </AccordionTitle>
             <AccordionElements>
-              <img src="" alt="" />
-              <Link
-                to={`/pictures/${pictures.id}/streetarts/:id/users/:id/edit`}
-              >
-                Modifier
-              </Link>
+              <div className="myPicture">
+                {picturesStreetArt.map((picture) => (
+                  <img key={picture.id} src={picture.url} alt={picture.name} />
+                ))}
+              </div>
             </AccordionElements>
           </AccordionContainer>
         </section>
@@ -95,7 +103,15 @@ function Profile() {
       <div className="ProfileSection">
         <section>
           <h2>Mes Oeuvres</h2>
-          <p>pour test</p>
+          <div className="myStreetArt">
+            {picturesStreetArt.map((streetArt) => (
+              <img
+                key={streetArt.id}
+                src={streetArt.url}
+                alt={streetArt.name}
+              />
+            ))}
+          </div>
         </section>
         <section>
           <h2>Mes favoris</h2>
