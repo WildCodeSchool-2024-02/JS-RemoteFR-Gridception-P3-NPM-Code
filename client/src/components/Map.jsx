@@ -13,7 +13,7 @@ function Map() {
 
   useEffect(() => {
     axios
-      .get(`http://127.0.0.1:3310/api/street_arts`)
+      .get(`http://127.0.0.1:3310/api/street_arts/pictures`)
       .then((results) => {
         setDatas(results.data);
         console.info(results);
@@ -50,9 +50,9 @@ function Map() {
       const popupContent = `
        <div class="popup-container">
           <h3 class="popuptitle">${oeuvre.title}</h3>
-          
+          <img class="imgpopup-container" src=${oeuvre.url} alt="oeuvres" />
           <button class="button-popup-container"> Ajouter une photo</button>
-          <button class="button-popup-container">en savoir plus</button>
+          <button class="button-popup-container>en savoir plus</button>
 
         </div>`;
 
