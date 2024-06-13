@@ -3,6 +3,8 @@ import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
+import Add from "../assets/images/add_icon2.png";
+import info from "../assets/images/info2.png";
 
 function Map() {
   const mapContainer = useRef(null);
@@ -51,9 +53,10 @@ function Map() {
        <div class="popup-container">
           <h3 class="popuptitle">${oeuvre.title}</h3>
           <img class="imgpopup-container" src=${oeuvre.url} alt="oeuvres" />
-          <button class="button-popup-container"> Ajouter une photo</button>
-          <button class="button-popup-container>en savoir plus</button>
-
+<div class="button-container">
+          <img src=${Add} alt="icone"/> 
+          <img src=${info} alt="icone"/>
+</div>
         </div>`;
 
       new mapboxgl.Marker()
@@ -63,11 +66,7 @@ function Map() {
     });
   }, [datas]);
 
-  return (
-    <>
-      <div ref={mapContainer} className="map-container" />;
-    </>
-  );
+  return <div ref={mapContainer} className="map-container" />;
 }
 
 export default Map;

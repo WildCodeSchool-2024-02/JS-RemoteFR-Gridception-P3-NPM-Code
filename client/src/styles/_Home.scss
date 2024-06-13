@@ -3,16 +3,20 @@
   height: 95vh;
   z-index: 1000;
 }
-// NE PAS AFFICHER LE TEXTE ET LES BOUTONS
+// NE PAS AFFICHER LE TEXTE ET LE BOUTONS
 
-.textContent {
+.addStreetArt {
   display: none;
 }
+
 // VERSION DESKTOP
 
 @media (min-width: 770px) {
   .mainDesktop {
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 2rem;
   }
 
   //PARTIE DES TEXTES
@@ -21,68 +25,25 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    margin: 4rem;
   }
 
   .mainTitle {
-    font-size: calc(2.5rem + 1vw);
+    font-size: calc(2.5rem + 0.8vw);
     color: var(--primary-text-color);
     margin: 5rem 0 0 0;
   }
 
   .secondTitle {
-    font-size: calc(1.5rem + 1vw);
+    font-size: calc(1.5rem + 0.8vw);
     color: #63d1ff;
-    margin: 0 0 3rem;
   }
-  //BOUTONS ET LEURS EFFETS
-  .buttons {
+
+  .addStreetArt {
     display: flex;
-    align-items: center;
-  }
-
-  .buttonConnect {
-    background-color: #ff6c00;
-    color: var(--primary-text-color);
-    font-family: var(--primary-font);
-    height: 3rem;
-    margin-right: 2rem;
-    font-size: 1.5rem;
-    cursor: pointer;
-    border-radius: 10px;
-    transition:
-      background-color 0.3s ease,
-      color 0.3s ease;
-  }
-
-  .buttonConnect:hover {
-    background-color: #e65a00;
-  }
-
-  .buttonAdd {
-    font-family: var(--primary-font);
-    color: var(--primary-text-color);
-    width: 65px;
-    cursor: pointer;
-    transition:
-      background-color 0.3s ease,
-      color 0.3s ease;
-    display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
-    background-color: #ff6c00;
-    border: none;
-    border-radius: 10px;
-  }
-
-  .buttonAdd:hover {
-    background-color: #e65a00;
-  }
-
-  .buttonAdd > img {
-    border-radius: 30%;
-    width: 50px;
-    height: 50px;
+    align-items: center;
+    margin: 4rem 4rem 0 4rem;
   }
 
   //PARTIE MAP
@@ -91,7 +52,7 @@
     position: absolute;
     right: 50px;
     width: 55vw;
-    height: 70vh;
+    height: 65vh;
     border-radius: 25px;
   }
 }
@@ -109,18 +70,9 @@
     height: auto;
   }
   .button-popup-container {
-    background-color: #dea9f6;
-    color: black;
     font-family: var(--primary-font);
     height: 2rem;
     width: 10rem;
-    margin-bottom: 0.8rem;
-    font-size: 1rem;
-    cursor: pointer;
-    border-radius: 10px;
-    transition:
-      background-color 0.3s ease,
-      color 0.3s ease;
   }
 }
 .popuptitle {
@@ -136,4 +88,9 @@
   width: auto;
   height: 10rem;
   margin-bottom: 1rem;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row;
 }

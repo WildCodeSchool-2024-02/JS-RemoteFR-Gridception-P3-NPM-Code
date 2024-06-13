@@ -1,11 +1,11 @@
 import NotFound from "./NotFound";
 
-function Ranking() {
+function About() {
   return (
-    <section className="RankingComponent">
+    <section className="AboutComponent">
       <NotFound />
     </section>
   );
 }
 
-export default Ranking;
+export default About;

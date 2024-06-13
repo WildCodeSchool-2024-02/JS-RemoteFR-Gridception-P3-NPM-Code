@@ -1,9 +1,9 @@
+import NotFound from "./NotFound";
+
 function Gallery() {
   return (
     <section className="GalleryComponent">
-      <h1>Gallery</h1>
-
-      <p>Gallery Component</p>
+      <NotFound />
     </section>
   );
 }

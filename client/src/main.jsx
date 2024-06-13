@@ -9,10 +9,11 @@ import Home from "./pages/Home";
 import AddPictures from "./pages/AddPictures";
 import Contact from "./pages/Contact";
 import Gallery from "./pages/Gallery";
-import LegalNotice from "./pages/LegalNotice";
+import About from "./pages/About";
 import Profile from "./pages/Profile";
 import Ranking from "./pages/Ranking";
 import Register from "./pages/Register";
+import NotFound from "./pages/NotFound";
 
 const router = createBrowserRouter([
   {
@@ -36,8 +37,8 @@ const router = createBrowserRouter([
         element: <Gallery />,
       },
       {
-        path: "/mentions_legales",
-        element: <LegalNotice />,
+        path: "/about",
+        element: <About />,
       },
       {
         path: "/profil",
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
         element: <Register />,
       },
     ],
+  },
+  {
+    path: "/*",
+    element: <NotFound />,
   },
 ]);
 
