@@ -16,7 +16,7 @@ class StreetArtsSeeder extends AbstractSeeder {
 
   run() {
     // Generate and insert fake data into the 'user' table
-    for (let i = 0; i < 15; i += 1) {
+    for (let i = 0; i < 55; i += 1) {
       // Generate fake user data
       const fakeStreetArt = {
         users_id: this.getRef(`user_${Math.floor(Math.random() * 10)}`)
