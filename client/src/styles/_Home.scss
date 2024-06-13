@@ -102,11 +102,30 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  background-color: #dea9f6;
+  margin: 0;
+
   .popupimg-container {
     width: 10rem;
     height: auto;
   }
+  .button-popup-container {
+    background-color: #dea9f6;
+    color: black;
+    font-family: var(--primary-font);
+    height: 2rem;
+    width: 10rem;
+    margin-bottom: 0.8rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 10px;
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease;
+  }
+}
+.popuptitle {
+  font-family: var(--primary-text-color);
+  font-size: 1rem;
 }
 
 .mapboxgl-popup-content {

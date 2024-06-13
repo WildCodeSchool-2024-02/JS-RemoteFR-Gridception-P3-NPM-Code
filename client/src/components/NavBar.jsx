@@ -4,9 +4,9 @@ import { NavLink } from "react-router-dom";
 import { StyledEngineProvider } from "@mui/material/styles";
 import UserIcon from "../assets/images/user_icon.png";
 import GalleryIcon from "../assets/images/gallery_icon.png";
-import AddIcon from "../assets/images/add_icon.png";
 import TrophyIcon from "../assets/images/trophy_icon.png";
 import Logo from "../assets/images/logo.png";
+import AddIcon2 from "../assets/images/add_icon2.png";
 
 import Drawer from "./Drawer";
 
@@ -17,12 +17,12 @@ function NavBar() {
         <nav>
           <menu>
             <li>
-              <NavLink href="/profil">
+              <NavLink to="/profil">
                 <img src={UserIcon} alt="page profil" className="navIcon" />
               </NavLink>
             </li>
             <li>
-              <NavLink href="/galerie">
+              <NavLink to="/galerie">
                 <img
                   src={GalleryIcon}
                   alt="Galerie street art"
@@ -31,16 +31,16 @@ function NavBar() {
               </NavLink>
             </li>
             <li>
-              <NavLink href="/add">
+              <NavLink to="/add">
                 <img
-                  src={AddIcon}
+                  src={AddIcon2}
                   alt="ajouter un street art"
                   className="addArt"
                 />
               </NavLink>
             </li>
             <li>
-              <NavLink href="/classement">
+              <NavLink to="/classement">
                 <img
                   src={TrophyIcon}
                   alt="page classement"

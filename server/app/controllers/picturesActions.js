@@ -57,7 +57,6 @@ const readByUserId = async (req, res, next) => {
 const add = async (req, res, next) => {
   // Extract the item data from the request body
   const pictures = req.body;
-
   try {
     // Insert the item into the database
     const insertId = await tables.pictures.create(pictures);
