@@ -18,10 +18,9 @@ const {
 router.get("/", browse);
 
 router.get("/", read);
-router.get("/:id", read);
+// Route to get a specific item by ID
 
-// Route to get a list of users posted pictures
-router.get("/streetarts/users/:id", readByUserId);
+router.get("/street_arts/users/:id", readByUserId);
 
 // Route to add a new item
 router.post("/", add);
