@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap");
+
+.burgerLogo {
+  width: 2.5rem;
+  filter: drop-shadow(10px 7px 10px rgb(71, 1, 92));
+}
+.drawerButton {
+  padding: 0;
+}
+
+.drawerLogTitle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+}
+.drawerTitle {
+  color: var(--primary-text-color);
+  text-align: center;
+}
+
+.logoInDrawer {
+  width: 150px;
+  align-self: center;
+  margin-top: -3.5rem;
+}
+
+.drawerTitle2 {
+  color: var(--primary-text-color);
+  padding-bottom: 9rem;
+  text-align: center;
+  margin-top: -2.5rem;
+}
+
+.drawerIcon {
+  width: 40px;
+}
+
+a {
+  font-size: 1rem;
+  color: var(--primary-text-color);
+  text-decoration: none;
+}

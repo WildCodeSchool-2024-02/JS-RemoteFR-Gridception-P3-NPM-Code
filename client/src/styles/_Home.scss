@@ -1,16 +1,96 @@
-.HomeComponent > .map-container {
+.mainDesktop > .map-container {
   width: 100vw;
   height: 95vh;
-  z-index: 1;
+  z-index: 1000;
+}
+// NE PAS AFFICHER LE TEXTE ET LE BOUTONS
+
+.addStreetArt {
+  display: none;
 }
 
+// VERSION DESKTOP
+
 @media (min-width: 770px) {
-  .HomeComponent > .map-container {
-    top: 150px;
-    left: 800px;
-    bottom: 0;
-    width: 50vw;
-    height: 75vh;
+  .mainDesktop {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 2rem;
+  }
+
+  //PARTIE DES TEXTES
+  .textContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .mainTitle {
+    font-size: calc(2.5rem + 0.8vw);
+    color: var(--primary-text-color);
+    margin: 5rem 0 0 0;
+  }
+
+  .secondTitle {
+    font-size: calc(1.5rem + 0.8vw);
+    color: #63d1ff;
+  }
+
+  .addStreetArt {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 4rem 4rem 0 4rem;
+  }
+
+  //PARTIE MAP
+
+  .mainDesktop > .map-container {
+    position: absolute;
+    right: 50px;
+    width: 55vw;
+    height: 65vh;
     border-radius: 25px;
   }
+}
+// POPUP
+
+.popup-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 0;
+
+  .popupimg-container {
+    width: 10rem;
+    height: auto;
+  }
+  .button-popup-container {
+    font-family: var(--primary-font);
+    height: 2rem;
+    width: 10rem;
+  }
+}
+.popuptitle {
+  font-family: var(--primary-text-color);
+  font-size: 1rem;
+}
+
+.mapboxgl-popup-content {
+  padding: 0;
+}
+
+.imgpopup-container {
+  width: auto;
+  height: 10rem;
+  margin-bottom: 1rem;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row;
 }

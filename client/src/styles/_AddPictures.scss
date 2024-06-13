@@ -1,0 +1,11 @@
+.add-picture {
+  display: flex;
+  flex-direction: column;
+
+  .new-picture {
+    margin-top: 1rem;
+    margin-left: 1rem;
+    border-radius: 25px;
+    width: 300px;
+  }
+}

@@ -1,15 +1,31 @@
-import { useEffect, useRef } from "react";
+/* eslint-disable array-callback-return */
+import { useEffect, useRef, useState } from "react";
+import axios from "axios";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
+import Add from "../assets/images/add_icon2.png";
+import info from "../assets/images/info2.png";
 
 function Map() {
   const mapContainer = useRef(null);
   const map = useRef(null);
+  const mapBoxToken = import.meta.env.VITE_MAPBOX_TOKEN;
+
+  const [datas, setDatas] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`http://127.0.0.1:3310/api/street_arts/pictures`)
+      .then((results) => {
+        setDatas(results.data);
+        console.info(results);
+      })
+      .catch((err) => console.info(err));
+  }, []);
 
   useEffect(() => {
     if (map.current) return;
-    mapboxgl.accessToken =
-      "pk.eyJ1IjoiYW5vbnltemUiLCJhIjoiY2wyZWppdWZjMDE5cjNmb2drejYzemswcSJ9.Ikuq09fwres0ikyw6J8qDw";
+    mapboxgl.accessToken = mapBoxToken;
 
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
@@ -27,7 +43,28 @@ function Map() {
         showUserHeading: true,
       })
     );
-  }, []);
+  }, [mapBoxToken]);
+
+  useEffect(() => {
+    if (!map.current || datas.length === 0) return;
+
+    datas.map((oeuvre) => {
+      const popupContent = `
+       <div class="popup-container">
+          <h3 class="popuptitle">${oeuvre.title}</h3>
+          <img class="imgpopup-container" src=${oeuvre.url} alt="oeuvres" />
+<div class="button-container">
+          <img src=${Add} alt="icone"/> 
+          <img src=${info} alt="icone"/>
+</div>
+        </div>`;
+
+      new mapboxgl.Marker()
+        .setLngLat([oeuvre.longitude, oeuvre.latitude])
+        .setPopup(new mapboxgl.Popup().setHTML(popupContent))
+        .addTo(map.current);
+    });
+  }, [datas]);
 
   return <div ref={mapContainer} className="map-container" />;
 }

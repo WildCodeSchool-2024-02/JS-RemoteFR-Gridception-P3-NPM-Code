@@ -32,6 +32,23 @@ const read = async (req, res, next) => {
     next(err);
   }
 };
+const readByUserId = async (req, res, next) => {
+  try {
+    // Fetch a specific item from the database based on the provided ID
+    const pictures = await tables.pictures.readByUserId(req.params.id);
+
+    // If the item is not found, respond with HTTP 404 (Not Found)
+    // Otherwise, respond with the item in JSON format
+    if (pictures == null) {
+      res.sendStatus(404);
+    } else {
+      res.json(pictures);
+    }
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
 
 // The E of BREAD - Edit (Update) operation
 // This operation is not yet implemented
@@ -40,7 +57,6 @@ const read = async (req, res, next) => {
 const add = async (req, res, next) => {
   // Extract the item data from the request body
   const pictures = req.body;
-
   try {
     // Insert the item into the database
     const insertId = await tables.pictures.create(pictures);
@@ -60,6 +76,7 @@ const add = async (req, res, next) => {
 module.exports = {
   browse,
   read,
+  readByUserId,
   // edit,
   add,
   // destroy,

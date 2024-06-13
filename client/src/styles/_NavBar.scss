@@ -1,32 +1,71 @@
 .navbar-logo-container {
   background-color: var(--primary-color);
   width: 100%;
-  position: absolute;
+  position: fixed;
+  z-index: 1300;
   bottom: 0;
-  z-index: 2;
 
   nav {
     menu {
       display: flex;
       flex-direction: row;
       justify-content: center;
+      align-items: center;
       padding: 0;
+      margin: 0;
       li {
         list-style: none;
-        padding: 0.5rem;
         a {
-          img {
-            background-color: var(--background-logo-color);
-            border-radius: 35%;
-            width: 2.5rem;
-            padding: 0.5rem;
-          }
+          padding: 0;
         }
       }
     }
   }
 }
 
-.navbar-container {
+.navIcon {
+  width: 4rem;
+  padding: 6px 12px 6px 12px;
+  filter: drop-shadow(10px 7px 10px rgb(71, 1, 92));
+}
+
+.addArt {
+  width: 7rem;
+  padding: 8px 10px 0 10px;
+  filter: drop-shadow(2px 2px 5px rgb(71, 1, 92));
+}
+.navbar-desktop {
   display: none;
+}
+
+//MEDIA QUERY POUR DESKTOP
+
+@media (min-width: 770px) {
+  .navbar-logo-container {
+    display: none;
+  }
+  .navbar-desktop {
+    display: flex;
+    justify-content: space-between;
+    top: 0;
+  }
+  .navbarTop {
+    display: flex;
+    list-style: none;
+    padding-right: 1.5rem;
+  }
+
+  .navbarContent {
+    display: flex;
+    align-items: center;
+    padding-right: 4rem;
+  }
+
+  .navbarContent > a {
+    font-size: calc(0.6rem + 1vw);
+  }
+
+  .logoDesktop {
+    width: 120px;
+  }
 }

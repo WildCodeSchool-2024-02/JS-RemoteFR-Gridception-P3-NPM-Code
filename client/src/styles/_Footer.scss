@@ -1,0 +1,50 @@
+.footer {
+  display: none;
+}
+
+@media (min-width: 770px) {
+  .footer {
+    background-color: #c24cf6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 1100;
+    bottom: 0;
+    width: 100%;
+    height: 8%;
+    padding: 10px 0;
+  }
+
+  .footer li {
+    list-style: none;
+    margin: 0 10px;
+    color: #ffff66;
+  }
+
+  .footer a {
+    text-decoration: none;
+    color: #ffff66;
+    font-size: calc(0.2rem + 1vw);
+    margin-top: -2rem;
+  }
+
+  .githubIcon {
+    width: 55px;
+    height: 55px;
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+}
