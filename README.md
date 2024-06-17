@@ -1,4 +1,6 @@
-# Description P3 - NPM CODE
+<p align="center">
+<img src="./client/src/assets/images/logo.png">
+</p>
 
 ## 🚀 Bienvenue sur notre projet 3 réalisé à la Wild Code School <br>
 
@@ -12,7 +14,7 @@ Nous devons réaliser un application qui permet d'ajouter des street art en se s
 
 - L'utilisateur pourra s'inscire ou se connecter.
 - L'utilisateur pourra se situer sur une carte interactive et voir les oeuvres de street art autour de lui.
-- L'utilisateur pourra accéder aux pages instructions, actualités, et au classement général.
+- L'utilisateur pourra accéder aux pages instructions, et au classement général.
 
 ### 🔒 Partie Utilisateur connecté:
 
@@ -30,17 +32,17 @@ Nous devons réaliser un application qui permet d'ajouter des street art en se s
 
 ### 📝 Dans cette version:
 
-- Il y aura les fonctionnalités qui fonctionnent
-- Mais
-- Rien ne fonctionne pour l'instant
+- Les pages sont fonctionnels
+- Il est possible d'ajouter un street art
+- la version desktop est fonctionnel
 
 ### 🔜 A venir:
 
--Beaucoup
--De
--Chose
--à
--Mettre
+- Créer un compte / Se connecter
+- Ajouter des photos supplémentaires aux oeuvres dèja présentes
+- Possibilté de changer ses infos personnels
+- Envoyer un message pour signaler une oeuvre
+- Voir le classement
 
 ## 🏗️ Structure de l'application
 
@@ -48,7 +50,7 @@ TABLE MODÉLISATION
 
 ## 📈 Statut du projet
 
-v0.0 en cours
+v0.5 en cours
 
 ## Technos utilisé
 
@@ -58,15 +60,18 @@ v0.0 en cours
 ![HTML5](https://img.shields.io/badge/-HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/-CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 
+## 💻 Modélisation de la base de données
+
 ## 🛠️ Setup & utilisation
 
-### 📜 Commande disponibles
+### 📜 Commandes disponibles
 
-- `setup` : Initialisation du frontend et du backend, ainsi que de tous les outils
-- `migrate` : Exécute le script de migration de la base de données
-- `dev` : Démarre les deux serveurs (frontend + backend) dans un seul terminal
-- `dev-front` : Démarre le serveur frontend React
-- `dev-back` : Démarre le serveur backend Express
+- `npm i` : Initialisation du frontend et du backend, ainsi que de tous les outils
+- `npm run db:migrate` : Exécute le script de migration de la base de données
+- `npm run db:seed`: Injecte dans la base de données
+- `npm run dev` : Démarre les deux serveurs (frontend + backend) dans un seul terminal
+- `npm run dev:client` : Démarre le serveur frontend React
+- `npm run dev:server` : Démarre le serveur backend Express
 - `lint` : Exécute les outils de validation et refuse le code non conforme (sera exécuté à chaque _commit_)
 - `fix` : Corrige les erreurs de linter (exécutez-le si `lint` grogne sur votre code !)
 
