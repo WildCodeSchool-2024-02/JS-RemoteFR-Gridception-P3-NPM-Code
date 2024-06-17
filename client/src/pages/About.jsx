@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 function About() {
-  const [selectedSection, setSelectedSection] = useState("value-1");
+  const [selectedSection, setSelectedSection] = useState("rules");
 
   return (
     <main className="allContent">
@@ -10,8 +10,8 @@ function About() {
           name="value-radio"
           id="value-1"
           type="radio"
-          checked={selectedSection === "value-1"}
-          onChange={() => setSelectedSection("value-1")}
+          checked={selectedSection === "rules"}
+          onChange={() => setSelectedSection("rules")}
         />
         <label htmlFor="value-1" className="label">
           Règles du jeu
@@ -37,7 +37,7 @@ function About() {
           CGU
         </label>
       </section>
-      {selectedSection === "value-1" && (
+      {selectedSection === "rules" && (
         <section className="rulesContent">
           <h1>Les règles</h1>
           <p>
