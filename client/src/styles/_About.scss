@@ -1,0 +1,117 @@
+.radioInput {
+  height: 80px;
+  width: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 50px;
+  background-color: white;
+  box-shadow:
+    -10px -15px 15px rgba(255, 255, 255, 0.5),
+    10px 10px 25px rgba(70, 70, 70, 0.5);
+}
+
+.radioInput input[type="radio"] {
+  display: none;
+}
+
+.label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-family: "poppins", sans-serif;
+  padding: 18px 15px;
+  border-radius: 35px;
+  transition: 0.5s;
+  cursor: pointer;
+  color: black;
+}
+
+.radioInput input[type="radio"]:checked + label {
+  box-shadow:
+    10px 10px 15px rgba(0, 0, 0, 0.151),
+    10px 10px 15px rgba(0, 0, 0, 0.218);
+  background: linear-gradient(45deg, #cf6efb, #4f29cd);
+  color: white;
+  transform: translateY(-4px);
+}
+
+.radioInput input[type="radio"]:hover:not(:checked) + label {
+  box-shadow:
+    inset 10px 10px 15px rgba(0, 0, 0, 0.151),
+    inset 10px 10px 15px rgba(0, 0, 0, 0.218);
+}
+
+.rulesContent,
+.conditionsContent,
+.cguContent {
+  height: 65vh;
+  margin: 0 2rem;
+  border-radius: 10px;
+  text-align: center;
+  background-color: color-mix(in srgb, var(--primary-color) 90%, transparent);
+}
+// Version DESKTOP //
+
+@media (min-width: 770px) {
+  .allContent {
+    height: 70vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 10rem 5rem;
+  }
+  .radioInput {
+    box-shadow:
+      -10px -15px 15px rgba(255, 255, 255, 0.5),
+      10px 10px 25px rgba(70, 70, 70, 0.5);
+    height: 180px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 50px;
+    background-color: white;
+  }
+
+  .radioInput input[type="radio"] {
+    display: none;
+  }
+
+  .label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    font-family: "poppins", sans-serif;
+    padding: 18px 15px;
+    border-radius: 35px;
+    transition: 0.5s;
+    cursor: pointer;
+    color: black;
+  }
+
+  .radioInput input[type="radio"]:checked + label {
+    box-shadow:
+      10px 10px 15px rgba(0, 0, 0, 0.151),
+      10px 10px 15px rgba(0, 0, 0, 0.218);
+    background: linear-gradient(45deg, #cf6efb, #4f29cd);
+    color: white;
+    transform: translateY(-4px);
+  }
+
+  .radioInput input[type="radio"]:hover:not(:checked) + label {
+    box-shadow:
+      inset 10px 10px 15px rgba(0, 0, 0, 0.151),
+      inset 10px 10px 15px rgba(0, 0, 0, 0.218);
+  }
+
+  //PARTIE TEXTE
+
+  .rulesContent,
+  .conditionsContent,
+  .cguContent {
+    width: 50rem;
+    height: auto;
+    text-align: center;
+    background-color: color-mix(in srgb, var(--primary-color) 90%, transparent);
+  }
+}
