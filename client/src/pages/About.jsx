@@ -14,7 +14,7 @@ function About() {
           onChange={() => setSelectedSection("value-1")}
         />
         <label htmlFor="value-1" className="label">
-          Règles
+          Règles du jeu
         </label>
         <input
           name="value-radio"
@@ -24,7 +24,7 @@ function About() {
           onChange={() => setSelectedSection("value-2")}
         />
         <label htmlFor="value-2" className="label">
-          Conditions général
+          Mentions Légales
         </label>
         <input
           name="value-radio"
@@ -57,51 +57,148 @@ function About() {
       )}
       {selectedSection === "value-2" && (
         <section className="conditionsContent">
-          <h1>Conditions Général</h1>
+          <h1>Mentions Légales</h1>
           <p>
-            Voici les conditions général Lorem ipsum dolor sit amet, consectetur
-            adipisicing elit. Placeat, nam consectetur accusamus doloribus
-            voluptas iure porro aperiam ad beatae dolores suscipit, magni
-            praesentium dignissimos sequi optio, magnam facilis inventore vel.
-            Ducimus eligendi quis optio fuga perspiciatis, explicabo dolore, aut
-            sed facilis harum dolorum quos fugiat officia amet molestias, nemo
-            iusto quia. Velit quam ex aperiam at, maiores explicabo
-            reprehenderit obcaecati. At nobis ea aperiam rem exercitationem
-            doloremque nisi soluta, accusamus fugit iure voluptate porro iusto
-            temporibus non! Suscipit perspiciatis quia error! Nihil a harum
-            quibusdam distinctio, et sapiente dolorem aut? Ut tempora
-            repudiandae possimus, autem inventore adipisci, alias laudantium
-            praesentium sequi numquam vitae illo ex, cumque maiores nihil
-            suscipit in et accusantium harum facere. Velit suscipit quibusdam
-            corporis laudantium iure. Totam accusantium, dolor fugit accusamus
-            suscipit consequatur provident minima sunt esse voluptate corporis
-            laboriosam inventore similique incidunt amet magni et! Magni quas
-            iste vero? Alias, nisi eaque. Sint, accusantium libero.
+            1. Éditeur du Site Le site de recherche de street art (ci-après "le
+            Site") est édité par : Nom de l'entreprise : [Votre Entreprise]
+            Forme juridique : [Type de société] Adresse du siège social :
+            [Adresse complète] Numéro de téléphone : [Numéro de téléphone]
+            Adresse email : [Email de contact] Numéro SIRET : [Numéro SIRET]
+            Directeur de la publication : [Nom du directeur]
+            <br />
+            2. Hébergeur du Site Le Site est hébergé par : Nom de l'hébergeur :
+            [Nom de l'hébergeur] Adresse : [Adresse complète de l'hébergeur]
+            Numéro de téléphone : [Numéro de téléphone de l'hébergeur] Adresse
+            email : [Email de contact de l'hébergeur] <br />
+            3. Propriété Intellectuelle Le contenu du Site (textes, images,
+            vidéos, logos, etc.) est protégé par les lois en vigueur sur la
+            propriété intellectuelle et appartient à [Votre Entreprise] ou fait
+            l'objet d'une autorisation d'utilisation. Toute reproduction,
+            représentation, modification, publication, adaptation de tout ou
+            partie des éléments du Site, quel que soit le moyen ou le procédé
+            utilisé, est interdite sans l'autorisation écrite préalable de
+            [Votre Entreprise].
+            <br />
+            4. Données Personnelles Conformément à la loi Informatique et
+            Libertés du 6 janvier 1978 modifiée, et au Règlement Général sur la
+            Protection des Données (RGPD) entré en vigueur le 25 mai 2018, les
+            utilisateurs disposent d'un droit d'accès, de rectification, de
+            suppression et d'opposition aux données personnelles les concernant.
+            Pour exercer ce droit, veuillez nous contacter à l'adresse suivante
+            : [Email de contact pour les données personnelles] 5. Cookies Le
+            Site utilise des cookies pour améliorer l'expérience utilisateur,
+            analyser le trafic et les performances du Site. En continuant à
+            naviguer sur le Site, vous acceptez l'utilisation de cookies.
+            <br />
+            6. Responsabilité [Votre Entreprise] ne saurait être tenue
+            responsable des dommages directs ou indirects causés au matériel de
+            l'utilisateur lors de l'accès au Site, résultant soit de
+            l'utilisation d'un matériel ne répondant pas aux spécifications
+            indiquées, soit de l'apparition d'un bug ou d'une incompatibilité.
+            [Votre Entreprise] ne pourra également être tenue responsable des
+            dommages indirects (tels par exemple qu'une perte de marché ou perte
+            d'une chance) consécutifs à l'utilisation du Site. Des espaces
+            interactifs (possibilité de poser des questions dans l’espace
+            contact) sont à la disposition des utilisateurs. [Votre Entreprise]
+            se réserve le droit de supprimer, sans mise en demeure préalable,
+            tout contenu déposé dans cet espace qui contreviendrait à la
+            législation applicable en France, en particulier aux dispositions
+            relatives à la protection des données. Le cas échéant, [Votre
+            Entreprise] se réserve également la possibilité de mettre en cause
+            la responsabilité civile et/ou pénale de l’utilisateur, notamment en
+            cas de message à caractère raciste, injurieux, diffamant, ou
+            pornographique, quel que soit le support utilisé (texte,
+            photographie …). <br />
+            7. Liens Hypertextes Le Site peut contenir des liens hypertextes
+            vers d'autres sites. [Votre Entreprise] n'exerce aucun contrôle sur
+            ces sites et n'assume aucune responsabilité quant à leur contenu. En
+            conséquence, [Votre Entreprise] décline toute responsabilité quant
+            aux contenus, publicités, produits, services ou tout autre matériel
+            disponible sur ou à partir de ces sites.
+            <br />
+            8. Droit Applicable et Attribution de Juridiction Tout litige en
+            relation avec l'utilisation du Site est soumis au droit français. Il
+            est fait attribution exclusive de juridiction aux tribunaux
+            compétents de [Ville où se situe votre entreprise]. <br />
+            9. Contact Pour toute question concernant les mentions légales du
+            Site, vous pouvez nous contacter à l'adresse suivante : [Email de
+            contact]
           </p>
         </section>
       )}
       {selectedSection === "value-3" && (
         <section className="cguContent">
-          <h1>CGU</h1>
+          <h1>Conditions Général d'Utilisation</h1>
           <p>
-            Yo je suis le CGU Lorem ipsum dolor sit amet consectetur adipisicing
-            elit. Asperiores accusantium at, libero dolorem deleniti quae, ea
-            doloribus possimus magni omnis eius, amet deserunt. Magnam alias, in
-            velit a obcaecati dolore. Possimus provident excepturi labore ipsum
-            magni! Ex impedit officia nemo animi et labore ad minus tempore,
-            culpa illum provident perspiciatis dicta optio voluptatibus dolor
-            officiis ipsam perferendis. Quae, explicabo nesciunt? Doloremque
-            necessitatibus sed beatae labore sequi odit harum magni quam nemo.
-            Inventore, minima! Ducimus officiis iure qui amet adipisci
-            repudiandae quaerat quo porro dolor quae est culpa, laudantium
-            repellat eveniet! Adipisci placeat necessitatibus dicta magni,
-            accusantium velit eaque itaque corrupti asperiores, deleniti vel
-            dignissimos architecto? Ab, maxime? Quis praesentium ipsam, at, odit
-            facilis ad maxime sit veniam sequi natus accusamus. Temporibus ipsum
-            et accusantium quam odio tempora sint. Neque officiis sint
-            reiciendis quod deleniti fugit sit fugiat dolorem tempore eveniet
-            corporis saepe debitis voluptatibus voluptatem nisi maxime veniam,
-            impedit veritatis?
+            1. Présentation du Site Le site de recherche de street art (ci-après
+            dénommé "le Site") permet aux utilisateurs de découvrir et de
+            partager des œuvres de street art géolocalisées. Les utilisateurs
+            peuvent ajouter leurs propres contributions et visualiser celles des
+            autres. <br />
+            2. Acceptation des Conditions Générales En accédant et en utilisant
+            le Site, vous acceptez sans réserve les présentes Conditions
+            Générales d'Utilisation (CGU). Si vous n'acceptez pas ces termes,
+            veuillez ne pas utiliser le Site. <br />
+            3. Accès au Site L'accès au Site est ouvert à toute personne
+            disposant d'un accès à internet. Les frais liés à l'accès au Site
+            (matériel informatique, logiciels, connexion internet, etc.) sont à
+            la charge de l'utilisateur. <br />
+            4. Inscription et Compte Utilisateur L'inscription sur le Site peut
+            être requise pour accéder à certaines fonctionnalités (ajout
+            d'œuvres, système de points, etc.). Les utilisateurs doivent fournir
+            des informations exactes et à jour lors de leur inscription. Chaque
+            utilisateur est responsable de la confidentialité de ses
+            identifiants de connexion et de toutes les activités effectuées sous
+            son compte. <br />
+            5. Utilisation du Site Les utilisateurs s'engagent à utiliser le
+            Site de manière conforme à la loi et aux bonnes mœurs. <br />
+            Il est interdit de publier des contenus offensants, diffamatoires,
+            obscènes, menaçants ou illégaux. Les utilisateurs s'engagent à ne
+            pas porter atteinte aux droits d'auteur et aux droits de propriété
+            intellectuelle des artistes. <br />
+            6. Ajout et Partage de Contenus Les utilisateurs peuvent ajouter des
+            œuvres de street art en fournissant une photo, une position GPS, une
+            description et le nom de l'artiste, si connu. Les œuvres ajoutées
+            doivent être uniques et ne pas déjà figurer sur le Site. Les photos
+            doivent être de bonne qualité et représenter fidèlement l'œuvre.{" "}
+            <br />
+            7. Système de Points et Classement Ajouter une nouvelle œuvre non
+            existante sur le Site rapporte +10 points. Ajouter une photo
+            supplémentaire à une œuvre existante rapporte +5 points. Les points
+            accumulés permettent de se classer dans le tableau de bord du Site.{" "}
+            <br />
+            8. Propriété Intellectuelle Les utilisateurs garantissent que les
+            contenus qu'ils publient ne violent pas les droits de propriété
+            intellectuelle de tiers. Le Site respecte les droits d'auteur des
+            artistes et s'engage à retirer tout contenu en infraction sur simple
+            demande justifiée. <br />
+            9. Modération des Contenus Le Site se réserve le droit de modérer,
+            modifier ou supprimer tout contenu ne respectant pas les présentes
+            CGU. Les utilisateurs peuvent signaler des contenus inappropriés ou
+            incorrectement attribués via les outils de signalement du Site.{" "}
+            <br />
+            Le Site ne saurait être tenu responsable des contenus publiés par
+            les utilisateurs. Le Site décline toute responsabilité en cas
+            d'indisponibilité, de dysfonctionnements ou d'erreurs techniques.
+            <br />
+            11. Protection des Données Personnelles Le Site s'engage à respecter
+            la vie privée des utilisateurs et à protéger leurs données
+            personnelles conformément aux lois en vigueur. Les données
+            personnelles collectées sont utilisées uniquement pour les besoins
+            du service et ne sont pas partagées sans consentement.
+            <br />
+            12. Modification des CGU Le Site se réserve le droit de modifier les
+            présentes CGU à tout moment. Les utilisateurs seront informés des
+            modifications importantes et sont invités à consulter régulièrement
+            les CGU mises à jour.
+            <br />
+            13. Loi Applicable et Juridiction Compétente Les présentes CGU sont
+            soumises au droit français. En cas de litige, et après échec de
+            toute tentative de recherche d'une solution amiable, les tribunaux
+            français seront seuls compétents. En utilisant le Site, vous
+            acceptez de respecter ces Conditions Générales d'Utilisation. Merci
+            de votre participation et de votre respect des règles établies pour
+            le bénéfice de toute la communauté.
           </p>
         </section>
       )}
