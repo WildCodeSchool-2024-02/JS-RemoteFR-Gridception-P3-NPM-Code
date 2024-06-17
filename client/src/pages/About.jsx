@@ -40,7 +40,7 @@ function About() {
       {selectedSection === "rules" && (
         <section className="rulesContent">
           <h1 className="titleContent">Les règles</h1>
-          <p>
+          <p className="textContent">
             Bienvenue dans le monde passionnant du street art ! Prêt à explorer,
             partager et gravir les échelons du classement ? Voici comment jouer
             : <br />
@@ -106,7 +106,7 @@ function About() {
       {selectedSection === "legalsMentions" && (
         <section className="legalsMentionsContent">
           <h1 className="titleContent">Mentions Légales</h1>
-          <p>
+          <p className="textContent">
             <strong>1. Créateur du site</strong> <br /> Le site de recherche de
             street art est édité par : NPM Code Forme juridique : [Type de
             société] Adresse du siège social : [Adresse complète] Numéro de
@@ -182,7 +182,7 @@ function About() {
       {selectedSection === "cguContent" && (
         <section className="cguContent">
           <h1 className="titleContent">Conditions Général d'Utilisation</h1>
-          <p>
+          <p className="textContent">
             <strong>1. Présentation du Site </strong>
             <br /> Le site de recherche de street art (ci-après dénommé "le
             Site") permet aux utilisateurs de découvrir et de partager des

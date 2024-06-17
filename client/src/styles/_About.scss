@@ -5,11 +5,24 @@
   justify-content: space-evenly;
   align-items: center;
 }
+
+.titleContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--primary-text-color);
+  font-family: var(--primary-font);
+}
+
+.textContent {
+  margin: 2rem;
+}
 // LES BOUTONS
 
 .radioInput {
   height: 80px;
-  width: 350px;
+  width: 300px;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -25,7 +38,8 @@
 }
 
 .label {
-  font-size: 0.9rem;
+  text-align: center;
+  font-size: calc(0.5rem + 0.5vw);
   font-weight: 600;
   font-family: "poppins", sans-serif;
   padding: 18px 15px;
@@ -59,9 +73,10 @@
   max-height: 65vh;
   margin: 0 2rem;
   border-radius: 10px;
-  text-align: center;
+  text-align: left;
   background-color: color-mix(in srgb, var(--primary-color) 90%, transparent);
   overflow-y: auto;
+  font-family: "poppins", sans-serif;
 
   &::-webkit-scrollbar {
     width: 12px;
@@ -85,9 +100,6 @@
     height: auto;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    margin-top: 3rem;
   }
 
   // Les bouttons
@@ -106,16 +118,8 @@
   .cguContent {
     width: 60rem;
     max-height: 60vh;
-    padding: 1rem 2rem;
     text-align: left;
-    overflow-y: auto;
     font-family: "poppins", sans-serif;
-    font-size: 1.5rem;
-  }
-
-  .titleContent {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    font-size: calc(0.5rem + 0.8vw);
   }
 }
