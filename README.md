@@ -1,4 +1,6 @@
+<p align="center">
 <img src="./client/src/assets/images/logo.png">
+</p>
 
 ## 🚀 Bienvenue sur notre projet 3 réalisé à la Wild Code School <br>
 
@@ -36,11 +38,11 @@ Nous devons réaliser un application qui permet d'ajouter des street art en se s
 
 ### 🔜 A venir:
 
--Créer un compte / Se connecter
--Ajouter des photos supplémentaires aux oeuvres dèja présentes
--Possibilté de changer ses infos personnels
--à
--Mettre
+- Créer un compte / Se connecter
+- Ajouter des photos supplémentaires aux oeuvres dèja présentes
+- Possibilté de changer ses infos personnels
+- Envoyer un message pour signaler une oeuvre
+- Voir le classement
 
 ## 🏗️ Structure de l'application
 
