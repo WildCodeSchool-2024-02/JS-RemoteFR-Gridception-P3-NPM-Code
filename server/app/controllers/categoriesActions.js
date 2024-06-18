@@ -41,7 +41,6 @@ const read = async (req, res, next) => {
 const add = async (req, res, next) => {
   // Extract the catagory data from the request body
   const catagory = req.body;
-
   try {
     // Insert the catagory into the database
     const insertId = await tables.categories.create(catagory);
