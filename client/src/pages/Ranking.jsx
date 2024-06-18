@@ -1,9 +1,7 @@
-import NotFound from "./NotFound";
-
 function Ranking() {
   return (
     <section className="RankingComponent">
-      <NotFound />
+      <h1>Classement</h1>
     </section>
   );
 }
