@@ -4,6 +4,7 @@ const PicturesRepository = require("./models/PicturesRepository");
 const StreetArtsCategoriesRepository = require("./models/StreetArtsCategoriesRepository");
 const CategoriesRepository = require("./models/CategoriesRepository");
 const RolesRepository = require("./models/RolesRepository");
+const ContactsRepository = require("./models/ContactsRepository");
 
 const tables = {};
 
@@ -14,6 +15,7 @@ tables.pictures = new PicturesRepository();
 tables.streetArtsCategories = new StreetArtsCategoriesRepository();
 tables.categories = new CategoriesRepository();
 tables.roles = new RolesRepository();
+tables.contacts = new ContactsRepository();
 
 /* ************************************************************************* */
 

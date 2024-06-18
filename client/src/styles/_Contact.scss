@@ -1,0 +1,150 @@
+.form-container {
+  margin: auto;
+  margin-top: 1rem;
+  width: 400px;
+
+  background:
+    linear-gradient(#c34cf6b4, #c34cf6b4) padding-box,
+    linear-gradient(145deg, transparent 35%, #e81cfffa, #40c9ff) border-box;
+
+  border: 2px solid transparent;
+  padding: 32px 16px;
+  font-size: 14px;
+  font-family: inherit;
+  color: white;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  box-sizing: border-box;
+  border-radius: 16px;
+  background-size: 200% 100%;
+  animation: gradient 5s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.form-container button:active {
+  scale: 0.95;
+}
+
+.form-container .logoMobile {
+  height: 75px;
+  width: 75px;
+}
+
+.form-container .form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-container .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.form-container .form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--primary-font);
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.form-container .form-group input {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 8px;
+  color: black;
+  font-family: inherit;
+  background-color: var(--input-background-color);
+  border: 1px solid #414141;
+  box-shadow: #000000 0px 7px 10px -5px inset;
+}
+
+.form-container .form-group textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 8px;
+  resize: none;
+  color: black;
+  height: 96px;
+  border: 1px solid #414141;
+  background-color: var(--input-background-color);
+  box-shadow: #000000 0px 7px 10px -5px inset;
+  font-family: inherit;
+}
+
+.form-container .form-group input::placeholder {
+  opacity: 0.5;
+}
+
+.form-container .form-group input:focus {
+  outline: none;
+  border-color: #e81cff;
+}
+
+.form-container .form-group textarea:focus {
+  outline: none;
+  border-color: #e81cff;
+}
+
+.form-container .form-submit-btn {
+  display: flex;
+  justify-content: center;
+  align-self: flex-start;
+  font-family: inherit;
+  color: white;
+  font-weight: 600;
+  width: 40%;
+  background: var(--button-color);
+  border: 1px solid #414141;
+  padding: 12px 16px;
+  font-size: inherit;
+  gap: 8px;
+  margin-top: 8px;
+  cursor: pointer;
+  box-shadow: #000000 0px 7px 10px -5px inset;
+  border-radius: 6px;
+}
+
+.form-container .form-submit-btn:hover {
+  background-color: #fff;
+  border-color: #fff;
+  color: var(--button-color);
+}
+
+//DESKTOP VERSION
+
+@media (min-width: 770px) {
+  .form-container {
+    margin-top: 5rem;
+    h1 {
+      font-size: 36px;
+    }
+    .form-group label {
+      font-size: 24px;
+    }
+    .form {
+      width: 90%;
+    }
+    width: 50vw;
+  }
+  .logoMobile {
+    display: none;
+  }
+}
