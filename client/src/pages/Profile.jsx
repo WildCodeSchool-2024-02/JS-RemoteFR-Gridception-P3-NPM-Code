@@ -4,7 +4,7 @@ import { Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 
-import User from "../assets/images/user_profil.png";
+import AvatarChange from "../components/AvatarChange";
 
 const AccordionContainer = styled(Accordion)(() => ({
   backgroundColor: "transparent",
@@ -48,7 +48,7 @@ function Profile() {
 
   return (
     <section className="ProfileComponent">
-      <img src={User} alt="profil utilisateur" />
+      <AvatarChange />
       <h1>Username</h1>
 
       <p className="counterPoint">Points</p>
