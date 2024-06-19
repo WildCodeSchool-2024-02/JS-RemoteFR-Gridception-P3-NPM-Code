@@ -14,6 +14,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Link } from "react-router-dom";
 
 import tetrispurple from "../assets/images/tetrispurple.png";
+import tetrispurple2 from "../assets/images/tetrispurple2.png";
 import tetrisyellow2 from "../assets/images/tetrisyellow2.png";
 import dot from "../assets/images/dot_icon.png";
 import logo from "../assets/images/logo.png";
@@ -70,7 +71,7 @@ export default function AnchorTemporaryDrawer() {
               <ListItemButton>
                 <ListItemIcon>
                   <img
-                    src={tetrisyellow2}
+                    src={tetrispurple}
                     alt="galerie icon"
                     className="drawerIcon"
                   />
@@ -90,7 +91,7 @@ export default function AnchorTemporaryDrawer() {
               <ListItemButton>
                 <ListItemIcon>
                   <img
-                    src={tetrispurple}
+                    src={tetrisyellow2}
                     alt="a propos icon"
                     className="drawerIcon"
                   />
@@ -109,7 +110,7 @@ export default function AnchorTemporaryDrawer() {
               <ListItemButton>
                 <ListItemIcon>
                   <img
-                    src={tetrisyellow2}
+                    src={tetrispurple2}
                     alt="contact icon"
                     className="drawerIcon"
                   />
