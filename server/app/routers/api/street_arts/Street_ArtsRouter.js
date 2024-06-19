@@ -9,17 +9,17 @@ const router = express.Router();
 // Import item-related actions
 const {
   browse,
+  browseByPictures,
   read,
+  readByPictures,
   edit,
   add,
   destroy,
-  readByPictures,
-  browseAllByPictures,
 } = require("../../../controllers/streetArtsActions");
 
 // Route to get a list of items
 router.get("/", browse);
-router.get("/pictures", browseAllByPictures);
+router.get("/pictures", browseByPictures);
 
 // Route to get a street arts infos by Picture ID
 router.get("/pictures/:id", readByPictures);

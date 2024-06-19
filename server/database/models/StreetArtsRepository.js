@@ -28,6 +28,16 @@ class StreetArtsRepository extends AbstractRepository {
     return result.insertId;
   }
 
+  async browseByPictures() {
+    // Execute the SQL SELECT query to retrieve all streetArts from the "streetArts" table
+    const [rows] = await this.database.query(
+      `select p.url, s.title, s.latitude, s.longitude from ${this.table} s 
+      inner join pictures p on s.id = p.street_arts_id`
+    );
+
+    // Return the array of streetArts
+    return rows;
+  }
   // The Rs of CRUD - Read operations
 
   async read(id) {
@@ -44,17 +54,6 @@ class StreetArtsRepository extends AbstractRepository {
   async readAll() {
     // Execute the SQL SELECT query to retrieve all streetArts from the "streetArts" table
     const [rows] = await this.database.query(`select * from ${this.table}`);
-
-    // Return the array of streetArts
-    return rows;
-  }
-
-  async readAllByPictures() {
-    // Execute the SQL SELECT query to retrieve all streetArts from the "streetArts" table
-    const [rows] = await this.database.query(
-      `select p.url, s.title, s.latitude, s.longitude from ${this.table} s 
-      inner join pictures p on s.id = p.street_arts_id`
-    );
 
     // Return the array of streetArts
     return rows;
