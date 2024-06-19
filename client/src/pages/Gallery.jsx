@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 import ImageListItemBar from "@mui/material/ImageListItemBar";
@@ -54,25 +55,27 @@ export default function Gallery() {
       >
         {pictures.length > 0 ? (
           pictures.map((picture) => (
-            <ImageListItem key={picture.id} cols={1} rows={1}>
-              <img
-                srcSet={`${picture.url}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                src={`${picture.url}?w=248&fit=crop&auto=format`}
-                alt={picture.name}
-                loading="lazy"
-              />
-              <ImageListItemBar
-                title={picture.name}
-                actionIcon={
-                  <IconButton
-                    sx={{ color: "rgba(255, 255, 255, 0.54)" }}
-                    aria-label={`info about ${picture.name}`}
-                  >
-                    <InfoIcon />
-                  </IconButton>
-                }
-              />
-            </ImageListItem>
+            <Link to="/streetArt" key="link">
+              <ImageListItem key={picture.id} cols={1} rows={1}>
+                <img
+                  srcSet={`${picture.url}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                  src={`${picture.url}?w=248&fit=crop&auto=format`}
+                  alt={picture.name}
+                  loading="lazy"
+                />
+                <ImageListItemBar
+                  title={picture.name}
+                  actionIcon={
+                    <IconButton
+                      sx={{ color: "rgba(255, 255, 255, 0.54)" }}
+                      aria-label={`info about ${picture.name}`}
+                    >
+                      <InfoIcon />
+                    </IconButton>
+                  }
+                />
+              </ImageListItem>
+            </Link>
           ))
         ) : (
           <p>Pas de photos disponibles</p>

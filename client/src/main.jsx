@@ -14,6 +14,7 @@ import Profile from "./pages/Profile";
 import Ranking from "./pages/Ranking";
 import Register from "./pages/Register";
 import NotFound from "./pages/NotFound";
+import StreetArt from "./pages/StreetArt";
 
 const router = createBrowserRouter([
   {
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
       {
         path: "/Inscription",
         element: <Register />,
+      },
+      {
+        path: "/streetArt",
+        element: <StreetArt />,
       },
     ],
   },
