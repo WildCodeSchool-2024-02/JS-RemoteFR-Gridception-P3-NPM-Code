@@ -6,7 +6,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./styles/import.scss";
 import App from "./App";
 import Home from "./pages/Home";
-import AddPictures from "./pages/AddPictures";
+import AddStreetArts from "./pages/AddStreetArts";
 import Contact from "./pages/Contact";
 import Gallery from "./pages/Gallery";
 import About from "./pages/About";
@@ -15,6 +15,7 @@ import Ranking from "./pages/Ranking";
 import Register from "./pages/Register";
 import NotFound from "./pages/NotFound";
 import StreetArt from "./pages/StreetArt";
+import AddPictures from "./pages/AddPictures";
 
 const router = createBrowserRouter([
   {
@@ -26,7 +27,11 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/Add",
+        path: "/add",
+        element: <AddStreetArts />,
+      },
+      {
+        path: "/addpictures",
         element: <AddPictures />,
       },
       {
