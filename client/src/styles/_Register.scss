@@ -135,7 +135,7 @@
 
 .central-bar {
   width: 2px;
-  background-color: yellow; /* Couleur de la barre */
+  background-color: var(--primary-text-color);
   height: 100%;
   align-self: stretch;
 }
@@ -144,8 +144,8 @@
 
 @media (min-width: 770px) {
   .form-container {
-    height: 65vh;
-    width: 60vw;
+    height: 70vh;
+    width: 50vw;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -153,9 +153,8 @@
     .form {
       display: flex;
       flex-direction: row;
-      justify-content: space-between;
-      width: 80%;
       gap: 20px;
+      align-content: center;
     }
 
     .form-left,
@@ -164,7 +163,7 @@
       display: flex;
       flex-direction: column;
       gap: 5px;
-      height: 100%;
+      height: 75%;
     }
 
     .form-right {
@@ -176,10 +175,6 @@
       height: auto;
       width: 100%;
       object-fit: cover;
-    }
-
-    .preview {
-      text-align: center;
     }
 
     .form-left .form-submit-btn {
