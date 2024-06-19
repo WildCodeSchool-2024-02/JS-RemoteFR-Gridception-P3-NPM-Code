@@ -58,18 +58,28 @@ inner join users u on u.id= s.users_id where u.id = ?`,
   }
 
   // The U of CRUD - Update operation
-  // TODO: Implement the update operation to modify an existing item
+  async update(categories) {
+    // Execute the SQL UPDATE query to update a specific categories
+    const [result] = await this.database.query(
+      `update ${this.table} set name = ? where id = ?`,
+      [categories.name, categories.id]
+    );
 
-  // async update(item) {
-  //   ...
-  // }
+    // Return how many rows were affected
+    return result.affectedRows;
+  }
 
   // The D of CRUD - Delete operation
-  // TODO: Implement the delete operation to remove an item by its ID
+  async delete(id) {
+    // Execute the SQL DELETE query to delete a specific categories
+    const [result] = await this.database.query(
+      `delete from ${this.table} where id = ?`,
+      [id]
+    );
 
-  // async delete(id) {
-  //   ...
-  // }
+    // Return how many rows were affected
+    return result.affectedRows;
+  }
 }
 
 module.exports = PicturesRepository;
