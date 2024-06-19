@@ -78,8 +78,17 @@ class StreetArtsRepository extends AbstractRepository {
   async update(streetArts) {
     // Execute the SQL UPDATE query to update a specific category
     const [result] = await this.database.query(
-      `update ${this.table} set title = ? where id = ?`,
-      [streetArts.title, streetArts.id]
+      `update ${this.table} set users_id = ?, title = ?, description = ?, artist = ?, latitude = ?, longitude = ?, is_valid = ?, where id = ?`,
+      [
+        streetArts.users_id,
+        streetArts.title,
+        streetArts.description,
+        streetArts.artist,
+        streetArts.latitude,
+        streetArts.longitude,
+        streetArts.is_valid,
+        streetArts.id,
+      ]
     );
 
     // Return how many rows were affected

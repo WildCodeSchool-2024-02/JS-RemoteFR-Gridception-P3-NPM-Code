@@ -48,8 +48,8 @@ class ContactsRepository extends AbstractRepository {
   async update(contacts) {
     // Execute the SQL UPDATE query to update a specific category
     const [result] = await this.database.query(
-      `update ${this.table} set name = ? where id = ?`,
-      [contacts.name, contacts.id]
+      `update ${this.table} set fullname = ?, mail = ?, message= ?  where id = ?`,
+      [contacts.fullname, contacts.mail, contacts.message, contacts.id]
     );
 
     // Return how many rows were affected

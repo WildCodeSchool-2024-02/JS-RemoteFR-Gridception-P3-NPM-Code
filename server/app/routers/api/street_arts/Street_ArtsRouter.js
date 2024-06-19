@@ -14,14 +14,14 @@ const {
   add,
   destroy,
   readByPictures,
-  readAllByPictures,
+  browseAllByPictures,
 } = require("../../../controllers/streetArtsActions");
 
 // Route to get a list of items
 router.get("/", browse);
+router.get("/pictures", browseAllByPictures);
 
 // Route to get a street arts infos by Picture ID
-router.get("/pictures", readAllByPictures);
 router.get("/pictures/:id", readByPictures);
 
 // Route to get a specific item by ID

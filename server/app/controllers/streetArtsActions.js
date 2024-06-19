@@ -34,10 +34,12 @@ const read = async (req, res, next) => {
   }
 };
 
-const readAllByPictures = async (req, res, next) => {
+const browseAllByPictures = async (req, res, next) => {
   try {
     // Fetch a specific streetArt from the database based on the provided ID
-    const streetArt = await tables.streetArts.readAllByPictures(req.params.id);
+    const streetArt = await tables.streetArts.browseAllByPictures(
+      req.params.id
+    );
 
     // If the streetArt is not found, respond with HTTP 404 (Not Found)
     // Otherwise, respond with the streetArt in JSON format
@@ -123,8 +125,8 @@ const destroy = async (req, res, next) => {
 // Ready to export the controller functions
 module.exports = {
   browse,
+  browseAllByPictures,
   read,
-  readAllByPictures,
   readByPictures,
   edit,
   add,
