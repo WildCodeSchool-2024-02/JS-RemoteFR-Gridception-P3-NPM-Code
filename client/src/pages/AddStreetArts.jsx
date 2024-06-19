@@ -71,6 +71,7 @@ function AddStreetArts() {
             onChange={handleStreetArtChange}
             value={streetArtForm.title}
             required
+            className="input-container"
           />
 
           <label htmlFor="description">Description </label>
@@ -83,6 +84,7 @@ function AddStreetArts() {
             onChange={handleStreetArtChange}
             value={streetArtForm.description}
             required
+            className="input-container"
           />
 
           <label htmlFor="artist">Artiste (si connu)</label>
@@ -94,6 +96,7 @@ function AddStreetArts() {
             maxLength={100}
             onChange={handleStreetArtChange}
             value={streetArtForm.artist}
+            className="input-container"
           />
 
           <label htmlFor="longitude">Longitude</label>
@@ -104,6 +107,7 @@ function AddStreetArts() {
             onChange={handleStreetArtChange}
             value={streetArtForm.longitude}
             required
+            className="input-container"
           />
 
           <label htmlFor="latitude">Latitude</label>
@@ -114,6 +118,7 @@ function AddStreetArts() {
             onChange={handleStreetArtChange}
             value={streetArtForm.latitude}
             required
+            className="input-container"
           />
           <button
             type="submit"
