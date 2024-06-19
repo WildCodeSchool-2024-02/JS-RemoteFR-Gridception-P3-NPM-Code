@@ -14,6 +14,23 @@ const browse = async (req, res, next) => {
   }
 };
 
+const browseByUserId = async (req, res, next) => {
+  try {
+    // Fetch a specific item from the database based on the provided ID
+    const pictures = await tables.pictures.browseByUserId(req.params.id);
+
+    // If the item is not found, respond with HTTP 404 (Not Found)
+    // Otherwise, respond with the item in JSON format
+    if (pictures == null) {
+      res.sendStatus(404);
+    } else {
+      res.json(pictures);
+    }
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
 // The R of BREAD - Read operation
 const read = async (req, res, next) => {
   try {
@@ -32,26 +49,23 @@ const read = async (req, res, next) => {
     next(err);
   }
 };
-const readByUserId = async (req, res, next) => {
-  try {
-    // Fetch a specific item from the database based on the provided ID
-    const pictures = await tables.pictures.readByUserId(req.params.id);
 
-    // If the item is not found, respond with HTTP 404 (Not Found)
-    // Otherwise, respond with the item in JSON format
-    if (pictures == null) {
-      res.sendStatus(404);
-    } else {
-      res.json(pictures);
-    }
+// The E of BREAD - Edit (Update) operation
+const edit = async (req, res, next) => {
+  // Extract the pictures data from the request body and params
+  const pictures = { ...req.body, id: req.params.id };
+
+  try {
+    // Update the pictures in the database
+    await tables.pictures.update(pictures);
+
+    // Respond with HTTP 204 (No Content)
+    res.sendStatus(204);
   } catch (err) {
     // Pass any errors to the error-handling middleware
     next(err);
   }
 };
-
-// The E of BREAD - Edit (Update) operation
-// This operation is not yet implemented
 
 // The A of BREAD - Add (Create) operation
 const add = async (req, res, next) => {
@@ -70,14 +84,25 @@ const add = async (req, res, next) => {
 };
 
 // The D of BREAD - Destroy (Delete) operation
-// This operation is not yet implemented
+const destroy = async (req, res, next) => {
+  try {
+    // Delete the pictures from the database
+    await tables.pictures.delete(req.params.id);
+
+    // Respond with HTTP 204 (No Content)
+    res.sendStatus(204);
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
 
 // Ready to export the controller functions
 module.exports = {
   browse,
+  browseByUserId,
   read,
-  readByUserId,
-  // edit,
+  edit,
   add,
-  // destroy,
+  destroy,
 };

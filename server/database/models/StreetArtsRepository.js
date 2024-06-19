@@ -1,3 +1,4 @@
+
 const AbstractRepository = require("./AbstractRepository");
 
 class StreetArtsRepository extends AbstractRepository {
@@ -28,6 +29,16 @@ class StreetArtsRepository extends AbstractRepository {
     return result.insertId;
   }
 
+  async browseByPictures() {
+    // Execute the SQL SELECT query to retrieve all streetArts from the "streetArts" table
+    const [rows] = await this.database.query(
+      `select p.url, s.title, s.latitude, s.longitude from ${this.table} s 
+      inner join pictures p on s.id = p.street_arts_id`
+    );
+
+    // Return the array of streetArts
+    return rows;
+  }
   // The Rs of CRUD - Read operations
 
   async read(id) {
@@ -49,17 +60,6 @@ class StreetArtsRepository extends AbstractRepository {
     return rows;
   }
 
-  async readAllByPictures() {
-    // Execute the SQL SELECT query to retrieve all streetArts from the "streetArts" table
-    const [rows] = await this.database.query(
-      `select p.url, s.title, s.latitude, s.longitude from ${this.table} s 
-      inner join pictures p on s.id = p.street_arts_id`
-    );
-
-    // Return the array of streetArts
-    return rows;
-  }
-
   async readByPicture(id) {
     // Execute the SQL SELECT query to retrieve a specific streetArts by its ID
     const [rows] = await this.database.query(
@@ -74,18 +74,39 @@ class StreetArtsRepository extends AbstractRepository {
   }
 
   // The U of CRUD - Update operation
-  // : Implement the update operation to modify an existing streetArts
 
-  // async update(streetArts) {
-  //   ...
-  // }
+  async update(streetArts) {
+    // Execute the SQL UPDATE query to update a specific category
+    const [result] = await this.database.query(
+      `update ${this.table} set users_id = ?, title = ?, description = ?, artist = ?, latitude = ?, longitude = ?, is_valid = ?, where id = ?`,
+      [
+        streetArts.users_id,
+        streetArts.title,
+        streetArts.description,
+        streetArts.artist,
+        streetArts.latitude,
+        streetArts.longitude,
+        streetArts.is_valid,
+        streetArts.id,
+      ]
+    );
+
+    // Return how many rows were affected
+    return result.affectedRows;
+  }
 
   // The D of CRUD - Delete operation
-  //  Implement the delete operation to remove an streetArts by its ID
 
-  // async delete(id) {
-  //   ...
-  // }
+  async delete(id) {
+    // Execute the SQL DELETE query to delete a specific category
+    const [result] = await this.database.query(
+      `delete from ${this.table} where id = ?`,
+      [id]
+    );
+
+    // Return how many rows were affected
+    return result.affectedRows;
+  }
 }
 
 module.exports = StreetArtsRepository;
