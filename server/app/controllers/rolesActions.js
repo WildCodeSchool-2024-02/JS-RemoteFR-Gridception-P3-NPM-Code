@@ -35,7 +35,7 @@ const read = async (req, res, next) => {
 };
 
 // The E of BREAD - Edit (Update) operation
-// This operation is not yet implemented
+
 const edit = async (req, res, next) => {
   // Extract the category data from the request body and params
   const role = { ...req.body, id: req.params.id };
@@ -70,7 +70,6 @@ const add = async (req, res, next) => {
 };
 
 // The D of BREAD - Destroy (Delete) operation
-// This operation is not yet implemented
 
 const destroy = async (req, res, next) => {
   try {

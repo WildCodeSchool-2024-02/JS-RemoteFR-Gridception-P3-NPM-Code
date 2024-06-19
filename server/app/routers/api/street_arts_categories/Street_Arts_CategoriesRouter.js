@@ -13,7 +13,7 @@ const {
   edit,
   add,
   destroy,
-} = require("../../../controllers/usersActions");
+} = require("../../../controllers/streetArtsCategoriesActions");
 
 // Route to get a list of items
 router.get("/", browse);
@@ -29,6 +29,7 @@ router.post("/", add);
 
 // Route to delete an item
 router.delete("/", destroy);
+
 /* ************************************************************************* */
 
 module.exports = router;

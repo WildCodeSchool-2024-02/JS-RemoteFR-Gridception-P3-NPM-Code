@@ -10,7 +10,9 @@ const router = express.Router();
 const {
   browse,
   read,
+  edit,
   add,
+  destroy,
   readByPictures,
   readAllByPictures,
 } = require("../../../controllers/streetArtsActions");
@@ -25,8 +27,14 @@ router.get("/pictures/:id", readByPictures);
 // Route to get a specific item by ID
 router.get("/:id", read);
 
+// Route to edit a new item
+router.put("/", edit);
+
 // Route to add a new item
 router.post("/", add);
+
+// Route to delete an item
+router.delete("/", destroy);
 
 /* ************************************************************************* */
 

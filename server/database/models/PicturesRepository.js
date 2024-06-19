@@ -58,11 +58,18 @@ inner join users u on u.id= s.users_id where u.id = ?`,
   }
 
   // The U of CRUD - Update operation
-  async update(categories) {
-    // Execute the SQL UPDATE query to update a specific categories
+  async update(pictures) {
+    // Execute the SQL UPDATE query to update a specific pictures
     const [result] = await this.database.query(
-      `update ${this.table} set name = ? where id = ?`,
-      [categories.name, categories.id]
+      `update ${this.table} set street_arts_id = ?, name = ?, url = ?, date = ?, is_valid= ? where id = ?`,
+      [
+        pictures.street_arts_id,
+        pictures.name,
+        pictures.url,
+        pictures.date,
+        pictures.is_valid,
+        pictures.id,
+      ]
     );
 
     // Return how many rows were affected
@@ -71,7 +78,7 @@ inner join users u on u.id= s.users_id where u.id = ?`,
 
   // The D of CRUD - Delete operation
   async delete(id) {
-    // Execute the SQL DELETE query to delete a specific categories
+    // Execute the SQL DELETE query to delete a specific pictures
     const [result] = await this.database.query(
       `delete from ${this.table} where id = ?`,
       [id]

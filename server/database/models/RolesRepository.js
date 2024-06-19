@@ -42,7 +42,6 @@ class RolesRepository extends AbstractRepository {
   }
 
   // The U of CRUD - Update operation
-  // TODO: Implement the update operation to modify an existing roles
 
   async update(roles) {
     // Execute the SQL UPDATE query to update a specific category
@@ -56,7 +55,6 @@ class RolesRepository extends AbstractRepository {
   }
 
   // The D of CRUD - Delete operation
-  // : Implement the delete operation to remove an contacts by its ID
 
   async delete(id) {
     // Execute the SQL DELETE query to delete a specific category
