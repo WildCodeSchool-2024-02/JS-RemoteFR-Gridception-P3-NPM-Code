@@ -14,6 +14,7 @@ import Profile from "./pages/Profile";
 import Ranking from "./pages/Ranking";
 import Register from "./pages/Register";
 import NotFound from "./pages/NotFound";
+import StreetArt from "./pages/StreetArt";
 
 const router = createBrowserRouter([
   {
@@ -25,32 +26,36 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/add",
+        path: "/Add",
         element: <AddPictures />,
       },
       {
-        path: "/contact",
+        path: "/Contact",
         element: <Contact />,
       },
       {
-        path: "/galerie",
+        path: "/Galerie",
         element: <Gallery />,
       },
       {
-        path: "/about",
+        path: "/About",
         element: <About />,
       },
       {
-        path: "/profil",
+        path: "/Profil",
         element: <Profile />,
       },
       {
-        path: "/classement",
+        path: "/Classement",
         element: <Ranking />,
       },
       {
-        path: "/inscription",
+        path: "/Inscription",
         element: <Register />,
+      },
+      {
+        path: "/streetArt",
+        element: <StreetArt />,
       },
     ],
   },

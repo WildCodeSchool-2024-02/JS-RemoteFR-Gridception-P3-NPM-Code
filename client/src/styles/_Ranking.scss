@@ -1,0 +1,49 @@
+.RankingComponent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--primary-text-color);
+}
+
+.RankingNav {
+  display: flex;
+  gap: 13rem;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  background-color: rgba(194, 76, 246, 0.6);
+  .NavJoueur {
+    padding: 0.2rem 1rem 0.2rem 1rem;
+  }
+  .NavPoint {
+    padding: 0.2rem 1rem 0.2rem 1rem;
+  }
+}
+
+.joueur-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 0.5rem;
+  height: 2.5rem;
+  align-items: center;
+  gap: 10rem;
+}
+
+.liste-container .joueur-container:nth-child(even) {
+  background-color: rgba(194, 76, 246, 0.6);
+  height: 2.5rem;
+  gap: 10rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+h3,
+h2 {
+  filter: drop-shadow(10px 7px 10px rgb(71, 1, 92));
+  font-family: "Roboto", sans-serif;
+}
+
+.point {
+  text-align: right;
+  width: 1rem;
+}

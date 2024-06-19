@@ -73,6 +73,9 @@ function NavBar() {
             <NavLink to="/classement">Classement</NavLink>
           </li>
           <li className="navbarContent">
+            <NavLink to="/contact">Contact</NavLink>
+          </li>
+          <li className="navbarContent">
             <NavLink to="/profil">Profil</NavLink>
           </li>
         </nav>

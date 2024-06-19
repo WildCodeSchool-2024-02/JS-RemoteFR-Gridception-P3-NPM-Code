@@ -46,7 +46,16 @@ Nous devons réaliser un application qui permet d'ajouter des street art en se s
 
 ## 🏗️ Structure de l'application
 
-TABLE MODÉLISATION
+```mermaid
+graph TD;
+    Accueil;
+    Accueil-->à-propos;
+    Accueil-->Galerie;
+    Accueil-->Classement;
+    Accueil-->Profil;
+    Galerie-->Galerie-Id;
+    Error404;
+```
 
 ## 📈 Statut du projet
 
