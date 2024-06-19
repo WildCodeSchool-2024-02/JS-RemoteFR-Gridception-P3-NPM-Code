@@ -17,10 +17,9 @@ function Ranking() {
 
   return (
     <section className="RankingComponent">
-      <h1>Classement</h1>
       <div className="RankingNav">
-        <h2>Joueur</h2>
-        <h2>Points</h2>
+        <h2 className="NavJoueur">Joueur</h2>
+        <h2 className="NavPoint">Points</h2>
       </div>
       <div className="liste-container">
         {datas.map((data) => (
