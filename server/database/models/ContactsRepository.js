@@ -17,6 +17,7 @@ class ContactsRepository extends AbstractRepository {
     );
 
     // Return the ID of the newly inserted contacts
+
     return result.insertId;
   }
 
