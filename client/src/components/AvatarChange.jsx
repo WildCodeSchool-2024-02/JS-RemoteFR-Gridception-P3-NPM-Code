@@ -12,26 +12,24 @@ export default function AvatarChange() {
   const [imageCrop, setImageCrop] = useState(false);
 
   const [src] = useState(false);
-  const [profile, setProfile] = useState([]);
+  const [profile, setProfile] = useState(false);
   const [pView, setPView] = useState(false);
-
-  const profileFinal = profile.map((item) => item.pView);
 
   const onClose = () => {
     setPView(null);
   };
-  const onCrop = (view) => {
-    setPView(view);
+  const onCrop = (imageCropped) => {
+    setPView(imageCropped);
   };
   const saveCropImage = () => {
-    setProfile([...profile, { pView }]);
+    setProfile(pView);
     setImageCrop(false);
   };
 
   return (
     <section className="AvatarContainer">
       <button type="button" onClick={() => setImageCrop(true)}>
-        <img src={profileFinal.length ? profileFinal : Users} alt="avatar" />
+        <img src={profile === false ? Users : profile} alt="avatar" />
       </button>
       <h1 className="UserName">Anthony GORSKI</h1>
 
