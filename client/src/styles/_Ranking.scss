@@ -47,3 +47,21 @@ h2 {
   text-align: right;
   width: 1rem;
 }
+
+// Version desktop
+
+@media (min-width: 770px) {
+  .RankingNav {
+    display: flex;
+    gap: 65rem;
+    font-size: 1rem;
+  }
+  .joueur-container {
+    display: flex;
+    gap: 60rem;
+    font-size: 1.4rem;
+  }
+  .point {
+    width: 3rem;
+  }
+}
