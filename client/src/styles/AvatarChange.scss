@@ -1,0 +1,53 @@
+.UserName {
+  font-size: 1.5rem;
+  margin-top: 0;
+  text-align: center;
+}
+
+.AvatarContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  button {
+    background: transparent;
+    border: 0;
+    border-radius: 50%;
+    img {
+      max-width: 30vw;
+      max-height: 30vh;
+      object-fit: cover;
+    }
+  }
+}
+
+// Choix Avatar
+
+.DialogContainer {
+  background-color: rgb(190, 182, 182);
+  div {
+    border: 0;
+  }
+}
+.p-icon {
+  width: 2rem;
+  margin: 0.5rem;
+}
+
+// Button
+
+.ButtonSaveAvatar {
+  display: flex;
+  justify-content: center;
+}
+
+.p-button {
+  background-color: var(--button-color);
+  border-radius: 10%;
+  height: 2rem;
+  margin: 0.5rem;
+}
+.p-button-label {
+  font-size: 1rem;
+  font-family: "Fugaz One", sans-serif;
+}

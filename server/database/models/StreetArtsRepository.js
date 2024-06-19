@@ -1,3 +1,4 @@
+
 const AbstractRepository = require("./AbstractRepository");
 
 class StreetArtsRepository extends AbstractRepository {

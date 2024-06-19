@@ -90,3 +90,4 @@ inner join users u on u.id= s.users_id where u.id = ?`,
 }
 
 module.exports = PicturesRepository;
+
