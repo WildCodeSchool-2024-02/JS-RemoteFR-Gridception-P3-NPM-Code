@@ -6,11 +6,12 @@ import Tetris from "../assets/images/Tetris.gif";
 
 function Register() {
   const [registerForm, setRegisterForm] = useState({
-    firstName: "",
-    lastName: "",
+    firstname: "",
+    lastname: "",
     email: "",
     password: "",
     confirmPassword: "",
+    roles_id: 2,
   });
 
   const handleRegisterChange = (event) => {
@@ -44,7 +45,6 @@ function Register() {
         theme: "light",
       }
     );
-
   return (
     <section className="form-container">
       <img src={logo} alt="Street Art Hunter logo" className="logoMobile" />
@@ -64,29 +64,29 @@ function Register() {
       <form className="form">
         <div className="form-left">
           <div className="form-group">
-            <label htmlFor="firstName">Prénom</label>
+            <label htmlFor="firstname">Prénom</label>
             <input
               required
-              name="firstName"
-              id="firstName"
+              name="firstname"
+              id="firstname"
               type="text"
               minLength={3}
               maxLength={50}
               onChange={handleRegisterChange}
-              value={registerForm.firstName}
+              value={registerForm.firstname}
             />
           </div>
           <div className="form-group">
-            <label htmlFor="lastName">Nom</label>
+            <label htmlFor="lastname">Nom</label>
             <input
               required
-              name="lastName"
-              id="lastName"
+              name="lastname"
+              id="lastname"
               type="text"
               minLength={3}
               maxLength={70}
               onChange={handleRegisterChange}
-              value={registerForm.lastName}
+              value={registerForm.lastname}
             />
           </div>
           <div className="form-group">
@@ -129,22 +129,26 @@ function Register() {
               e.preventDefault();
               if (
                 registerForm.firstame !== "" &&
-                registerForm.lastName !== "" &&
+                registerForm.lastname !== "" &&
                 registerForm.email !== "" &&
                 registerForm.password !== "" &&
                 registerForm.confirmPassword !== ""
               ) {
                 if (registerForm.password === registerForm.confirmPassword) {
                   axios
-                    .post(`${import.meta.env.VITE_API_URL}/api/users`, registerForm)
+                    .post(
+                      `${import.meta.env.VITE_API_URL}/api/users`,
+                      registerForm
+                    )
                     .then((res) => {
                       notifySuccess();
                       setRegisterForm({
-                        firstName: "",
-                        lastName: "",
+                        firstname: "",
+                        lastname: "",
                         email: "",
                         password: "",
                         confirmPassword: "",
+                        roles_id: 2,
                       });
                       console.info(res);
                     })
@@ -155,7 +159,9 @@ function Register() {
                   notifyError("Les mots de passe ne correspondent pas !");
                 }
               } else {
-                notifyError("Il nous manque une information, vérifiez que vous avez rempli tous les champs");
+                notifyError(
+                  "Il nous manque une information, vérifiez que vous avez rempli tous les champs"
+                );
               }
             }}
           >
