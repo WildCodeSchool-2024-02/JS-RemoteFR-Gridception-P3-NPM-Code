@@ -99,7 +99,10 @@ function Contact() {
                 contactForm.message !== ""
               ) {
                 axios
-                  .post("http://localhost:3310/api/contacts", contactForm)
+                  .post(
+                    `${import.meta.env.VITE_API_URL}/api/contacts`,
+                    contactForm
+                  )
                   .then((res) => {
                     notifySucces();
                     setContactForm({
