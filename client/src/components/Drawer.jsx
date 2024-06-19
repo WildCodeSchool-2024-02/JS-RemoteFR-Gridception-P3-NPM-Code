@@ -16,6 +16,7 @@ import { Link } from "react-router-dom";
 import tetrispurple from "../assets/images/tetrispurple.png";
 import tetrispurple2 from "../assets/images/tetrispurple2.png";
 import tetrisyellow2 from "../assets/images/tetrisyellow2.png";
+import tetrisyellow from "../assets/images/tetrisyellow.png";
 import dot from "../assets/images/dot_icon.png";
 import logo from "../assets/images/logo.png";
 
@@ -110,7 +111,9 @@ export default function AnchorTemporaryDrawer() {
               <ListItemButton>
                 <ListItemIcon>
                   <img
+
                     src={tetrispurple2}
+
                     alt="contact icon"
                     className="drawerIcon"
                   />

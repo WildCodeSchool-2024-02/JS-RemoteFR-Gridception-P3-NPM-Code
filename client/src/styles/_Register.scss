@@ -1,0 +1,258 @@
+.form-container {
+  margin: auto;
+  margin-top: 1rem;
+  width: 80vw;
+  max-width: 1200px;
+  background-color: color-mix(in srgb, var(--primary-color) 90%, transparent);
+  border: 2px solid transparent;
+  padding: 32px 16px;
+  font-size: 14px;
+  font-family: inherit;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-sizing: border-box;
+  border-radius: 16px;
+  background-size: 200% 100%;
+  animation: gradient 5s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.form-container button:active {
+  scale: 0.95;
+}
+
+.form-container .logoMobile {
+  height: 75px;
+  width: 75px;
+}
+
+.form-container .form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-container .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 1rem;
+}
+
+.form-container .form-group label {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--primary-font);
+  font-size: 15px;
+}
+
+.form-container .form-group input {
+  width: 100%;
+  border-radius: 8px;
+  color: black;
+  font-family: inherit;
+  font-size: 10px;
+  background-color: var(--input-background-color);
+  border: 1px solid #414141;
+  box-shadow: #000000 0px 7px 10px -5px inset;
+}
+
+.form-container .form-group textarea {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 8px;
+  resize: none;
+  color: black;
+  height: 80px;
+  font-size: 20px;
+  border: 1px solid #414141;
+  background-color: var(--input-background-color);
+  box-shadow: #000000 0px 7px 10px -5px inset;
+  font-family: inherit;
+}
+
+.form-container .form-group input::placeholder {
+  opacity: 0.5;
+}
+
+.form-container .form-group input:focus {
+  outline: none;
+  border-color: #e81cff;
+}
+
+.form-container .form-group textarea:focus {
+  outline: none;
+  border-color: #e81cff;
+}
+
+.form-container .form-submit-btn {
+  display: flex;
+  justify-content: center;
+  font-family: inherit;
+  color: white;
+  font-weight: 600;
+  width: 50%;
+  max-width: 200px;
+  background: var(--button-color);
+  border: 1px solid #414141;
+  padding: 10px 50px;
+  font-size: 12px;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: #000000 0px 7px 10px -5px inset;
+  border-radius: 6px;
+  margin: 0 auto;
+  margin-top: 1rem;
+}
+
+.form-container .form-submit-btn:hover {
+  background-color: #fff;
+  border-color: #fff;
+  color: var (--button-color);
+}
+
+.wrap {
+  display: none;
+}
+
+.form-right {
+  display: none;
+}
+
+//DESKTOP VERSION
+
+@media (min-width: 770px) {
+  .form-container {
+    height: 65vh;
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .form {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 80%;
+      gap: 20px;
+    }
+
+    .form-left,
+    .form-right {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      height: 100%;
+    }
+
+    .form-right {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .form-right > img {
+      height: auto;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .preview {
+      text-align: center;
+    }
+
+    .form-left .form-submit-btn {
+      align-self: center;
+      margin-top: auto;
+    }
+  }
+  .form-container .form-group {
+    margin-bottom: 0;
+  }
+  .form-container .form-group textarea {
+    padding: 8px 12px;
+    height: 80px;
+    font-size: 12px;
+  }
+
+  .form-container .form-group input {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+  .form-container .form-group label {
+    margin-bottom: 2px;
+    font-size: 10px;
+  }
+
+  .logoMobile {
+    display: none;
+  }
+
+  .wrap {
+    display: block;
+    text-align: center;
+    margin: 1em auto;
+    transform-style: preserve-3d;
+    perspective: 400px;
+    text-align: center;
+  }
+
+  .letter,
+  .space {
+    display: inline-block;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-family: "Titillium Web", sans-serif;
+    font-weight: bold;
+    position: relative;
+    transform-style: preserve-3d;
+    text-shadow: 2px 2px 5px black;
+  }
+
+  .space {
+    width: 0.5em;
+  }
+
+  @for $i from 1 through 13 {
+    $n: 1;
+    $r: random(10);
+    @if ($r > 5) {
+      $n: -1;
+    }
+    $x: (random(1000) + 300) * $n + px;
+    $y: (random(1000) + 300) * $n + px;
+    $c: hsl(random(360), 100%, 50%);
+    $d: 360 * $n + deg;
+    @keyframes anim#{$i} {
+      0% {
+        transform: translate3d($x, $y, -1000px) rotate(0deg);
+        opacity: 0;
+      }
+      100% {
+        transform: translate3d(0, 0, 0) rotate($d);
+        opacity: 0.8;
+      }
+    }
+    .letter:nth-child(#{$i}) {
+      animation: anim#{$i} 5s;
+      animation-delay: -$i * 0.2s;
+      color: var(--primary-text-color);
+    }
+  }
+}

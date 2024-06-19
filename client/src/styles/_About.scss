@@ -23,6 +23,7 @@
 .radioInput {
   height: 80px;
   width: 300px;
+  margin-bottom: 2rem;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -105,10 +106,11 @@
   // Les bouttons
 
   .radioInput {
-    height: 180px;
+    height: 250px;
     width: 200px;
     display: flex;
     flex-direction: column;
+    margin-bottom: 0;
   }
 
   // PARTIE TEXTE
