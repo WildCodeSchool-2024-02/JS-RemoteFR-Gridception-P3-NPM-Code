@@ -1,5 +1,5 @@
 import logo from "../assets/images/logo.png";
-import Tetris from "../assets/images/tetrisgif.gif";
+import Tetris from "../assets/images/Tetris.gif";
 
 function Register() {
   return (
@@ -49,6 +49,9 @@ function Register() {
             S'enregistrer
           </button>
         </div>
+
+        <div className="central-bar" />
+
         <div className="form-right">
           <img src={Tetris} alt="Preview" />
         </div>
