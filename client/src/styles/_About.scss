@@ -1,0 +1,125 @@
+.allContent {
+  display: flex;
+  flex-direction: column-reverse;
+  height: 90vh;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.titleContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--primary-text-color);
+  font-family: var(--primary-font);
+}
+
+.textContent {
+  margin: 2rem;
+}
+// LES BOUTONS
+
+.radioInput {
+  height: 80px;
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 50px;
+  background-color: white;
+  box-shadow:
+    -10px -15px 15px rgba(255, 255, 255, 0.5),
+    10px 10px 25px rgba(70, 70, 70, 0.5);
+}
+
+.radioInput input[type="radio"] {
+  display: none;
+}
+
+.label {
+  text-align: center;
+  font-size: calc(0.5rem + 0.5vw);
+  font-weight: 600;
+  font-family: "poppins", sans-serif;
+  padding: 18px 15px;
+  border-radius: 35px;
+  transition: 0.5s;
+  cursor: pointer;
+  color: black;
+}
+
+.radioInput input[type="radio"]:checked + label {
+  box-shadow:
+    10px 10px 15px rgba(0, 0, 0, 0.151),
+    10px 10px 15px rgba(0, 0, 0, 0.218);
+  background: linear-gradient(45deg, #cf6efb, #4f29cd);
+  color: white;
+  transform: translateY(-4px);
+}
+
+.radioInput input[type="radio"]:hover:not(:checked) + label {
+  box-shadow:
+    inset 10px 10px 15px rgba(0, 0, 0, 0.151),
+    inset 10px 10px 15px rgba(0, 0, 0, 0.218);
+}
+
+//FENETRE DU CONTENU TEXTE
+
+.rulesContent,
+.legalsMentionsContent,
+.cguContent {
+  height: 65vh;
+  max-height: 65vh;
+  margin: 0 2rem;
+  border-radius: 10px;
+  text-align: left;
+  background-color: color-mix(in srgb, var(--primary-color) 90%, transparent);
+  overflow-y: auto;
+  font-family: "poppins", sans-serif;
+
+  &::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    border: 3px solid #cf6efb;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #e0e0e0;
+    border-radius: 10px;
+  }
+}
+// Version DESKTOP //
+
+@media (min-width: 770px) {
+  .allContent {
+    height: auto;
+    display: flex;
+    flex-direction: row;
+  }
+
+  // Les bouttons
+
+  .radioInput {
+    height: 180px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  // PARTIE TEXTE
+
+  .rulesContent,
+  .legalsMentionsContent,
+  .cguContent {
+    width: 60rem;
+    max-height: 60vh;
+    text-align: left;
+    font-family: "poppins", sans-serif;
+    font-size: calc(0.5rem + 0.8vw);
+  }
+}

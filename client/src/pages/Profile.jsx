@@ -30,7 +30,7 @@ const AccordionElements = styled(AccordionDetails)(({ theme }) => ({
 }));
 
 function Profile() {
-  const [expanded, setExpanded] = React.useState("panel1");
+  const [expanded, setExpanded] = React.useState("");
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
   };
@@ -39,7 +39,7 @@ function Profile() {
 
   useEffect(() => {
     axios
-      .get(`http://127.0.0.1:3310/api/pictures/streetarts/users/6`)
+      .get(`http://127.0.0.1:3310/api/pictures/street_arts/users/6`)
       .then((results) => {
         setPicturesStreetArt(results.data);
       })
@@ -49,9 +49,8 @@ function Profile() {
   return (
     <section className="ProfileComponent">
       <AvatarChange />
-      <h1>Username</h1>
 
-      <p className="counterPoint">Points</p>
+      <p className="counterPoint">69 Points</p>
 
       <div className="ProfileSectionMobile">
         <section>
@@ -79,9 +78,7 @@ function Profile() {
             <AccordionTitle>
               <Typography variant="h2">Mes favoris</Typography>
             </AccordionTitle>
-            <AccordionElements>
-              <p>pour test</p>
-            </AccordionElements>
+            <AccordionElements>{/* <p>pour test</p> */}</AccordionElements>
           </AccordionContainer>
         </section>
         <section>
@@ -92,9 +89,7 @@ function Profile() {
             <AccordionTitle>
               <Typography variant="h2">Mes infos</Typography>
             </AccordionTitle>
-            <AccordionElements>
-              <p>pour test</p>
-            </AccordionElements>
+            <AccordionElements>{/* <p>pour test</p> */}</AccordionElements>
           </AccordionContainer>
         </section>
       </div>
@@ -115,12 +110,9 @@ function Profile() {
         </section>
         <section>
           <h2>Mes favoris</h2>
-
-          <p>pour test</p>
         </section>
         <section>
           <h2>Mes infos</h2>
-          <p>pour test</p>
         </section>
       </div>
     </section>

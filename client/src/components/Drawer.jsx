@@ -14,8 +14,6 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Link } from "react-router-dom";
 
 import tetrispurple from "../assets/images/tetrispurple.png";
-import tetrisyellow from "../assets/images/tetrisyellow.png";
-import tetrispurple2 from "../assets/images/tetrispurple2.png";
 import tetrisyellow2 from "../assets/images/tetrisyellow2.png";
 import dot from "../assets/images/dot_icon.png";
 import logo from "../assets/images/logo.png";
@@ -66,34 +64,14 @@ export default function AnchorTemporaryDrawer() {
         <h2 className="drawerTitle2">Hunter</h2>
       </div>
       <List>
-        <a href="#Home" className="linkNav">
-          {["test"].map((text) => (
+        <Link to="/galerie">
+          {["Galerie"].map((text) => (
             <ListItem key={text} disablePadding>
               <ListItemButton>
                 <ListItemIcon>
                   <img
-                    src={tetrispurple}
-                    alt="accueil icon"
-                    className="drawerIcon"
-                  />
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </a>
-      </List>
-
-      <Divider />
-      <List>
-        <Link to="/mentions_legales">
-          {["CGU / Regle"].map((text) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  <img
-                    src={tetrisyellow}
-                    alt="a propos icon"
+                    src={tetrisyellow2}
+                    alt="galerie icon"
                     className="drawerIcon"
                   />
                 </ListItemIcon>
@@ -103,16 +81,17 @@ export default function AnchorTemporaryDrawer() {
           ))}
         </Link>
       </List>
+
       <Divider />
       <List>
-        <Link to="/">
-          {["test"].map((text) => (
+        <Link to="/about">
+          {["A propos"].map((text) => (
             <ListItem key={text} disablePadding>
               <ListItemButton>
                 <ListItemIcon>
                   <img
-                    src={tetrispurple2}
-                    alt="projets icon"
+                    src={tetrispurple}
+                    alt="a propos icon"
                     className="drawerIcon"
                   />
                 </ListItemIcon>

@@ -14,11 +14,11 @@ class PicturesSeeder extends AbstractSeeder {
   // The run method - Populate the 'user' table with fake data
   run() {
     // Generate and insert fake data into the 'user' table
-    for (let i = 0; i < 15; i += 1) {
+    for (let i = 0; i < 55; i += 1) {
       // Generate fake user data
       const fakePicture = {
         street_arts_id: this.getRef(
-          `street_art_${Math.floor(Math.random() * 10)}`
+          `street_art_${Math.floor(Math.random() * 55)}`
         ).insertId,
         name: this.faker.music.songName(),
         url: this.faker.image.urlPicsumPhotos(),

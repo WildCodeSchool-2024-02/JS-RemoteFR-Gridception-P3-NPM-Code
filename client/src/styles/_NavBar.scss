@@ -12,6 +12,7 @@
       justify-content: center;
       align-items: center;
       padding: 0;
+      margin: 0;
       li {
         list-style: none;
         a {
@@ -23,14 +24,14 @@
 }
 
 .navIcon {
-  width: 3.5rem;
+  width: 4rem;
   padding: 6px 12px 6px 12px;
   filter: drop-shadow(10px 7px 10px rgb(71, 1, 92));
 }
 
 .addArt {
-  width: 6rem;
-  padding: 8px 10px 0 14px;
+  width: 7rem;
+  padding: 8px 10px 0 10px;
   filter: drop-shadow(2px 2px 5px rgb(71, 1, 92));
 }
 .navbar-desktop {
@@ -51,20 +52,20 @@
   .navbarTop {
     display: flex;
     list-style: none;
-    padding-right: 2rem;
+    padding-right: 1.5rem;
   }
 
   .navbarContent {
     display: flex;
     align-items: center;
-    padding-right: 5rem;
+    padding-right: 4rem;
   }
 
   .navbarContent > a {
-    font-size: 1.5rem;
+    font-size: calc(0.6rem + 1vw);
   }
 
   .logoDesktop {
-    width: 150px;
+    width: 120px;
   }
 }
