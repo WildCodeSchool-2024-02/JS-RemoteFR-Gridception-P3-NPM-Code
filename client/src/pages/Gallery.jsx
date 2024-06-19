@@ -14,6 +14,7 @@ export default function Gallery() {
   const matchesSm = useMediaQuery(theme.breakpoints.up("sm"));
   const matchesMd = useMediaQuery(theme.breakpoints.up("md"));
   const matchesLg = useMediaQuery(theme.breakpoints.up("lg"));
+  const matchesMin770 = useMediaQuery("(min-width: 770px)");
 
   useEffect(() => {
     fetch("http://127.0.0.1:3310/api/pictures")
@@ -36,7 +37,7 @@ export default function Gallery() {
         justifyContent: "center",
         overflow: "hidden",
         width: "100%",
-        height: "100vh",
+        height: matchesMin770 ? "75vh" : "85vh",
         padding: theme.spacing(2),
       }}
     >
@@ -47,9 +48,9 @@ export default function Gallery() {
           overflowY: "auto", // pour scroll en vertical
           transform: "translateZ(0)",
         }}
-        rowHeight={200}
+        rowHeight={300}
         cols={getCols()}
-        gap={10}
+        gap={12}
       >
         {pictures.length > 0 ? (
           pictures.map((picture) => (
