@@ -5,11 +5,7 @@
   margin-top: 3rem;
   color: var(--primary-text-color);
 
-  img {
-    width: 40%;
-  }
-
-  h1 {
+  label {
     font-size: calc(1.5rem + 1vw);
     margin-bottom: 0.5rem;
   }
@@ -46,11 +42,8 @@
 @media (min-width: 770px) {
   .ProfileComponent {
     margin-top: 0;
-    h1 {
+    label {
       margin-top: 0.5rem;
-    }
-    img {
-      width: 13%;
     }
   }
   .ProfileSectionMobile {
