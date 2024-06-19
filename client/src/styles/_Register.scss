@@ -3,11 +3,7 @@
   margin-top: 1rem;
   width: 80vw;
   max-width: 1200px;
-
-  background:
-    linear-gradient(#c34cf6b4, #c34cf6b4) padding-box,
-    linear-gradient(145deg, transparent 35%, #e81cfffa, #40c9ff) border-box;
-
+  background-color: color-mix(in srgb, var(--primary-color) 90%, transparent);
   border: 2px solid transparent;
   padding: 32px 16px;
   font-size: 14px;
@@ -48,30 +44,29 @@
 .form-container .form {
   display: flex;
   flex-direction: column;
-  gap: 10px; // Reduced gap between form groups
+  gap: 15px;
 }
 
 .form-container .form-group {
   display: flex;
   flex-direction: column;
   gap: 2px;
+  margin-bottom: 1rem;
 }
 
 .form-container .form-group label {
   display: block;
-  margin-bottom: 2px; // Reduced margin below labels
+  margin-bottom: 10px;
   color: var(--primary-font);
-  font-weight: 600;
-  font-size: 10px; // Reduced font size of labels
+  font-size: 15px;
 }
 
 .form-container .form-group input {
   width: 100%;
-  padding: 8px 12px; // Reduced padding for inputs
   border-radius: 8px;
   color: black;
   font-family: inherit;
-  font-size: 12px; // Reduced font size of inputs
+  font-size: 10px;
   background-color: var(--input-background-color);
   border: 1px solid #414141;
   box-shadow: #000000 0px 7px 10px -5px inset;
@@ -79,12 +74,12 @@
 
 .form-container .form-group textarea {
   width: 100%;
-  padding: 8px 12px; // Reduced padding for textareas
+  padding: 8px 12px;
   border-radius: 8px;
   resize: none;
   color: black;
-  height: 80px; // Reduced height of textareas
-  font-size: 12px; // Reduced font size of textareas
+  height: 80px;
+  font-size: 20px;
   border: 1px solid #414141;
   background-color: var(--input-background-color);
   box-shadow: #000000 0px 7px 10px -5px inset;
@@ -122,6 +117,7 @@
   box-shadow: #000000 0px 7px 10px -5px inset;
   border-radius: 6px;
   margin: 0 auto;
+  margin-top: 1rem;
 }
 
 .form-container .form-submit-btn:hover {
@@ -189,6 +185,24 @@
       align-self: center;
       margin-top: auto;
     }
+  }
+  .form-container .form-group {
+    margin-bottom: 0;
+  }
+  .form-container .form-group textarea {
+    padding: 8px 12px;
+    height: 80px;
+    font-size: 12px;
+  }
+
+  .form-container .form-group input {
+    padding: 8px 12px; // Reduced padding for inputs
+    font-size: 12px; // Reduced font size of inputs
+  }
+
+  .form-container .form-group label {
+    margin-bottom: 2px;
+    font-size: 10px;
   }
 
   .logoMobile {
