@@ -17,6 +17,7 @@ services:
       DB_NAME: ${DB_NAME}
       VITE_BACKEND_URL: ""
       PROJECT_NAME_SPECIFIC_SAMPLE: ${PROJECT_NAME_SPECIFIC_SAMPLE}
+      VITE_MAPBOX_TOKEN: ${VITE_MAPBOX_TOKEN}
     networks:
       - proxy
     labels:
