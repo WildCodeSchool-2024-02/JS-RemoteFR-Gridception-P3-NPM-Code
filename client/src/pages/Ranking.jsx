@@ -17,10 +17,13 @@ function Ranking() {
 
   return (
     <section className="RankingComponent">
-      <h1>Classement</h1>
       <div className="RankingNav">
-        <h2>Joueur</h2>
-        <h2>Points</h2>
+        <section className="NavJoueur">
+          <h2 className="NavText">Joueur</h2>
+        </section>
+        <section className="NavPoint">
+          <h2 className="NavText">Points</h2>
+        </section>
       </div>
       <div className="liste-container">
         {datas.map((data) => (
