@@ -39,7 +39,9 @@ function Profile() {
 
   useEffect(() => {
     axios
-      .get(`http://127.0.0.1:3310/api/pictures/street_arts/users/6`)
+      .get(
+        `${import.meta.env.VITE_API_URL}${import.meta.env.VITE_API_URL}/api/pictures/street_arts/users/6`
+      )
       .then((results) => {
         setPicturesStreetArt(results.data);
       })

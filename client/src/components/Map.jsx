@@ -15,7 +15,7 @@ function Map() {
 
   useEffect(() => {
     axios
-      .get(`http://127.0.0.1:3310/api/street_arts/pictures`)
+      .get(`${import.meta.env.VITE_API_URL}/api/street_arts/pictures`)
       .then((results) => {
         setDatas(results.data);
         console.info(results);
