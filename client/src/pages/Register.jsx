@@ -18,34 +18,44 @@ function Register() {
         <span className="letter">N</span>
       </div>
       <form className="form">
-        <div className="form-group">
-          <label htmlFor="firstName">Prénom</label>
-          <input required name="firstName" id="firstName" type="text" />
+        <div className="form-left">
+          <div className="form-group">
+            <label htmlFor="firstName">Prénom</label>
+            <input required name="firstName" id="firstName" type="text" />
+          </div>
+          <div className="form-group">
+            <label htmlFor="lastName">Nom</label>
+            <input required name="lastName" id="lastName" type="text" />
+          </div>
+          <div className="form-group">
+            <label htmlFor="email">Adresse E-Mail</label>
+            <input required name="email" id="email" type="email" />
+          </div>
+          <div className="form-group">
+            <label htmlFor="password">Mot de passe</label>
+            <input required name="password" id="password" type="password" />
+          </div>
+          <div className="form-group">
+            <label htmlFor="confirmPassword">Confirmez le mot de passe</label>
+            <input
+              required
+              name="confirmPassword"
+              id="confirmPassword"
+              type="password"
+            />
+          </div>
+          <button type="submit" className="form-submit-btn">
+            S'enregistrer
+          </button>
         </div>
-        <div className="form-group">
-          <label htmlFor="lastName">Nom</label>
-          <input required name="lastName" id="lastName" type="text" />
+        <div className="form-right">
+          <div className="preview">
+            <h2>Prévisualisation</h2>
+            <img src="https://via.placeholder.com/100" alt="Preview" />
+            <p>Prénom - Nom</p>
+            <p>Adresse email</p>
+          </div>
         </div>
-        <div className="form-group">
-          <label htmlFor="email">Adresse E-Mail</label>
-          <input required name="email" id="email" type="email" />
-        </div>
-        <div className="form-group">
-          <label htmlFor="password">Mot de passe</label>
-          <input required name="password" id="password" type="password" />
-        </div>
-        <div className="form-group">
-          <label htmlFor="confirmPassword">Confirmez le mot de passe</label>
-          <input
-            required
-            name="confirmPassword"
-            id="confirmPassword"
-            type="password"
-          />
-        </div>
-        <button type="submit" className="form-submit-btn">
-          S'enregistrer
-        </button>
       </form>
     </section>
   );
