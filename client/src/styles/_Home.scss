@@ -16,7 +16,6 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-top: 2rem;
   }
 
   //PARTIE DES TEXTES
@@ -30,7 +29,6 @@
   .mainTitle {
     font-size: calc(2.5rem + 0.8vw);
     color: var(--primary-text-color);
-    margin: 5rem 0 0 0;
   }
 
   .secondTitle {
@@ -43,7 +41,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 4rem 4rem 0 4rem;
   }
 
   //PARTIE MAP
