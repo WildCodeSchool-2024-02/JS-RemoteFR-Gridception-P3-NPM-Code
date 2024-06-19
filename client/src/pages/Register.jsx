@@ -128,40 +128,34 @@ function Register() {
             onClick={(e) => {
               e.preventDefault();
               if (
-                registerForm.title !== "" &&
-                registerForm.description !== "" &&
-                registerForm.longitude !== "" &&
-                registerForm.latitude !== ""
+                registerForm.firstame !== "" &&
+                registerForm.lastName !== "" &&
+                registerForm.email !== "" &&
+                registerForm.password !== "" &&
+                registerForm.confirmPassword !== ""
               ) {
-                axios
-                  .post(
-                    `${import.meta.env.VITE_API_URL}/api/street_arts`,
-                    registerForm
-                  )
-                  .then((res) => {
-                    notifySuccess();
-                    setRegisterForm({
-                      users_id: "9",
-                      title: "",
-                      description: "",
-                      artist: "",
-                      latitude: "",
-                      longitude: "",
-                      is_valid: 1,
+                if (registerForm.password === registerForm.confirmPassword) {
+                  axios
+                    .post(`${import.meta.env.VITE_API_URL}/api/users`, registerForm)
+                    .then((res) => {
+                      notifySuccess();
+                      setRegisterForm({
+                        firstName: "",
+                        lastName: "",
+                        email: "",
+                        password: "",
+                        confirmPassword: "",
+                      });
+                      console.info(res);
+                    })
+                    .catch((err) => {
+                      console.error(err);
                     });
-                    console.info(res);
-                  })
-                  .catch((err) => {
-                    console.info(err);
-                  });
-              } else if (
-                registerForm.file === "" ||
-                registerForm.title === "" ||
-                registerForm.description === "" ||
-                registerForm.longitude === "" ||
-                registerForm.latitude === ""
-              ) {
-                notifyError();
+                } else {
+                  notifyError("Les mots de passe ne correspondent pas !");
+                }
+              } else {
+                notifyError("Il nous manque une information, vérifiez que vous avez rempli tous les champs");
               }
             }}
           >
