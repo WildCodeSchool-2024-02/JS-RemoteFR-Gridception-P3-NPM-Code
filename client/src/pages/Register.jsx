@@ -1,4 +1,5 @@
 import logo from "../assets/images/logo.png";
+import Tetris from "../assets/images/tetrisgif.gif";
 
 function Register() {
   return (
@@ -49,12 +50,7 @@ function Register() {
           </button>
         </div>
         <div className="form-right">
-          <div className="preview">
-            <h2>Prévisualisation</h2>
-            <img src="https://via.placeholder.com/100" alt="Preview" />
-            <p>Prénom - Nom</p>
-            <p>Adresse email</p>
-          </div>
+          <img src={Tetris} alt="Preview" />
         </div>
       </form>
     </section>

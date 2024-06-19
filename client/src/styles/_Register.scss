@@ -2,6 +2,8 @@
   margin: auto;
   margin-top: 1rem;
   width: 80vw;
+  max-width: 1200px;
+
   background:
     linear-gradient(#c34cf6b4, #c34cf6b4) padding-box,
     linear-gradient(145deg, transparent 35%, #e81cfffa, #40c9ff) border-box;
@@ -46,7 +48,7 @@
 .form-container .form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px; // Reduced gap between form groups
 }
 
 .form-container .form-group {
@@ -57,18 +59,19 @@
 
 .form-container .form-group label {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 2px; // Reduced margin below labels
   color: var(--primary-font);
   font-weight: 600;
-  font-size: 12px;
+  font-size: 10px; // Reduced font size of labels
 }
 
 .form-container .form-group input {
   width: 100%;
-  padding: 12px 16px;
+  padding: 8px 12px; // Reduced padding for inputs
   border-radius: 8px;
   color: black;
   font-family: inherit;
+  font-size: 12px; // Reduced font size of inputs
   background-color: var(--input-background-color);
   border: 1px solid #414141;
   box-shadow: #000000 0px 7px 10px -5px inset;
@@ -76,11 +79,12 @@
 
 .form-container .form-group textarea {
   width: 100%;
-  padding: 12px 16px;
+  padding: 8px 12px; // Reduced padding for textareas
   border-radius: 8px;
   resize: none;
   color: black;
-  height: 96px;
+  height: 80px; // Reduced height of textareas
+  font-size: 12px; // Reduced font size of textareas
   border: 1px solid #414141;
   background-color: var(--input-background-color);
   box-shadow: #000000 0px 7px 10px -5px inset;
@@ -111,19 +115,19 @@
   max-width: 200px;
   background: var(--button-color);
   border: 1px solid #414141;
-  padding: 12px 16px;
-  font-size: inherit;
+  padding: 10px 50px;
+  font-size: 12px;
   gap: 8px;
-  margin: 20px auto 0;
   cursor: pointer;
   box-shadow: #000000 0px 7px 10px -5px inset;
   border-radius: 6px;
+  margin: 0 auto;
 }
 
 .form-container .form-submit-btn:hover {
   background-color: #fff;
   border-color: #fff;
-  color: var(--button-color);
+  color: var (--button-color);
 }
 
 .wrap {
@@ -138,57 +142,70 @@
 
 @media (min-width: 770px) {
   .form-container {
-    height: auto;
-    margin-top: 5rem;
-    width: 80vw;
-    max-width: 1200px;
+    height: 65vh;
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .wrap {
+      display: block;
+      text-align: center;
+    }
 
     .form {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      width: 100%;
+      width: 80%;
       gap: 20px;
     }
+
     .form-left,
     .form-right {
       flex: 1;
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 5px;
+      height: 100%;
     }
+
     .form-right {
-      align-items: center;
+      display: flex;
+      justify-content: flex-end;
     }
+
+    .form-right > img {
+      height: auto;
+      width: 100%;
+      object-fit: cover;
+    }
+
     .preview {
       text-align: center;
     }
+
     .form-left .form-submit-btn {
       align-self: center;
+      margin-top: auto;
     }
   }
+
   .logoMobile {
     display: none;
   }
 
   .wrap {
-    display: block;
-    max-width: 960px;
     margin: 1em auto;
-    position: relative;
     transform-style: preserve-3d;
     perspective: 400px;
     text-align: center;
   }
 
-  .form-container .form-submit-btn {
-    text-align: end;
-  }
-
   .letter,
   .space {
     display: inline-block;
-    font-size: 3vw;
+    font-size: 1rem;
     text-transform: uppercase;
     font-family: "Titillium Web", sans-serif;
     font-weight: bold;
@@ -196,6 +213,7 @@
     transform-style: preserve-3d;
     text-shadow: 2px 2px 5px black;
   }
+
   .space {
     width: 0.5em;
   }
