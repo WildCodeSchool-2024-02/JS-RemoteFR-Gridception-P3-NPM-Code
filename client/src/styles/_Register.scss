@@ -144,11 +144,6 @@
     flex-direction: column;
     justify-content: space-between;
 
-    .wrap {
-      display: block;
-      text-align: center;
-    }
-
     .form {
       display: flex;
       flex-direction: row;
@@ -196,8 +191,8 @@
   }
 
   .form-container .form-group input {
-    padding: 8px 12px; // Reduced padding for inputs
-    font-size: 12px; // Reduced font size of inputs
+    padding: 8px 12px;
+    font-size: 12px;
   }
 
   .form-container .form-group label {
@@ -210,6 +205,8 @@
   }
 
   .wrap {
+    display: block;
+    text-align: center;
     margin: 1em auto;
     transform-style: preserve-3d;
     perspective: 400px;

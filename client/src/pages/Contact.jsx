@@ -43,11 +43,11 @@ function Contact() {
 
   return (
     <>
-      <section className="form-container">
+      <section className="form-container-contact">
         <img src={logo} alt="Street Art Hunter logo" className="logoMobile" />
         <h1>Vous vouliez nous dire un truc ?</h1>
-        <form className="form">
-          <div className="form-group">
+        <form className="form-contact">
+          <div className="form-group-contact">
             <label htmlFor="fullname">Nom</label>
             <input
               required
@@ -60,7 +60,7 @@ function Contact() {
               value={contactForm.fullname}
             />
           </div>
-          <div className="form-group">
+          <div className="form-group-contact">
             <label htmlFor="email"> Mail</label>
             <input
               required
@@ -73,7 +73,7 @@ function Contact() {
             />
           </div>
 
-          <div className="form-group">
+          <div className="form-group-contact">
             <label htmlFor="message">Votre Message</label>
             <textarea
               required
