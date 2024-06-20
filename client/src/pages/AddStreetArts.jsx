@@ -11,6 +11,7 @@ function AddStreetArts() {
     artist: "",
     latitude: "",
     longitude: "",
+    main_url: "",
     is_valid: 1,
   });
 
@@ -50,17 +51,16 @@ function AddStreetArts() {
     <>
       <section className="GalleryComponent">
         <form className="add-picture">
-          <h2 className="Add-text">Ajouter une photo:</h2>
+          <h2 className="Add-text">Ajouter une oeuvre:</h2>
           <section className="add-picture-app">
             <input
-              type="file"
-              id="picture"
-              name="picture"
+              type="url"
+              id="main_url"
+              name="main_url"
               onChange={handleStreetArtChange}
-              value={streetArtForm.file}
+              value={streetArtForm.main_url}
               required
             />
-            <img className="new-picture" src="" alt="new" />
           </section>
           <label htmlFor="title">Titre</label>
           <input
@@ -100,17 +100,6 @@ function AddStreetArts() {
             className="input-container"
           />
 
-          <label htmlFor="longitude">Longitude</label>
-          <input
-            type="text"
-            id="longitude"
-            name="longitude"
-            onChange={handleStreetArtChange}
-            value={streetArtForm.longitude}
-            required
-            className="input-container"
-          />
-
           <label htmlFor="latitude">Latitude</label>
           <input
             type="text"
@@ -118,6 +107,16 @@ function AddStreetArts() {
             name="latitude"
             onChange={handleStreetArtChange}
             value={streetArtForm.latitude}
+            required
+            className="input-container"
+          />
+          <label htmlFor="longitude">Longitude</label>
+          <input
+            type="text"
+            id="longitude"
+            name="longitude"
+            onChange={handleStreetArtChange}
+            value={streetArtForm.longitude}
             required
             className="input-container"
           />
@@ -146,6 +145,7 @@ function AddStreetArts() {
                       artist: "",
                       latitude: "",
                       longitude: "",
+                      main_url: "",
                       is_valid: 1,
                     });
                     console.info(res);

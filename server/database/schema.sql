@@ -27,6 +27,7 @@ create table street_arts (
   artist VARCHAR(80),
   latitude INT NOT NULL,
   longitude INT NOT NULL,
+  main_url VARCHAR(155) NOT NULL,
   is_valid BOOLEAN NOT NULL
 );
 

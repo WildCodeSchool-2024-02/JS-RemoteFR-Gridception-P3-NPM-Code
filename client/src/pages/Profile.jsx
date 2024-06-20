@@ -64,7 +64,7 @@ function Profile() {
               <Typography variant="h2">Mes Oeuvres</Typography>
             </AccordionTitle>
             <AccordionElements>
-              <div className="myPicture">
+              <div className="myArtStreet ">
                 {picturesStreetArt.map((picture) => (
                   <img key={picture.id} src={picture.url} alt={picture.name} />
                 ))}

@@ -14,7 +14,7 @@ export default function AvatarChange() {
 
   const [src] = useState(false);
   const [profile, setProfile] = useState(false);
-  const [pView, setPView] = useState(false);
+  const [pView, setPView] = useState(null);
 
   const onClose = () => {
     setPView(null);
@@ -30,7 +30,7 @@ export default function AvatarChange() {
   return (
     <section className="AvatarContainer">
       <button type="button" onClick={() => setImageCrop(true)}>
-        <img className="Change" src={Change} alt="boutton changement avatar" />
+        <img className="change" src={Change} alt="boutton changement avatar" />
         <img src={profile === false ? Users : profile} alt="avatar" />
       </button>
       <h1 className="UserName">Anthony GORSKI</h1>
