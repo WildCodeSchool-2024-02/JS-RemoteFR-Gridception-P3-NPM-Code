@@ -39,7 +39,7 @@ export default function Gallery() {
         overflow: "hidden",
         width: "100%",
         height: matchesMin770 ? "75vh" : "85vh",
-        padding: theme.spacing(2),
+        padding: theme.spacing(2.5),
       }}
     >
       <ImageList
@@ -49,9 +49,9 @@ export default function Gallery() {
           overflowY: "auto", // pour scroll en vertical
           transform: "translateZ(0)",
         }}
-        rowHeight={300}
+        rowHeight={400}
         cols={getCols()}
-        gap={12}
+        gap={20}
       >
         {pictures.length > 0 ? (
           pictures.map((picture) => (
