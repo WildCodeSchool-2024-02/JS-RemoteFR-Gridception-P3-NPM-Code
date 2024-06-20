@@ -49,18 +49,19 @@ function AddStreetArts() {
   return (
     <>
       <section className="GalleryComponent">
-        <h2>Ajouter une photo:</h2>
         <form className="add-picture">
-          <input
-            type="file"
-            id="picture"
-            name="picture"
-            onChange={handleStreetArtChange}
-            value={streetArtForm.file}
-            required
-          />
-          <img className="new-picture" src="" alt="new" />
-
+          <h2 className="Add-text">Ajouter une photo:</h2>
+          <section className="add-picture-app">
+            <input
+              type="file"
+              id="picture"
+              name="picture"
+              onChange={handleStreetArtChange}
+              value={streetArtForm.file}
+              required
+            />
+            <img className="new-picture" src="" alt="new" />
+          </section>
           <label htmlFor="title">Titre</label>
           <input
             type="text"
@@ -84,7 +85,7 @@ function AddStreetArts() {
             onChange={handleStreetArtChange}
             value={streetArtForm.description}
             required
-            className="input-container"
+            className="input-container-description"
           />
 
           <label htmlFor="artist">Artiste (si connu)</label>

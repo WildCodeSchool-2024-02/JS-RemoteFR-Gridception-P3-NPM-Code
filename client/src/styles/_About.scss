@@ -18,11 +18,12 @@
 .textContent {
   margin: 2rem;
 }
+
 // LES BOUTONS
 
 .radioInput {
   height: 80px;
-  width: 300px;
+  width: 90%;
   margin-bottom: 2rem;
   display: flex;
   align-items: center;
@@ -39,10 +40,11 @@
 }
 
 .label {
+  width: 100%;
   text-align: center;
-  font-size: calc(0.5rem + 0.5vw);
+  font-size: calc(0.7rem + 1.5vw);
   font-weight: 600;
-  font-family: "poppins", sans-serif;
+  font-family: var(--second-font);
   padding: 18px 15px;
   border-radius: 35px;
   transition: 0.5s;
@@ -57,15 +59,17 @@
   background: linear-gradient(45deg, #cf6efb, #4f29cd);
   color: white;
   transform: translateY(-4px);
+  height: 70px;
 }
 
 .radioInput input[type="radio"]:hover:not(:checked) + label {
   box-shadow:
     inset 10px 10px 15px rgba(0, 0, 0, 0.151),
     inset 10px 10px 15px rgba(0, 0, 0, 0.218);
+  width: 90%;
 }
 
-//FENETRE DU CONTENU TEXTE
+// FENETRE DU CONTENU TEXTE
 
 .rulesContent,
 .legalsMentionsContent,
@@ -75,14 +79,16 @@
   margin: 0 2rem;
   border-radius: 10px;
   text-align: left;
+  color: var(--white-font);
   background-color: rgba(194, 76, 246, 0.6);
   overflow-y: auto;
-  font-family: "poppins", sans-serif;
-
+  font-family: var(--second-font);
+  df:kns:dlfjbslkdbhf &::-webkit-scrollbar {
+    width: 12px;
+  }
   &::-webkit-scrollbar {
     width: 12px;
   }
-
   &::-webkit-scrollbar-thumb {
     background-color: var(--primary-color);
     border-radius: 10px;
@@ -94,6 +100,7 @@
     border-radius: 10px;
   }
 }
+
 // Version DESKTOP //
 
 @media (min-width: 770px) {
@@ -107,13 +114,48 @@
 
   .radioInput {
     height: 250px;
-    width: 200px;
+    width: 300px;
     display: flex;
     flex-direction: column;
     margin-bottom: 0;
   }
+  .radioInput input[type="radio"]:checked + label {
+    box-shadow:
+      10px 10px 15px rgba(0, 0, 0, 0.151),
+      10px 10px 15px rgba(0, 0, 0, 0.218);
+    background: linear-gradient(45deg, #cf6efb, #4f29cd);
+    color: white;
+    transform: translateY(-4px);
+    width: 90%;
+  }
 
-  // PARTIE TEXTE
+  .radioInput input[type="radio"]:hover:not(:checked) + label {
+    box-shadow:
+      inset 10px 10px 15px rgba(0, 0, 0, 0.151),
+      inset 10px 10px 15px rgba(0, 0, 0, 0.218);
+    width: 90%;
+  }
+
+  .label {
+    height: 80px;
+    width: 150px;
+    font-size: calc(0.8rem + 0.5vw);
+    font-weight: 600;
+    font-family: var(--second-font);
+    padding: 18px 15px;
+    border-radius: 35px;
+    transition: 0.5s;
+    cursor: pointer;
+    color: black;
+  }
+
+  .label:hover {
+    box-shadow:
+      inset 10px 10px 15px rgba(0, 0, 0, 0.151),
+      inset 10px 10px 15px rgba(0, 0, 0, 0.218);
+    height: 80px;
+    width: 150px;
+  }
 
   .rulesContent,
   .legalsMentionsContent,
@@ -121,7 +163,7 @@
     width: 60rem;
     max-height: 60vh;
     text-align: left;
-    font-family: "poppins", sans-serif;
+    font-family: var(--second-font);
     font-size: calc(0.5rem + 0.8vw);
   }
 }

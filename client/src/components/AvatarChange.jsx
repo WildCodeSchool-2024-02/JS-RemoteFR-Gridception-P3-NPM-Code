@@ -5,6 +5,7 @@ import { Dialog } from "primereact/dialog";
 import { Button } from "primereact/button";
 
 import Users from "../assets/images/user_profil.png";
+import Change from "../assets/images/icon_change_avatar.png";
 
 import "../styles/AvatarChange.scss";
 
@@ -29,6 +30,7 @@ export default function AvatarChange() {
   return (
     <section className="AvatarContainer">
       <button type="button" onClick={() => setImageCrop(true)}>
+        <img className="Change" src={Change} alt="boutton changement avatar" />
         <img src={profile === false ? Users : profile} alt="avatar" />
       </button>
       <h1 className="UserName">Anthony GORSKI</h1>

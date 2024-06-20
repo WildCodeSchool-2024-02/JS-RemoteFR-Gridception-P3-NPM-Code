@@ -7,7 +7,7 @@ function Home() {
   return (
     <section className="mainDesktop">
       <div className="addStreetArt">
-        <article className="textContent">
+        <article className="homeTextContent">
           <h1 className="mainTitle">
             STREET ART <br /> HUNTER
           </h1>
