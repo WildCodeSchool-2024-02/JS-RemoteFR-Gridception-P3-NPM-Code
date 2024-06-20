@@ -4,10 +4,11 @@ import { Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 
-import User from "../assets/images/user_profil.png";
+import AvatarChange from "../components/AvatarChange";
 
 const AccordionContainer = styled(Accordion)(() => ({
-  backgroundColor: "transparent",
+  backgroundColor: "#d500f9",
+  width: "30",
 }));
 
 const AccordionTitle = styled(AccordionSummary)(({ theme }) => ({
@@ -39,7 +40,8 @@ function Profile() {
 
   useEffect(() => {
     axios
-      .get(`http://127.0.0.1:3310/api/pictures/street_arts/users/6`)
+
+      .get(`${import.meta.env.VITE_API_URL}/api/pictures/street_arts/users/10`)
       .then((results) => {
         setPicturesStreetArt(results.data);
       })
@@ -48,8 +50,7 @@ function Profile() {
 
   return (
     <section className="ProfileComponent">
-      <img src={User} alt="profil utilisateur" />
-      <h1>Anthony Gorski</h1>
+      <AvatarChange />
 
       <p className="counterPoint">69 Points</p>
 
@@ -63,7 +64,7 @@ function Profile() {
               <Typography variant="h2">Mes Oeuvres</Typography>
             </AccordionTitle>
             <AccordionElements>
-              <div className="myPicture">
+              <div className="myArtStreet ">
                 {picturesStreetArt.map((picture) => (
                   <img key={picture.id} src={picture.url} alt={picture.name} />
                 ))}
@@ -77,7 +78,7 @@ function Profile() {
             onChange={handleChange("panel2")}
           >
             <AccordionTitle>
-              <Typography variant="h2">Mes favoris</Typography>
+              <Typography variant="h2">Mes Badges</Typography>
             </AccordionTitle>
             <AccordionElements>{/* <p>pour test</p> */}</AccordionElements>
           </AccordionContainer>
@@ -110,7 +111,7 @@ function Profile() {
           </div>
         </section>
         <section>
-          <h2>Mes favoris</h2>
+          <h2>Mes Badges</h2>
         </section>
         <section>
           <h2>Mes infos</h2>

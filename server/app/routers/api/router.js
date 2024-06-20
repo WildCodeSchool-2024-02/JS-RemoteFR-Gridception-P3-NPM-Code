@@ -10,6 +10,10 @@ const catagoriesRouter = require("./categories/CategoriesRouter");
 
 router.use("/categories", catagoriesRouter);
 
+const contactsRouter = require("./contacts/ContactsRouter");
+
+router.use("/contacts", contactsRouter);
+
 const streetArtsRouter = require("./street_arts/Street_ArtsRouter");
 
 router.use("/street_arts", streetArtsRouter);

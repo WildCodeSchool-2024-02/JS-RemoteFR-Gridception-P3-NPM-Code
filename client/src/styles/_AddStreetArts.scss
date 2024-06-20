@@ -1,0 +1,76 @@
+.Add-text {
+  color: var(--primary-text-color);
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  margin-top: 0;
+}
+
+label {
+  margin: 0.3rem;
+  font-family: var(--second-font);
+}
+
+.add-picture {
+  background-color: rgba(194, 76, 246, 0.6);
+  padding: 1rem;
+  margin: 1rem 2rem 0 2rem;
+  color: white;
+  border-radius: 10px;
+}
+
+.form-submit-btn {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  font-family: inherit;
+  color: white;
+  font-weight: 600;
+  width: 40%;
+  background: var(--button-color);
+  font-family: var(--second-font);
+  border: 1px solid #414141;
+  padding: 12px 16px;
+  font-size: inherit;
+
+  gap: 8px;
+  margin-top: 1rem;
+  cursor: pointer;
+  box-shadow: #000000 0px 7px 10px -5px inset;
+  border-radius: 6px;
+}
+
+.input-container,
+.input-container-description {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 8px;
+  color: black;
+  font-family: inherit;
+  background-color: var(--input-background-color);
+  border: 1px solid #414141;
+  box-shadow: #000000 0px 7px 10px -5px inset;
+}
+
+.input-container-description {
+  height: 4.5rem;
+}
+
+@media (min-width: 770px) {
+  .add-picture {
+    margin: 1rem 30rem 0 30rem;
+  }
+  .form-submit-btn {
+    width: 15rem;
+  }
+
+  label {
+    font-size: 1.5rem;
+  }
+}
+
+//cacher le add image street art
+
+// .add-picture-app {
+//   display: none;
+// }

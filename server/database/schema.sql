@@ -27,6 +27,7 @@ create table street_arts (
   artist VARCHAR(80),
   latitude INT NOT NULL,
   longitude INT NOT NULL,
+  main_url VARCHAR(155) NOT NULL,
   is_valid BOOLEAN NOT NULL
 );
 
@@ -52,3 +53,11 @@ create table street_arts_categories (
   categories_id INT NOT NULL,
   street_arts_id INT NOT NULL
 );
+
+
+CREATE TABLE contacts (
+  id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  fullname VARCHAR(155) NOT NULL,
+  mail VARCHAR(80) NOT NULL,
+  message TEXT NOT NULL
+)

@@ -1,0 +1,9 @@
+.MuiImageList-root {
+  overflow: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.MuiImageList-root::-webkit-scrollbar {
+  display: none;
+}

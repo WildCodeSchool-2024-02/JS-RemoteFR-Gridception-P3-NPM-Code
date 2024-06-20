@@ -1,4 +1,3 @@
-/* eslint-disable array-callback-return */
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import mapboxgl from "mapbox-gl";
@@ -15,7 +14,7 @@ function Map() {
 
   useEffect(() => {
     axios
-      .get(`http://127.0.0.1:3310/api/street_arts/pictures`)
+      .get(`${import.meta.env.VITE_API_URL}/api/street_arts/`)
       .then((results) => {
         setDatas(results.data);
         console.info(results);
@@ -31,7 +30,7 @@ function Map() {
       container: mapContainer.current,
       style: "mapbox://styles/anonymze/clx26p0rq004201qqe1jq2pxn",
       center: [4, 47],
-      zoom: 5.2,
+      zoom: 5,
     });
 
     map.current.addControl(
@@ -48,14 +47,18 @@ function Map() {
   useEffect(() => {
     if (!map.current || datas.length === 0) return;
 
-    datas.map((oeuvre) => {
+    datas.forEach((oeuvre) => {
       const popupContent = `
        <div class="popup-container">
           <h3 class="popuptitle">${oeuvre.title}</h3>
-          <img class="imgpopup-container" src=${oeuvre.url} alt="oeuvres" />
+          <img class="imgpopup-container" src=${oeuvre.main_url} alt="oeuvres" />
 <div class="button-container">
-          <img src=${Add} alt="icone"/> 
-          <img src=${info} alt="icone"/>
+          <a href="/addpictures">
+              <img src=${Add} alt="icone ajout"/>
+            </a>
+            <a href="/streeArt">
+              <img src=${info} alt="icone pour plus de détails"/>
+            </a>
 </div>
         </div>`;
 

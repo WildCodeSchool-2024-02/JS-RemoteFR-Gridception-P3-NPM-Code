@@ -15,7 +15,6 @@ class UsersRepository extends AbstractRepository {
       `insert into ${this.table} (roles_id, firstname, lastname, avatar, points, city, email, password) values (?, ?, ?, ?, ?, ?, ?, ?)`,
       [
         users.roles_id,
-
         users.firstname,
         users.lastname,
         users.avatar,
@@ -52,18 +51,40 @@ class UsersRepository extends AbstractRepository {
   }
 
   // The U of CRUD - Update operation
-  // TODO: Implement the update operation to modify an existing users
 
-  // async update(users) {
-  //   ...
-  // }
+  async update(users) {
+    // Execute the SQL UPDATE query to update a specific category
+    const [result] = await this.database.query(
+      `update ${this.table} set roles_id = ?, firstname = ?, lastname = ?, avatar = ?, points = ?, city = ?, email = ?, password = ? where id = ?`,
+      [
+        users.roles_id,
+        users.firstname,
+        users.lastname,
+        users.avatar,
+        users.points,
+        users.city,
+        users.email,
+        users.password,
+        users.id,
+      ]
+    );
+
+    // Return how many rows were affected
+    return result.affectedRows;
+  }
 
   // The D of CRUD - Delete operation
-  // TODO: Implement the delete operation to remove an users by its ID
 
-  // async delete(id) {
-  //   ...
-  // }
+  async delete(id) {
+    // Execute the SQL DELETE query to delete a specific category
+    const [result] = await this.database.query(
+      `delete from ${this.table} where id = ?`,
+      [id]
+    );
+
+    // Return how many rows were affected
+    return result.affectedRows;
+  }
 }
 
 module.exports = UsersRepository;

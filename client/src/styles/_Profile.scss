@@ -1,15 +1,12 @@
 .ProfileComponent {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  margin-top: 3rem;
+  margin-top: 5rem;
   color: var(--primary-text-color);
 
-  img {
-    width: 200px;
-  }
-
-  h1 {
+  label {
     font-size: calc(1.5rem + 1vw);
     margin-bottom: 0.5rem;
   }
@@ -21,36 +18,38 @@
 
 .ProfileSectionMobile {
   text-align: center;
-  width: 70%;
-  margin: 2rem;
+  min-width: 85vw;
+  margin: 5rem 2rem 2rem 2rem;
   h2 {
     color: var(--primary-text-color);
-    font-size: calc(0.7rem + 1vw);
+    font-size: calc(1rem + 1vw);
     text-align: center;
-    font-family: "Fugaz One", sans-serif;
-  }
-
-  .myPicture {
-    display: grip;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    img {
-      margin: 0.5rem;
-    }
+    font-family: var(--primary-font);
+    text-shadow: var(--text-shadow);
   }
 }
+.myArtStreet {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  overflow: scroll;
+  img {
+    margin: 0.5rem;
+    width: 8rem;
+  }
+}
+
 .ProfileSection {
   display: none;
 }
 
+// media queri destop
+
 @media (min-width: 770px) {
   .ProfileComponent {
-    margin-top: 0;
-    h1 {
+    margin-top: 4rem;
+    label {
       margin-top: 0.5rem;
-    }
-    img {
-      width: 13%;
     }
   }
   .ProfileSectionMobile {
@@ -61,7 +60,7 @@
     display: flex;
     justify-content: space-around;
     text-align: center;
-    width: 100%;
+    max-width: 100vw;
     margin: 1rem;
     h2 {
       color: var(--primary-text-color);
@@ -81,9 +80,8 @@
       );
     }
     .myStreetArt {
-      display: grip;
       grid-template-columns: 1fr 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
+
       img {
         width: 5rem;
         margin: 0.5rem;
