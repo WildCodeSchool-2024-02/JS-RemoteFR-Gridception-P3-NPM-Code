@@ -17,7 +17,7 @@ const browse = async (req, res, next) => {
 const browseByUserId = async (req, res, next) => {
   try {
     // Fetch a specific item from the database based on the provided ID
-    const pictures = await tables.pictures.browseByUserId(req.params.id);
+    const pictures = await tables.pictures.readByUserId(req.params.id);
 
     // If the item is not found, respond with HTTP 404 (Not Found)
     // Otherwise, respond with the item in JSON format
