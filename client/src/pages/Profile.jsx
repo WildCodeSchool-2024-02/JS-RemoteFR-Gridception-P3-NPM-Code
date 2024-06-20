@@ -7,7 +7,8 @@ import Typography from "@mui/material/Typography";
 import AvatarChange from "../components/AvatarChange";
 
 const AccordionContainer = styled(Accordion)(() => ({
-  backgroundColor: "transparent",
+  backgroundColor: "#d500f9",
+  width: "30",
 }));
 
 const AccordionTitle = styled(AccordionSummary)(({ theme }) => ({
@@ -39,6 +40,7 @@ function Profile() {
 
   useEffect(() => {
     axios
+
       .get(`${import.meta.env.VITE_API_URL}/api/pictures/street_arts/users/10`)
       .then((results) => {
         setPicturesStreetArt(results.data);
@@ -76,7 +78,7 @@ function Profile() {
             onChange={handleChange("panel2")}
           >
             <AccordionTitle>
-              <Typography variant="h2">Mes favoris</Typography>
+              <Typography variant="h2">Mes Badges</Typography>
             </AccordionTitle>
             <AccordionElements>{/* <p>pour test</p> */}</AccordionElements>
           </AccordionContainer>
@@ -109,7 +111,7 @@ function Profile() {
           </div>
         </section>
         <section>
-          <h2>Mes favoris</h2>
+          <h2>Mes Badges</h2>
         </section>
         <section>
           <h2>Mes infos</h2>

@@ -37,10 +37,9 @@
   margin-top: 1rem;
 }
 
-h3,
-h2 {
+.NavText {
   filter: drop-shadow(10px 7px 10px rgb(71, 1, 92));
-  font-family: "Roboto", sans-serif;
+  font-family: var(--second-font);
 }
 
 .point {
