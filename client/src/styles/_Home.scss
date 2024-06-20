@@ -15,20 +15,24 @@
   .mainDesktop {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 2rem;
   }
 
   //PARTIE DES TEXTES
-  .textContent {
+  .homeTextContent {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    margin: 2rem 2rem 0 2rem;
   }
 
   .mainTitle {
     font-size: calc(2.5rem + 0.8vw);
     color: var(--primary-text-color);
+    margin: 0;
   }
 
   .secondTitle {
@@ -46,8 +50,6 @@
   //PARTIE MAP
 
   .mainDesktop > .map-container {
-    position: absolute;
-    right: 50px;
     width: 55vw;
     height: 65vh;
     border-radius: 25px;

@@ -1,4 +1,3 @@
-/* eslint-disable array-callback-return */
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import mapboxgl from "mapbox-gl";
@@ -48,14 +47,18 @@ function Map() {
   useEffect(() => {
     if (!map.current || datas.length === 0) return;
 
-    datas.map((oeuvre) => {
+    datas.forEach((oeuvre) => {
       const popupContent = `
        <div class="popup-container">
           <h3 class="popuptitle">${oeuvre.title}</h3>
           <img class="imgpopup-container" src=${oeuvre.url} alt="oeuvres" />
 <div class="button-container">
-          <img src=${Add} alt="icone"/> 
-          <img src=${info} alt="icone"/>
+          <a href="/addpictures">
+              <img src=${Add} alt="icone ajout"/>
+            </a>
+            <a href="/streeArt">
+              <img src=${info} alt="icone pour plus de détails"/>
+            </a>
 </div>
         </div>`;
 

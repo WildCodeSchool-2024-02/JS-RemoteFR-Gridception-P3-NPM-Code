@@ -52,7 +52,6 @@
   .navbarTop {
     display: flex;
     list-style: none;
-    padding-right: 1.5rem;
   }
 
   .navbarContent {
@@ -62,10 +61,10 @@
   }
 
   .navbarContent > a {
-    font-size: calc(0.6rem + 1vw);
+    font-size: calc(0.5rem + 1vw);
   }
 
   .logoDesktop {
-    width: 120px;
+    width: 6rem;
   }
 }

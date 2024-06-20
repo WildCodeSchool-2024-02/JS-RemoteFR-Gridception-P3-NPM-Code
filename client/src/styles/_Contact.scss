@@ -1,8 +1,8 @@
 .form-container-contact {
   margin: auto;
   margin-top: 1rem;
-  width: 400px;
-
+  width: 90vw;
+  height: 80vh;
   background:
     linear-gradient(#c34cf6b4, #c34cf6b4) padding-box,
     linear-gradient(145deg, transparent 35%, #e81cfffa, #40c9ff) border-box;
@@ -34,6 +34,11 @@
   100% {
     background-position: 0% 50%;
   }
+}
+
+.mainTitleContact {
+  text-align: center;
+  color: var(--primary-text-color);
 }
 
 .form-container-contact button:active {
@@ -132,16 +137,20 @@
 
 @media (min-width: 770px) {
   .form-container-contact {
+    width: 50vw;
+    height: auto;
+    margin-top: 0;
+    padding: 0;
+
     h1 {
-      font-size: 36px;
+      font-size: 1.5rem;
     }
     .form-group-contact label {
-      font-size: 24px;
+      font-size: 1rem;
     }
     .form-contact {
       width: 90%;
     }
-    width: 50vw;
   }
   .logoMobile {
     display: none;
