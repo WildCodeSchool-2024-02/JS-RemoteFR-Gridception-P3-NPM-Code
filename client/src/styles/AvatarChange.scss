@@ -3,6 +3,7 @@
   margin: 0.5rem;
   margin-top: 0;
   text-align: center;
+  text-shadow: var(--text-shadow);
 }
 
 .AvatarContainer {
@@ -16,19 +17,19 @@
     border: 0;
     border-radius: 50%;
     img {
-      max-width: 27vw;
-      max-height: 27vh;
+      max-width: 35vw;
+      max-height: 35vh;
       object-fit: cover;
     }
   }
 }
 
-.Change {
+.change {
   position: absolute;
   bottom: 0;
   right: 10px;
-  max-width: 10vw;
-  max-height: 10vh;
+  max-width: 8vw;
+  max-height: 8vh;
 }
 
 // Choix Avatar
@@ -60,4 +61,19 @@
 .p-button-label {
   font-size: 1rem;
   font-family: var(--primary-font);
+}
+
+@media (min-width: 770px) {
+  .AvatarContainer {
+    button {
+      img {
+        max-width: 18vw;
+        max-height: 18vh;
+      }
+    }
+  }
+  .change {
+    max-width: 10vw;
+    max-height: 10vh;
+  }
 }
