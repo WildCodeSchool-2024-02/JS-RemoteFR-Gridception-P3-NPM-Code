@@ -1,21 +1,22 @@
 .RankingComponent {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   color: var(--primary-text-color);
+  margin: 1rem;
 }
 
 .RankingNav {
   display: flex;
   gap: 13rem;
-  margin-bottom: 2rem;
-  margin-top: 2rem;
+  margin: 2rem;
   background-color: rgba(194, 76, 246, 0.6);
   .NavJoueur {
-    padding: 0.2rem 1rem 0.2rem 1rem;
+    padding-left: 1rem;
   }
   .NavPoint {
-    padding: 0.2rem 1rem 0.2rem 1rem;
+    padding-right: 1rem;
   }
 }
 
