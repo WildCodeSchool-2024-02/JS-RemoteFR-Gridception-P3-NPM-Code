@@ -12,9 +12,10 @@ class StreetArtsRepository extends AbstractRepository {
   async create(streetArts) {
     // Execute the SQL INSERT query to add a new streetArts to the "streetArts" table
     const [result] = await this.database.query(
-      `insert into ${this.table} (users_id, title, description, artist, latitude, longitude, is_valid ) values (?, ?, ?, ?, ?, ?, ?)`,
+      `insert into ${this.table} (users_id, main_picture, title, description, artist, latitude, longitude, is_valid ) values (?, ?, ?, ?, ?, ?, ?, ?)`,
       [
         streetArts.users_id,
+        streetArts.main_picture,
         streetArts.title,
         streetArts.description,
         streetArts.artist,
@@ -77,9 +78,10 @@ class StreetArtsRepository extends AbstractRepository {
   async update(streetArts) {
     // Execute the SQL UPDATE query to update a specific category
     const [result] = await this.database.query(
-      `update ${this.table} set users_id = ?, title = ?, description = ?, artist = ?, latitude = ?, longitude = ?, is_valid = ?, where id = ?`,
+      `update ${this.table} set users_id = ?, main_picture = ?, title = ?, description = ?, artist = ?, latitude = ?, longitude = ?, is_valid = ?, where id = ?`,
       [
         streetArts.users_id,
+        streetArts.main_picture,
         streetArts.title,
         streetArts.description,
         streetArts.artist,
