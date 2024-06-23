@@ -1,6 +1,8 @@
-import { useState } from "react";
 import axios from "axios";
+import { useState } from "react";
+
 import { ToastContainer, toast } from "react-toastify";
+
 import "react-toastify/dist/ReactToastify.css";
 
 function AddStreetArts() {
@@ -48,9 +50,9 @@ function AddStreetArts() {
 
   return (
     <>
-      <section className="GalleryComponent">
+      <section className="gallery-component">
         <form className="add-picture">
-          <h2 className="Add-text">Ajouter une photo:</h2>
+          <h2 className="add-text">Ajouter une photo:</h2>
           <section className="add-picture-app">
             <input
               type="file"

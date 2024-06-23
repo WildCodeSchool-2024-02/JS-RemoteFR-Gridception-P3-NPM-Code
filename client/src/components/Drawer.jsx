@@ -1,24 +1,24 @@
 import * as React from "react";
+import { Link } from "react-router-dom";
+
 import Box from "@mui/material/Box";
-import Drawer from "@mui/material/Drawer";
 import Button from "@mui/material/Button";
-import List from "@mui/material/List";
+import CssBaseline from "@mui/material/CssBaseline";
 import Divider from "@mui/material/Divider";
+import Drawer from "@mui/material/Drawer";
+import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import CssBaseline from "@mui/material/CssBaseline";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-import { Link } from "react-router-dom";
-
+import dot from "../assets/images/dot_icon.png";
+import logo from "../assets/images/logo.png";
 import tetrispurple from "../assets/images/tetrispurple.png";
 import tetrispurple2 from "../assets/images/tetrispurple2.png";
 import tetrisyellow2 from "../assets/images/tetrisyellow2.png";
 // import tetrisyellow from "../assets/images/tetrisyellow.png";
-import dot from "../assets/images/dot_icon.png";
-import logo from "../assets/images/logo.png";
 
 // theme personnalisé pour la font Fugaz One
 const theme = createTheme({
@@ -60,10 +60,10 @@ export default function AnchorTemporaryDrawer() {
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
-      <div className="drawerLogTitle">
-        <h1 className="drawerTitle">Street Art</h1>
-        <img src={logo} alt="logo du site " className="logoInDrawer" />
-        <h2 className="drawerTitle2">Hunter</h2>
+      <div className="drawer-log-title">
+        <h1 className="drawer-title">Street Art</h1>
+        <img src={logo} alt="logo du site " className="logo-in-drawer" />
+        <h2 className="drawer-title-2">Hunter</h2>
       </div>
       <List>
         <Link to="/galerie">
@@ -74,7 +74,7 @@ export default function AnchorTemporaryDrawer() {
                   <img
                     src={tetrispurple}
                     alt="galerie icon"
-                    className="drawerIcon"
+                    className="drawer-icon"
                   />
                 </ListItemIcon>
                 <ListItemText primary={text} />
@@ -94,7 +94,7 @@ export default function AnchorTemporaryDrawer() {
                   <img
                     src={tetrisyellow2}
                     alt="a propos icon"
-                    className="drawerIcon"
+                    className="drawer-icon"
                   />
                 </ListItemIcon>
                 <ListItemText primary={text} />
@@ -113,7 +113,7 @@ export default function AnchorTemporaryDrawer() {
                   <img
                     src={tetrispurple2}
                     alt="contact icon"
-                    className="drawerIcon"
+                    className="drawer-icon"
                   />
                 </ListItemIcon>
                 <ListItemText primary={text} />
@@ -128,14 +128,14 @@ export default function AnchorTemporaryDrawer() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <div className="drawerButtonContainer">
+      <div className="drawer-button-container">
         {["right"].map((anchor) => (
           <React.Fragment key={anchor}>
             <Button
               onClick={toggleDrawer(anchor, true)}
-              className="drawerButton"
+              className="drawer-button"
             >
-              <img src={dot} alt="icon menu" className="burgerLogo" />
+              <img src={dot} alt="icon menu" className="burger-logo" />
             </Button>
 
             <Drawer

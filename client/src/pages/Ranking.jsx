@@ -16,13 +16,13 @@ function Ranking() {
   }, []);
 
   return (
-    <section className="RankingComponent">
-      <div className="RankingNav">
-        <section className="NavJoueur">
-          <h2 className="NavText">Joueur</h2>
+    <section className="ranking-component">
+      <div className="ranking-nav">
+        <section className="nav-joueur">
+          <h2 className="nav-text">Joueur</h2>
         </section>
-        <section className="NavPoint">
-          <h2 className="NavText">Points</h2>
+        <section className="nav-point">
+          <h2 className="nav-text">Points</h2>
         </section>
       </div>
       <div className="liste-container">

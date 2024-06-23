@@ -1,11 +1,12 @@
 import { useState } from "react";
-import Avatar from "react-avatar-edit";
-import { InputText } from "primereact/inputtext";
-import { Dialog } from "primereact/dialog";
-import { Button } from "primereact/button";
 
-import Users from "../assets/images/user_profil.png";
+import Avatar from "react-avatar-edit";
+import { Button } from "primereact/button";
+import { Dialog } from "primereact/dialog";
+import { InputText } from "primereact/inputtext";
+
 import Change from "../assets/images/icon_change_avatar.png";
+import Users from "../assets/images/user_profil.png";
 
 import "../styles/AvatarChange.scss";
 
@@ -28,17 +29,17 @@ export default function AvatarChange() {
   };
 
   return (
-    <section className="AvatarContainer">
+    <section className="avatar-container">
       <button type="button" onClick={() => setImageCrop(true)}>
-        <img className="Change" src={Change} alt="boutton changement avatar" />
+        <img className="change" src={Change} alt="boutton changement avatar" />
         <img src={profile === false ? Users : profile} alt="avatar" />
       </button>
-      <h1 className="UserName">Anthony GORSKI</h1>
+      <h1 className="user-name">Anthony GORSKI</h1>
 
       <Dialog
         visible={imageCrop}
         onHide={() => setImageCrop(false)}
-        className="DialogContainer"
+        className="dialog-container"
       >
         <div>
           <Avatar
@@ -49,7 +50,7 @@ export default function AvatarChange() {
             src={src}
           />
 
-          <div className="ButtonSaveAvatar">
+          <div className="button-save-avatar">
             <Button
               onClick={saveCropImage}
               label="Sauvegarde"

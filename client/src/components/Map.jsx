@@ -1,9 +1,12 @@
-import { useEffect, useRef, useState } from "react";
 import axios from "axios";
+import { useEffect, useRef, useState } from "react";
+
 import mapboxgl from "mapbox-gl";
-import "mapbox-gl/dist/mapbox-gl.css";
+
 import Add from "../assets/images/add_icon2.png";
 import info from "../assets/images/info2.png";
+
+import "mapbox-gl/dist/mapbox-gl.css";
 
 function Map() {
   const mapContainer = useRef(null);
@@ -50,8 +53,8 @@ function Map() {
     datas.forEach((oeuvre) => {
       const popupContent = `
        <div class="popup-container">
-          <h3 class="popuptitle">${oeuvre.title}</h3>
-          <img class="imgpopup-container" src=${oeuvre.url} alt="oeuvres" />
+          <h3 class="popup-title">${oeuvre.title}</h3>
+          <img class="img-popup-container" src=${oeuvre.url} alt="oeuvres" />
 <div class="button-container">
           <a href="/addpictures">
               <img src=${Add} alt="icone ajout"/>

@@ -1,6 +1,8 @@
-import { useState } from "react";
 import axios from "axios";
+import { useState } from "react";
+
 import { ToastContainer, toast } from "react-toastify";
+
 import logo from "../assets/images/logo.png";
 import Tetris from "../assets/images/Tetris.gif";
 
@@ -47,7 +49,7 @@ function Register() {
     );
   return (
     <section className="form-container">
-      <img src={logo} alt="Street Art Hunter logo" className="logoMobile" />
+      <img src={logo} alt="Street Art Hunter logo" className="logo-mobile" />
       <div className="wrap">
         <span className="letter">I</span>
         <span className="letter">N</span>
