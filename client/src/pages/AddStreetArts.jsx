@@ -71,7 +71,7 @@ function AddStreetArts() {
           <h2 className="Add-text">Ajouter une oeuvre:</h2>
           <div className="file-section">
             <label htmlFor="file" className="file-label">
-              hello
+              Ajouter votre photo
             </label>
             <input
               type="file"
