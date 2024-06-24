@@ -113,7 +113,7 @@
   // Les bouttons
 
   .radioInput {
-    height: 250px;
+    height: 260px;
     width: 300px;
     display: flex;
     flex-direction: column;
@@ -137,9 +137,9 @@
   }
 
   .label {
-    height: 80px;
-    width: 150px;
-    font-size: calc(0.8rem + 0.5vw);
+    height: 100px;
+    width: 250px;
+    font-size: calc(0.8rem + 0.4vw);
     font-weight: 600;
     font-family: var(--second-font);
     padding: 18px 15px;
