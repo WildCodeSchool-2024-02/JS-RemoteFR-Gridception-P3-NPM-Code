@@ -47,7 +47,7 @@ function Contact() {
     <>
       <section className="form-container-contact">
         <img src={logo} alt="Street Art Hunter logo" className="logo-mobile" />
-        <h1 className="mainTitleContact">Vous vouliez nous dire un truc ?</h1>
+        <h1 className="main-title-contact">Vous vouliez nous dire un truc ?</h1>
         <form className="form-contact">
           <div className="form-group-contact">
             <label htmlFor="fullname">Nom</label>

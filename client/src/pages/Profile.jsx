@@ -50,7 +50,7 @@ function Profile() {
   });
 
   return (
-    <section className="Profile-component">
+    <section className="profile-component">
       <AvatarChange />
 
       <p className="counter-point">69 Points</p>

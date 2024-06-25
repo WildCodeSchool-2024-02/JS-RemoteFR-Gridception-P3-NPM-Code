@@ -1,4 +1,4 @@
-.profileComponent {
+.profile-component {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,13 +9,13 @@
     font-size: calc(1.5rem + 1vw);
     margin-bottom: 0.5rem;
   }
-  .counterPoint {
+  .counter-point {
     margin: 0;
     background-color: var(--button-color);
   }
 }
 
-.profileSectionMobile {
+.profile-section-mobile {
   text-align: center;
   min-width: 70vw;
   margin: 2rem;
@@ -26,7 +26,7 @@
     font-family: var(--primary-font);
   }
 
-  .myArtStreet {
+  .my-art-street {
     display: grip;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
@@ -35,22 +35,22 @@
     }
   }
 }
-.profileSection {
+.profile-section {
   display: none;
 }
 
 @media (min-width: 770px) {
-  .profileComponent {
+  .profile-component {
     margin-top: 0;
     label {
       margin-top: 0.5rem;
     }
   }
-  .profileSectionMobile {
+  .profile-section-mobile {
     display: none;
   }
 
-  .profileSection {
+  .profile-section {
     display: flex;
     justify-content: space-around;
     text-align: center;
@@ -73,7 +73,7 @@
         transparent
       );
     }
-    .myStreetArt {
+    .my-street-art {
       display: grip;
       grid-template-columns: 1fr 1fr 1fr;
       grid-template-rows: 1fr 1fr;

@@ -20,8 +20,8 @@ function About() {
           name="value-radio"
           id="value-2"
           type="radio"
-          checked={selectedSection === "legalsMentions"}
-          onChange={() => setSelectedSection("legalsMentions")}
+          checked={selectedSection === "legals-mentions"}
+          onChange={() => setSelectedSection("legals-mentions")}
         />
         <label htmlFor="value-2" className="label">
           Mentions Légales
@@ -30,8 +30,8 @@ function About() {
           name="value-radio"
           id="value-3"
           type="radio"
-          checked={selectedSection === "cguContent"}
-          onChange={() => setSelectedSection("cguContent")}
+          checked={selectedSection === "cgu-content"}
+          onChange={() => setSelectedSection("cgu-content")}
         />
         <label htmlFor="value-3" className="label">
           CGU
