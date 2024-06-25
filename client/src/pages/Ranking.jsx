@@ -16,25 +16,27 @@ function Ranking() {
   }, []);
 
   return (
-    <section className="ranking-component">
-      <div className="ranking-nav">
-        <section className="nav-joueur">
-          <h2 className="nav-text">Joueur</h2>
-        </section>
-        <section className="nav-point">
-          <h2 className="nav-text">Points</h2>
-        </section>
-      </div>
-      <div className="liste-container">
-        {datas.map((data) => (
-          <div className="joueur-container" key={data.id}>
-            <h3>
-              {data.firstname} {data.lastname}
-            </h3>
-            <div className="point">{data.points}</div>
-          </div>
-        ))}
-      </div>
+    <section className="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Joueur</th>
+            <th className="th-point" scope="col">
+              Point
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {datas.map((data) => (
+            <tr key={data.id}>
+              <td className="joueur">
+                {data.firstname} {data.lastname}{" "}
+              </td>
+              <td className="points">{data.points}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </section>
   );
 }

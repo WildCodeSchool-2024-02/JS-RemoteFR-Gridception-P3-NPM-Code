@@ -17,7 +17,7 @@ function Map() {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_API_URL}/api/street_arts/pictures`)
+      .get(`${import.meta.env.VITE_API_URL}/api/street_arts/`)
       .then((results) => {
         setDatas(results.data);
         console.info(results);
@@ -33,7 +33,7 @@ function Map() {
       container: mapContainer.current,
       style: "mapbox://styles/anonymze/clx26p0rq004201qqe1jq2pxn",
       center: [4, 47],
-      zoom: 5.2,
+      zoom: 5,
     });
 
     map.current.addControl(

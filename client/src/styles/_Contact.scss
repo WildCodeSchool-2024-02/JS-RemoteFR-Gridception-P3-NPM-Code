@@ -139,7 +139,7 @@
   .form-container-contact {
     width: 50vw;
     height: auto;
-    margin-top: 0;
+    margin-top: 4rem;
     padding: 0;
 
     h1 {
@@ -154,5 +154,8 @@
   }
   .logo-mobile {
     display: none;
+  }
+  .form-submit-btn {
+    margin-bottom: 2rem;
   }
 }

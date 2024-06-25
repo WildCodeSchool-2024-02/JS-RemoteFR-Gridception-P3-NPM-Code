@@ -11,7 +11,7 @@ create table users (
   roles_id INT NOT NULL,
   firstname VARCHAR(80) NOT NULL,
   lastname VARCHAR(80) NOT NULL,
-  avatar VARCHAR(255),
+  avatar TEXT,
   points INT,
   city VARCHAR(80),
   email VARCHAR(255) NOT NULL unique,
@@ -27,6 +27,7 @@ create table street_arts (
   artist VARCHAR(80),
   latitude INT NOT NULL,
   longitude INT NOT NULL,
+  main_url VARCHAR(155) NOT NULL,
   is_valid BOOLEAN NOT NULL
 );
 

@@ -1,66 +1,48 @@
-.ranking-component {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: var(--primary-text-color);
-}
+.table-container {
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    color: var(--primary-text-color);
 
-.ranking-nav {
-  display: flex;
-  gap: 13rem;
-  margin-bottom: 2rem;
-  margin-top: 2rem;
-  background-color: rgba(194, 76, 246, 0.6);
-  .nav-joueur {
-    padding: 0.2rem 1rem 0.2rem 1rem;
+    th,
+    td {
+      border: 1px solid rgba(194, 76, 246, 0.6);
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: rgba(194, 76, 246, 0.6);
+    }
+
+    tbody tr:nth-child(even) {
+      background-color: rgba(194, 76, 246, 0.6);
+    }
+
+    tbody tr:hover {
+      background-color: rgba(194, 76, 246, 0.6);
+    }
+
+    .points {
+      display: flex;
+      justify-content: center;
+    }
   }
-  .nav-point {
-    padding: 0.2rem 1rem 0.2rem 1rem;
-  }
 }
 
-.joueur-container {
+.table-container {
+  font-family: "Roboto", sans-serif;
+  margin: 8rem 2rem 0 2rem;
+}
+
+.th-point {
   display: flex;
-  justify-content: space-between;
-  width: 100%;
-  padding: 0 0.5rem;
-  height: 2.5rem;
-  align-items: center;
-  gap: 10rem;
+  justify-content: center;
 }
-
-.liste-container .joueur-container:nth-child(even) {
-  background-color: rgba(194, 76, 246, 0.6);
-  height: 2.5rem;
-  gap: 10rem;
-  margin-bottom: 1rem;
-  margin-top: 1rem;
-}
-
-.nav-text {
-  filter: drop-shadow(10px 7px 10px rgb(71, 1, 92));
-  font-family: var(--second-font);
-}
-
-.point {
-  text-align: right;
-  width: 1rem;
-}
-
-// Version desktop
 
 @media (min-width: 770px) {
-  .ranking-nav {
-    display: flex;
-    gap: 65rem;
-    font-size: 1rem;
-  }
-  .joueur-container {
-    display: flex;
-    gap: 60rem;
-    font-size: 1.4rem;
-  }
-  .point {
-    width: 3rem;
+  .table-container {
+    font-size: 1.5rem;
+    margin: 9rem 5rem 0 5rem;
   }
 }

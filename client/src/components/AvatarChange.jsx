@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 import Avatar from "react-avatar-edit";
 import { Button } from "primereact/button";
@@ -12,10 +13,9 @@ import "../styles/AvatarChange.scss";
 
 export default function AvatarChange() {
   const [imageCrop, setImageCrop] = useState(false);
-
+  const [profile, setProfile] = useState({ avatar: "" });
+  const [pView, setPView] = useState(null);
   const [src] = useState(false);
-  const [profile, setProfile] = useState(false);
-  const [pView, setPView] = useState(false);
 
   const onClose = () => {
     setPView(null);
@@ -23,16 +23,44 @@ export default function AvatarChange() {
   const onCrop = (imageCropped) => {
     setPView(imageCropped);
   };
+
   const saveCropImage = () => {
-    setProfile(pView);
+    setProfile({ avatar: pView });
     setImageCrop(false);
+    console.info(profile);
   };
+
+  useEffect(() => {
+    if (!profile.avatar) {
+      return;
+    }
+
+    axios
+      .put(`${import.meta.env.VITE_API_URL}/api/users/10`, {
+        ...profile,
+        roles_id: "2",
+        firstname: "Marlen",
+        lastname: "Brekke",
+        points: "3",
+        city: "Port Travonside",
+        email: "Alize_Schmeler23@gmail.com",
+        password: "xn2vRa7iKk_xhtX",
+      })
+      .then((res) => {
+        console.info(res);
+      })
+      .catch((err) => console.info(err));
+  }, [profile]);
 
   return (
     <section className="avatar-container">
       <button type="button" onClick={() => setImageCrop(true)}>
         <img className="change" src={Change} alt="boutton changement avatar" />
-        <img src={profile === false ? Users : profile} alt="avatar" />
+        <img
+          className="avatar"
+          src={profile.avatar === "" ? Users : profile.avatar}
+          alt="avatar"
+        />
       </button>
       <h1 className="user-name">Anthony GORSKI</h1>
 
@@ -47,6 +75,7 @@ export default function AvatarChange() {
             height={200}
             onCrop={onCrop}
             onClose={onClose}
+            scale={1.2}
             src={src}
           />
 
