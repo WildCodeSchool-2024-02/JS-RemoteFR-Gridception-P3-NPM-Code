@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -6,7 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 function AddStreetArts() {
   const [streetArtForm, setStreetArtForm] = useState({
     users_id: "9",
-    main_picture: null,
+    file: "",
     title: "",
     description: "",
     artist: "",
@@ -64,11 +65,12 @@ function AddStreetArts() {
       }
     );
 
+  const navigate = useNavigate();
   return (
     <>
-      <section className="GalleryComponent">
-        <form className="add-picture">
-          <h2 className="Add-text">Ajouter une oeuvre:</h2>
+      <section className="add-new-streetart">
+        <form className="add-picture-form">
+          <h2 className="add-title-text">Ajouter une oeuvre:</h2>
           <div className="file-section">
             <label htmlFor="file" className="file-label">
               Ajouter votre photo
@@ -77,19 +79,21 @@ function AddStreetArts() {
               type="file"
               id="file"
               name="file"
+              accept="image/png, image/jpeg"
+              value={streetArtForm.file.file}
               onChange={handleStreetArtChange}
               required
             />
           </div>
           {preview && (
             <img
-              className="new-picture"
+              className="added-picture"
               src={preview}
               alt="Prévisualition de l'oeuvre"
             />
           )}
-          <section className="add-picture-fields">
-            <div className="input-fields">
+          <section>
+            <div>
               <label htmlFor="title">Titre</label>
               <input
                 type="text"
@@ -100,7 +104,7 @@ function AddStreetArts() {
                 onChange={handleStreetArtChange}
                 value={streetArtForm.title}
                 required
-                className="input-container"
+                className="input-container-title"
               />
 
               <label htmlFor="description">Description </label>
@@ -125,7 +129,7 @@ function AddStreetArts() {
                 maxLength={100}
                 onChange={handleStreetArtChange}
                 value={streetArtForm.artist}
-                className="input-container"
+                className="input-container-artist"
               />
 
               <label htmlFor="latitude">Latitude</label>
@@ -136,7 +140,7 @@ function AddStreetArts() {
                 onChange={handleStreetArtChange}
                 value={streetArtForm.latitude}
                 required
-                className="input-container"
+                className="input-container-position"
               />
 
               <label htmlFor="longitude">Longitude</label>
@@ -147,7 +151,7 @@ function AddStreetArts() {
                 onChange={handleStreetArtChange}
                 value={streetArtForm.longitude}
                 required
-                className="input-container"
+                className="input-container-position"
               />
               <button
                 type="submit"
@@ -155,6 +159,7 @@ function AddStreetArts() {
                 onClick={(e) => {
                   e.preventDefault();
                   if (
+                    streetArtForm.file !== "" &&
                     streetArtForm.title !== "" &&
                     streetArtForm.description !== "" &&
                     streetArtForm.longitude !== "" &&
@@ -169,17 +174,17 @@ function AddStreetArts() {
                         notifySucces();
                         setStreetArtForm({
                           users_id: "9",
-                          main_picture: "",
+                          file: "",
                           title: "",
                           description: "",
                           artist: "",
                           latitude: "",
                           longitude: "",
                           is_valid: 1,
-                          file: null,
                         });
                         setPreview(null);
                         console.info(res);
+                        navigate("/home");
                       })
                       .catch((err) => {
                         console.info(err);

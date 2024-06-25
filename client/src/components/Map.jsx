@@ -3,7 +3,7 @@ import axios from "axios";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import Add from "../assets/images/add_icon2.png";
-import info from "../assets/images/info2.png";
+import Info from "../assets/images/info2.png";
 
 function Map() {
   const mapContainer = useRef(null);
@@ -14,14 +14,13 @@ function Map() {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_API_URL}/api/street_arts/pictures`)
+      .get(`${import.meta.env.VITE_API_URL}/api/street_arts`)
       .then((results) => {
         setDatas(results.data);
         console.info(results);
       })
       .catch((err) => console.info(err));
   }, []);
-
   useEffect(() => {
     if (map.current) return;
     mapboxgl.accessToken = mapBoxToken;
@@ -51,13 +50,13 @@ function Map() {
       const popupContent = `
        <div class="popup-container">
           <h3 class="popuptitle">${oeuvre.title}</h3>
-          <img class="imgpopup-container" src=${oeuvre.url} alt="oeuvres" />
+          <img class="imgpopup-container" src=${oeuvre.main_picture} alt="oeuvres" />
 <div class="button-container">
           <a href="/addpictures">
               <img src=${Add} alt="icone ajout"/>
             </a>
             <a href="/streeArt">
-              <img src=${info} alt="icone pour plus de détails"/>
+              <img src=${Info} alt="icone pour plus de détails"/>
             </a>
 </div>
         </div>`;

@@ -1,18 +1,4 @@
-.Add-text {
-  color: var(--primary-text-color);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  margin-top: 0;
-}
-
-label {
-  margin: 0.3rem;
-  font-family: var(--second-font);
-}
-
-.GalleryComponent {
+.add-new-streetart {
   display: flex;
   max-height: 90vh;
   flex-direction: column;
@@ -22,8 +8,41 @@ label {
   padding: 1rem;
   overflow-y: auto;
 }
+.add-title-text {
+  color: var(--primary-text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  margin-top: 0;
+}
+#file {
+  display: none;
+}
 
-.add-picture {
+.file-label {
+  display: flex;
+  justify-content: center;
+  width: 60%;
+  text-align: center;
+  padding: 12px 16px;
+  color: white;
+  background-color: var(--button-color);
+  border: 1px solid #414141;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: var(--second-font);
+  font-weight: 600;
+  box-shadow: #000000 0px 7px 10px -5px inset;
+  margin-bottom: 1rem;
+}
+
+.file-section {
+  display: flex;
+  justify-content: center;
+}
+
+.add-picture-form {
   width: 90vw;
   max-height: 80vh;
   background-color: rgba(194, 76, 246, 0.6);
@@ -33,7 +52,7 @@ label {
   overflow-y: auto;
 }
 
-.new-picture {
+.added-picture {
   display: block;
   margin: 0 auto;
   width: 80%;
@@ -63,8 +82,10 @@ label {
   border-radius: 6px;
 }
 
-.input-container,
-.input-container-description {
+.input-container-title,
+.input-container-description,
+.input-container-artist,
+.input-container-position {
   width: 100%;
   padding: 12px 16px;
   border-radius: 8px;
@@ -77,26 +98,6 @@ label {
 
 .input-container-description {
   height: 4.5rem;
-}
-
-#file {
-  display: none;
-}
-
-.file-label {
-  display: inline-block;
-  width: 100%;
-  text-align: center;
-  padding: 12px 16px;
-  color: white;
-  background-color: var(--button-color);
-  border: 1px solid #414141;
-  border-radius: 6px;
-  cursor: pointer;
-  font-family: var(--second-font);
-  font-weight: 600;
-  box-shadow: #000000 0px 7px 10px -5px inset;
-  margin-bottom: 1rem;
 }
 
 @media (min-width: 770px) {
