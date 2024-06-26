@@ -120,8 +120,8 @@ function AddStreetArts() {
   return (
     <>
       <section className="add-new-streetart">
+        <h2 className="add-title-text">Ajouter une oeuvre:</h2>
         <form className="add-picture-form" onSubmit={handleSubmit}>
-          <h2 className="add-title-text">Ajouter une oeuvre:</h2>
           <div className="file-section">
             <label htmlFor="file" className="file-label">
               {preview ? "Changer de photo" : "Ajouter votre photo"}
@@ -134,29 +134,46 @@ function AddStreetArts() {
               onChange={handleStreetArtChange}
               required
             />
-          </div>
-          {preview && (
-            <img
-              className="added-picture"
-              src={preview}
-              alt="Prévisualition de l'oeuvre"
-            />
-          )}
-          <section>
-            <div>
-              <label htmlFor="title">Titre</label>
-              <input
-                type="text"
-                id="title"
-                name="title"
-                minLength={3}
-                maxLength={100}
-                onChange={handleStreetArtChange}
-                value={streetArtForm.title}
-                required
-                className="input-container-title"
+            {preview && (
+              <img
+                className="added-picture"
+                src={preview}
+                alt="Prévisualition de l'oeuvre"
               />
-
+            )}
+          </div>
+          <div className="separator" />
+          <div className="label-container">
+            <div className="input-row">
+              <section>
+                <label htmlFor="title">Titre</label>
+                <input
+                  type="text"
+                  id="title"
+                  name="title"
+                  minLength={3}
+                  maxLength={100}
+                  onChange={handleStreetArtChange}
+                  value={streetArtForm.title}
+                  required
+                  className="input-container-title"
+                />
+              </section>
+              <section>
+                <label htmlFor="artist">Artiste (si connu)</label>
+                <input
+                  type="text"
+                  id="artist"
+                  name="artist"
+                  minLength={2}
+                  maxLength={100}
+                  onChange={handleStreetArtChange}
+                  value={streetArtForm.artist}
+                  className="input-container-artist"
+                />
+              </section>
+            </div>
+            <section>
               <label htmlFor="description">Description</label>
               <input
                 type="text"
@@ -169,46 +186,39 @@ function AddStreetArts() {
                 required
                 className="input-container-description"
               />
-
-              <label htmlFor="artist">Artiste (si connu)</label>
-              <input
-                type="text"
-                id="artist"
-                name="artist"
-                minLength={2}
-                maxLength={100}
-                onChange={handleStreetArtChange}
-                value={streetArtForm.artist}
-                className="input-container-artist"
-              />
-
-              <label htmlFor="latitude">Latitude</label>
-              <input
-                type="text"
-                id="latitude"
-                name="latitude"
-                onChange={handleStreetArtChange}
-                value={streetArtForm.latitude}
-                required
-                className="input-container-position"
-              />
-
-              <label htmlFor="longitude">Longitude</label>
-              <input
-                type="text"
-                id="longitude"
-                name="longitude"
-                onChange={handleStreetArtChange}
-                value={streetArtForm.longitude}
-                required
-                className="input-container-position"
-              />
-              <button type="submit" className="form-submit-btn">
-                Envoyer
-              </button>
+            </section>
+            <div className="input-row">
+              <section>
+                <label htmlFor="latitude">Latitude</label>
+                <input
+                  type="text"
+                  id="latitude"
+                  name="latitude"
+                  onChange={handleStreetArtChange}
+                  value={streetArtForm.latitude}
+                  required
+                  className="input-container-position"
+                />
+              </section>
+              <section>
+                <label htmlFor="longitude">Longitude</label>
+                <input
+                  type="text"
+                  id="longitude"
+                  name="longitude"
+                  onChange={handleStreetArtChange}
+                  value={streetArtForm.longitude}
+                  required
+                  className="input-container-position"
+                />
+              </section>
             </div>
-          </section>
+            <button type="submit" className="form-submit-btn">
+              Envoyer
+            </button>
+          </div>
         </form>
+        <ToastContainer />
       </section>
       <ToastContainer />
     </>
