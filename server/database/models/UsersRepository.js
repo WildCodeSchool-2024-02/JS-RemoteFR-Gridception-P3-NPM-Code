@@ -21,7 +21,7 @@ class UsersRepository extends AbstractRepository {
         users.points,
         users.city,
         users.email,
-        users.password,
+        users.hashedPassword,
       ]
     );
 

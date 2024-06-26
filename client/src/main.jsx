@@ -36,27 +36,27 @@ const router = createBrowserRouter([
         element: <AddPictures />,
       },
       {
-        path: "/Contact",
+        path: "/contact",
         element: <Contact />,
       },
       {
-        path: "/Galerie",
+        path: "/galerie",
         element: <Gallery />,
       },
       {
-        path: "/About",
+        path: "/a_propos",
         element: <About />,
       },
       {
-        path: "/Profil",
+        path: "/profil",
         element: <Profile />,
       },
       {
-        path: "/Classement",
+        path: "/classement",
         element: <Ranking />,
       },
       {
-        path: "/Inscription",
+        path: "/inscription",
         element: <Register />,
       },
       {
