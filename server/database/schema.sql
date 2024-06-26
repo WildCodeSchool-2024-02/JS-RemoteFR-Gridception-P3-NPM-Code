@@ -19,7 +19,7 @@ create table street_arts (
   id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
   FOREIGN KEY (users_id) REFERENCES users(id),
   users_id INT NOT NULL,
-  file LONGBLOB NOT NULL,
+  file VARCHAR(255) NOT NULL,
   title VARCHAR(100) NOT NULL,
   description TEXT NOT NULL,
   artist VARCHAR(80),

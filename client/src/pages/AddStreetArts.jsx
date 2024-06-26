@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -38,7 +37,7 @@ function AddStreetArts() {
     }
   };
 
-  const notifySucces = () =>
+  const notifySuccess = () =>
     toast.success("Street Art reçu, en attente de validation ! Merci !", {
       position: "bottom-right",
       autoClose: 3000,
@@ -50,9 +49,10 @@ function AddStreetArts() {
       theme: "light",
     });
 
-  const notifyError = () =>
+  const notifyError = (message) =>
     toast.error(
-      " Il nous manque une information, vérifie que tu es remplis tous les champs",
+      message ||
+        "Il nous manque une information, vérifie que tu as rempli tous les champs",
       {
         position: "bottom-right",
         autoClose: 3000,
@@ -65,11 +65,62 @@ function AddStreetArts() {
       }
     );
 
-  const navigate = useNavigate();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    {
+      const formData = new FormData();
+      formData.append("file", streetArtForm.file);
+
+      try {
+        const response = await axios.post(
+          `${import.meta.env.VITE_API_URL}/api/upload`,
+          formData,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        );
+
+        const fileUrl = response.data.url;
+
+        const finalForm = { ...streetArtForm, file: fileUrl };
+
+        if (
+          finalForm.title !== "" &&
+          finalForm.description !== "" &&
+          finalForm.longitude !== "" &&
+          finalForm.latitude !== ""
+        ) {
+          await axios.post(
+            `${import.meta.env.VITE_API_URL}/api/street_arts`,
+            finalForm
+          );
+
+          notifySuccess();
+          setStreetArtForm({
+            users_id: "9",
+            file: "",
+            title: "",
+            description: "",
+            artist: "",
+            latitude: "",
+            longitude: "",
+            is_valid: 1,
+          });
+          setPreview(null);
+        }
+      } catch (err) {
+        console.error(err);
+        notifyError();
+      }
+    }
+  };
+
   return (
     <>
       <section className="add-new-streetart">
-        <form className="add-picture-form">
+        <form className="add-picture-form" onSubmit={handleSubmit}>
           <h2 className="add-title-text">Ajouter une oeuvre:</h2>
           <div className="file-section">
             <label htmlFor="file" className="file-label">
@@ -80,7 +131,6 @@ function AddStreetArts() {
               id="file"
               name="file"
               accept="image/png, image/jpeg"
-              value={streetArtForm.file.file}
               onChange={handleStreetArtChange}
               required
             />
@@ -107,7 +157,7 @@ function AddStreetArts() {
                 className="input-container-title"
               />
 
-              <label htmlFor="description">Description </label>
+              <label htmlFor="description">Description</label>
               <input
                 type="text"
                 id="description"
@@ -153,47 +203,7 @@ function AddStreetArts() {
                 required
                 className="input-container-position"
               />
-              <button
-                type="submit"
-                className="form-submit-btn"
-                onClick={(e) => {
-                  e.preventDefault();
-                  if (
-                    streetArtForm.file !== "" &&
-                    streetArtForm.title !== "" &&
-                    streetArtForm.description !== "" &&
-                    streetArtForm.longitude !== "" &&
-                    streetArtForm.latitude !== ""
-                  ) {
-                    axios
-                      .post(
-                        `${import.meta.env.VITE_API_URL}/api/street_arts`,
-                        streetArtForm
-                      )
-                      .then((res) => {
-                        notifySucces();
-                        setStreetArtForm({
-                          users_id: "9",
-                          file: "",
-                          title: "",
-                          description: "",
-                          artist: "",
-                          latitude: "",
-                          longitude: "",
-                          is_valid: 1,
-                        });
-                        setPreview(null);
-                        console.info(res);
-                        navigate("/home");
-                      })
-                      .catch((err) => {
-                        console.info(err);
-                      });
-                  } else {
-                    notifyError();
-                  }
-                }}
-              >
+              <button type="submit" className="form-submit-btn">
                 Envoyer
               </button>
             </div>

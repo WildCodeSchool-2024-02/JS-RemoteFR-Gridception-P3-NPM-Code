@@ -29,6 +29,10 @@ router.use("/pictures", picturesRouter);
 const rolesRouter = require("./roles/RolesRouter");
 
 router.use("/roles", rolesRouter);
+
+const uploadRouter = require("./upload/UploadRouter")
+
+router.use("/upload", uploadRouter);
 /* ************************************************************************* */
 
 module.exports = router;

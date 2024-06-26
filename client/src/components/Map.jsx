@@ -50,7 +50,7 @@ function Map() {
       const popupContent = `
        <div class="popup-container">
           <h3 class="popuptitle">${oeuvre.title}</h3>
-          <img class="imgpopup-container" src=${oeuvre.main_picture} alt="oeuvres" />
+          <img class="imgpopup-container" src=${oeuvre.file} alt="oeuvres" />
 <div class="button-container">
           <a href="/addpictures">
               <img src=${Add} alt="icone ajout"/>
