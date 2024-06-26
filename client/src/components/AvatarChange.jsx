@@ -47,7 +47,7 @@ export default function AvatarChange() {
         password: "xn2vRa7iKk_xhtX",
       })
       .then((res) => {
-        console.info(res);
+        console.info(`Reponse du Put: ${res}`);
       })
       .catch((err) => console.info(err));
   }, [profile]);
