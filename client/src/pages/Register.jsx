@@ -10,7 +10,7 @@ function Register() {
   const [registerForm, setRegisterForm] = useState({
     firstname: "",
     lastname: "",
-    email: "",
+
     password: "",
     confirmPassword: "",
     roles_id: 2,
@@ -130,7 +130,7 @@ function Register() {
             onClick={(e) => {
               e.preventDefault();
               if (
-                registerForm.firstame !== "" &&
+                registerForm.firstname !== "" &&
                 registerForm.lastname !== "" &&
                 registerForm.email !== "" &&
                 registerForm.password !== "" &&
@@ -140,6 +140,7 @@ function Register() {
                   axios
                     .post(
                       `${import.meta.env.VITE_API_URL}/api/users`,
+
                       registerForm
                     )
                     .then((res) => {
