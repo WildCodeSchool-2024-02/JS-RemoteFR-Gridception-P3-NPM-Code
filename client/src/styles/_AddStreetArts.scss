@@ -1,4 +1,4 @@
-.Add-text {
+.add-text {
   color: var(--primary-text-color);
   display: flex;
   align-items: center;
@@ -23,15 +23,13 @@ label {
   display: flex;
   justify-content: center;
   align-self: center;
-  font-family: inherit;
   color: white;
   font-weight: 600;
   width: 40%;
   background: var(--button-color);
-  font-family: var(--second-font);
+  font-family: inherit var(--second-font);
   border: 1px solid #414141;
   padding: 12px 16px;
-  font-size: inherit;
 
   gap: 8px;
   margin-top: 1rem;

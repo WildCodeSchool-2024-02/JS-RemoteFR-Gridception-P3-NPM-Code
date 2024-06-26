@@ -4,8 +4,8 @@ function About() {
   const [selectedSection, setSelectedSection] = useState("rules");
 
   return (
-    <main className="allContent">
-      <section className="radioInput">
+    <main className="all-content">
+      <section className="radio-input">
         <input
           name="value-radio"
           id="value-1"
@@ -20,8 +20,8 @@ function About() {
           name="value-radio"
           id="value-2"
           type="radio"
-          checked={selectedSection === "legalsMentions"}
-          onChange={() => setSelectedSection("legalsMentions")}
+          checked={selectedSection === "legals-mentions"}
+          onChange={() => setSelectedSection("legals-mentions")}
         />
         <label htmlFor="value-2" className="label">
           Mentions Légales
@@ -30,17 +30,17 @@ function About() {
           name="value-radio"
           id="value-3"
           type="radio"
-          checked={selectedSection === "cguContent"}
-          onChange={() => setSelectedSection("cguContent")}
+          checked={selectedSection === "cgu-content"}
+          onChange={() => setSelectedSection("cgu-content")}
         />
         <label htmlFor="value-3" className="label">
           CGU
         </label>
       </section>
       {selectedSection === "rules" && (
-        <section className="rulesContent">
-          <h1 className="titleContent">Les règles</h1>
-          <p className="textContent">
+        <section className="rules-content">
+          <h1 className="title-content">Les règles</h1>
+          <p className="text-content">
             Bienvenue dans le monde passionnant du street art ! Prêt à explorer,
             partager et gravir les échelons du classement ? Voici comment jouer
             : <br />
@@ -103,10 +103,10 @@ function About() {
           </p>
         </section>
       )}
-      {selectedSection === "legalsMentions" && (
-        <section className="legalsMentionsContent">
-          <h1 className="titleContent">Mentions Légales</h1>
-          <p className="textContent">
+      {selectedSection === "legals-mentions" && (
+        <section className="legals-mentions-content">
+          <h1 className="title-content">Mentions Légales</h1>
+          <p className="text-content">
             <strong>1. Créateur du site</strong> <br /> Le site de recherche de
             street art est édité par : NPM Code Forme juridique : [Type de
             société] Adresse du siège social : [Adresse complète] Numéro de
@@ -179,10 +179,10 @@ function About() {
           </p>
         </section>
       )}
-      {selectedSection === "cguContent" && (
-        <section className="cguContent">
-          <h1 className="titleContent">Conditions Général d'Utilisation</h1>
-          <p className="textContent">
+      {selectedSection === "cgu-content" && (
+        <section className="cgu-content">
+          <h1 className="title-content">Conditions Général d'Utilisation</h1>
+          <p className="text-content">
             <strong>1. Présentation du Site </strong>
             <br /> Le site de recherche de street art (ci-après dénommé "le
             Site") permet aux utilisateurs de découvrir et de partager des
