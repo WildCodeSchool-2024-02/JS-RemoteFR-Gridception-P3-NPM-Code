@@ -137,6 +137,7 @@ function Register() {
                 registerForm.confirmPassword !== ""
               ) {
                 if (registerForm.password === registerForm.confirmPassword) {
+                  
                   axios
                     .post(
                       `${import.meta.env.VITE_API_URL}/api/users`,
