@@ -83,7 +83,9 @@ function NavBar({ isLoggedIn }) {
               <NavLink to="/profil">Profil</NavLink>
             </li>
           ) : (
-            <h1>TG</h1>
+            <li className="navbar-content">
+              <NavLink to="/profil">Mon Compte</NavLink>
+            </li>
           )}
         </nav>
       </section>
