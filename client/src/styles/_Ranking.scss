@@ -32,17 +32,27 @@
 
 .table-container {
   font-family: "Roboto", sans-serif;
+
   margin: 8rem 2rem 0 2rem;
 }
 
 .th-point {
   display: flex;
   justify-content: center;
+  font-size: 1.5rem;
+}
+
+.th-joueur {
+  font-size: 1.5rem;
 }
 
 @media (min-width: 770px) {
   .table-container {
     font-size: 1.5rem;
-    margin: 9rem 5rem 0 5rem;
+    margin: 5rem 5rem 0 5rem;
+  }
+  .th-joueur,
+  .th-point {
+    font-size: 2rem;
   }
 }

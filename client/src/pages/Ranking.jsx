@@ -20,7 +20,9 @@ function Ranking() {
       <table>
         <thead>
           <tr>
-            <th scope="col">Joueur</th>
+            <th className="th-joueur" scope="col">
+              Joueur
+            </th>
             <th className="th-point" scope="col">
               Point
             </th>
