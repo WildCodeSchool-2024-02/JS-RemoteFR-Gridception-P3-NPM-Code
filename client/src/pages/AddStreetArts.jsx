@@ -40,7 +40,7 @@ function AddStreetArts() {
   const notifySuccess = () =>
     toast.success("Street Art reçu, en attente de validation ! Merci !", {
       position: "bottom-right",
-      autoClose: 3000,
+      autoClose: 5000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
@@ -55,7 +55,7 @@ function AddStreetArts() {
         "Il nous manque une information, vérifie que tu as rempli tous les champs",
       {
         position: "bottom-right",
-        autoClose: 3000,
+        autoClose: 4000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -124,7 +124,7 @@ function AddStreetArts() {
           <h2 className="add-title-text">Ajouter une oeuvre:</h2>
           <div className="file-section">
             <label htmlFor="file" className="file-label">
-              Ajouter votre photo
+              {preview ? "Changer de photo" : "Ajouter votre photo"}
             </label>
             <input
               type="file"
