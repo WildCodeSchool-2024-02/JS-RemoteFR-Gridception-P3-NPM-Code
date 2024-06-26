@@ -65,16 +65,12 @@
 }
 
 @media (min-width: 770px) {
-  .avatar-container {
-    button {
-      img {
-        max-width: 18vw;
-        max-height: 18vh;
-      }
-    }
+  .avatar {
+    width: 8rem;
+    height: 8rem;
   }
   .change {
-    max-width: 10vw;
-    max-height: 10vh;
+    width: 2.5rem;
+    height: 2.5rem;
   }
 }

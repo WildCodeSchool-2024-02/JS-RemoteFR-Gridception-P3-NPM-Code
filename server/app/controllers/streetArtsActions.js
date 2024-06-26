@@ -91,9 +91,14 @@ const edit = async (req, res, next) => {
 // The A of BREAD - Add (Create) operation
 const add = async (req, res, next) => {
   // Extract the streetArt data from the request body
-  const streetArt = req.body;
+
+  if (!req.auth.isAdmin) {
+    res.sendStatus(403);
+    return;
+  }
 
   try {
+    const streetArt = { ...req.body, user_id: req.auth.sub };
     // Insert the streetArt into the database
     const insertId = await tables.streetArts.create(streetArt);
 
