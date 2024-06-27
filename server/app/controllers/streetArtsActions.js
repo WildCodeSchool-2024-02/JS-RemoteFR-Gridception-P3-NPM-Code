@@ -93,7 +93,7 @@ const add = async (req, res, next) => {
   // Extract the streetArt data from the request body
 
   try {
-    const streetArt = { ...req.body, user_id: 9 };
+    const streetArt = req.body;
     // Insert the streetArt into the database
     const insertId = await tables.streetArts.create(streetArt);
 

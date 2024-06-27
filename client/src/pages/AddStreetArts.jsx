@@ -1,13 +1,15 @@
 import axios from "axios";
 import { useState } from "react";
+import { useOutletContext } from "react-router-dom";
 
 import { ToastContainer, toast } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
 
 function AddStreetArts() {
+  const { loggedUser } = useOutletContext();
   const [streetArtForm, setStreetArtForm] = useState({
-    users_id: "9",
+    users_id: loggedUser.id,
     file: "",
     title: "",
     description: "",
@@ -108,7 +110,7 @@ function AddStreetArts() {
 
           notifySuccess();
           setStreetArtForm({
-            users_id: "9",
+            users_id: loggedUser.id,
             file: "",
             title: "",
             description: "",
