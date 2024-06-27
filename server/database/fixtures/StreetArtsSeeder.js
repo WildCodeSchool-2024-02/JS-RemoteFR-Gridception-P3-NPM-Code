@@ -21,6 +21,7 @@ class StreetArtsSeeder extends AbstractSeeder {
       const fakeStreetArt = {
         users_id: this.getRef(`user_${Math.floor(Math.random() * 10)}`)
           .insertId,
+        file: this.faker.image.avatar(),
         title: this.faker.music.songName(),
         description: this.faker.person.jobDescriptor(),
         artist: this.faker.person.fullName(),

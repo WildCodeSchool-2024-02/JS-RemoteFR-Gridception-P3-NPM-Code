@@ -92,10 +92,14 @@ const edit = async (req, res, next) => {
 const add = async (req, res, next) => {
   // Extract the streetArt data from the request body
 
+  const streetArt = req.body;
+
+
   if (!req.auth.isAdmin) {
     res.sendStatus(403);
     return;
   }
+
 
   try {
     const streetArt = { ...req.body, user_id: req.auth.sub };

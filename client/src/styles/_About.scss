@@ -15,10 +15,6 @@
   font-family: var(--primary-font);
 }
 
-.text-content {
-  margin: 2rem;
-}
-
 // LES BOUTONS
 
 .radio-input {
@@ -101,6 +97,20 @@
   }
 }
 
+.description-game {
+  text-align: center;
+  margin: 1.5rem;
+}
+
+.description-main-title {
+  text-align: center;
+}
+
+.description-details {
+  text-align: center;
+  margin: 1rem;
+}
+
 // Version DESKTOP //
 
 @media (min-width: 770px) {
@@ -113,8 +123,9 @@
 
   // Les bouttons
 
-  .radio-input {
-    height: 250px;
+
+  .radioInput {
+    height: 300px;
     width: 300px;
     display: flex;
     flex-direction: column;
@@ -138,9 +149,9 @@
   }
 
   .label {
-    height: 80px;
-    width: 150px;
-    font-size: calc(0.8rem + 0.5vw);
+    height: 100px;
+    width: 250px;
+    font-size: calc(0.8rem + 0.4vw);
     font-weight: 600;
     font-family: var(--second-font);
     padding: 18px 15px;
@@ -166,5 +177,19 @@
     text-align: left;
     font-family: var(--second-font);
     font-size: calc(0.5rem + 0.8vw);
+  }
+  .description-game {
+    text-align: center;
+    margin: 0.5rem;
+  }
+
+  .description-main-title {
+    text-align: start;
+    margin-left: 1rem;
+  }
+
+  .description-details {
+    text-align: start;
+    margin: 0 1rem 2rem 1rem;
   }
 }

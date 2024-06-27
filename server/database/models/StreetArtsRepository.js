@@ -12,9 +12,11 @@ class StreetArtsRepository extends AbstractRepository {
   async create(streetArts) {
     // Execute the SQL INSERT query to add a new streetArts to the "streetArts" table
     const [result] = await this.database.query(
-      `insert into ${this.table} (users_id, title, description, artist, latitude, longitude, main_url, is_valid ) values (?, ?, ?, ?, ?, ?, ?, ?)`,
+
+      `insert into ${this.table} (users_id, file, title, description, artist, latitude, longitude, is_valid ) values (?, ?, ?, ?, ?, ?, ?, ?)`,
       [
         streetArts.users_id,
+        streetArts.file,
         streetArts.title,
         streetArts.description,
         streetArts.artist,
@@ -32,7 +34,7 @@ class StreetArtsRepository extends AbstractRepository {
   async browseByPictures() {
     // Execute the SQL SELECT query to retrieve all streetArts from the "streetArts" table
     const [rows] = await this.database.query(
-      `select p.url, s.title, s.latitude, s.longitude from ${this.table} s 
+      `select s.file, s.title, s.latitude, s.longitude from ${this.table} s 
       inner join pictures p on s.id = p.street_arts_id`
     );
 
@@ -63,7 +65,7 @@ class StreetArtsRepository extends AbstractRepository {
   async readByPicture(id) {
     // Execute the SQL SELECT query to retrieve a specific streetArts by its ID
     const [rows] = await this.database.query(
-      `select p.url, s.title, s.latitude, s.longitude from ${this.table} s 
+      `select s.file, s.title, s.latitude, s.longitude from ${this.table} s 
       inner join pictures p on p.street_arts_id = s.id
       where s.id = ?`,
       [id]
@@ -78,9 +80,10 @@ class StreetArtsRepository extends AbstractRepository {
   async update(streetArts) {
     // Execute the SQL UPDATE query to update a specific category
     const [result] = await this.database.query(
-      `update ${this.table} set users_id = ?, title = ?, description = ?, artist = ?, latitude = ?, longitude = ?, is_valid = ?, where id = ?`,
+      `update ${this.table} set users_id = ?, file = ?, title = ?, description = ?, artist = ?, latitude = ?, longitude = ?, is_valid = ?, where id = ?`,
       [
         streetArts.users_id,
+        streetArts.file,
         streetArts.title,
         streetArts.description,
         streetArts.artist,
