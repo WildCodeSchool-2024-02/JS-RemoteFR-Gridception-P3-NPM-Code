@@ -3,8 +3,8 @@ import { useEffect, useRef, useState } from "react";
 
 import mapboxgl from "mapbox-gl";
 
-import Add from "../assets/images/add_icon2.png";
-import Info from "../assets/images/infos2.png";
+import Add from "../assets/images/add.png";
+import Info from "../assets/images/info.png";
 
 import "mapbox-gl/dist/mapbox-gl.css";
 
