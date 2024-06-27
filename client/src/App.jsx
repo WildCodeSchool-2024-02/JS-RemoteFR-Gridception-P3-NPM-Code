@@ -5,16 +5,22 @@ import Footer from "./components/Footer";
 import NavBar from "./components/NavBar";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // Remplacez par la logique réelle de vérification de la connexion
+  const [loggedUser, setLoggedUser] = useState({});
   const [showLoginPopup, setShowLoginPopup] = useState(false);
   const navigate = useNavigate();
 
   const handleNavigate = () => {
-    if (isLoggedIn) {
+    if (loggedUser) {
       navigate("/add");
     } else {
       setShowLoginPopup(true);
     }
+  };
+
+  const handleLogout = () => {
+    setLoggedUser();
+    localStorage.removeItem("token");
+    navigate("/");
   };
 
   const closeLoginPopup = () => {
@@ -23,14 +29,15 @@ function App() {
 
   return (
     <>
-      <NavBar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+      <NavBar loggedUser={loggedUser} setLoggedUser={setLoggedUser} />
       <Outlet
         context={{
-          isLoggedIn,
-          setIsLoggedIn,
+          loggedUser,
+          setLoggedUser,
           showLoginPopup,
           setShowLoginPopup,
           handleNavigate,
+          handleLogout,
           closeLoginPopup,
         }}
       />

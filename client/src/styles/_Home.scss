@@ -3,8 +3,8 @@
   height: 95vh;
   z-index: 1000;
 }
-// NE PAS AFFICHER LE TEXTE ET LE BOUTONS
 
+// NE PAS AFFICHER LE TEXTE ET LE BOUTONS
 .add-street-art {
   display: none;
 }
@@ -63,9 +63,10 @@
   align-items: center;
   text-align: center;
   margin: 0;
+  width: 10rem;
 
-  .popupimg-container {
-    width: 10rem;
+  .imgpopup-container {
+    width: 7rem;
     height: auto;
   }
   .button-popup-container {
@@ -83,13 +84,13 @@
   padding: 0;
 }
 
-.img-popup-container {
-  width: auto;
-  height: 5rem;
-  margin-bottom: 1rem;
-}
-
 .button-container {
   display: flex;
   flex-direction: row;
+
+  a {
+    img {
+      width: 3rem;
+    }
+  }
 }

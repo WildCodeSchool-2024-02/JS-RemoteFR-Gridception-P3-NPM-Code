@@ -49,7 +49,11 @@ function Register() {
     );
   return (
     <section className="form-container">
-      <img src={logo} alt="Street Art Hunter logo" className="logo-mobile" />
+      <img
+        src={logo}
+        alt="Street Art Hunter logo"
+        className="logo-mobile-register"
+      />
       <div className="wrap">
         <span className="letter">I</span>
         <span className="letter">N</span>
@@ -137,7 +141,6 @@ function Register() {
                 registerForm.confirmPassword !== ""
               ) {
                 if (registerForm.password === registerForm.confirmPassword) {
-                  
                   axios
                     .post(
                       `${import.meta.env.VITE_API_URL}/api/users`,
