@@ -118,7 +118,7 @@ function AddStreetArts() {
   };
 
   return (
-    <>
+    <main className="all-content-Add-streetart">
       <section className="add-new-streetart">
         <h2 className="add-title-text">Ajouter une oeuvre:</h2>
         <form className="add-picture-form" onSubmit={handleSubmit}>
@@ -221,7 +221,7 @@ function AddStreetArts() {
         <ToastContainer />
       </section>
       <ToastContainer />
-    </>
+    </main>
   );
 }
 

@@ -1,23 +1,21 @@
+.all-content-Add-streetart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin-top: 2rem;
+}
+
 .add-new-streetart {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 90vw;
-  margin-top: 2rem;
-  margin-left: 1rem;
+  padding: 1rem;
   max-height: 80vh;
-  overflow-y: auto;
   background-color: rgba(194, 76, 246, 0.6);
   border-radius: 10px;
-}
-
-.add-title-text {
-  color: var(--primary-text-color);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  font-size: 2rem;
-  margin-top: 2rem;
 }
 
 #file {
@@ -27,18 +25,18 @@
 .file-label {
   display: flex;
   justify-content: center;
-  width: 80%;
   text-align: center;
+  width: 80%;
+  margin-bottom: 1rem;
   padding: 12px 16px;
-  color: white;
+  color: var(--white-font);
   background-color: var(--button-color);
-  border: 1px solid #414141;
-  border-radius: 6px;
-  cursor: pointer;
   font-family: var(--second-font);
   font-weight: 600;
   box-shadow: #000000 0px 7px 10px -5px inset;
-  margin-bottom: 1rem;
+  border: 1px solid #414141;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
 .file-section {
@@ -48,27 +46,36 @@
 }
 
 .add-picture-form {
-  width: 90vw;
-  max-height: 80vh;
-  padding: 1rem;
-  color: white;
+  width: 100%;
+  box-sizing: border-box;
+  color: var(--white-font);
   overflow-y: auto;
+}
+
+.add-title-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 2rem;
+  color: var(--primary-text-color);
+  font-size: 2rem;
 }
 
 .added-picture {
   display: flex;
-  margin-bottom: 1rem;
-  width: 80vw;
+  width: 80%;
   max-height: 200px;
+  margin-bottom: 1rem;
   object-fit: contain;
   border-radius: 10px;
 }
 
 .separator {
   width: 100%;
-  height: 10px;
-  background-color: var(--primary-text-color);
+  height: 8px;
   margin: 1rem 0;
+  background-color: var(--primary-text-color);
   border-radius: 10px;
 }
 
@@ -76,20 +83,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: inherit;
-  color: white;
-  font-weight: 600;
   width: 100%;
-  background: var(--button-color);
-  font-family: var(--second-font);
-  border: 1px solid #414141;
-  padding: 12px 16px;
-  font-size: inherit;
   gap: 8px;
   margin-top: 1rem;
+  padding: 12px 16px;
+  color: white;
+  font-family: var(--second-font);
+  font-weight: 600;
+  background: var(--button-color);
   cursor: pointer;
   box-shadow: #000000 0px 7px 10px -5px inset;
+  border: 1px solid #414141;
   border-radius: 6px;
+  box-sizing: border-box;
 }
 
 .input-container-title,
@@ -98,13 +104,14 @@
 .input-container-position {
   width: 100%;
   padding: 12px 16px;
-  border-radius: 8px;
+  margin-bottom: 1rem;
   color: black;
-  font-family: inherit;
+  font-family: var(--second-font);
   background-color: var(--input-background-color);
   border: 1px solid #414141;
   box-shadow: #000000 0px 7px 10px -5px inset;
-  margin-bottom: 1rem;
+  border-radius: 8px;
+  box-sizing: border-box;
 }
 
 .input-container-description {
@@ -112,15 +119,15 @@
 }
 
 @media (min-width: 770px) {
+  .all-content-Add-streetart {
+    height: 100%;
+    margin-top: 0;
+  }
+
   .add-new-streetart {
-    height: 76vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 90vw;
-    margin-top: 0rem;
-    margin-left: 2rem;
+    width: 80vw;
+    max-height: 75vh;
+    padding: 1rem;
   }
 
   .add-title-text {
@@ -134,34 +141,34 @@
 
   .file-section {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 40%;
   }
 
   .add-picture-form {
     display: flex;
-    justify-content: space-around;
-    width: 80%;
+    justify-content: space-between;
+    width: 100%;
   }
 
   .added-picture {
-    margin: 0;
     width: 100%;
-    max-height: 70%;
+    max-height: 80%;
+    margin: 0;
     object-fit: contain;
   }
 
   .separator {
-    width: 13px;
-    height: 100%;
-    margin: 0 3rem;
+    width: 10px;
+    height: auto;
+    margin: 0 1rem;
   }
 
   .label-container {
     display: flex;
-    align-items: center;
     flex-direction: column;
-    width: 70%;
+    align-items: center;
+    width: 50%;
   }
 
   .label-container section {
@@ -181,14 +188,17 @@
   }
 
   .input-container-description {
-    width: 70%;
-    height: 7rem;
+    width: 100%;
+    height: 6rem;
   }
 
   .input-row {
     display: flex;
+    justify-content: space-between;
+    width: 100%;
   }
+
   .form-submit-btn {
-    width: 70%;
+    width: 100%;
   }
 }
