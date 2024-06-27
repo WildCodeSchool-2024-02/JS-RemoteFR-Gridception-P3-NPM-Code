@@ -86,7 +86,7 @@ export default function AnchorTemporaryDrawer() {
 
       <Divider />
       <List>
-        <Link to="/about">
+        <Link to="/a_propos">
           {["A propos"].map((text) => (
             <ListItem key={text} disablePadding>
               <ListItemButton>

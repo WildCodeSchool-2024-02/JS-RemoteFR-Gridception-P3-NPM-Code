@@ -22,7 +22,6 @@ class StreetArtsRepository extends AbstractRepository {
         streetArts.artist,
         streetArts.latitude,
         streetArts.longitude,
-        streetArts.main_url,
         streetArts.is_valid,
       ]
     );

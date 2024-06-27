@@ -67,7 +67,7 @@ function NavBar({ isLoggedIn }) {
         </NavLink>
         <nav className="navbar-top">
           <li className="navbar-content">
-            <NavLink to="/About">À propos</NavLink>
+            <NavLink to="/a_propos">À propos</NavLink>
           </li>
           <li className="navbar-content">
             <NavLink to="/galerie">Galerie</NavLink>

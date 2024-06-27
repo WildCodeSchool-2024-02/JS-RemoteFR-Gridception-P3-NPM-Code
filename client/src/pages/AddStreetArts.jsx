@@ -224,7 +224,6 @@ function AddStreetArts() {
         </form>
         <ToastContainer />
       </section>
-      <ToastContainer />
     </main>
   );
 }
