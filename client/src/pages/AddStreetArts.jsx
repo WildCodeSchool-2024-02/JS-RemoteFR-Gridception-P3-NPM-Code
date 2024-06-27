@@ -1,13 +1,15 @@
 import axios from "axios";
 import { useState } from "react";
+import { useOutletContext } from "react-router-dom";
 
 import { ToastContainer, toast } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
 
 function AddStreetArts() {
+  const { loggedUser } = useOutletContext();
   const [streetArtForm, setStreetArtForm] = useState({
-    users_id: "9",
+    users_id: loggedUser.id,
     file: "",
     title: "",
     description: "",
@@ -81,6 +83,7 @@ function AddStreetArts() {
           {
             headers: {
               "Content-Type": "multipart/form-data",
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
             },
           }
         );
@@ -97,12 +100,17 @@ function AddStreetArts() {
         ) {
           await axios.post(
             `${import.meta.env.VITE_API_URL}/api/street_arts`,
-            finalForm
+            finalForm,
+            {
+              headers: {
+                Authorization: `Bearer ${localStorage.getItem("token")}`,
+              },
+            }
           );
 
           notifySuccess();
           setStreetArtForm({
-            users_id: "9",
+            users_id: loggedUser.id,
             file: "",
             title: "",
             description: "",
@@ -121,7 +129,6 @@ function AddStreetArts() {
   };
 
   return (
-
     <main className="all-content-Add-streetart">
       <section className="add-new-streetart">
         <h2 className="add-title-text">Ajouter une oeuvre:</h2>

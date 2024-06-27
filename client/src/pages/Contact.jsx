@@ -63,7 +63,7 @@ function Contact() {
             />
           </div>
           <div className="form-group-contact">
-            <label htmlFor="email"> Mail</label>
+            <label htmlFor="email">E-Mail</label>
             <input
               required
               name="mail"

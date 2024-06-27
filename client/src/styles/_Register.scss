@@ -1,174 +1,104 @@
 .form-container {
-  margin: auto;
-  margin-top: 1rem;
-  width: 80vw;
-  max-width: 1200px;
-  background-color: color-mix(in srgb, var(--primary-color) 90%, transparent);
-  border: 2px solid transparent;
-  padding: 32px 16px;
-  font-size: 14px;
-  font-family: inherit;
-  color: white;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  box-sizing: border-box;
+  justify-content: center;
+  width: 85vw;
+  height: 83vh;
+  margin: 1rem auto;
+  background-color: color-mix(in srgb, var(--primary-color) 90%, transparent);
+  padding: 1rem;
+  color: white;
   border-radius: 16px;
-  background-size: 200% 100%;
-  animation: gradient 5s ease infinite;
 }
 
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-.form-container button:active {
-  scale: 0.95;
-}
-
-.form-container .logoMobile {
-  height: 75px;
-  width: 75px;
+.logo-mobile {
+  width: 150px;
   align-self: center;
 }
 
-.form-container .form {
+.form-group {
   display: flex;
   flex-direction: column;
-  gap: 15px;
-}
-
-.form-container .form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
   margin-bottom: 1rem;
+  width: 100%;
 }
 
-.form-container .form-group label {
-  display: block;
-  margin-bottom: 10px;
+.form-group label {
   color: var(--primary-font);
-  font-size: 15px;
+  font-size: 1rem;
 }
 
-.form-container .form-group input {
+.form-group input {
   width: 100%;
-  border-radius: 8px;
-  color: black;
-  font-family: inherit;
-  font-size: 10px;
+  height: 3rem;
+  font-size: 1rem;
+  font-family: var(--primary-font);
   background-color: var(--input-background-color);
+  color: black;
+  border-radius: 8px;
   border: 1px solid #414141;
   box-shadow: #000000 0px 7px 10px -5px inset;
 }
-
-.form-container .form-group textarea {
-  width: 100%;
-  padding: 8px 12px;
-  border-radius: 8px;
-  resize: none;
-  color: black;
-  height: 80px;
-  font-size: 20px;
-  border: 1px solid #414141;
-  background-color: var(--input-background-color);
-  box-shadow: #000000 0px 7px 10px -5px inset;
-  font-family: inherit;
-}
-
-.form-container .form-group input::placeholder {
-  opacity: 0.5;
-}
-
-.form-container .form-group input:focus {
-  outline: none;
-  border-color: #e81cff;
-}
-
-.form-container .form-group textarea:focus {
-  outline: none;
-  border-color: #e81cff;
-}
-
-.form-container .form-submit-btn {
+.form-submit-btn {
   display: flex;
   justify-content: center;
-  font-family: inherit;
+  align-items: center;
+  font-family: var(--primary-font);
   color: white;
-  font-weight: 600;
-  width: 50%;
-  max-width: 200px;
+  width: 70%;
   background: var(--button-color);
   border: 1px solid #414141;
-  padding: 10px 50px;
-  font-size: 12px;
-  gap: 8px;
+  font-size: 1rem;
   cursor: pointer;
   box-shadow: #000000 0px 7px 10px -5px inset;
   border-radius: 6px;
-  margin: 0 auto;
-  margin-top: 1rem;
 }
 
-.form-container .form-submit-btn:hover {
+.form-submit-btn:hover {
   background-color: #fff;
   border-color: #fff;
   color: var(--button-color);
 }
 
+.form-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
 .wrap {
-  display: none;
+  display: none; //Ne pas afficher l'animation en mobile
 }
 
 .form-right {
-  display: none;
-}
-
-.central-bar {
-  width: 2px;
-  background-color: var(--primary-text-color);
-  height: 100%;
-  align-self: stretch;
+  display: none; //Ne pas afficher le GIF du trtris en mobile
 }
 
 // DESKTOP VERSION
 
 @media (min-width: 770px) {
   .form-container {
-    height: 70vh;
-    width: 50vw;
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
+    height: 70vh;
+    width: 70vw;
 
     .form {
       display: flex;
-      flex-direction: row;
-      gap: 20px;
-      align-content: center;
+      justify-content: space-around;
+      align-items: center;
     }
 
     .form-left,
     .form-right {
-      flex: 1;
       display: flex;
-      flex-direction: column;
-      gap: 5px;
-      height: 75%;
+      justify-content: center;
+      height: 35vh;
     }
 
-    .form-right {
-      display: flex;
-      justify-content: flex-end;
+    .form-left {
+      width: 20vw;
     }
 
     .form-right > img {
@@ -176,37 +106,46 @@
       width: 100%;
       object-fit: cover;
     }
-
-    .form-left .form-submit-btn {
-      align-self: center;
-      margin-top: auto;
-    }
   }
 
-  .form-container .form-group {
-    margin-bottom: 0;
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0rem;
+    width: 100%;
   }
 
-  .form-container .form-group textarea {
+  .form-group textarea {
     padding: 8px 12px;
     height: 80px;
     font-size: 12px;
   }
 
-  .form-container .form-group input {
-    padding: 8px 12px;
-    font-size: 12px;
+  .form-group input {
+    font-size: 1rem;
   }
 
-  .form-container .form-group label {
+  .form-group label {
     margin-bottom: 2px;
     font-size: 10px;
   }
 
-  .logo-mobile {
+  .form-submit-btn {
+    width: 100%;
+  }
+
+  .logo-mobile-register {
     display: none;
   }
 
+  .central-bar {
+    width: 2px;
+    background-color: var(--primary-text-color);
+    height: 100%;
+    align-self: stretch;
+  }
+
+  // Animation du titre "inscription"
   .wrap {
     display: block;
     text-align: center;

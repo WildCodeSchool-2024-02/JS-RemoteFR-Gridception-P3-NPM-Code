@@ -4,8 +4,8 @@ function About() {
   const [selectedSection, setSelectedSection] = useState("rules");
 
   return (
-    <main className="allContent">
-      <section className="radioInput">
+    <main className="all-about-content">
+      <section className="select-content-button">
         <input
           name="value-radio"
           id="value-1"
@@ -13,7 +13,7 @@ function About() {
           checked={selectedSection === "rules"}
           onChange={() => setSelectedSection("rules")}
         />
-        <label htmlFor="value-1" className="label">
+        <label htmlFor="value-1" className="select-label-about">
           Règles du jeu
         </label>
         <input
@@ -23,23 +23,23 @@ function About() {
           checked={selectedSection === "legalsMentions"}
           onChange={() => setSelectedSection("legalsMentions")}
         />
-        <label htmlFor="value-2" className="label">
+        <label htmlFor="value-2" className="select-label-about">
           Mentions Légales
         </label>
         <input
           name="value-radio"
           id="value-3"
           type="radio"
-          checked={selectedSection === "cguContent"}
-          onChange={() => setSelectedSection("cguContent")}
+          checked={selectedSection === "cgu-content"}
+          onChange={() => setSelectedSection("cgu-content")}
         />
-        <label htmlFor="value-3" className="label">
+        <label htmlFor="value-3" className="select-label-about">
           CGU
         </label>
       </section>
       {selectedSection === "rules" && (
-        <section className="rulesContent">
-          <h1 className="titleContent">Les règles</h1>
+        <section className="rules-content">
+          <h1 className="main-title-content">Les règles</h1>
           <h2 className="description-game">
             Bienvenue dans le monde passionnant du street art ! Prêt à explorer,
             partager et gravir les échelons du classement ? Voici comment jouer
@@ -116,8 +116,8 @@ function About() {
         </section>
       )}
       {selectedSection === "legalsMentions" && (
-        <section className="legalsMentionsContent">
-          <h1 className="titleContent">Mentions Légales</h1>
+        <section className="legals-mentions-content">
+          <h1 className="main-title-content">Mentions Légales</h1>
           <h3 className="description-main-title">1. Créateur du site</h3>
           <p className="description-details">
             Le site de recherche de street art est édité par : NPM Code Forme
@@ -214,9 +214,11 @@ function About() {
           </p>
         </section>
       )}
-      {selectedSection === "cguContent" && (
-        <section className="cguContent">
-          <h1 className="titleContent">Conditions Générales d'Utilisation</h1>
+      {selectedSection === "cgu-content" && (
+        <section className="cgu-content">
+          <h1 className="main-title-content">
+            Conditions Générales d'Utilisation
+          </h1>
 
           <h3 className="description-main-title">1. Présentation du Site</h3>
           <p className="description-details">

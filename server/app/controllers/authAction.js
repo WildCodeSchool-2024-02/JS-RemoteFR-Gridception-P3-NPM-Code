@@ -12,21 +12,14 @@ const login = async (req, res, next) => {
       return;
     }
 
-    const verified = await argon2.verify(
-      user.hashed_password,
-      req.body.password
-    );
+    const verified = await argon2.verify(user.password, req.body.password);
 
     if (verified) {
-      delete user.hashed_password;
+      delete user.password;
 
-      const token = await jwt.sign(
-        { sub: user.id, isAdmin: user.is_admin },
-        process.env.APP_SECRET,
-        {
-          expiresIn: "1h",
-        }
-      );
+      const token = await jwt.sign({ sub: user.id }, process.env.APP_SECRET, {
+        expiresIn: "1h",
+      });
 
       res.json({
         token,

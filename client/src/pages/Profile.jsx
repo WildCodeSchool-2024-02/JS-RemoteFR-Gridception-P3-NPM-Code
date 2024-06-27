@@ -1,5 +1,6 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { useOutletContext } from "react-router-dom";
 
 import { Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
 import { styled } from "@mui/material/styles";
@@ -32,7 +33,8 @@ const AccordionElements = styled(AccordionDetails)(({ theme }) => ({
 }));
 
 function Profile() {
-  const [expanded, setExpanded] = React.useState("");
+  const { handleLogout } = useOutletContext();
+  const [expanded, setExpanded] = useState("");
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
   };
@@ -54,7 +56,9 @@ function Profile() {
       <AvatarChange />
 
       <p className="counter-point">69 Points</p>
-
+      <button type="button" onClick={() => handleLogout()}>
+        DECO
+      </button>
       <div className="profile-section-mobile">
         <section>
           <AccordionContainer
