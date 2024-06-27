@@ -28,8 +28,8 @@ function Map() {
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
       style: "mapbox://styles/anonymze/clx26p0rq004201qqe1jq2pxn",
-      center: [4, 47],
-      zoom: 5.2,
+      center: [2, 47],
+      zoom: 4.5,
     });
 
     map.current.addControl(
