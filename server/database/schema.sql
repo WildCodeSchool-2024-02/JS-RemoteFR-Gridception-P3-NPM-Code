@@ -1,6 +1,3 @@
--- SQLBook: Code
-
-
 create table roles (
   id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
   name VARCHAR(80) NOT NULL
@@ -15,19 +12,19 @@ create table users (
   points INT,
   city VARCHAR(80),
   email VARCHAR(255) NOT NULL unique,
-  password VARCHAR(50) NOT NULL 
+  password VARCHAR(255) NOT NULL 
 );
 
 create table street_arts (
   id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
   FOREIGN KEY (users_id) REFERENCES users(id),
   users_id INT NOT NULL,
+  file VARCHAR(255) NOT NULL,
   title VARCHAR(100) NOT NULL,
   description TEXT NOT NULL,
   artist VARCHAR(80),
   latitude INT NOT NULL,
   longitude INT NOT NULL,
-  main_url VARCHAR(155) NOT NULL,
   is_valid BOOLEAN NOT NULL
 );
 
@@ -60,4 +57,5 @@ CREATE TABLE contacts (
   fullname VARCHAR(155) NOT NULL,
   mail VARCHAR(80) NOT NULL,
   message TEXT NOT NULL
+
 )

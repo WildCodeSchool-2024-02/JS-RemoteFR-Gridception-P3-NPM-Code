@@ -91,9 +91,9 @@ const edit = async (req, res, next) => {
 // The A of BREAD - Add (Create) operation
 const add = async (req, res, next) => {
   // Extract the streetArt data from the request body
-  const streetArt = req.body;
 
   try {
+    const streetArt = req.body;
     // Insert the streetArt into the database
     const insertId = await tables.streetArts.create(streetArt);
 

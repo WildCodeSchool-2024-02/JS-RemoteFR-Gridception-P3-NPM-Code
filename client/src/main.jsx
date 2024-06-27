@@ -3,19 +3,20 @@ import ReactDOM from "react-dom/client";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import "./styles/import.scss";
+import About from "./pages/About";
 import App from "./App";
-import Home from "./pages/Home";
+import AddPictures from "./pages/AddPictures";
 import AddStreetArts from "./pages/AddStreetArts";
 import Contact from "./pages/Contact";
 import Gallery from "./pages/Gallery";
-import About from "./pages/About";
+import Home from "./pages/Home";
+import NotFound from "./pages/NotFound";
 import Profile from "./pages/Profile";
 import Ranking from "./pages/Ranking";
 import Register from "./pages/Register";
-import NotFound from "./pages/NotFound";
 import StreetArt from "./pages/StreetArt";
-import AddPictures from "./pages/AddPictures";
+
+import "./styles/import.scss";
 
 const router = createBrowserRouter([
   {
@@ -35,27 +36,27 @@ const router = createBrowserRouter([
         element: <AddPictures />,
       },
       {
-        path: "/Contact",
+        path: "/contact",
         element: <Contact />,
       },
       {
-        path: "/Galerie",
+        path: "/galerie",
         element: <Gallery />,
       },
       {
-        path: "/About",
+        path: "/a_propos",
         element: <About />,
       },
       {
-        path: "/Profil",
+        path: "/profil",
         element: <Profile />,
       },
       {
-        path: "/Classement",
+        path: "/classement",
         element: <Ranking />,
       },
       {
-        path: "/Inscription",
+        path: "/inscription",
         element: <Register />,
       },
       {

@@ -1,9 +1,11 @@
-import { useState } from "react";
 import axios from "axios";
+import { useState } from "react";
+
 import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 import logo from "../assets/images/logo.png";
+
+import "react-toastify/dist/ReactToastify.css";
 
 function Contact() {
   const [contactForm, setContactForm] = useState({
@@ -44,8 +46,8 @@ function Contact() {
   return (
     <>
       <section className="form-container-contact">
-        <img src={logo} alt="Street Art Hunter logo" className="logoMobile" />
-        <h1 className="mainTitleContact">Vous vouliez nous dire un truc ?</h1>
+        <img src={logo} alt="Street Art Hunter logo" className="logo-mobile" />
+        <h1 className="main-title-contact">Vous vouliez nous dire un truc ?</h1>
         <form className="form-contact">
           <div className="form-group-contact">
             <label htmlFor="fullname">Nom</label>
@@ -61,7 +63,7 @@ function Contact() {
             />
           </div>
           <div className="form-group-contact">
-            <label htmlFor="email"> Mail</label>
+            <label htmlFor="email">E-Mail</label>
             <input
               required
               name="mail"

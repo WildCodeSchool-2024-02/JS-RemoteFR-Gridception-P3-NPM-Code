@@ -1,70 +1,58 @@
-.RankingComponent {
+.table-container {
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    color: var(--primary-text-color);
+
+    th,
+    td {
+      border: 1px solid rgba(194, 76, 246, 0.6);
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: rgba(194, 76, 246, 0.6);
+    }
+
+    tbody tr:nth-child(even) {
+      background-color: rgba(194, 76, 246, 0.6);
+    }
+
+    tbody tr:hover {
+      background-color: rgba(194, 76, 246, 0.6);
+    }
+
+    .points {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
+
+.table-container {
+  font-family: "Roboto", sans-serif;
+
+  margin: 8rem 2rem 0 2rem;
+}
+
+.th-point {
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  color: var(--primary-text-color);
-  margin: 1rem;
+  font-size: 1.5rem;
 }
 
-.RankingNav {
-  display: flex;
-  gap: 13rem;
-  margin: 2rem;
-  background-color: rgba(194, 76, 246, 0.6);
-  .NavJoueur {
-    padding-left: 1rem;
-  }
-  .NavPoint {
-    padding-right: 1rem;
-  }
+.th-joueur {
+  font-size: 1.5rem;
 }
-
-.joueur-container {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  padding: 0 0.5rem;
-  height: 2.5rem;
-  align-items: center;
-  gap: 10rem;
-}
-
-.liste-container .joueur-container:nth-child(even) {
-  background-color: rgba(194, 76, 246, 0.6);
-  height: 2.5rem;
-  gap: 10rem;
-  margin-bottom: 1rem;
-  margin-top: 1rem;
-}
-
-.NavText {
-  filter: drop-shadow(10px 7px 10px rgb(71, 1, 92));
-  font-family: var(--second-font);
-}
-
-.point {
-  text-align: right;
-  width: 1rem;
-}
-
-// Version desktop
 
 @media (min-width: 770px) {
-  .RankingNav {
-    display: flex;
-    gap: 65rem;
-    font-size: 1rem;
+  .table-container {
+    font-size: 1.5rem;
+    margin: 5rem 5rem 0 5rem;
   }
-  .joueur-container {
-    display: flex;
-    gap: 60rem;
-    font-size: 1.4rem;
-  }
-  .point {
-    width: 3rem;
-  }
-  .RankingComponent {
-    margin-top: 4rem;
+  .th-joueur,
+  .th-point {
+    font-size: 2rem;
   }
 }
