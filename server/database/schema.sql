@@ -57,4 +57,5 @@ CREATE TABLE contacts (
   fullname VARCHAR(155) NOT NULL,
   mail VARCHAR(80) NOT NULL,
   message TEXT NOT NULL
+
 )

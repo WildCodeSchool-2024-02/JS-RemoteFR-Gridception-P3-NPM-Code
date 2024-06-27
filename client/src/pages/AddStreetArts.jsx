@@ -1,6 +1,8 @@
-import { useState } from "react";
 import axios from "axios";
+import { useState } from "react";
+
 import { ToastContainer, toast } from "react-toastify";
+
 import "react-toastify/dist/ReactToastify.css";
 
 function AddStreetArts() {
@@ -12,6 +14,7 @@ function AddStreetArts() {
     artist: "",
     latitude: "",
     longitude: "",
+    main_url: "",
     is_valid: 1,
   });
 
@@ -118,6 +121,7 @@ function AddStreetArts() {
   };
 
   return (
+
     <main className="all-content-Add-streetart">
       <section className="add-new-streetart">
         <h2 className="add-title-text">Ajouter une oeuvre:</h2>

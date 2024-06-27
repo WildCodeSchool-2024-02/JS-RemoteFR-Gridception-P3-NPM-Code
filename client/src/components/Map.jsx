@@ -1,9 +1,12 @@
-import { useEffect, useRef, useState } from "react";
 import axios from "axios";
+import { useEffect, useRef, useState } from "react";
+
 import mapboxgl from "mapbox-gl";
-import "mapbox-gl/dist/mapbox-gl.css";
+
 import Add from "../assets/images/add_icon2.png";
 import Info from "../assets/images/info2.png";
+
+import "mapbox-gl/dist/mapbox-gl.css";
 
 function Map() {
   const mapContainer = useRef(null);
@@ -14,7 +17,9 @@ function Map() {
 
   useEffect(() => {
     axios
+
       .get(`${import.meta.env.VITE_API_URL}/api/street_arts`)
+
       .then((results) => {
         setDatas(results.data);
         console.info(results);
@@ -28,8 +33,10 @@ function Map() {
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
       style: "mapbox://styles/anonymze/clx26p0rq004201qqe1jq2pxn",
+
       center: [2, 47],
       zoom: 4.5,
+
     });
 
     map.current.addControl(
@@ -49,6 +56,7 @@ function Map() {
     datas.forEach((oeuvre) => {
       const popupContent = `
        <div class="popup-container">
+
           <h3 class="popuptitle">${oeuvre.title}</h3>
           <img class="imgpopup-container" src=${oeuvre.file} alt="oeuvres" />
 <div class="button-container">

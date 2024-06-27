@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
 import axios from "axios";
+import React, { useEffect, useState } from "react";
+
 import { Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
@@ -46,15 +47,15 @@ function Profile() {
         setPicturesStreetArt(results.data);
       })
       .catch((err) => console.info(err));
-  });
+  }, []);
 
   return (
-    <section className="ProfileComponent">
+    <section className="profile-component">
       <AvatarChange />
 
-      <p className="counterPoint">69 Points</p>
+      <p className="counter-point">69 Points</p>
 
-      <div className="ProfileSectionMobile">
+      <div className="profile-section-mobile">
         <section>
           <AccordionContainer
             expanded={expanded === "panel1"}
@@ -64,7 +65,7 @@ function Profile() {
               <Typography variant="h2">Mes Oeuvres</Typography>
             </AccordionTitle>
             <AccordionElements>
-              <div className="myPicture">
+              <div className="my-street-art">
                 {picturesStreetArt.map((picture) => (
                   <img key={picture.id} src={picture.url} alt={picture.name} />
                 ))}
@@ -97,10 +98,10 @@ function Profile() {
       </div>
 
       {/* Profil section for laptop */}
-      <div className="ProfileSection">
+      <div className="profile-section">
         <section>
           <h2>Mes Oeuvres</h2>
-          <div className="myStreetArt">
+          <div className="my-street-art">
             {picturesStreetArt.map((streetArt) => (
               <img
                 key={streetArt.id}

@@ -12,6 +12,7 @@ class StreetArtsRepository extends AbstractRepository {
   async create(streetArts) {
     // Execute the SQL INSERT query to add a new streetArts to the "streetArts" table
     const [result] = await this.database.query(
+
       `insert into ${this.table} (users_id, file, title, description, artist, latitude, longitude, is_valid ) values (?, ?, ?, ?, ?, ?, ?, ?)`,
       [
         streetArts.users_id,
@@ -21,6 +22,7 @@ class StreetArtsRepository extends AbstractRepository {
         streetArts.artist,
         streetArts.latitude,
         streetArts.longitude,
+        streetArts.main_url,
         streetArts.is_valid,
       ]
     );
