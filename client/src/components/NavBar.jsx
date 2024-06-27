@@ -11,7 +11,8 @@ import Logo from "../assets/images/logo.png";
 import TrophyIcon from "../assets/images/trophy_icon.png";
 import UserIcon from "../assets/images/user_icon.png";
 
-function NavBar() {
+// eslint-disable-next-line react/prop-types
+function NavBar({ isLoggedIn }) {
   return (
     <>
       <section className="navbar-logo-container">
@@ -22,6 +23,7 @@ function NavBar() {
                 <img src={Home} alt="Icône page accueil" className="nav-icon" />
               </NavLink>
             </li>
+
             <li>
               <NavLink to="/profil">
                 <img src={UserIcon} alt="page profil" className="nav-icon" />
@@ -76,9 +78,15 @@ function NavBar() {
           <li className="navbar-content">
             <NavLink to="/contact">Contact</NavLink>
           </li>
-          <li className="navbar-content">
-            <NavLink to="/profil">Profil</NavLink>
-          </li>
+          {isLoggedIn === false ? (
+            <li className="navbar-content">
+              <NavLink to="/profil">Profil</NavLink>
+            </li>
+          ) : (
+            <li className="navbar-content">
+              <NavLink to="/profil">Mon Compte</NavLink>
+            </li>
+          )}
         </nav>
       </section>
     </>

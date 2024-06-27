@@ -47,7 +47,7 @@ function Profile() {
         setPicturesStreetArt(results.data);
       })
       .catch((err) => console.info(err));
-  });
+  }, []);
 
   return (
     <section className="profile-component">
