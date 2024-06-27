@@ -107,6 +107,14 @@ app.use("/api", apiRouter);
 // 2. Ensure that the `reactBuildPath` points to the correct directory where your client's build artifacts are located.
 
 
+
+const path = require("path");
+
+const reactBuildPath = path.join(__dirname, "/../../client/dist");
+const publicFolderPath = path.join(__dirname, "/../public");
+
+
+
 // Redirect all requests to the REACT app
 app.get("*", (req, res) => {
   if (req.path.includes("public")) {
@@ -118,6 +126,7 @@ app.get("*", (req, res) => {
     );
   }
 });
+
 
 /* ************************************************************************* */
 

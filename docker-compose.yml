@@ -18,6 +18,7 @@ services:
       DB_PASSWORD: password
       DB_NAME: js_template_fullstack
       VITE_BACKEND_URL: ""
+      VITE_MAPBOX_TOKEN: ${VITE_MAPBOX_TOKEN}
     depends_on:
       database:
         condition: service_healthy
