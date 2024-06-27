@@ -15,10 +15,6 @@
   font-family: var(--primary-font);
 }
 
-.textContent {
-  margin: 2rem;
-}
-
 // LES BOUTONS
 
 .radioInput {
@@ -101,6 +97,20 @@
   }
 }
 
+.description-game {
+  text-align: center;
+  margin: 1.5rem;
+}
+
+.description-main-title {
+  text-align: center;
+}
+
+.description-details {
+  text-align: center;
+  margin: 1rem;
+}
+
 // Version DESKTOP //
 
 @media (min-width: 770px) {
@@ -165,5 +175,19 @@
     text-align: left;
     font-family: var(--second-font);
     font-size: calc(0.5rem + 0.8vw);
+  }
+  .description-game {
+    text-align: center;
+    margin: 0.5rem;
+  }
+
+  .description-main-title {
+    text-align: start;
+    margin-left: 1rem;
+  }
+
+  .description-details {
+    text-align: start;
+    margin: 0 1rem 2rem 1rem;
   }
 }
