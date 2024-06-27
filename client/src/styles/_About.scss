@@ -1,4 +1,4 @@
-.all-content {
+.allContent {
   display: flex;
   flex-direction: column-reverse;
   height: 90vh;
@@ -6,7 +6,7 @@
   align-items: center;
 }
 
-.title-content {
+.titleContent {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,7 +17,7 @@
 
 // LES BOUTONS
 
-.radio-input {
+.radioInput {
   height: 80px;
   width: 90%;
   margin-bottom: 2rem;
@@ -31,7 +31,7 @@
     10px 10px 25px rgba(70, 70, 70, 0.5);
 }
 
-.radio-input input[type="radio"] {
+.radioInput input[type="radio"] {
   display: none;
 }
 
@@ -48,7 +48,7 @@
   color: black;
 }
 
-.radio-input input[type="radio"]:checked + label {
+.radioInput input[type="radio"]:checked + label {
   box-shadow:
     10px 10px 15px rgba(0, 0, 0, 0.151),
     10px 10px 15px rgba(0, 0, 0, 0.218);
@@ -58,7 +58,7 @@
   height: 70px;
 }
 
-.radio-input input[type="radio"]:hover:not(:checked) + label {
+.radioInput input[type="radio"]:hover:not(:checked) + label {
   box-shadow:
     inset 10px 10px 15px rgba(0, 0, 0, 0.151),
     inset 10px 10px 15px rgba(0, 0, 0, 0.218);
@@ -67,9 +67,9 @@
 
 // FENETRE DU CONTENU TEXTE
 
-.rules-content,
-.legals-mentions-content,
-.cgu-content {
+.rulesContent,
+.legalsMentionsContent,
+.cguContent {
   height: 65vh;
   max-height: 65vh;
   margin: 0 2rem;
@@ -114,15 +114,13 @@
 // Version DESKTOP //
 
 @media (min-width: 770px) {
-  .all-content {
-    margin-top: 4rem;
+  .allContent {
     height: auto;
     display: flex;
     flex-direction: row;
   }
 
   // Les bouttons
-
 
   .radioInput {
     height: 300px;
@@ -131,7 +129,7 @@
     flex-direction: column;
     margin-bottom: 0;
   }
-  .radio-input input[type="radio"]:checked + label {
+  .radioInput input[type="radio"]:checked + label {
     box-shadow:
       10px 10px 15px rgba(0, 0, 0, 0.151),
       10px 10px 15px rgba(0, 0, 0, 0.218);
@@ -141,7 +139,7 @@
     width: 90%;
   }
 
-  .radio-input input[type="radio"]:hover:not(:checked) + label {
+  .radioInput input[type="radio"]:hover:not(:checked) + label {
     box-shadow:
       inset 10px 10px 15px rgba(0, 0, 0, 0.151),
       inset 10px 10px 15px rgba(0, 0, 0, 0.218);
@@ -169,9 +167,9 @@
     width: 150px;
   }
 
-  .rules-content,
-  .legals-mentions-content,
-  .cgu-content {
+  .rulesContent,
+  .legalsMentionsContent,
+  .cguContent {
     width: 60rem;
     max-height: 60vh;
     text-align: left;

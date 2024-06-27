@@ -4,8 +4,8 @@ function About() {
   const [selectedSection, setSelectedSection] = useState("rules");
 
   return (
-    <main className="all-content">
-      <section className="radio-input">
+    <main className="allContent">
+      <section className="radioInput">
         <input
           name="value-radio"
           id="value-1"
@@ -20,8 +20,8 @@ function About() {
           name="value-radio"
           id="value-2"
           type="radio"
-          checked={selectedSection === "legals-mentions"}
-          onChange={() => setSelectedSection("legals-mentions")}
+          checked={selectedSection === "legalsMentions"}
+          onChange={() => setSelectedSection("legalsMentions")}
         />
         <label htmlFor="value-2" className="label">
           Mentions Légales
@@ -30,8 +30,8 @@ function About() {
           name="value-radio"
           id="value-3"
           type="radio"
-          checked={selectedSection === "cgu-content"}
-          onChange={() => setSelectedSection("cgu-content")}
+          checked={selectedSection === "cguContent"}
+          onChange={() => setSelectedSection("cguContent")}
         />
         <label htmlFor="value-3" className="label">
           CGU
@@ -41,7 +41,6 @@ function About() {
         <section className="rulesContent">
           <h1 className="titleContent">Les règles</h1>
           <h2 className="description-game">
-
             Bienvenue dans le monde passionnant du street art ! Prêt à explorer,
             partager et gravir les échelons du classement ? Voici comment jouer
             :
@@ -116,7 +115,6 @@ function About() {
           </p>
         </section>
       )}
-
       {selectedSection === "legalsMentions" && (
         <section className="legalsMentionsContent">
           <h1 className="titleContent">Mentions Légales</h1>

@@ -12,7 +12,7 @@ create table users (
   points INT,
   city VARCHAR(80),
   email VARCHAR(255) NOT NULL unique,
-  password VARCHAR(50) NOT NULL 
+  password VARCHAR(255) NOT NULL 
 );
 
 create table street_arts (
