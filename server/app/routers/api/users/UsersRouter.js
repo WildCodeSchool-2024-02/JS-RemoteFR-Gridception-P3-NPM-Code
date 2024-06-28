@@ -1,30 +1,21 @@
 const express = require("express");
 
 const router = express.Router();
-
-/* ************************************************************************* */
-// Define Your API Routes Here
-/* ************************************************************************* */
-
-// Import item-related actions
 const {
   browse,
   read,
   edit,
   destroy,
+  userbyid,
 } = require("../../../controllers/usersActions");
+const { verifyToken } = require("../../../services/auth");
 
 // Route to get a list of items
 router.get("/", browse);
-
-// Route to get a specific item by ID
-router.get("/:id", read);
-
-// Route to edit a new item
+router.get("/", read);
 router.put("/:id", edit);
-
-// Route to delete an item
 router.delete("/", destroy);
-/* ************************************************************************* */
+
+router.get("/me", verifyToken, userbyid);
 
 module.exports = router;

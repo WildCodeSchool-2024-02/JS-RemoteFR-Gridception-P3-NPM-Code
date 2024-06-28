@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useOutletContext } from "react-router-dom";
 
 import Avatar from "react-avatar-edit";
 import { Button } from "primereact/button";
@@ -16,6 +17,8 @@ export default function AvatarChange() {
   const [profile, setProfile] = useState({ avatar: "" });
   const [pView, setPView] = useState(null);
   const [src] = useState(false);
+
+  const { loggedUser } = useOutletContext();
 
   const onClose = () => {
     setPView(null);
@@ -36,7 +39,7 @@ export default function AvatarChange() {
     }
 
     axios
-      .put(`${import.meta.env.VITE_API_URL}/api/users/10`, {
+      .put(`${import.meta.env.VITE_API_URL}/api/users/me`, {
         ...profile,
         roles_id: "2",
         firstname: "Marlen",
@@ -62,7 +65,7 @@ export default function AvatarChange() {
           alt="avatar"
         />
       </button>
-      <h1 className="user-name">Anthony GORSKI</h1>
+      <h1 className="user-name">{`${loggedUser.firstname} ${loggedUser.lastname}`}</h1>
 
       <Dialog
         visible={imageCrop}

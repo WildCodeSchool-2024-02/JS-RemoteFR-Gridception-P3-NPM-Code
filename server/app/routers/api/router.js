@@ -45,10 +45,9 @@ router.use(verifyToken);
 router.post("/street_arts", streetArtsActions.add);
 router.post("/pictures", picturesActions.add);
 
-
 router.use("/roles", rolesRouter);
 
-const uploadRouter = require("./upload/UploadRouter")
+const uploadRouter = require("./upload/UploadRouter");
 
 router.use("/upload", uploadRouter);
 

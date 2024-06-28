@@ -24,30 +24,36 @@ const hashPassword = async (req, res, next) => {
   }
 };
 
+// eslint-disable-next-line consistent-return
 const verifyToken = (req, res, next) => {
   try {
     const authorizationHeader = req.get("Authorization");
-
-    if (authorizationHeader == null) {
-      throw new Error("Authorization header is missing");
+    if (!authorizationHeader) {
+      return res
+        .status(401)
+        .json({ message: "Authorization header is missing" });
     }
 
     const [type, token] = authorizationHeader.split(" ");
-
     if (type !== "Bearer") {
-      throw new Error("Authorization header has not the 'Bearer' type");
+      return res
+        .status(401)
+        .json({ message: "Authorization header has not the 'Bearer' type" });
     }
 
-    req.auth = jwt.verify(token, process.env.APP_SECRET);
+    const decoded = jwt.verify(token, process.env.APP_SECRET);
+    if (!decoded.sub) {
+      return res.status(401).json({ message: "Invalid token payload" });
+    }
 
+    req.auth = { id: decoded.sub };
     next();
   } catch (err) {
-    console.error(err);
-
-    res.sendStatus(401);
+    console.error("Erreur lors de la vérification du token:", err.message);
+    return res.status(401).json({ message: "Invalid token" });
   }
+  // Ajoutez ce return pour satisfaire ESLint
 };
-
 module.exports = {
   hashPassword,
   verifyToken,
