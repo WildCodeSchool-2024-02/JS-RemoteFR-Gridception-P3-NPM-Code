@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-
 import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
 import ImageList from "@mui/material/ImageList";
@@ -11,7 +10,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 
 export default function Gallery() {
-  const [pictures, setPictures] = useState([]);
+  const [streetArts, setStreetArts] = useState([]);
   const theme = useTheme();
   const matchesSm = useMediaQuery(theme.breakpoints.up("sm"));
   const matchesMd = useMediaQuery(theme.breakpoints.up("md"));
@@ -19,16 +18,19 @@ export default function Gallery() {
   const matchesMin770 = useMediaQuery("(min-width: 770px)");
 
   useEffect(() => {
-    fetch("http://127.0.0.1:3310/api/pictures")
+    fetch("http://127.0.0.1:3310/api/street_arts")
       .then((response) => response.json())
-      .then((data) => setPictures(data))
-      .catch((error) => console.error("Error fetching pictures:", error));
+
+      .then((data) => setStreetArts(data))
+
+      .catch((error) => console.error("Error fetching street arts:", error));
   }, []);
 
   const getCols = () => {
     if (matchesLg) return 4;
     if (matchesMd) return 3;
     if (matchesSm) return 2;
+
     return 1;
   };
 
@@ -54,22 +56,22 @@ export default function Gallery() {
         cols={getCols()}
         gap={20}
       >
-        {pictures.length > 0 ? (
-          pictures.map((picture) => (
-            <Link to="/streetArt" key="link">
-              <ImageListItem key={picture.id} cols={1} rows={1}>
+        {streetArts.length > 0 ? (
+          streetArts.map((streetArt) => (
+            <Link to="/streetArt" key={streetArt.id}>
+              <ImageListItem key={streetArt.id} cols={1} rows={1}>
                 <img
-                  srcSet={`${picture.url}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                  src={`${picture.url}?w=248&fit=crop&auto=format`}
-                  alt={picture.name}
+                  srcSet={`${streetArt.file}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                  src={`${streetArt.file}?w=248&fit=crop&auto=format`}
+                  alt={streetArt.title}
                   loading="lazy"
                 />
                 <ImageListItemBar
-                  title={picture.name}
+                  title={streetArt.title}
                   actionIcon={
                     <IconButton
                       sx={{ color: "rgba(255, 255, 255, 0.54)" }}
-                      aria-label={`info about ${picture.name}`}
+                      aria-label={`info about ${streetArt.title}`}
                     >
                       <InfoIcon />
                     </IconButton>
