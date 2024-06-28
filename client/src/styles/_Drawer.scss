@@ -1,38 +1,38 @@
 @import url("https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap");
 
-.burger-logo {
+.burgerLogo {
   width: 2.5rem;
   filter: drop-shadow(10px 7px 10px rgb(71, 1, 92));
 }
-.drawer-button {
+.drawerButton {
   padding: 0;
 }
 
-.drawer-log-title {
+.drawerLogTitle {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-self: center;
 }
-.drawer-title {
+.drawerTitle {
   color: var(--primary-text-color);
   text-align: center;
 }
 
-.logo-in-drawer {
+.logoInDrawer {
   width: 150px;
   align-self: center;
   margin-top: -3.5rem;
 }
 
-.drawer-title-2 {
+.drawerTitle2 {
   color: var(--primary-text-color);
   padding-bottom: 9rem;
   text-align: center;
   margin-top: -2.5rem;
 }
 
-.drawer-icon {
+.drawerIcon {
   width: 40px;
 }
 

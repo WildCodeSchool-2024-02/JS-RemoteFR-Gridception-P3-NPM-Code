@@ -2,7 +2,7 @@ import NotFound from "./NotFound";
 
 function StreetArt() {
   return (
-    <section className="street-art-component">
+    <section className="StreetArtComponent">
       <NotFound />
     </section>
   );

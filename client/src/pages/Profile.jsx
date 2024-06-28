@@ -1,7 +1,5 @@
+import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useEffect, useState } from "react";
-import { useOutletContext } from "react-router-dom";
-
 import { Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
@@ -33,8 +31,7 @@ const AccordionElements = styled(AccordionDetails)(({ theme }) => ({
 }));
 
 function Profile() {
-  const { handleLogout } = useOutletContext();
-  const [expanded, setExpanded] = useState("");
+  const [expanded, setExpanded] = React.useState("");
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
   };
@@ -49,17 +46,15 @@ function Profile() {
         setPicturesStreetArt(results.data);
       })
       .catch((err) => console.info(err));
-  }, []);
+  });
 
   return (
-    <section className="profile-component">
+    <section className="ProfileComponent">
       <AvatarChange />
 
-      <p className="counter-point">69 Points</p>
-      <button type="button" onClick={() => handleLogout()}>
-        DECO
-      </button>
-      <div className="profile-section-mobile">
+      <p className="counterPoint">69 Points</p>
+
+      <div className="ProfileSectionMobile">
         <section>
           <AccordionContainer
             expanded={expanded === "panel1"}
@@ -69,7 +64,7 @@ function Profile() {
               <Typography variant="h2">Mes Oeuvres</Typography>
             </AccordionTitle>
             <AccordionElements>
-              <div className="my-street-art">
+              <div className="myArtStreet ">
                 {picturesStreetArt.map((picture) => (
                   <img key={picture.id} src={picture.url} alt={picture.name} />
                 ))}
@@ -102,10 +97,10 @@ function Profile() {
       </div>
 
       {/* Profil section for laptop */}
-      <div className="profile-section">
+      <div className="ProfileSection">
         <section>
           <h2>Mes Oeuvres</h2>
-          <div className="my-street-art">
+          <div className="myStreetArt">
             {picturesStreetArt.map((streetArt) => (
               <img
                 key={streetArt.id}

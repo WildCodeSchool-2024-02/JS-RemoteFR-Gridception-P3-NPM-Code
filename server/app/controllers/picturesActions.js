@@ -69,15 +69,9 @@ const edit = async (req, res, next) => {
 
 // The A of BREAD - Add (Create) operation
 const add = async (req, res, next) => {
-  if (!req.auth.isAdmin) {
-    res.sendStatus(403);
-    return;
-  }
-
+  // Extract the item data from the request body
+  const pictures = req.body;
   try {
-    // Extract the item data from the request body
-    const pictures = { ...req.body, user_id: req.auth.sub };
-
     // Insert the item into the database
     const insertId = await tables.pictures.create(pictures);
 

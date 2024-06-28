@@ -1,8 +1,6 @@
-import axios from "axios";
 import { useState } from "react";
-
+import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
-
 import logo from "../assets/images/logo.png";
 import Tetris from "../assets/images/Tetris.gif";
 
@@ -10,7 +8,7 @@ function Register() {
   const [registerForm, setRegisterForm] = useState({
     firstname: "",
     lastname: "",
-
+    email: "",
     password: "",
     confirmPassword: "",
     roles_id: 2,
@@ -49,11 +47,7 @@ function Register() {
     );
   return (
     <section className="form-container">
-      <img
-        src={logo}
-        alt="Street Art Hunter logo"
-        className="logo-mobile-register"
-      />
+      <img src={logo} alt="Street Art Hunter logo" className="logoMobile" />
       <div className="wrap">
         <span className="letter">I</span>
         <span className="letter">N</span>
@@ -134,7 +128,7 @@ function Register() {
             onClick={(e) => {
               e.preventDefault();
               if (
-                registerForm.firstname !== "" &&
+                registerForm.firstame !== "" &&
                 registerForm.lastname !== "" &&
                 registerForm.email !== "" &&
                 registerForm.password !== "" &&
@@ -144,7 +138,6 @@ function Register() {
                   axios
                     .post(
                       `${import.meta.env.VITE_API_URL}/api/users`,
-
                       registerForm
                     )
                     .then((res) => {
