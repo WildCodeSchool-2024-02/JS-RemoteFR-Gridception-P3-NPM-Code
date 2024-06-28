@@ -65,6 +65,7 @@ export default function Gallery() {
                   src={`${streetArt.file}?w=248&fit=crop&auto=format`}
                   alt={streetArt.title}
                   loading="lazy"
+                  style={{ maxHeight: "100%", objectFit: "cover" }}
                 />
                 <ImageListItemBar
                   title={streetArt.title}
