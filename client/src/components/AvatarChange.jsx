@@ -62,7 +62,7 @@ export default function AvatarChange() {
           alt="avatar"
         />
       </button>
-      <h1 className="user-name">Anthony GORSKI</h1>
+      <h1 className="user-name">Anthony Gorski</h1>
 
       <Dialog
         visible={imageCrop}

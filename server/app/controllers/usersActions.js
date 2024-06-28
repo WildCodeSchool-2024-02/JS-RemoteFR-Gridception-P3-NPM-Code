@@ -84,6 +84,28 @@ const destroy = async (req, res, next) => {
   }
 };
 
+const userbyid = async (req, res) => {
+  try {
+    const userId = req.auth.id;
+
+    const user = await tables.users.read(userId);
+    if (!user) {
+      return res.status(404).json({ message: "Utilisateur non trouvé" });
+    }
+
+    return res.json({ user });
+  } catch (error) {
+    console.error(
+      "Erreur lors de la récupération des informations de l'utilisateur:",
+      error
+    );
+    return res.status(500).json({
+      message:
+        "Erreur lors de la récupération des informations de l'utilisateur",
+    });
+  }
+};
+
 // Ready to export the controller functions
 module.exports = {
   browse,
@@ -91,4 +113,5 @@ module.exports = {
   edit,
   add,
   destroy,
+  userbyid,
 };
