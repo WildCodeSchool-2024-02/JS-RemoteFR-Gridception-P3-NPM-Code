@@ -108,10 +108,10 @@ app.use("/api", apiRouter);
 
 
 
-const path = require("path");
 
-const reactBuildPath = path.join(__dirname, "/../../client/dist");
-const publicFolderPath = path.join(__dirname, "/../public");
+
+// const reactBuildPath = path.join(__dirname, "/../../client/dist");
+// const publicFolderPath = path.join(__dirname, "/../public");
 
 
 
