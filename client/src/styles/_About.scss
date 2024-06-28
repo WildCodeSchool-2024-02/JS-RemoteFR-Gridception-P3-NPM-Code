@@ -1,4 +1,4 @@
-.all-about-content {
+.allContent {
   display: flex;
   flex-direction: column-reverse;
   height: 90vh;
@@ -6,7 +6,7 @@
   align-items: center;
 }
 
-.main-title-content {
+.titleContent {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,9 +15,13 @@
   font-family: var(--primary-font);
 }
 
+.textContent {
+  margin: 2rem;
+}
+
 // LES BOUTONS
 
-.select-content-button {
+.radioInput {
   height: 80px;
   width: 90%;
   margin-bottom: 2rem;
@@ -31,11 +35,11 @@
     10px 10px 25px rgba(70, 70, 70, 0.5);
 }
 
-.select-content-button input[type="radio"] {
+.radioInput input[type="radio"] {
   display: none;
 }
 
-.select-label-about {
+.label {
   width: 100%;
   text-align: center;
   font-size: calc(0.7rem + 1.5vw);
@@ -48,7 +52,7 @@
   color: black;
 }
 
-.select-content-button input[type="radio"]:checked + label {
+.radioInput input[type="radio"]:checked + label {
   box-shadow:
     10px 10px 15px rgba(0, 0, 0, 0.151),
     10px 10px 15px rgba(0, 0, 0, 0.218);
@@ -58,7 +62,7 @@
   height: 70px;
 }
 
-.select-content-button input[type="radio"]:hover:not(:checked) + label {
+.radioInput input[type="radio"]:hover:not(:checked) + label {
   box-shadow:
     inset 10px 10px 15px rgba(0, 0, 0, 0.151),
     inset 10px 10px 15px rgba(0, 0, 0, 0.218);
@@ -67,9 +71,9 @@
 
 // FENETRE DU CONTENU TEXTE
 
-.rules-content,
-.legals-mentions-content,
-.cgu-content {
+.rulesContent,
+.legalsMentionsContent,
+.cguContent {
   height: 65vh;
   max-height: 65vh;
   margin: 0 2rem;
@@ -79,10 +83,12 @@
   background-color: rgba(194, 76, 246, 0.6);
   overflow-y: auto;
   font-family: var(--second-font);
+  df:kns:dlfjbslkdbhf &::-webkit-scrollbar {
+    width: 12px;
+  }
   &::-webkit-scrollbar {
     width: 12px;
   }
-
   &::-webkit-scrollbar-thumb {
     background-color: var(--primary-color);
     border-radius: 10px;
@@ -95,24 +101,11 @@
   }
 }
 
-.description-game {
-  text-align: center;
-  margin: 1.5rem;
-}
-
-.description-main-title {
-  text-align: center;
-}
-
-.description-details {
-  text-align: center;
-  margin: 1rem;
-}
-
 // Version DESKTOP //
 
 @media (min-width: 770px) {
-  .all-about-content {
+  .allContent {
+    margin-top: 4rem;
     height: auto;
     display: flex;
     flex-direction: row;
@@ -120,14 +113,14 @@
 
   // Les bouttons
 
-  .select-content-button {
-    height: 300px;
+  .radioInput {
+    height: 250px;
     width: 300px;
     display: flex;
     flex-direction: column;
     margin-bottom: 0;
   }
-  .select-content-button input[type="radio"]:checked + label {
+  .radioInput input[type="radio"]:checked + label {
     box-shadow:
       10px 10px 15px rgba(0, 0, 0, 0.151),
       10px 10px 15px rgba(0, 0, 0, 0.218);
@@ -137,17 +130,17 @@
     width: 90%;
   }
 
-  .select-content-button input[type="radio"]:hover:not(:checked) + label {
+  .radioInput input[type="radio"]:hover:not(:checked) + label {
     box-shadow:
       inset 10px 10px 15px rgba(0, 0, 0, 0.151),
       inset 10px 10px 15px rgba(0, 0, 0, 0.218);
     width: 90%;
   }
 
-  .select-label-about {
-    height: 100px;
-    width: 250px;
-    font-size: calc(0.8rem + 0.4vw);
+  .label {
+    height: 80px;
+    width: 150px;
+    font-size: calc(0.8rem + 0.5vw);
     font-weight: 600;
     font-family: var(--second-font);
     padding: 18px 15px;
@@ -157,7 +150,7 @@
     color: black;
   }
 
-  .select-label-about:hover {
+  .label:hover {
     box-shadow:
       inset 10px 10px 15px rgba(0, 0, 0, 0.151),
       inset 10px 10px 15px rgba(0, 0, 0, 0.218);
@@ -165,27 +158,13 @@
     width: 150px;
   }
 
-  .rules-content,
-  .legals-mentions-content,
-  .cgu-content {
+  .rulesContent,
+  .legalsMentionsContent,
+  .cguContent {
     width: 60rem;
     max-height: 60vh;
     text-align: left;
     font-family: var(--second-font);
     font-size: calc(0.5rem + 0.8vw);
-  }
-  .description-game {
-    text-align: center;
-    margin: 0.5rem;
-  }
-
-  .description-main-title {
-    text-align: start;
-    margin-left: 1rem;
-  }
-
-  .description-details {
-    text-align: start;
-    margin: 0 1rem 2rem 1rem;
   }
 }

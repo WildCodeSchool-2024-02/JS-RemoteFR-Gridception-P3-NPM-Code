@@ -11,6 +11,7 @@ const {
   browse,
   read,
   edit,
+  add,
   destroy,
 } = require("../../../controllers/usersActions");
 
@@ -21,7 +22,10 @@ router.get("/", browse);
 router.get("/:id", read);
 
 // Route to edit a new item
-router.put("/:id", edit);
+router.put("/", edit);
+
+// Route to add a new item
+router.post("/", add);
 
 // Route to delete an item
 router.delete("/", destroy);

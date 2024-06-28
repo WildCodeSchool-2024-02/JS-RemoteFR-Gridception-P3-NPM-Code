@@ -1,4 +1,4 @@
-.profile-component {
+.ProfileComponent {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -10,13 +10,13 @@
     font-size: calc(1.5rem + 1vw);
     margin-bottom: 0.5rem;
   }
-  .counter-point {
+  .counterPoint {
     margin: 0;
     background-color: var(--button-color);
   }
 }
 
-.profile-section-mobile {
+.ProfileSectionMobile {
   text-align: center;
   min-width: 85vw;
   margin: 5rem 2rem 2rem 2rem;
@@ -28,34 +28,35 @@
     text-shadow: var(--text-shadow);
   }
 }
-.my-street-art {
+.myArtStreet {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-
+  overflow: scroll;
   img {
     margin: 0.5rem;
     width: 8rem;
   }
 }
-.profile-section {
+
+.ProfileSection {
   display: none;
 }
 
 // media queri destop
 
 @media (min-width: 770px) {
-  .profile-component {
-    margin-top: 2rem;
+  .ProfileComponent {
+    margin-top: 4rem;
     label {
       margin-top: 0.5rem;
     }
   }
-  .profile-section-mobile {
+  .ProfileSectionMobile {
     display: none;
   }
 
-  .profile-section {
+  .ProfileSection {
     display: flex;
     justify-content: space-around;
     text-align: center;
@@ -69,7 +70,7 @@
 
     section {
       width: 20rem;
-      height: 15rem;
+      height: 20rem;
       margin: 1rem;
       border-radius: 10px;
       background-color: color-mix(
@@ -78,18 +79,13 @@
         transparent
       );
     }
-    .my-street-art {
-      display: grip;
+    .myStreetArt {
       grid-template-columns: 1fr 1fr 1fr;
-      overflow: scroll;
 
       img {
         width: 5rem;
         margin: 0.5rem;
       }
     }
-  }
-  .my-street-art::-webkit-scrollbar {
-    display: none;
   }
 }

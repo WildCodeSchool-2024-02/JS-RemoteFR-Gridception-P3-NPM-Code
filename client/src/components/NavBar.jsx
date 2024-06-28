@@ -1,18 +1,16 @@
 import * as React from "react";
-import { NavLink } from "react-router-dom";
 
+import { NavLink } from "react-router-dom";
 import { StyledEngineProvider } from "@mui/material/styles";
+import UserIcon from "../assets/images/user_icon.png";
+import TrophyIcon from "../assets/images/trophy_icon.png";
+import Logo from "../assets/images/logo.png";
+import AddIcon2 from "../assets/images/add_icon2.png";
+import Home from "../assets/images/home.png";
 
 import Drawer from "./Drawer";
 
-import AddIcon2 from "../assets/images/add_icon2.png";
-import Home from "../assets/images/home.png";
-import Logo from "../assets/images/logo.png";
-import TrophyIcon from "../assets/images/trophy_icon.png";
-import UserIcon from "../assets/images/user_icon.png";
-
-// eslint-disable-next-line react/prop-types
-function NavBar({ isLoggedIn }) {
+function NavBar() {
   return (
     <>
       <section className="navbar-logo-container">
@@ -20,13 +18,12 @@ function NavBar({ isLoggedIn }) {
           <menu>
             <li>
               <NavLink to="/">
-                <img src={Home} alt="Icône page accueil" className="nav-icon" />
+                <img src={Home} alt="Icône page accueil" className="navIcon" />
               </NavLink>
             </li>
-
             <li>
               <NavLink to="/profil">
-                <img src={UserIcon} alt="page profil" className="nav-icon" />
+                <img src={UserIcon} alt="page profil" className="navIcon" />
               </NavLink>
             </li>
             <li>
@@ -34,7 +31,7 @@ function NavBar({ isLoggedIn }) {
                 <img
                   src={AddIcon2}
                   alt="ajouter un street art"
-                  className="add-art"
+                  className="addArt"
                 />
               </NavLink>
             </li>
@@ -43,7 +40,7 @@ function NavBar({ isLoggedIn }) {
                 <img
                   src={TrophyIcon}
                   alt="page classement"
-                  className="nav-icon"
+                  className="navIcon"
                 />
               </NavLink>
             </li>
@@ -62,31 +59,25 @@ function NavBar({ isLoggedIn }) {
           <img
             src={Logo}
             alt="Logo Street Art Hunter"
-            className="logo-desktop"
+            className="logoDesktop"
           />
         </NavLink>
-        <nav className="navbar-top">
-          <li className="navbar-content">
-            <NavLink to="/a_propos">À propos</NavLink>
+        <nav className="navbarTop">
+          <li className="navbarContent">
+            <NavLink to="/About">À propos</NavLink>
           </li>
-          <li className="navbar-content">
+          <li className="navbarContent">
             <NavLink to="/galerie">Galerie</NavLink>
           </li>
-          <li className="navbar-content">
+          <li className="navbarContent">
             <NavLink to="/classement">Classement</NavLink>
           </li>
-          <li className="navbar-content">
+          <li className="navbarContent">
             <NavLink to="/contact">Contact</NavLink>
           </li>
-          {isLoggedIn === false ? (
-            <li className="navbar-content">
-              <NavLink to="/profil">Profil</NavLink>
-            </li>
-          ) : (
-            <li className="navbar-content">
-              <NavLink to="/profil">Mon Compte</NavLink>
-            </li>
-          )}
+          <li className="navbarContent">
+            <NavLink to="/profil">Profil</NavLink>
+          </li>
         </nav>
       </section>
     </>
