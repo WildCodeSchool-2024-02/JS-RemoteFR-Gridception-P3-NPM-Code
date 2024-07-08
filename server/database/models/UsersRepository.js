@@ -66,7 +66,7 @@ class UsersRepository extends AbstractRepository {
   async update(users) {
     // Execute the SQL UPDATE query to update a specific category
     const [result] = await this.database.query(
-      `update ${this.table} set roles_id = ?, firstname = ?, lastname = ?, avatar = ?, points = ?, city = ?, email = ?, password = ? where id = ?`,
+      `update ${this.table} set roles_id = ?, firstname = ?, lastname = ?, avatar = ?, points = ?, city = ?, email = ? where id = ?`,
       [
         users.roles_id,
         users.firstname,
@@ -75,7 +75,6 @@ class UsersRepository extends AbstractRepository {
         users.points,
         users.city,
         users.email,
-        users.password,
         users.id,
       ]
     );

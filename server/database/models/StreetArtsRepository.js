@@ -12,7 +12,6 @@ class StreetArtsRepository extends AbstractRepository {
   async create(streetArts) {
     // Execute the SQL INSERT query to add a new streetArts to the "streetArts" table
     const [result] = await this.database.query(
-
       `insert into ${this.table} (users_id, file, title, description, artist, latitude, longitude, is_valid ) values (?, ?, ?, ?, ?, ?, ?, ?)`,
       [
         streetArts.users_id,
@@ -74,6 +73,18 @@ class StreetArtsRepository extends AbstractRepository {
     return rows[0];
   }
 
+  async readById(id) {
+    // Execute the SQL SELECT query to retrieve a specific streetArts by its ID
+    const [rows] = await this.database.query(
+      `select s.title, s.id, s.file from ${this.table} s 
+      inner join users u on u.id = s.users_id
+      where u.id = ?`,
+      [id]
+    );
+
+    // Return the first row of the result, which represents the streetArts
+    return rows;
+  }
   // The U of CRUD - Update operation
 
   async update(streetArts) {
