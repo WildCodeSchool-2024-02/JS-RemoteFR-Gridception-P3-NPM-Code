@@ -3,30 +3,35 @@ import axios from "axios";
 
 function AdminPage() {
   const [selectedSection, setSelectedSection] = useState("oeuvres-to-validate");
+  const [oeuvres, setOeuvres] = useState([]);
   const [users, setUsers] = useState([]);
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
+    if (selectedSection === "oeuvres-to-validate") {
+      axios
+        .get(`${import.meta.env.VITE_API_URL}/api/street_arts`)
+        .then((results) => {
+          setOeuvres(results.data.filter((oeuvre) => oeuvre.is_valid === 0));
+        })
+        .catch((err) => console.info(err));
+    }
     if (selectedSection === "users-infos") {
       axios
         .get(`${import.meta.env.VITE_API_URL}/api/users`)
-        .then((response) => {
-          setUsers(response.data);
+        .then((results) => {
+          setUsers(results.data);
         })
-        .catch((error) => {
-          console.error("There was an error fetching the users!", error);
-        });
+        .catch((err) => console.info(err));
     }
 
     if (selectedSection === "messages-infos") {
       axios
         .get(`${import.meta.env.VITE_API_URL}/api/contacts`)
-        .then((response) => {
-          setMessages(response.data);
+        .then((results) => {
+          setMessages(results.data);
         })
-        .catch((error) => {
-          console.error("There was an error fetching the messages!", error);
-        });
+        .catch((err) => console.info(err));
     }
   }, [selectedSection]);
 
@@ -67,9 +72,18 @@ function AdminPage() {
 
       {selectedSection === "oeuvres-to-validate" && (
         <section className="oeuvres-content">
-          <h1 className="main-title-admin-section">
-            Oeuvres en attente d'aprobation:{" "}
-          </h1>
+          <h1 className="main-title-admin-section">Oeuvres en attente :</h1>
+          <article className="oeuvre-cards-container">
+            {oeuvres.map((oeuvre) => (
+              <div key={oeuvre.id} className="oeuvre-card">
+                <h2>{oeuvre.title}</h2>
+                <img src={oeuvre.file} alt={oeuvre.title} />
+                <h3>Artiste: {oeuvre.artist}</h3>
+                <h3>Description: </h3>
+                <p>{oeuvre.description}</p>
+              </div>
+            ))}
+          </article>
         </section>
       )}
       {selectedSection === "users-infos" && (
