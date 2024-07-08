@@ -1,6 +1,7 @@
 import { Outlet, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { jwtDecode } from "jwt-decode";
 
 import Footer from "./components/Footer";
 import NavBar from "./components/NavBar";
@@ -13,23 +14,29 @@ function App() {
   useEffect(() => {
     const fetchUserData = async () => {
       const token = localStorage.getItem("token");
-      if (token) {
-        try {
-          const response = await axios.get(
-            `${import.meta.env.VITE_API_URL}/api/users/me`,
-            {
-              headers: {
-                Authorization: `Bearer ${token}`,
-              },
-            }
-          );
 
-          setLoggedUser(response.data.user);
-        } catch (error) {
-          console.error(
-            "Erreur lors de la récupération des informations de l'utilisateur",
-            error
-          );
+      if (token) {
+        const expirationDate = jwtDecode(token).exp * 1000;
+        const currentDate = Date.now();
+
+        if (expirationDate >= currentDate) {
+          try {
+            const response = await axios.get(
+              `${import.meta.env.VITE_API_URL}/api/users/me`,
+              {
+                headers: {
+                  Authorization: `Bearer ${token}`,
+                },
+              }
+            );
+
+            setLoggedUser(response.data.user);
+          } catch (error) {
+            console.error(
+              "Erreur lors de la récupération des informations de l'utilisateur",
+              error
+            );
+          }
         }
       }
     };
@@ -38,7 +45,7 @@ function App() {
   }, []);
 
   const handleNavigate = () => {
-    if (loggedUser) {
+    if (loggedUser.id) {
       navigate("/add");
     } else {
       setShowLoginPopup(true);
@@ -57,7 +64,13 @@ function App() {
 
   return (
     <>
-      <NavBar loggedUser={loggedUser} setLoggedUser={setLoggedUser} />
+      <NavBar
+        closeLoginPopup={closeLoginPopup}
+        loggedUser={loggedUser}
+        showLoginPopup={showLoginPopup}
+        setLoggedUser={setLoggedUser}
+        handleNavigate={handleNavigate}
+      />
       <Outlet
         context={{
           loggedUser,

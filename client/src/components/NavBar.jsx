@@ -1,5 +1,6 @@
 import * as React from "react";
 import { NavLink } from "react-router-dom";
+import PropTypes from "prop-types";
 
 import { StyledEngineProvider } from "@mui/material/styles";
 
@@ -12,7 +13,7 @@ import TrophyIcon from "../assets/images/trophy_icon.png";
 import UserIcon from "../assets/images/user_icon.png";
 
 // eslint-disable-next-line react/prop-types
-function NavBar({ isLoggedIn }) {
+function NavBar({ loggedUser, handleNavigate }) {
   return (
     <>
       <section className="navbar-logo-container">
@@ -66,6 +67,8 @@ function NavBar({ isLoggedIn }) {
           />
         </NavLink>
         <nav className="navbar-top">
+          {/* {loggedUser?.roles_id === 2 ? <li>admin</li> : ""} */}
+
           <li className="navbar-content">
             <NavLink to="/a_propos">À propos</NavLink>
           </li>
@@ -78,14 +81,40 @@ function NavBar({ isLoggedIn }) {
           <li className="navbar-content">
             <NavLink to="/contact">Contact</NavLink>
           </li>
-          {isLoggedIn === false ? (
+          {/* {loggedUser?.id === undefined ? (
             <li className="navbar-content">
-              <NavLink to="/profil">Profil</NavLink>
+              <button type="button" onClick={handleNavigate}>
+                Se Connecter
+              </button>
             </li>
           ) : (
             <li className="navbar-content">
               <NavLink to="/profil">Mon Compte</NavLink>
             </li>
+          )} */}
+
+          {loggedUser?.id !== undefined && loggedUser.roles_id === 3 ? (
+            <li className="navbar-content">admin</li>
+          ) : (
+            ""
+          )}
+
+          {loggedUser?.id !== undefined && loggedUser.roles_id !== 3 ? (
+            <li className="navbar-content">
+              <NavLink to="/profil">Mon Compte</NavLink>
+            </li>
+          ) : (
+            ""
+          )}
+
+          {loggedUser?.id === undefined ? (
+            <li className="navbar-content">
+              <button type="button" onClick={handleNavigate}>
+                Se Connecter
+              </button>
+            </li>
+          ) : (
+            ""
           )}
         </nav>
       </section>
@@ -93,4 +122,10 @@ function NavBar({ isLoggedIn }) {
   );
 }
 
+NavBar.propTypes = {
+  loggedUser: PropTypes.shape({
+    id: PropTypes.number,
+    roles_id: PropTypes.number,
+  }).isRequired,
+};
 export default NavBar;

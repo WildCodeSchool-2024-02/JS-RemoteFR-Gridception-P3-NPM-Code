@@ -1,5 +1,6 @@
 const argon2 = require("argon2");
 const jwt = require("jsonwebtoken");
+const { read } = require("../controllers/usersActions");
 
 const hashingOptions = {
   type: argon2.argon2id,
@@ -54,7 +55,41 @@ const verifyToken = (req, res, next) => {
   }
   // Ajoutez ce return pour satisfaire ESLint
 };
+
+const isAdmin = async (req, res, next) => {
+  try {
+    const authorizationHeader = req.get("Authorization");
+
+    const [type, token] = authorizationHeader.split(" ");
+
+    if (type !== "Bearer") {
+      res
+        .status(401)
+        .json({ message: "Authorization header has not the 'Bearer' type" });
+    }
+
+    if (authorizationHeader) {
+      const decoded = jwt.verify(token, process.env.APP_SECRET);
+
+      if (decoded.sub) {
+        const userRole = await read(decoded.sub).roles_id;
+
+        console.info(userRole);
+
+        if (userRole !== 2) {
+          throw new Error();
+        }
+
+        next();
+      }
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+
 module.exports = {
   hashPassword,
   verifyToken,
+  isAdmin,
 };
