@@ -23,8 +23,8 @@ create table street_arts (
   title VARCHAR(100) NOT NULL,
   description TEXT NOT NULL,
   artist VARCHAR(80),
-  latitude INT NOT NULL,
-  longitude INT NOT NULL,
+  latitude DECIMAL(10,7) NOT NULL,
+  longitude DECIMAL(10,7) NOT NULL,
   is_valid BOOLEAN NOT NULL
 );
 

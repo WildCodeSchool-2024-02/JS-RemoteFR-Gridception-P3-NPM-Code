@@ -44,7 +44,7 @@ function Profile() {
   useEffect(() => {
     axios
 
-      .get(`${import.meta.env.VITE_API_URL}/api/pictures/street_arts/users/10`)
+      .get(`${import.meta.env.VITE_API_URL}/api/pictures/street_arts/users/1`)
       .then((results) => {
         setPicturesStreetArt(results.data);
       })
@@ -55,7 +55,6 @@ function Profile() {
     <section className="profile-component">
       <AvatarChange />
 
-      <p className="counter-point">69 Points</p>
       <button type="button" onClick={() => handleLogout()}>
         DECO
       </button>

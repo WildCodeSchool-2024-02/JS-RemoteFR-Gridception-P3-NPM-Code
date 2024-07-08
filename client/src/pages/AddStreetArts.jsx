@@ -8,6 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 function AddStreetArts() {
   const { loggedUser } = useOutletContext();
+
   const [streetArtForm, setStreetArtForm] = useState({
     users_id: loggedUser.id,
     file: "",

@@ -12,6 +12,7 @@ const streetArtsRouter = require("./street_arts/Street_ArtsRouter");
 const usersRouter = require("./users/UsersRouter");
 const picturesRouter = require("./pictures/PicturesRouter");
 const rolesRouter = require("./roles/RolesRouter");
+// const adminRouter = require("./admin/AdminRouter")
 
 router.use("/contacts", contactsRouter);
 router.use("/categories", catagoriesRouter);
@@ -19,6 +20,7 @@ router.use("/street_arts", streetArtsRouter);
 router.use("/users", usersRouter);
 router.use("/pictures", picturesRouter);
 router.use("/roles", rolesRouter);
+// router.use /admin adminrouter
 
 /* ************************************************************************* */
 const streetArtsActions = require("../../controllers/streetArtsActions");
@@ -41,6 +43,7 @@ router.post("/login", authActions.login);
 // Authentication wall
 router.use(verifyToken);
 
+// route.get ("/admin", isAdmin, adminRouter )
 // This route is protected
 router.post("/street_arts", streetArtsActions.add);
 router.post("/pictures", picturesActions.add);
