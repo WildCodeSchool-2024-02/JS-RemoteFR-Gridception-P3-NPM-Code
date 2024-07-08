@@ -1,0 +1,163 @@
+.all-admin-content {
+  display: flex;
+  flex-direction: column-reverse;
+  height: 90vh;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.main-title-admin-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--primary-text-color);
+  font-family: var(--primary-font);
+}
+
+// LES BOUTONS
+
+.select-admin-content-button {
+  height: 80px;
+  width: 90%;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 50px;
+  background-color: white;
+  box-shadow:
+    -10px -15px 15px rgba(255, 255, 255, 0.5),
+    10px 10px 25px rgba(70, 70, 70, 0.5);
+}
+
+.select-admin-content-button input[type="radio"] {
+  display: none;
+}
+
+.select-label-admin {
+  width: 100%;
+  text-align: center;
+  font-size: calc(0.7rem + 1.5vw);
+  font-weight: 600;
+  font-family: var(--second-font);
+  padding: 18px 15px;
+  border-radius: 35px;
+  transition: 0.5s;
+  cursor: pointer;
+  color: black;
+}
+
+.select-admin-content-button input[type="radio"]:checked + label {
+  box-shadow:
+    10px 10px 15px rgba(0, 0, 0, 0.151),
+    10px 10px 15px rgba(0, 0, 0, 0.218);
+  background: linear-gradient(45deg, #cf6efb, #4f29cd);
+  color: white;
+  transform: translateY(-4px);
+  height: 70px;
+}
+
+.select-admin-content-button input[type="radio"]:hover:not(:checked) + label {
+  box-shadow:
+    inset 10px 10px 15px rgba(0, 0, 0, 0.151),
+    inset 10px 10px 15px rgba(0, 0, 0, 0.218);
+  width: 90%;
+}
+
+// FENETRE DU CONTENU TEXTE
+
+.oeuvres-to-validate,
+.users-infos,
+.messages-infos {
+  height: 65vh;
+  max-height: 65vh;
+  margin: 0 2rem;
+  border-radius: 10px;
+  text-align: left;
+  color: var(--white-font);
+  background-color: rgba(194, 76, 246, 0.6);
+  overflow-y: auto;
+  font-family: var(--second-font);
+  &::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    border: 3px solid #cf6efb;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #e0e0e0;
+    border-radius: 10px;
+  }
+}
+
+// Version DESKTOP //
+
+@media (min-width: 770px) {
+  .all-admin-content {
+    height: auto;
+    display: flex;
+    flex-direction: row;
+  }
+
+  // Les bouttons
+
+  .select-admin-content-button {
+    height: 300px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;
+  }
+  .select-admin-content-button input[type="radio"]:checked + label {
+    box-shadow:
+      10px 10px 15px rgba(0, 0, 0, 0.151),
+      10px 10px 15px rgba(0, 0, 0, 0.218);
+    background: linear-gradient(45deg, #cf6efb, #4f29cd);
+    color: white;
+    transform: translateY(-4px);
+    width: 90%;
+  }
+
+  .select-admin-content-button input[type="radio"]:hover:not(:checked) + label {
+    box-shadow:
+      inset 10px 10px 15px rgba(0, 0, 0, 0.151),
+      inset 10px 10px 15px rgba(0, 0, 0, 0.218);
+    width: 90%;
+  }
+
+  .select-label-admin {
+    height: 100px;
+    width: 250px;
+    font-size: calc(0.8rem + 0.4vw);
+    font-weight: 600;
+    font-family: var(--second-font);
+    padding: 18px 15px;
+    border-radius: 35px;
+    transition: 0.5s;
+    cursor: pointer;
+    color: black;
+  }
+
+  .select-label-admin:hover {
+    box-shadow:
+      inset 10px 10px 15px rgba(0, 0, 0, 0.151),
+      inset 10px 10px 15px rgba(0, 0, 0, 0.218);
+    height: 80px;
+    width: 150px;
+  }
+
+  .oeuvres-to-validate,
+  .users-infos,
+  .messages-infos {
+    width: 60rem;
+    max-height: 60vh;
+    text-align: left;
+    font-family: var(--second-font);
+    font-size: calc(0.5rem + 0.8vw);
+  }
+}
