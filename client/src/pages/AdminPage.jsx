@@ -1,7 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 function AdminPage() {
   const [selectedSection, setSelectedSection] = useState("oeuvres-to-validate");
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    if (selectedSection === "users-infos") {
+      axios
+        .get(`${import.meta.env.VITE_API_URL}/api/users`)
+        .then((response) => {
+          setUsers(response.data);
+        })
+        .catch((error) => {
+          console.error("There was an error fetching the users!", error);
+        });
+    }
+  }, [selectedSection]);
 
   return (
     <main className="all-admin-content">
@@ -39,19 +54,32 @@ function AdminPage() {
       </section>
 
       {selectedSection === "oeuvres-to-validate" && (
-        <section className="rules-content">
+        <section className="oeuvres-content">
           <h1 className="main-title-admin-section">
             Oeuvres en attente d'aprobation:{" "}
           </h1>
         </section>
       )}
       {selectedSection === "users-infos" && (
-        <section className="legals-mentions-content">
+        <section className="users-content-admin">
           <h1 className="main-title-admin-section">Liste des utilisateurs:</h1>
+          <div className="user-cards-container">
+            {users.map((user) => (
+              <div key={user.id} className="user-card">
+                <img
+                  src={user.avatar}
+                  alt={`${user.firstname} ${user.lastname}`}
+                />
+                <p>
+                  {user.firstname} {user.lastname}
+                </p>
+              </div>
+            ))}
+          </div>
         </section>
       )}
       {selectedSection === "messages-infos" && (
-        <section className="messages-infos">
+        <section className="messages-infos-content">
           <h1 className="main-title-admin-section">Messages reçu:</h1>
         </section>
       )}

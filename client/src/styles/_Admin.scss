@@ -67,10 +67,11 @@
 
 // FENETRE DU CONTENU TEXTE
 
-.oeuvres-to-validate,
-.users-infos,
-.messages-infos {
+.oeuvres-content,
+.users-content-admin,
+.messages-infos-content {
   height: 65vh;
+  width: 90vw;
   max-height: 65vh;
   margin: 0 2rem;
   border-radius: 10px;
@@ -93,6 +94,39 @@
     background-color: #e0e0e0;
     border-radius: 10px;
   }
+}
+
+.user-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.user-card {
+  background-color: white;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 150px;
+  text-align: center;
+}
+
+.user-card img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.user-card p {
+  margin: 0.5rem 0 0 0;
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--primary-color);
 }
 
 // Version DESKTOP //
@@ -151,9 +185,9 @@
     width: 150px;
   }
 
-  .oeuvres-to-validate,
-  .users-infos,
-  .messages-infos {
+  .oeuvres-content,
+  .users-content-admin,
+  .messages-infos-content {
     width: 60rem;
     max-height: 60vh;
     text-align: left;
