@@ -38,6 +38,17 @@ function AdminPage() {
     }
   }, [selectedSection]);
 
+  const handleDeleteMessage = (id) => {
+    axios
+      .delete(`${import.meta.env.VITE_API_URL}/api/contacts/${id}`)
+      .then(() => {
+        setMessages((prevMessages) =>
+          prevMessages.filter((message) => message.id !== id)
+        );
+      })
+      .catch((err) => console.error(err));
+  };
+
   return (
     <main className="all-admin-content">
       <section className="select-admin-content-button">
@@ -84,11 +95,13 @@ function AdminPage() {
                 <h3>Artiste: {oeuvre.artist}</h3>
                 <h3>Description: </h3>
                 <p>{oeuvre.description}</p>
-                <button type="button">
+                <button type="button" className="button-to-validate">
                   <img src={Valid} alt="Valider" />
+                  Valider l'oeuvre
                 </button>
-                <button type="button">
+                <button type="button" className="button-to-refuse">
                   <img src={Delete} alt="Ne pas valider" />
+                  Refuser l'oeuvre
                 </button>
               </div>
             ))}
@@ -108,6 +121,10 @@ function AdminPage() {
                 <h2>
                   {user.firstname} {user.lastname}
                 </h2>
+                <button type="button" className="button-to-delete">
+                  Supprimer l'utilisateur
+                  <img src={Delete} alt="Ne pas valider" />
+                </button>
               </div>
             ))}
           </article>
@@ -122,6 +139,14 @@ function AdminPage() {
                 <h2>De: {message.fullname}</h2>
                 <p>{message.message}</p>
                 <h3>Email :{message.mail}</h3>
+                <button
+                  type="button"
+                  className="button-message-delete"
+                  onClick={() => handleDeleteMessage(message.id)}
+                >
+                  Supprimer le message
+                  <img src={Delete} alt="Ne pas valider" />
+                </button>
               </div>
             ))}
           </article>

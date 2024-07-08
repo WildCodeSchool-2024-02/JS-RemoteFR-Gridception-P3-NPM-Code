@@ -131,22 +131,17 @@
     color: var(--white-font);
   }
 }
-.oeuvre-card button {
+.button-to-validate,
+.button-to-refuse {
   display: flex;
-  flex-direction: row;
+  align-items: center;
   background: none;
-  border: none;
+  // border: none;
   cursor: pointer;
   transition: transform 0.2s;
-}
-
-.oeuvre-card button:hover {
-  transform: scale(1.1);
-}
-
-.oeuvre-card button img {
-  width: 50px;
-  height: 50px;
+  :hover {
+    transform: scale(1.1);
+  }
 }
 
 .user-cards-container {
@@ -183,6 +178,20 @@
   }
 }
 
+.button-to-delete {
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s;
+  :hover {
+    transform: scale(1.1);
+  }
+  img {
+    width: 80px;
+    height: 80px;
+  }
+}
+
 .message-cards-container {
   display: flex;
   flex-wrap: wrap;
@@ -205,6 +214,23 @@
   p {
     font-size: 1.5rem;
     color: var(--white-font);
+  }
+}
+
+.button-message-delete {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  // border: none;
+  cursor: pointer;
+  transition: transform 0.2s;
+  :hover {
+    transform: scale(1.1);
+  }
+  img {
+    width: 80px;
+    height: 80px;
   }
 }
 
@@ -287,8 +313,7 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    width: 15vw;
-    height: 50vh;
+    width: 20vw;
     border: 2px solid white;
     border-radius: 10px;
     padding: 1rem;
