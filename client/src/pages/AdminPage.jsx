@@ -4,6 +4,7 @@ import axios from "axios";
 function AdminPage() {
   const [selectedSection, setSelectedSection] = useState("oeuvres-to-validate");
   const [users, setUsers] = useState([]);
+  const [messages, setMessages] = useState([]);
 
   useEffect(() => {
     if (selectedSection === "users-infos") {
@@ -14,6 +15,17 @@ function AdminPage() {
         })
         .catch((error) => {
           console.error("There was an error fetching the users!", error);
+        });
+    }
+
+    if (selectedSection === "messages-infos") {
+      axios
+        .get(`${import.meta.env.VITE_API_URL}/api/contacts`)
+        .then((response) => {
+          setMessages(response.data);
+        })
+        .catch((error) => {
+          console.error("There was an error fetching the messages!", error);
         });
     }
   }, [selectedSection]);
@@ -63,24 +75,33 @@ function AdminPage() {
       {selectedSection === "users-infos" && (
         <section className="users-content-admin">
           <h1 className="main-title-admin-section">Liste des utilisateurs:</h1>
-          <div className="user-cards-container">
+          <article className="user-cards-container">
             {users.map((user) => (
               <div key={user.id} className="user-card">
                 <img
                   src={user.avatar}
                   alt={`${user.firstname} ${user.lastname}`}
                 />
-                <p>
+                <h2>
                   {user.firstname} {user.lastname}
-                </p>
+                </h2>
               </div>
             ))}
-          </div>
+          </article>
         </section>
       )}
       {selectedSection === "messages-infos" && (
         <section className="messages-infos-content">
           <h1 className="main-title-admin-section">Messages reçu:</h1>
+          <article className="message-cards-container">
+            {messages.map((message) => (
+              <div key={message.id} className="message-card">
+                <h2>De: {message.fullname}</h2>
+                <p>{message.message}</p>
+                <h3>Email :{message.mail}</h3>
+              </div>
+            ))}
+          </article>
         </section>
       )}
     </main>
