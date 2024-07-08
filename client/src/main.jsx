@@ -17,6 +17,7 @@ import Register from "./pages/Register";
 import StreetArt from "./pages/StreetArt";
 
 import "./styles/import.scss";
+import AdminPage from "./pages/AdminPage";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: "/add",
         element: <AddStreetArts />,
+      },
+      {
+        path: "/admin",
+        element: <AdminPage />
       },
       {
         path: "/addpictures",
