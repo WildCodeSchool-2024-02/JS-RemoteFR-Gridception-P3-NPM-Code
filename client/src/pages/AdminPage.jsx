@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+import Valid from "../assets/images/validate.png";
+import Delete from "../assets/images/delete.png";
+
 function AdminPage() {
   const [selectedSection, setSelectedSection] = useState("oeuvres-to-validate");
   const [oeuvres, setOeuvres] = useState([]);
@@ -81,6 +84,12 @@ function AdminPage() {
                 <h3>Artiste: {oeuvre.artist}</h3>
                 <h3>Description: </h3>
                 <p>{oeuvre.description}</p>
+                <button type="button">
+                  <img src={Valid} alt="Valider" />
+                </button>
+                <button type="button">
+                  <img src={Delete} alt="Ne pas valider" />
+                </button>
               </div>
             ))}
           </article>
