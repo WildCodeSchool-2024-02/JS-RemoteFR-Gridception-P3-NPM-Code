@@ -1,9 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useOutletContext } from "react-router-dom";
-
 import { ToastContainer, toast } from "react-toastify";
-
 import "react-toastify/dist/ReactToastify.css";
 
 function AddStreetArts() {
@@ -17,11 +15,13 @@ function AddStreetArts() {
     artist: "",
     latitude: "",
     longitude: "",
+    address: "",
     main_url: "",
     is_valid: 0,
   });
 
   const [preview, setPreview] = useState(null);
+  const [addressSuggestions, setAddressSuggestions] = useState([]);
 
   const handleStreetArtChange = (event) => {
     const { name, value, files } = event.target;
@@ -38,9 +38,40 @@ function AddStreetArts() {
       } else {
         setPreview(null);
       }
+    } else if (name === "address") {
+      setStreetArtForm({ ...streetArtForm, address: value });
+      fetchAddressSuggestions(value);
     } else {
       setStreetArtForm({ ...streetArtForm, [name]: value });
     }
+  };
+
+  const fetchAddressSuggestions = async (query) => {
+    if (query.length > 2) {
+      try {
+        const response = await axios.get(
+          `https://api.locationiq.com/v1/autocomplete?key=pk.573f2b638459d4dec940c23eaf74278f&q=${encodeURIComponent(query)}&limit=5&dedupe=1`
+        );
+        setAddressSuggestions(response.data);
+      } catch (error) {
+        console.error(
+          "Erreur lors de la récupération des suggestions d'adresse :",
+          error
+        );
+      }
+    } else {
+      setAddressSuggestions([]);
+    }
+  };
+
+  const handleAddressSelect = (suggestion) => {
+    setStreetArtForm({
+      ...streetArtForm,
+      address: suggestion.display_name,
+      latitude: suggestion.lat,
+      longitude: suggestion.lon,
+    });
+    setAddressSuggestions([]);
   };
 
   const notifySuccess = () =>
@@ -73,59 +104,61 @@ function AddStreetArts() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    {
-      const formData = new FormData();
-      formData.append("file", streetArtForm.file);
 
-      try {
-        const response = await axios.post(
-          `${import.meta.env.VITE_API_URL}/api/upload`,
-          formData,
+    const formData = new FormData();
+    formData.append("file", streetArtForm.file);
+
+    try {
+      const response = await axios.post(
+        `${import.meta.env.VITE_API_URL}/api/upload`,
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
+
+      const fileUrl = response.data.url;
+      const finalForm = {
+        ...streetArtForm,
+        file: fileUrl,
+      };
+
+      if (
+        finalForm.title !== "" &&
+        finalForm.description !== "" &&
+        finalForm.longitude !== "" &&
+        finalForm.latitude !== ""
+      ) {
+        await axios.post(
+          `${import.meta.env.VITE_API_URL}/api/street_arts`,
+          finalForm,
           {
             headers: {
-              "Content-Type": "multipart/form-data",
               Authorization: `Bearer ${localStorage.getItem("token")}`,
             },
           }
         );
 
-        const fileUrl = response.data.url;
-
-        const finalForm = { ...streetArtForm, file: fileUrl };
-
-        if (
-          finalForm.title !== "" &&
-          finalForm.description !== "" &&
-          finalForm.longitude !== "" &&
-          finalForm.latitude !== ""
-        ) {
-          await axios.post(
-            `${import.meta.env.VITE_API_URL}/api/street_arts`,
-            finalForm,
-            {
-              headers: {
-                Authorization: `Bearer ${localStorage.getItem("token")}`,
-              },
-            }
-          );
-
-          notifySuccess();
-          setStreetArtForm({
-            users_id: loggedUser.id,
-            file: "",
-            title: "",
-            description: "",
-            artist: "",
-            latitude: "",
-            longitude: "",
-            is_valid: 0,
-          });
-          setPreview(null);
-        }
-      } catch (err) {
-        console.error(err);
-        notifyError();
+        notifySuccess();
+        setStreetArtForm({
+          users_id: loggedUser.id,
+          file: "",
+          title: "",
+          description: "",
+          artist: "",
+          latitude: "",
+          longitude: "",
+          address: "",
+          is_valid: 0,
+        });
+        setPreview(null);
       }
+    } catch (err) {
+      console.error(err);
+      notifyError();
     }
   };
 
@@ -199,32 +232,38 @@ function AddStreetArts() {
                 className="input-container-description"
               />
             </section>
-            <div className="input-row">
-              <section>
-                <label htmlFor="latitude">Latitude</label>
-                <input
-                  type="text"
-                  id="latitude"
-                  name="latitude"
-                  onChange={handleStreetArtChange}
-                  value={streetArtForm.latitude}
-                  required
-                  className="input-container-position"
-                />
-              </section>
-              <section>
-                <label htmlFor="longitude">Longitude</label>
-                <input
-                  type="text"
-                  id="longitude"
-                  name="longitude"
-                  onChange={handleStreetArtChange}
-                  value={streetArtForm.longitude}
-                  required
-                  className="input-container-position"
-                />
-              </section>
-            </div>
+            <section>
+              <label htmlFor="address">Adresse</label>
+              <input
+                type="text"
+                id="address"
+                name="address"
+                onChange={handleStreetArtChange}
+                value={streetArtForm.address}
+                required
+                className="input-container-artist"
+                autoComplete="on"
+              />
+              {addressSuggestions.length > 0 && (
+                <ul className="suggestions-list">
+                  {addressSuggestions.map((suggestion) => (
+                    <li
+                      key={suggestion.place_id}
+                      onClick={() => handleAddressSelect(suggestion)}
+                      role="button"
+                      tabIndex={0}
+                      onKeyPress={(e) => {
+                        if (e.key === "Enter" || e.key === " ") {
+                          handleAddressSelect(suggestion);
+                        }
+                      }}
+                    >
+                      {suggestion.display_name}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </section>
             <button type="submit" className="form-submit-btn">
               Envoyer
             </button>

@@ -109,9 +109,9 @@ function NavBar({ loggedUser, handleNavigate }) {
 
           {loggedUser?.id === undefined ? (
             <li className="navbar-content">
-              <button type="button" onClick={handleNavigate}>
+              <NavLink type="button" onClick={handleNavigate}>
                 Se Connecter
-              </button>
+              </NavLink>
             </li>
           ) : (
             ""
