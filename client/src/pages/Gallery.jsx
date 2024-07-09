@@ -20,9 +20,10 @@ export default function Gallery() {
   useEffect(() => {
     fetch("http://127.0.0.1:3310/api/street_arts")
       .then((response) => response.json())
-
-      .then((data) => setStreetArts(data))
-
+      .then((data) => {
+        const validData = data.filter((streetArt) => streetArt.is_valid === 1);
+        setStreetArts(validData);
+      })
       .catch((error) => console.error("Error fetching street arts:", error));
   }, []);
 
@@ -30,7 +31,6 @@ export default function Gallery() {
     if (matchesLg) return 4;
     if (matchesMd) return 3;
     if (matchesSm) return 2;
-
     return 1;
   };
 
