@@ -10,7 +10,7 @@ function AdminPage() {
   const [users, setUsers] = useState([]);
   const [messages, setMessages] = useState([]);
 
-  useEffect(() => {
+  useEffect(() => {  // Récuperer les info du back à display dans les différents menu 
     if (selectedSection === "oeuvres-to-validate") {
       axios
         .get(`${import.meta.env.VITE_API_URL}/api/street_arts`)
@@ -38,7 +38,17 @@ function AdminPage() {
     }
   }, [selectedSection]);
 
-  const handleDeleteMessage = (id) => {
+  const handleDeleteUser = (id) => { // Pouvoir supprimer un user Fonctionne seulement si un user n'a rien poster
+    axios
+      .delete(`${import.meta.env.VITE_API_URL}/api/users/${id}`)
+      .then(() => {
+        setUsers((prevUsers) =>
+          prevUsers.filter((user) => user.id !== id)
+        );
+      })
+      .catch((err) => console.error(err));
+  };
+  const handleDeleteMessage = (id) => { // Pouvoir supprimer les messages reçus
     axios
       .delete(`${import.meta.env.VITE_API_URL}/api/contacts/${id}`)
       .then(() => {
@@ -48,6 +58,7 @@ function AdminPage() {
       })
       .catch((err) => console.error(err));
   };
+
 
   return (
     <main className="all-admin-content">
@@ -121,7 +132,11 @@ function AdminPage() {
                 <h2>
                   {user.firstname} {user.lastname}
                 </h2>
-                <button type="button" className="button-to-delete">
+                <button
+                  type="button"
+                  className="button-to-delete"
+                  onClick={() => handleDeleteUser(user.id)}
+                >
                   Supprimer l'utilisateur
                   <img src={Delete} alt="Ne pas valider" />
                 </button>
@@ -132,7 +147,7 @@ function AdminPage() {
       )}
       {selectedSection === "messages-infos" && (
         <section className="messages-infos-content">
-          <h1 className="main-title-admin-section">Messages reçu:</h1>
+          <h1 className="main-title-admin-section">Messages reçus:</h1>
           <article className="message-cards-container">
             {messages.map((message) => (
               <div key={message.id} className="message-card">
