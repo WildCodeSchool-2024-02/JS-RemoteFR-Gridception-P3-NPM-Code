@@ -65,7 +65,7 @@ const router = createBrowserRouter([
         element: <Register />,
       },
       {
-        path: "/streetArt",
+        path: "/streetArt/:id",
         element: <StreetArt />,
       },
     ],
