@@ -99,12 +99,24 @@ class StreetArtsRepository extends AbstractRepository {
 
   // The D of CRUD - Delete operation
 
-  async delete(id) {
-    // Execute the SQL DELETE query to delete a specific category
-    const [result] = await this.database.query(
-      `delete from ${this.table} where id = ?`,
-      [id]
-    );
+async delete(id) {
+  // Supprimez les enregistrements dans la table pictures qui référencent l'enregistrement à supprimer dans street_arts
+  await this.database.query(
+    `DELETE FROM pictures WHERE street_arts_id = ?`,
+    [id]
+  );
+
+  // Supprimez les enregistrements dans la table street_arts_categories qui référencent l'enregistrement à supprimer dans street_arts
+  await this.database.query(
+    `DELETE FROM street_arts_categories WHERE street_arts_id = ?`,
+    [id]
+  );
+
+  // Supprimez l'enregistrement de la table street_arts
+  const [result] = await this.database.query(
+    `DELETE FROM ${this.table} WHERE id = ?`,
+    [id]
+  );
 
     // Return how many rows were affected
     return result.affectedRows;

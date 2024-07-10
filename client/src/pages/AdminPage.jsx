@@ -10,7 +10,8 @@ function AdminPage() {
   const [users, setUsers] = useState([]);
   const [messages, setMessages] = useState([]);
 
-  useEffect(() => {  // Récuperer les info du back à display dans les différents menu 
+  useEffect(() => {
+    // Récuperer les infos du back à afficher dans les différents menus
     if (selectedSection === "oeuvres-to-validate") {
       axios
         .get(`${import.meta.env.VITE_API_URL}/api/street_arts`)
@@ -30,31 +31,50 @@ function AdminPage() {
 
     if (selectedSection === "messages-infos") {
       axios
-        .get(`${import.meta.env.VITE_API_URL}/api/contacts`)
-        .then((results) => {
-          setMessages(results.data);
-        })
-        .catch((err) => console.info(err));
+      .get(`${import.meta.env.VITE_API_URL}/api/contacts`)
+      .then((results) => {
+        setMessages(results.data);
+      })
+      .catch((err) => console.info(err));
     }
   }, [selectedSection]);
-
-  const handleDeleteUser = (id) => { // Pouvoir supprimer un user Fonctionne seulement si un user n'a rien poster
+  
+  const handleValidateOeuvre = (id) => {
+    // Mettre à jour l'œuvre pour is_valid=1
     axios
-      .delete(`${import.meta.env.VITE_API_URL}/api/users/${id}`)
+      .put(`${import.meta.env.VITE_API_URL}/api/street_arts/${id}`, { is_valid: 1 })
       .then(() => {
-        setUsers((prevUsers) =>
-          prevUsers.filter((user) => user.id !== id)
-        );
+        setOeuvres((prevOeuvres) => prevOeuvres.filter((oeuvre) => oeuvre.id !== id));
       })
       .catch((err) => console.error(err));
   };
-  const handleDeleteMessage = (id) => { // Pouvoir supprimer les messages reçus
+
+  const handleDeleteOeuvre = (id) => {
+    // Supprimer l'œuvre
+    axios
+      .delete(`${import.meta.env.VITE_API_URL}/api/street_arts/${id}`)
+      .then(() => {
+        setOeuvres((prevOeuvres) => prevOeuvres.filter((oeuvre) => oeuvre.id !== id));
+      })
+      .catch((err) => console.error(err));
+  };
+  
+  const handleDeleteUser = (id) => {
+    // Pouvoir supprimer un user
+    axios
+      .delete(`${import.meta.env.VITE_API_URL}/api/users/${id}`)
+      .then(() => {
+        setUsers((prevUsers) => prevUsers.filter((user) => user.id !== id));
+      })
+      .catch((err) => console.error(err));
+  };
+
+  const handleDeleteMessage = (id) => {
+    // Pouvoir supprimer les messages reçus
     axios
       .delete(`${import.meta.env.VITE_API_URL}/api/contacts/${id}`)
       .then(() => {
-        setMessages((prevMessages) =>
-          prevMessages.filter((message) => message.id !== id)
-        );
+        setMessages((prevMessages) => prevMessages.filter((message) => message.id !== id));
       })
       .catch((err) => console.error(err));
   };
@@ -106,11 +126,11 @@ function AdminPage() {
                 <h3>Artiste: {oeuvre.artist}</h3>
                 <h3>Description: </h3>
                 <p>{oeuvre.description}</p>
-                <button type="button" className="button-to-validate">
+                <button type="button" className="button-to-validate" onClick={() => handleValidateOeuvre(oeuvre.id)}>
                   <img src={Valid} alt="Valider" />
                   Valider l'oeuvre
                 </button>
-                <button type="button" className="button-to-refuse">
+                <button type="button" className="button-to-refuse" onClick={() => handleDeleteOeuvre(oeuvre.id)}>
                   <img src={Delete} alt="Ne pas valider" />
                   Refuser l'oeuvre
                 </button>
@@ -125,18 +145,11 @@ function AdminPage() {
           <article className="user-cards-container">
             {users.map((user) => (
               <div key={user.id} className="user-card">
-                <img
-                  src={user.avatar}
-                  alt={`${user.firstname} ${user.lastname}`}
-                />
+                <img src={user.avatar} alt={`${user.firstname} ${user.lastname}`} />
                 <h2>
                   {user.firstname} {user.lastname}
                 </h2>
-                <button
-                  type="button"
-                  className="button-to-delete"
-                  onClick={() => handleDeleteUser(user.id)}
-                >
+                <button type="button" className="button-to-delete" onClick={() => handleDeleteUser(user.id)}>
                   Supprimer l'utilisateur
                   <img src={Delete} alt="Ne pas valider" />
                 </button>
@@ -154,11 +167,7 @@ function AdminPage() {
                 <h2>De: {message.fullname}</h2>
                 <p>{message.message}</p>
                 <h3>Email :{message.mail}</h3>
-                <button
-                  type="button"
-                  className="button-message-delete"
-                  onClick={() => handleDeleteMessage(message.id)}
-                >
+                <button type="button" className="button-message-delete" onClick={() => handleDeleteMessage(message.id)}>
                   Supprimer le message
                   <img src={Delete} alt="Ne pas valider" />
                 </button>
