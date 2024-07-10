@@ -17,12 +17,11 @@ function Map() {
 
   useEffect(() => {
     axios
-
       .get(`${import.meta.env.VITE_API_URL}/api/street_arts`)
-
       .then((results) => {
-        setDatas(results.data);
-        console.info(results);
+        const validData = results.data.filter(oeuvre => oeuvre.is_valid === 1);
+        setDatas(validData);
+        console.info(validData);
       })
       .catch((err) => console.info(err));
   }, []);

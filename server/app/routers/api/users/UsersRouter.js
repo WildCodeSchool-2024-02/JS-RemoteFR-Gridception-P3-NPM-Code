@@ -14,8 +14,9 @@ const { verifyToken } = require("../../../services/auth");
 router.get("/", browse);
 router.get("/", read);
 router.put("/:id", edit);
-router.delete("/", destroy);
 
 router.get("/me", verifyToken, userbyid);
+
+router.delete("/:id", destroy);
 
 module.exports = router;

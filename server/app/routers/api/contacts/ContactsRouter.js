@@ -28,7 +28,7 @@ router.put("/", edit);
 router.post("/", add);
 
 // Route to delete an item
-router.delete("/", destroy);
+router.delete("/:id", destroy);
 
 /* ************************************************************************* */
 
