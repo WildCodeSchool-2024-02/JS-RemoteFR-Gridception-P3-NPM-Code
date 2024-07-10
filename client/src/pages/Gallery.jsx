@@ -58,7 +58,7 @@ export default function Gallery() {
       >
         {streetArts.length > 0 ? (
           streetArts.map((streetArt) => (
-            <Link to="/streetArt" key={streetArt.id}>
+            <Link to={`/streetArt/${streetArt.id}`} key={streetArt.id}>
               <ImageListItem key={streetArt.id} cols={1} rows={1}>
                 <img
                   srcSet={`${streetArt.file}?w=248&fit=crop&auto=format&dpr=2 2x`}

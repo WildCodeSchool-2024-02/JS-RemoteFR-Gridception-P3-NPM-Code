@@ -62,7 +62,7 @@ function Map() {
           <a href="/addpictures">
               <img src=${Add} alt="icone ajout"/>
             </a>
-            <a href="/streeArt">
+            <a href="/streetArt/${oeuvre.id}" >
               <img src=${Info} alt="icone pour plus de détails"/>
             </a>
 </div>
