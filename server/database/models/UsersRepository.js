@@ -87,9 +87,23 @@ class UsersRepository extends AbstractRepository {
   // The D of CRUD - Delete operation
 
   async delete(id) {
-    // Execute the SQL DELETE query to delete a specific category
+    await this.database.query(
+      `DELETE FROM pictures WHERE street_arts_id IN (SELECT id FROM street_arts WHERE users_id = ?)`,
+      [id]
+    );
+  
+    await this.database.query(
+      `DELETE FROM street_arts_categories WHERE street_arts_id IN (SELECT id FROM street_arts WHERE users_id = ?)`,
+      [id]
+    );
+  
+    await this.database.query(
+      `DELETE FROM street_arts WHERE users_id = ?`,
+      [id]
+    );
+  
     const [result] = await this.database.query(
-      `delete from ${this.table} where id = ?`,
+      `DELETE FROM ${this.table} WHERE id = ?`,
       [id]
     );
 
