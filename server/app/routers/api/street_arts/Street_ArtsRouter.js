@@ -30,7 +30,7 @@ router.get("/pictures/:id", readByPictures);
 router.get("/:id", read);
 
 // Route to edit a new item
-router.put("/id", edit);
+router.put("/:id", edit);
 
 // Route to add a new item
 router.post("/", add);

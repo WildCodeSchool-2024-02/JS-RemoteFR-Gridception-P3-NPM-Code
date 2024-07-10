@@ -79,7 +79,7 @@ class StreetArtsRepository extends AbstractRepository {
   async update(streetArts) {
     // Execute the SQL UPDATE query to update a specific category
     const [result] = await this.database.query(
-      `update ${this.table} set users_id = ?, file = ?, title = ?, description = ?, artist = ?, latitude = ?, longitude = ?, is_valid = ?, where id = ?`,
+      `update ${this.table} set users_id = ?, file = ?, title = ?, description = ?, artist = ?, latitude = ?, longitude = ?, is_valid = ? where id = ?`, // il y avais une virgule ici normal ?
       [
         streetArts.users_id,
         streetArts.file,
@@ -100,13 +100,12 @@ class StreetArtsRepository extends AbstractRepository {
   // The D of CRUD - Delete operation
 
 async delete(id) {
-  // Supprimez les enregistrements dans la table pictures qui référencent l'enregistrement à supprimer dans street_arts
+  // Pour règles les soucis de FK
   await this.database.query(
     `DELETE FROM pictures WHERE street_arts_id = ?`,
     [id]
   );
 
-  // Supprimez les enregistrements dans la table street_arts_categories qui référencent l'enregistrement à supprimer dans street_arts
   await this.database.query(
     `DELETE FROM street_arts_categories WHERE street_arts_id = ?`,
     [id]

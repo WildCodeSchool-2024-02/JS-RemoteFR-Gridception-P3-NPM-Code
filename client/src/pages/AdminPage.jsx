@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 import Valid from "../assets/images/validate.png";
 import Delete from "../assets/images/delete.png";
@@ -31,22 +33,24 @@ function AdminPage() {
 
     if (selectedSection === "messages-infos") {
       axios
-      .get(`${import.meta.env.VITE_API_URL}/api/contacts`)
-      .then((results) => {
-        setMessages(results.data);
-      })
-      .catch((err) => console.info(err));
+        .get(`${import.meta.env.VITE_API_URL}/api/contacts`)
+        .then((results) => {
+          setMessages(results.data);
+        })
+        .catch((err) => console.info(err));
     }
   }, [selectedSection]);
-  
-  const handleValidateOeuvre = (id) => {
+
+   const handleValidateOeuvre = (id) => {
     // Mettre à jour l'œuvre pour is_valid=1
     axios
-      .put(`${import.meta.env.VITE_API_URL}/api/street_arts/${id}`, { is_valid: 1 })
+      .put(`${import.meta.env.VITE_API_URL}/api/street_arts/${id}, { is_valid: 1 }`)
       .then(() => {
         setOeuvres((prevOeuvres) => prevOeuvres.filter((oeuvre) => oeuvre.id !== id));
+       toast.success("Oeuvre validé !");
       })
       .catch((err) => console.error(err));
+       toast.error("Une erreur s'est produite lors de la validation de l'œuvre.");
   };
 
   const handleDeleteOeuvre = (id) => {
@@ -55,18 +59,26 @@ function AdminPage() {
       .delete(`${import.meta.env.VITE_API_URL}/api/street_arts/${id}`)
       .then(() => {
         setOeuvres((prevOeuvres) => prevOeuvres.filter((oeuvre) => oeuvre.id !== id));
+        toast.success("Oeuvre supprimée avec succès !");
       })
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        console.error(err);
+        toast.error("Une erreur s'est produite lors de la suppression de l'œuvre.");
+      });
   };
-  
+
   const handleDeleteUser = (id) => {
     // Pouvoir supprimer un user
     axios
       .delete(`${import.meta.env.VITE_API_URL}/api/users/${id}`)
       .then(() => {
         setUsers((prevUsers) => prevUsers.filter((user) => user.id !== id));
+        toast.success("Utilisateur supprimé avec succès !");
       })
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        console.error(err);
+        toast.error("Une erreur s'est produite lors de la suppression de l'utilisateur.");
+      });
   };
 
   const handleDeleteMessage = (id) => {
@@ -75,13 +87,17 @@ function AdminPage() {
       .delete(`${import.meta.env.VITE_API_URL}/api/contacts/${id}`)
       .then(() => {
         setMessages((prevMessages) => prevMessages.filter((message) => message.id !== id));
+        toast.success("Message supprimé avec succès!");
       })
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        console.error(err);
+        toast.error("Une erreur s'est produite lors de la suppression du message.");
+      });
   };
-
 
   return (
     <main className="all-admin-content">
+      <ToastContainer />
       <section className="select-admin-content-button">
         <input
           name="value-radio-admin"
