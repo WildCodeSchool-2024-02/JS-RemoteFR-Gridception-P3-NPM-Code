@@ -12,7 +12,7 @@ class PicturesSeeder extends AbstractSeeder {
   }
 
   // The run method - Populate the 'user' table with fake data
-  run() {
+ /*  run() {
     // Generate and insert fake data into the 'user' table
     for (let i = 0; i < 55; i += 1) {
       // Generate fake user data
@@ -30,7 +30,7 @@ class PicturesSeeder extends AbstractSeeder {
       // Insert the fakeUser data into the 'user' table
       this.insert(fakePicture); // insert into user(email, password) values (?, ?)
     }
-  }
+  } */
 }
 
 // Export the UserSeeder class

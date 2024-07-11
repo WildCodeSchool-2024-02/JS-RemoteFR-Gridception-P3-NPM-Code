@@ -88,6 +88,22 @@ const edit = async (req, res, next) => {
   }
 };
 
+const editValidation = async (req, res, next) => {
+  // Extract the category data from the request body and params
+  const streetArt = { ...req.body, id: req.params.id };
+
+  try {
+    // Update the category in the database
+    await tables.streetArts.updateValidation(streetArt);
+
+    // Respond with HTTP 204 (No Content)
+    res.sendStatus(204);
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
+
 // The A of BREAD - Add (Create) operation
 const add = async (req, res, next) => {
   // Extract the streetArt data from the request body
@@ -127,6 +143,8 @@ module.exports = {
   read,
   readByPictures,
   edit,
+  
+  editValidation,
   add,
   destroy,
 };

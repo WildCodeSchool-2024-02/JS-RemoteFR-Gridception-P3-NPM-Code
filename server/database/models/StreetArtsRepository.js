@@ -79,7 +79,7 @@ class StreetArtsRepository extends AbstractRepository {
   async update(streetArts) {
     // Execute the SQL UPDATE query to update a specific category
     const [result] = await this.database.query(
-      `update ${this.table} set users_id = ?, file = ?, title = ?, description = ?, artist = ?, latitude = ?, longitude = ?, is_valid = ?, where id = ?`,
+      `update ${this.table} set users_id = ?, file = ?, title = ?, description = ?, artist = ?, latitude = ?, longitude = ?, is_valid = ? where id = ?`, // il y avais une virgule ici normal ?
       [
         streetArts.users_id,
         streetArts.file,
@@ -97,14 +97,39 @@ class StreetArtsRepository extends AbstractRepository {
     return result.affectedRows;
   }
 
+  async updateValidation(streetArts) {
+    // Execute the SQL UPDATE query to update a specific category
+    const [result] = await this.database.query(
+      `update ${this.table} set is_valid = ? where id = ?`, 
+      [
+        streetArts.is_valid,
+        streetArts.id,
+      ]
+    );
+
+    // Return how many rows were affected
+    return result.affectedRows;
+  }
+
   // The D of CRUD - Delete operation
 
-  async delete(id) {
-    // Execute the SQL DELETE query to delete a specific category
-    const [result] = await this.database.query(
-      `delete from ${this.table} where id = ?`,
-      [id]
-    );
+async delete(id) {
+  // Pour règles les soucis de FK
+  await this.database.query(
+    `DELETE FROM pictures WHERE street_arts_id = ?`,
+    [id]
+  );
+
+  await this.database.query(
+    `DELETE FROM street_arts_categories WHERE street_arts_id = ?`,
+    [id]
+  );
+
+  // Supprimez l'enregistrement de la table street_arts
+  const [result] = await this.database.query(
+    `DELETE FROM ${this.table} WHERE id = ?`,
+    [id]
+  );
 
     // Return how many rows were affected
     return result.affectedRows;
