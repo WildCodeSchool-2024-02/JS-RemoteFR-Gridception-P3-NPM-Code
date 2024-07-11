@@ -3,7 +3,6 @@ import { useEffect, useRef, useState } from "react";
 
 import mapboxgl from "mapbox-gl";
 
-import Add from "../assets/images/add.png";
 import Info from "../assets/images/info.png";
 
 import "mapbox-gl/dist/mapbox-gl.css";
@@ -60,9 +59,6 @@ function Map() {
           <h3 class="popuptitle">${oeuvre.title}</h3>
           <img class="imgpopup-container" src=${oeuvre.file} alt="oeuvres" />
 <div class="button-container">
-          <a href="/addpictures">
-              <img src=${Add} alt="icone ajout"/>
-            </a>
             <a href="/streetArt/${oeuvre.id}" >
               <img src=${Info} alt="icone pour plus de détails"/>
             </a>

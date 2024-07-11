@@ -5,7 +5,10 @@ import "react-toastify/dist/ReactToastify.css";
 
 import Valid from "../assets/images/validate.png";
 import Delete from "../assets/images/delete.png";
-import UserIcon from "../assets/images/user_icon.png";
+import OeuvresToValidate from "../assets/images/oeuvreattente.png"
+import UsersIcon from "../assets/images/listeusers.png";
+import Messages from "../assets/images/messages.png"
+import AllOeuvres from "../assets/images/alloeuvres.png"
 
 function AdminPage() {
   const [selectedSection, setSelectedSection] = useState("oeuvres-to-validate");
@@ -133,7 +136,7 @@ function AdminPage() {
           onChange={() => setSelectedSection("oeuvres-to-validate")}
         />
         <label htmlFor="value-admin-1" className="select-label-admin">
-          <img src={UserIcon} alt="User Icon" />
+          <img src={OeuvresToValidate} alt="User Icon" />
           <span className="label-text">Oeuvres à validé</span>
         </label>
         <input
@@ -144,7 +147,7 @@ function AdminPage() {
           onChange={() => setSelectedSection("users-infos")}
         />
         <label htmlFor="value-admin-2" className="select-label-admin">
-          <img src={UserIcon} alt="User Icon" />
+          <img src={UsersIcon} alt="User Icon" />
           <span className="label-text">Utilisateurs</span>
         </label>
         <input
@@ -155,7 +158,7 @@ function AdminPage() {
           onChange={() => setSelectedSection("messages-infos")}
         />
         <label htmlFor="value-admin-3" className="select-label-admin">
-          <img src={UserIcon} alt="User Icon" />
+          <img src={Messages} alt="User Icon" />
           <span className="label-text">Messages</span>
         </label>
         <input
@@ -166,7 +169,7 @@ function AdminPage() {
           onChange={() => setSelectedSection("toutes-les-oeuvres")}
         />
         <label htmlFor="value-admin-4" className="select-label-admin">
-          <img src={UserIcon} alt="User Icon" />
+          <img src={AllOeuvres} alt="User Icon" />
           <span className="label-text">Toutes les oeuvres</span>
         </label>
       </section>
