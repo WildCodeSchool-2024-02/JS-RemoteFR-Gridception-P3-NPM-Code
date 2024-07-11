@@ -19,7 +19,7 @@
 
 .select-admin-content-button {
   height: 80px;
-  width: 90%;
+  width: 95%;
   margin-bottom: 2rem;
   display: flex;
   align-items: center;
@@ -36,7 +36,6 @@
 }
 
 .select-label-admin {
-  width: 100%;
   text-align: center;
   font-size: calc(0.7rem + 1.5vw);
   font-weight: 600;
@@ -46,6 +45,14 @@
   transition: 0.5s;
   cursor: pointer;
   color: black;
+
+  .label-text {
+    display: none;
+  }
+
+  img {
+    height: 40px;
+  }
 }
 
 .select-admin-content-button input[type="radio"]:checked + label {
@@ -56,13 +63,14 @@
   color: white;
   transform: translateY(-4px);
   height: 70px;
+  width: 70px;
+  text-align: center;
 }
 
 .select-admin-content-button input[type="radio"]:hover:not(:checked) + label {
   box-shadow:
     inset 10px 10px 15px rgba(0, 0, 0, 0.151),
     inset 10px 10px 15px rgba(0, 0, 0, 0.218);
-  width: 90%;
 }
 
 // FENETRE DU CONTENU TEXTE
@@ -131,6 +139,7 @@
     color: var(--white-font);
   }
 }
+
 .button-to-validate,
 .button-to-refuse {
   display: flex;
@@ -246,8 +255,8 @@
   // Les boutons
 
   .select-admin-content-button {
-    height: 300px;
-    width: 300px;
+    height: 400px;
+    width: 150px;
     display: flex;
     flex-direction: column;
     margin-bottom: 0;
@@ -260,19 +269,19 @@
     background: linear-gradient(45deg, #cf6efb, #4f29cd);
     color: white;
     transform: translateY(-4px);
-    width: 90%;
+    width: 70%;
   }
 
   .select-admin-content-button input[type="radio"]:hover:not(:checked) + label {
     box-shadow:
       inset 10px 10px 15px rgba(0, 0, 0, 0.151),
       inset 10px 10px 15px rgba(0, 0, 0, 0.218);
-    width: 90%;
+    width: 70%;
   }
 
   .select-label-admin {
-    height: 100px;
-    width: 250px;
+    height: 80px;
+    width: 150px;
     font-size: calc(0.8rem + 0.4vw);
     font-weight: 600;
     font-family: var(--second-font);
@@ -281,6 +290,14 @@
     transition: 0.5s;
     cursor: pointer;
     color: black;
+    img {
+      height: 50px;
+      display: none;
+    }
+
+    .label-text {
+      display: block;
+    }
   }
 
   .select-label-admin:hover {
@@ -360,6 +377,7 @@
       color: var(--white-font);
     }
   }
+
   .message-card {
     width: 30vw;
     font-size: 1rem;

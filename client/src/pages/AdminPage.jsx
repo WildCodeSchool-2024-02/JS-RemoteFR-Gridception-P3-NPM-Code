@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 
 import Valid from "../assets/images/validate.png";
 import Delete from "../assets/images/delete.png";
+import UserIcon from "../assets/images/user_icon.png";
 
 function AdminPage() {
   const [selectedSection, setSelectedSection] = useState("oeuvres-to-validate");
@@ -19,6 +20,14 @@ function AdminPage() {
         .get(`${import.meta.env.VITE_API_URL}/api/street_arts`)
         .then((results) => {
           setOeuvres(results.data.filter((oeuvre) => oeuvre.is_valid === 0));
+        })
+        .catch((err) => console.info(err));
+    }
+    if (selectedSection === "toutes-les-oeuvres") {
+      axios
+        .get(`${import.meta.env.VITE_API_URL}/api/street_arts`)
+        .then((results) => {
+          setOeuvres(results.data.filter((oeuvre) => oeuvre.is_valid === 1));
         })
         .catch((err) => console.info(err));
     }
@@ -41,16 +50,23 @@ function AdminPage() {
     }
   }, [selectedSection]);
 
-   const handleValidateOeuvre = (id) => {
-    // Mettre à jour l'œuvre pour is_valid=1
+  const handleValidateOeuvre = (id) => {
     axios
-      .put(`${import.meta.env.VITE_API_URL}/api/street_arts/${id}, { is_valid: 1 }`)
-      .then(() => {
-        setOeuvres((prevOeuvres) => prevOeuvres.filter((oeuvre) => oeuvre.id !== id));
-       toast.success("Oeuvre validé !");
+      .put(`${import.meta.env.VITE_API_URL}/api/street_arts/validate/${id}`, {
+        is_valid: 1,
       })
-      .catch((err) => console.error(err));
-       toast.error("Une erreur s'est produite lors de la validation de l'œuvre.");
+      .then(() => {
+        setOeuvres((prevOeuvres) =>
+          prevOeuvres.filter((oeuvre) => oeuvre.id !== id)
+        );
+        toast.success("Oeuvre validée !");
+      })
+      .catch((err) => {
+        console.error(err);
+        toast.error(
+          "Une erreur s'est produite lors de la validation de l'œuvre."
+        );
+      });
   };
 
   const handleDeleteOeuvre = (id) => {
@@ -58,12 +74,16 @@ function AdminPage() {
     axios
       .delete(`${import.meta.env.VITE_API_URL}/api/street_arts/${id}`)
       .then(() => {
-        setOeuvres((prevOeuvres) => prevOeuvres.filter((oeuvre) => oeuvre.id !== id));
+        setOeuvres((prevOeuvres) =>
+          prevOeuvres.filter((oeuvre) => oeuvre.id !== id)
+        );
         toast.success("Oeuvre supprimée avec succès !");
       })
       .catch((err) => {
         console.error(err);
-        toast.error("Une erreur s'est produite lors de la suppression de l'œuvre.");
+        toast.error(
+          "Une erreur s'est produite lors de la suppression de l'œuvre."
+        );
       });
   };
 
@@ -77,7 +97,9 @@ function AdminPage() {
       })
       .catch((err) => {
         console.error(err);
-        toast.error("Une erreur s'est produite lors de la suppression de l'utilisateur.");
+        toast.error(
+          "Une erreur s'est produite lors de la suppression de l'utilisateur."
+        );
       });
   };
 
@@ -86,12 +108,16 @@ function AdminPage() {
     axios
       .delete(`${import.meta.env.VITE_API_URL}/api/contacts/${id}`)
       .then(() => {
-        setMessages((prevMessages) => prevMessages.filter((message) => message.id !== id));
+        setMessages((prevMessages) =>
+          prevMessages.filter((message) => message.id !== id)
+        );
         toast.success("Message supprimé avec succès!");
       })
       .catch((err) => {
         console.error(err);
-        toast.error("Une erreur s'est produite lors de la suppression du message.");
+        toast.error(
+          "Une erreur s'est produite lors de la suppression du message."
+        );
       });
   };
 
@@ -107,7 +133,8 @@ function AdminPage() {
           onChange={() => setSelectedSection("oeuvres-to-validate")}
         />
         <label htmlFor="value-admin-1" className="select-label-admin">
-          Oeuvres ⌛
+          <img src={UserIcon} alt="User Icon" />
+          <span className="label-text">Oeuvres à validé</span>
         </label>
         <input
           name="value-radio-admin"
@@ -117,7 +144,8 @@ function AdminPage() {
           onChange={() => setSelectedSection("users-infos")}
         />
         <label htmlFor="value-admin-2" className="select-label-admin">
-          Utilisateurs 🤠
+          <img src={UserIcon} alt="User Icon" />
+          <span className="label-text">Utilisateurs</span>
         </label>
         <input
           name="value-radio-admin"
@@ -127,13 +155,25 @@ function AdminPage() {
           onChange={() => setSelectedSection("messages-infos")}
         />
         <label htmlFor="value-admin-3" className="select-label-admin">
-          Messages 📫
+          <img src={UserIcon} alt="User Icon" />
+          <span className="label-text">Messages</span>
+        </label>
+        <input
+          name="value-radio-admin"
+          id="value-admin-4"
+          type="radio"
+          checked={selectedSection === "toutes-les-oeuvres"}
+          onChange={() => setSelectedSection("toutes-les-oeuvres")}
+        />
+        <label htmlFor="value-admin-4" className="select-label-admin">
+          <img src={UserIcon} alt="User Icon" />
+          <span className="label-text">Toutes les oeuvres</span>
         </label>
       </section>
 
       {selectedSection === "oeuvres-to-validate" && (
         <section className="oeuvres-content">
-          <h1 className="main-title-admin-section">Oeuvres en attente :</h1>
+          <h1 className="main-title-admin-section">Oeuvres en attente:</h1>
           <article className="oeuvre-cards-container">
             {oeuvres.map((oeuvre) => (
               <div key={oeuvre.id} className="oeuvre-card">
@@ -142,11 +182,19 @@ function AdminPage() {
                 <h3>Artiste: {oeuvre.artist}</h3>
                 <h3>Description: </h3>
                 <p>{oeuvre.description}</p>
-                <button type="button" className="button-to-validate" onClick={() => handleValidateOeuvre(oeuvre.id)}>
+                <button
+                  type="button"
+                  className="button-to-validate"
+                  onClick={() => handleValidateOeuvre(oeuvre.id)}
+                >
                   <img src={Valid} alt="Valider" />
                   Valider l'oeuvre
                 </button>
-                <button type="button" className="button-to-refuse" onClick={() => handleDeleteOeuvre(oeuvre.id)}>
+                <button
+                  type="button"
+                  className="button-to-refuse"
+                  onClick={() => handleDeleteOeuvre(oeuvre.id)}
+                >
                   <img src={Delete} alt="Ne pas valider" />
                   Refuser l'oeuvre
                 </button>
@@ -155,17 +203,25 @@ function AdminPage() {
           </article>
         </section>
       )}
+
       {selectedSection === "users-infos" && (
         <section className="users-content-admin">
           <h1 className="main-title-admin-section">Liste des utilisateurs:</h1>
           <article className="user-cards-container">
             {users.map((user) => (
               <div key={user.id} className="user-card">
-                <img src={user.avatar} alt={`${user.firstname} ${user.lastname}`} />
+                <img
+                  src={user.avatar}
+                  alt={`${user.firstname} ${user.lastname}`}
+                />
                 <h2>
                   {user.firstname} {user.lastname}
                 </h2>
-                <button type="button" className="button-to-delete" onClick={() => handleDeleteUser(user.id)}>
+                <button
+                  type="button"
+                  className="button-to-delete"
+                  onClick={() => handleDeleteUser(user.id)}
+                >
                   Supprimer l'utilisateur
                   <img src={Delete} alt="Ne pas valider" />
                 </button>
@@ -183,9 +239,37 @@ function AdminPage() {
                 <h2>De: {message.fullname}</h2>
                 <p>{message.message}</p>
                 <h3>Email :{message.mail}</h3>
-                <button type="button" className="button-message-delete" onClick={() => handleDeleteMessage(message.id)}>
+                <button
+                  type="button"
+                  className="button-message-delete"
+                  onClick={() => handleDeleteMessage(message.id)}
+                >
                   Supprimer le message
                   <img src={Delete} alt="Ne pas valider" />
+                </button>
+              </div>
+            ))}
+          </article>
+        </section>
+      )}
+      {selectedSection === "toutes-les-oeuvres" && (
+        <section className="oeuvres-content">
+          <h1 className="main-title-admin-section">Toutes les oeuvres:</h1>
+          <article className="oeuvre-cards-container">
+            {oeuvres.map((oeuvre) => (
+              <div key={oeuvre.id} className="oeuvre-card">
+                <h2>{oeuvre.title}</h2>
+                <img src={oeuvre.file} alt={oeuvre.title} />
+                <h3>Artiste: {oeuvre.artist}</h3>
+                <h3>Description: </h3>
+                <p>{oeuvre.description}</p>
+                <button
+                  type="button"
+                  className="button-to-refuse"
+                  onClick={() => handleDeleteOeuvre(oeuvre.id)}
+                >
+                  <img src={Delete} alt="Ne pas valider" />
+                  Supprimer l'oeuvre
                 </button>
               </div>
             ))}

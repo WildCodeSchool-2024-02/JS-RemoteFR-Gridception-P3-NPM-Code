@@ -15,6 +15,7 @@ const {
   read,
   readByPictures,
   edit,
+  editValidation,
   add,
   destroy,
 } = require("../../../controllers/streetArtsActions");
@@ -31,6 +32,7 @@ router.get("/:id", read);
 
 // Route to edit a new item
 router.put("/:id", edit);
+router.put("/validate/:id", editValidation)
 
 // Route to add a new item
 router.post("/", add);

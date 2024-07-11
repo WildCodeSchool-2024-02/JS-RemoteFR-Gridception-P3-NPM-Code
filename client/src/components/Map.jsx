@@ -19,7 +19,9 @@ function Map() {
     axios
       .get(`${import.meta.env.VITE_API_URL}/api/street_arts`)
       .then((results) => {
-        const validData = results.data.filter(oeuvre => oeuvre.is_valid === 1);
+        const validData = results.data.filter(
+          (oeuvre) => oeuvre.is_valid === 1
+        );
         setDatas(validData);
         console.info(validData);
       })

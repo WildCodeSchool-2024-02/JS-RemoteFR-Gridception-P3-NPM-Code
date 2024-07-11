@@ -97,6 +97,20 @@ class StreetArtsRepository extends AbstractRepository {
     return result.affectedRows;
   }
 
+  async updateValidation(streetArts) {
+    // Execute the SQL UPDATE query to update a specific category
+    const [result] = await this.database.query(
+      `update ${this.table} set is_valid = ? where id = ?`, 
+      [
+        streetArts.is_valid,
+        streetArts.id,
+      ]
+    );
+
+    // Return how many rows were affected
+    return result.affectedRows;
+  }
+
   // The D of CRUD - Delete operation
 
 async delete(id) {
