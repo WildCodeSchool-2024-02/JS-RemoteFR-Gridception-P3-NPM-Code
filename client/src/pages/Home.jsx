@@ -16,6 +16,7 @@ function Home() {
           <h1 className="main-title">
             STREET ART <br /> HUNTER
           </h1>
+
           <h2 className="second-title">La chasse commence</h2>
         </article>
         <NavLink className="button-add" onClick={handleNavigate}>
@@ -23,6 +24,7 @@ function Home() {
         </NavLink>
       </div>
       <Map />
+
       {showLoginPopup && <LoginPopup onClose={closeLoginPopup} />}
     </section>
   );

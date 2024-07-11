@@ -111,36 +111,38 @@ class StreetArtsRepository extends AbstractRepository {
   async updateValidation(streetArts) {
     // Execute the SQL UPDATE query to update a specific category
     const [result] = await this.database.query(
-      `update ${this.table} set is_valid = ? where id = ?`, 
-      [
-        streetArts.is_valid,
-        streetArts.id,
-      ]
+      `update ${this.table} set is_valid = ? where id = ?`,
+      [streetArts.is_valid, streetArts.id]
     );
 
-    // Return how many rows were affected
-    return result.affectedRows;
+    const [userResult] = await this.database.query(
+      `select u.id from street_arts s join users u on s.users_id = u.id where s.id = ?;`,
+      [streetArts.id]
+    );
+
+    const userToCredit = userResult[0].id;
+
+    return { userToCredit, affectedRows: result.affectedRows };
   }
 
   // The D of CRUD - Delete operation
 
-async delete(id) {
-  // Pour règles les soucis de FK
-  await this.database.query(
-    `DELETE FROM pictures WHERE street_arts_id = ?`,
-    [id]
-  );
+  async delete(id) {
+    // Pour règles les soucis de FK
+    await this.database.query(`DELETE FROM pictures WHERE street_arts_id = ?`, [
+      id,
+    ]);
 
-  await this.database.query(
-    `DELETE FROM street_arts_categories WHERE street_arts_id = ?`,
-    [id]
-  );
+    await this.database.query(
+      `DELETE FROM street_arts_categories WHERE street_arts_id = ?`,
+      [id]
+    );
 
-  // Supprimez l'enregistrement de la table street_arts
-  const [result] = await this.database.query(
-    `DELETE FROM ${this.table} WHERE id = ?`,
-    [id]
-  );
+    // Supprimez l'enregistrement de la table street_arts
+    const [result] = await this.database.query(
+      `DELETE FROM ${this.table} WHERE id = ?`,
+      [id]
+    );
 
     // Return how many rows were affected
     return result.affectedRows;

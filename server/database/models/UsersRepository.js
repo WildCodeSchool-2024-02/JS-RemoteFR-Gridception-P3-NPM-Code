@@ -64,7 +64,6 @@ class UsersRepository extends AbstractRepository {
   // The U of CRUD - Update operation
 
   async update(users) {
-    // Execute the SQL UPDATE query to update a specific category
     const [result] = await this.database.query(
       `update ${this.table} set roles_id = ?, firstname = ?, lastname = ?, avatar = ?, points = ?, city = ?, email = ? where id = ?`,
       [
@@ -90,17 +89,16 @@ class UsersRepository extends AbstractRepository {
       `DELETE FROM pictures WHERE street_arts_id IN (SELECT id FROM street_arts WHERE users_id = ?)`,
       [id]
     );
-  
+
     await this.database.query(
       `DELETE FROM street_arts_categories WHERE street_arts_id IN (SELECT id FROM street_arts WHERE users_id = ?)`,
       [id]
     );
-  
-    await this.database.query(
-      `DELETE FROM street_arts WHERE users_id = ?`,
-      [id]
-    );
-  
+
+    await this.database.query(`DELETE FROM street_arts WHERE users_id = ?`, [
+      id,
+    ]);
+
     const [result] = await this.database.query(
       `DELETE FROM ${this.table} WHERE id = ?`,
       [id]

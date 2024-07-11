@@ -3,31 +3,39 @@ const RolesSeeder = require("./RolesSeeder");
 
 class UsersSeeder extends AbstractSeeder {
   constructor() {
-    // Call the constructor of the parent class (AbstractSeeder) with appropriate options
     super({ table: "users", truncate: true, dependencies: [RolesSeeder] });
   }
 
-  // The run method - Populate the 'user' table with fake data
-
   run() {
-    // Generate and insert fake data into the 'user' table
-    for (let i = 0; i < 10; i += 1) {
-      // Generate fake user data
-      const fakeUser = {
-        roles_id: this.getRef(`role_${Math.floor(Math.random() * 2)}`).insertId, // Generate a fake email using faker library
-        firstname: this.faker.person.firstName(),
-        lastname: this.faker.person.lastName(),
+    for (let i = 0; i < 1; i += 1) {
+      const fakeAdmin = {
+        roles_id: 1,
+        firstname: "Toto",
+        lastname: "Tata",
         avatar: this.faker.image.avatar(),
-        points: this.faker.number.bigInt({ max: 100n }),
+        points: 0,
         city: this.faker.location.city(),
-        email: this.faker.internet.email(),
-        password: this.faker.internet.password(),
-        // Generate a fake password using faker library
-        refName: `user_${i}`, // Create a reference name for the user
+        email: "toto@toto.com",
+        password:
+          "$argon2id$v=19$m=65536,t=5,p=1$FkjcCc0+F15P0N5TLh3ndQ$FkttWmV6YpXwaqtjrKfALtaYkwyHv2ongXDP/C6bvY4",
+        refName: `admin_${i}`,
       };
 
-      // Insert the fakeUser data into the 'user' table
-      this.insert(fakeUser); // insert into user(email, password) values (?, ?)
+      const fakeUser = {
+        roles_id: 2,
+        firstname: "John",
+        lastname: "Doe",
+        avatar: this.faker.image.avatar(),
+        points: 0,
+        city: this.faker.location.city(),
+        email: "john@doe.com",
+        password:
+          "$argon2id$v=19$m=65536,t=5,p=1$FkjcCc0+F15P0N5TLh3ndQ$FkttWmV6YpXwaqtjrKfALtaYkwyHv2ongXDP/C6bvY4",
+        refName: `user_${i}`,
+      };
+
+      this.insert(fakeAdmin);
+      this.insert(fakeUser);
     }
   }
 }
