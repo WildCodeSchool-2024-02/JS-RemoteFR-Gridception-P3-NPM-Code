@@ -1,7 +1,5 @@
 const express = require("express");
 
-
-
 const router = express.Router();
 
 /* ************************************************************************* */
@@ -14,6 +12,7 @@ const {
   browseByPictures,
   read,
   readByPictures,
+  readById,
   edit,
   editValidation,
   add,
@@ -26,6 +25,9 @@ router.get("/pictures", browseByPictures);
 
 // Route to get a street arts infos by Picture ID
 router.get("/pictures/:id", readByPictures);
+
+// Route to get a street arts infos by User ID
+router.get("/users/:id", readById);
 
 // Route to get a specific item by ID
 router.get("/:id", read);

@@ -1,11 +1,11 @@
 .popup-overlay {
   z-index: 1000;
   position: absolute;
+  margin-top: 1rem;
 }
 
 .loginform-container {
   margin: auto;
-  margin-top: 1rem;
   width: 80vw;
   max-width: 1200px;
   background-color: color-mix(in srgb, var(--primary-color) 90%, transparent);

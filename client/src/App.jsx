@@ -9,6 +9,7 @@ import NavBar from "./components/NavBar";
 function App() {
   const [loggedUser, setLoggedUser] = useState({});
   const [showLoginPopup, setShowLoginPopup] = useState(false);
+
   const navigate = useNavigate();
 
   useEffect(() => {

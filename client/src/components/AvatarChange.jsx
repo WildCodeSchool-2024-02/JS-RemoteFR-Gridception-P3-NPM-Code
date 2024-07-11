@@ -20,6 +20,14 @@ export default function AvatarChange() {
 
   const { loggedUser } = useOutletContext();
 
+  let imgAvatar = Users;
+
+  if (profile?.avatar) {
+    imgAvatar = profile.avatar;
+  } else if (loggedUser.avatar) {
+    imgAvatar = loggedUser.avatar;
+  }
+
   const onClose = () => {
     setPView(null);
   };
@@ -30,7 +38,6 @@ export default function AvatarChange() {
   const saveCropImage = () => {
     setProfile({ avatar: pView });
     setImageCrop(false);
-    console.info(profile);
   };
 
   useEffect(() => {
@@ -39,31 +46,26 @@ export default function AvatarChange() {
     }
 
     axios
-      .put(`${import.meta.env.VITE_API_URL}/api/users/me`, {
+      .put(`${import.meta.env.VITE_API_URL}/api/users/${loggedUser?.id}`, {
         ...profile,
-        roles_id: "2",
-        firstname: "Marlen",
-        lastname: "Brekke",
-        points: "3",
-        city: "Port Travonside",
-        email: "Alize_Schmeler23@gmail.com",
-        password: "xn2vRa7iKk_xhtX",
+        roles_id: loggedUser.roles_id,
+        firstname: loggedUser.firstname,
+        lastname: loggedUser.lastname,
+        points: loggedUser.points,
+        city: loggedUser.city,
+        email: loggedUser.email,
       })
       .then((res) => {
         console.info(`Reponse du Put: ${res}`);
       })
       .catch((err) => console.info(err));
-  }, [profile]);
+  }, [profile, loggedUser]);
 
   return (
     <section className="avatar-container">
       <button type="button" onClick={() => setImageCrop(true)}>
         <img className="change" src={Change} alt="boutton changement avatar" />
-        <img
-          className="avatar"
-          src={profile.avatar === "" ? Users : profile.avatar}
-          alt="avatar"
-        />
+        <img className="avatar" src={imgAvatar} alt="avatar" />
       </button>
       <h1 className="user-name">{`${loggedUser.firstname} ${loggedUser.lastname}`}</h1>
 
