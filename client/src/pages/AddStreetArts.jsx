@@ -23,6 +23,24 @@ function AddStreetArts() {
   const [preview, setPreview] = useState(null);
   const [addressSuggestions, setAddressSuggestions] = useState([]);
 
+  const fetchAddressSuggestions = async (query) => {
+    if (query.length > 2) {
+      try {
+        const response = await axios.get(
+          `https://api.locationiq.com/v1/autocomplete?key=pk.573f2b638459d4dec940c23eaf74278f&q=${encodeURIComponent(query)}&limit=5&dedupe=1`
+        );
+        setAddressSuggestions(response.data);
+      } catch (error) {
+        console.error(
+          "Erreur lors de la récupération des suggestions d'adresse :",
+          error
+        );
+      }
+    } else {
+      setAddressSuggestions([]);
+    }
+  };
+
   const handleStreetArtChange = (event) => {
     const { name, value, files } = event.target;
     if (name === "file") {
@@ -43,24 +61,6 @@ function AddStreetArts() {
       fetchAddressSuggestions(value);
     } else {
       setStreetArtForm({ ...streetArtForm, [name]: value });
-    }
-  };
-
-  const fetchAddressSuggestions = async (query) => {
-    if (query.length > 2) {
-      try {
-        const response = await axios.get(
-          `https://api.locationiq.com/v1/autocomplete?key=pk.573f2b638459d4dec940c23eaf74278f&q=${encodeURIComponent(query)}&limit=5&dedupe=1`
-        );
-        setAddressSuggestions(response.data);
-      } catch (error) {
-        console.error(
-          "Erreur lors de la récupération des suggestions d'adresse :",
-          error
-        );
-      }
-    } else {
-      setAddressSuggestions([]);
     }
   };
 
@@ -247,18 +247,19 @@ function AddStreetArts() {
               {addressSuggestions.length > 0 && (
                 <ul className="suggestions-list">
                   {addressSuggestions.map((suggestion) => (
-                    <li
-                      key={suggestion.place_id}
-                      onClick={() => handleAddressSelect(suggestion)}
-                      role="button"
-                      tabIndex={0}
-                      onKeyPress={(e) => {
-                        if (e.key === "Enter" || e.key === " ") {
-                          handleAddressSelect(suggestion);
-                        }
-                      }}
-                    >
-                      {suggestion.display_name}
+                    <li key={suggestion.place_id}>
+                      <button
+                        type="button"
+                        onClick={() => handleAddressSelect(suggestion)}
+                        tabIndex={0}
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter" || e.key === " ") {
+                            handleAddressSelect(suggestion);
+                          }
+                        }}
+                      >
+                        {suggestion.display_name}
+                      </button>
                     </li>
                   ))}
                 </ul>
