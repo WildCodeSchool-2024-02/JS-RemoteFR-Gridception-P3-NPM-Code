@@ -34,7 +34,8 @@ const AccordionElements = styled(AccordionDetails)(({ theme }) => ({
 }));
 
 function Profile() {
-  const { handleLogout, loggedUser } = useOutletContext();
+  const { loggedUser, handleLogout } = useOutletContext();
+
   const dialogRef = useRef(null);
   const [expanded, setExpanded] = useState("");
   const handleChange = (panel) => (event, newExpanded) => {

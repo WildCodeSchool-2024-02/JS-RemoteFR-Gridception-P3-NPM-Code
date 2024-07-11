@@ -1,4 +1,3 @@
-import * as React from "react";
 import { NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
 
@@ -26,7 +25,7 @@ function NavBar({ loggedUser, handleNavigate }) {
             </li>
 
             <li>
-              <NavLink to="/profil">
+              <NavLink to="/utilisateur/profil">
                 <img src={UserIcon} alt="page profil" className="nav-icon" />
               </NavLink>
             </li>
@@ -49,15 +48,14 @@ function NavBar({ loggedUser, handleNavigate }) {
               </NavLink>
             </li>
             <li>
-              <React.StrictMode>
-                <StyledEngineProvider injectFirst>
-                  <Drawer />
-                </StyledEngineProvider>
-              </React.StrictMode>
+              <StyledEngineProvider injectFirst>
+                <Drawer />
+              </StyledEngineProvider>
             </li>
           </menu>
         </nav>
       </section>
+
       <section className="navbar-desktop">
         <NavLink to="/">
           <img
@@ -67,7 +65,13 @@ function NavBar({ loggedUser, handleNavigate }) {
           />
         </NavLink>
         <nav className="navbar-top">
-          {/* {loggedUser?.roles_id === 2 ? <li>admin</li> : ""} */}
+          {loggedUser?.roles_id === 1 ? (
+            <li className="navbar-content">
+              <NavLink to="/admin">Admin</NavLink>
+            </li>
+          ) : (
+            ""
+          )}
 
           <li className="navbar-content">
             <NavLink to="/a_propos">À propos</NavLink>
@@ -92,21 +96,18 @@ function NavBar({ loggedUser, handleNavigate }) {
               <NavLink to="/profil">Mon Compte</NavLink>
             </li>
           )} */}
-
           {loggedUser?.id !== undefined && loggedUser.roles_id === 3 ? (
             <li className="navbar-content">admin</li>
           ) : (
             ""
           )}
-
           {loggedUser?.id !== undefined && loggedUser.roles_id !== 3 ? (
             <li className="navbar-content">
-              <NavLink to="/profil">Mon Compte</NavLink>
+              <NavLink to="/utilisateur/profil">Mon Compte</NavLink>
             </li>
           ) : (
             ""
           )}
-
           {loggedUser?.id === undefined ? (
             <li className="navbar-content">
               <NavLink type="button" onClick={handleNavigate}>
