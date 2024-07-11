@@ -8,7 +8,7 @@ class UsersSeeder extends AbstractSeeder {
 
   run() {
     for (let i = 0; i < 1; i += 1) {
-      const fakeUser = {
+      const fakeAdmin = {
         roles_id: 1,
         firstname: "Toto",
         lastname: "Tata",
@@ -18,11 +18,24 @@ class UsersSeeder extends AbstractSeeder {
         email: "toto@toto.com",
         password:
           "$argon2id$v=19$m=65536,t=5,p=1$FkjcCc0+F15P0N5TLh3ndQ$FkttWmV6YpXwaqtjrKfALtaYkwyHv2ongXDP/C6bvY4",
-        refName: `user_${i}`, // Create a reference name for the user
+        refName: `admin_${i}`,
       };
 
-      // Insert the fakeUser data into the 'user' table
-      this.insert(fakeUser); // insert into user(email, password) values (?, ?)
+      const fakeUser = {
+        roles_id: 2,
+        firstname: "John",
+        lastname: "Doe",
+        avatar: this.faker.image.avatar(),
+        points: 0,
+        city: this.faker.location.city(),
+        email: "john@doe.com",
+        password:
+          "$argon2id$v=19$m=65536,t=5,p=1$FkjcCc0+F15P0N5TLh3ndQ$FkttWmV6YpXwaqtjrKfALtaYkwyHv2ongXDP/C6bvY4",
+        refName: `user_${i}`,
+      };
+
+      this.insert(fakeAdmin);
+      this.insert(fakeUser);
     }
   }
 }
