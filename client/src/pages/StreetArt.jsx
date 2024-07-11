@@ -22,6 +22,7 @@ function StreetArt() {
           <h1>{streetArt.title}</h1>
           <img src={streetArt.file} alt="" />
         </div>
+        <div className="separator">'</div>
         <div className="street-art-desc">
           <h2> Artiste </h2>
           <p className="para-street-art">
