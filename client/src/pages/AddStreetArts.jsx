@@ -8,6 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 function AddStreetArts() {
   const { loggedUser } = useOutletContext();
+
   const [streetArtForm, setStreetArtForm] = useState({
     users_id: loggedUser.id,
     file: "",
@@ -17,7 +18,7 @@ function AddStreetArts() {
     latitude: "",
     longitude: "",
     main_url: "",
-    is_valid: 1,
+    is_valid: 0,
   });
 
   const [preview, setPreview] = useState(null);
@@ -117,7 +118,7 @@ function AddStreetArts() {
             artist: "",
             latitude: "",
             longitude: "",
-            is_valid: 1,
+            is_valid: 0,
           });
           setPreview(null);
         }

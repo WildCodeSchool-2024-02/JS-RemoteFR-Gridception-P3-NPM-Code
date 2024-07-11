@@ -4,6 +4,7 @@
   margin-top: 0;
   text-align: center;
   text-shadow: var(--text-shadow);
+  color: var(--primary-text-color);
 }
 
 .avatar-container {
@@ -66,11 +67,14 @@
 
 @media (min-width: 770px) {
   .avatar {
-    width: 8rem;
-    height: 8rem;
+    width: 9.5rem;
+    height: 9.5rem;
   }
   .change {
     width: 2.5rem;
     height: 2.5rem;
+  }
+  .user-name {
+    font-size: 1.7rem;
   }
 }
