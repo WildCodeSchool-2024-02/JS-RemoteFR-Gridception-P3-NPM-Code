@@ -137,7 +137,7 @@ function AdminPage() {
         />
         <label htmlFor="value-admin-1" className="select-label-admin">
           <img src={OeuvresToValidate} alt="User Icon" />
-          <span className="label-text">Oeuvres à validé</span>
+          <span className="label-text">Oeuvres en attente</span>
         </label>
         <input
           name="value-radio-admin"
@@ -189,17 +189,17 @@ function AdminPage() {
                   type="button"
                   className="button-to-validate"
                   onClick={() => handleValidateOeuvre(oeuvre.id)}
-                >
+                >Valider l'oeuvre
                   <img src={Valid} alt="Valider" />
-                  Valider l'oeuvre
+                  
                 </button>
                 <button
                   type="button"
                   className="button-to-refuse"
                   onClick={() => handleDeleteOeuvre(oeuvre.id)}
-                >
+                >Refuser l'oeuvre
                   <img src={Delete} alt="Ne pas valider" />
-                  Refuser l'oeuvre
+                  
                 </button>
               </div>
             ))}
@@ -270,9 +270,9 @@ function AdminPage() {
                   type="button"
                   className="button-to-refuse"
                   onClick={() => handleDeleteOeuvre(oeuvre.id)}
-                >
+                >Supprimer l'oeuvre
                   <img src={Delete} alt="Ne pas valider" />
-                  Supprimer l'oeuvre
+                  
                 </button>
               </div>
             ))}

@@ -1,9 +1,9 @@
 .all-admin-content {
   display: flex;
   flex-direction: column-reverse;
-  height: 90vh;
   justify-content: space-evenly;
   align-items: center;
+  height: 90vh;
 }
 
 .main-title-admin-section {
@@ -18,12 +18,12 @@
 // LES BOUTONS
 
 .select-admin-content-button {
-  height: 80px;
-  width: 95%;
-  margin-bottom: 2rem;
   display: flex;
   align-items: center;
   justify-content: space-around;
+  height: 80px;
+  width: 95%;
+  margin-bottom: 2rem;
   border-radius: 50px;
   background-color: white;
   box-shadow:
@@ -56,15 +56,15 @@
 }
 
 .select-admin-content-button input[type="radio"]:checked + label {
+  text-align: center;
+  height: 70px;
+  width: 70px;
   box-shadow:
     10px 10px 15px rgba(0, 0, 0, 0.151),
     10px 10px 15px rgba(0, 0, 0, 0.218);
   background: linear-gradient(45deg, #cf6efb, #4f29cd);
   color: white;
   transform: translateY(-4px);
-  height: 70px;
-  width: 70px;
-  text-align: center;
 }
 
 .select-admin-content-button input[type="radio"]:hover:not(:checked) + label {
@@ -78,12 +78,12 @@
 .oeuvres-content,
 .users-content-admin,
 .messages-infos-content {
+  text-align: left;
   height: 65vh;
   width: 90vw;
   max-height: 65vh;
   margin: 0 2rem;
   border-radius: 10px;
-  text-align: left;
   color: var(--white-font);
   background-color: rgba(194, 76, 246, 0.6);
   overflow-y: auto;
@@ -145,7 +145,9 @@
   display: flex;
   align-items: center;
   background: none;
-  // border: none;
+  background-color: var(--white-font);
+  border-radius: 10px;
+  margin: 1rem;
   cursor: pointer;
   transition: transform 0.2s;
   :hover {
@@ -190,6 +192,8 @@
 .button-to-delete {
   background: none;
   border: none;
+  background-color: var(--white-font);
+  border-radius: 10px;
   cursor: pointer;
   transition: transform 0.2s;
   :hover {
@@ -231,7 +235,8 @@
   justify-content: center;
   align-items: center;
   background: none;
-  // border: none;
+  background-color: var(--white-font);
+  border-radius: 10px;
   cursor: pointer;
   transition: transform 0.2s;
   :hover {
@@ -247,41 +252,32 @@
 
 @media (min-width: 770px) {
   .all-admin-content {
-    height: 70vh;
     display: flex;
     flex-direction: row;
+    height: 70vh;
   }
 
   // Les boutons
 
   .select-admin-content-button {
-    height: 400px;
-    width: 150px;
     display: flex;
     flex-direction: column;
+    height: 400px;
+    width: 250px;
     margin-bottom: 0;
   }
 
   .select-admin-content-button input[type="radio"]:checked + label {
-    box-shadow:
-      10px 10px 15px rgba(0, 0, 0, 0.151),
-      10px 10px 15px rgba(0, 0, 0, 0.218);
-    background: linear-gradient(45deg, #cf6efb, #4f29cd);
-    color: white;
-    transform: translateY(-4px);
-    width: 70%;
+    width: 90%;
   }
 
   .select-admin-content-button input[type="radio"]:hover:not(:checked) + label {
-    box-shadow:
-      inset 10px 10px 15px rgba(0, 0, 0, 0.151),
-      inset 10px 10px 15px rgba(0, 0, 0, 0.218);
-    width: 70%;
+    width: 90%;
   }
 
   .select-label-admin {
-    height: 80px;
-    width: 150px;
+    height: 100px;
+    width: 250px;
     font-size: calc(0.8rem + 0.4vw);
     font-weight: 600;
     font-family: var(--second-font);
@@ -301,9 +297,6 @@
   }
 
   .select-label-admin:hover {
-    box-shadow:
-      inset 10px 10px 15px rgba(0, 0, 0, 0.151),
-      inset 10px 10px 15px rgba(0, 0, 0, 0.218);
     height: 80px;
     width: 150px;
   }
@@ -311,9 +304,8 @@
   .oeuvres-content,
   .users-content-admin,
   .messages-infos-content {
-    width: 70vw;
-    max-height: 60vh;
-    text-align: left;
+    width: 75vw;
+    max-height: 90vh;
     font-family: var(--second-font);
     font-size: calc(0.5rem + 0.8vw);
   }
