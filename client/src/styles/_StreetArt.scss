@@ -50,19 +50,18 @@
   .street-art-details {
     display: flex;
     flex-direction: row;
-    padding: 7rem;
-
+    gap: 15rem;
     .title-pic {
       text-align: center;
 
       h1 {
-        font-size: 2.5rem;
+        font-size: 3.5rem;
         padding: 2.5rem 0 1.5rem;
-        margin: 0;
+        margin: 0 0 2rem 0;
       }
 
       img {
-        width: 80%;
+        width: 70%;
         max-height: 70vh;
         border-radius: 5px;
         padding: 0;
@@ -70,7 +69,7 @@
     }
     .street-art-desc {
       text-align: left;
-      font-size: 1.5rem;
+      font-size: 2rem;
       .para-street-art {
         margin: 0;
       }
