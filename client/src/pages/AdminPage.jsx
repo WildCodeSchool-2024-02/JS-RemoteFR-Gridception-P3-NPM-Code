@@ -95,54 +95,56 @@ function AdminPage() {
     }
   };
 
-  const handleDeleteOeuvre = async (id) => {
-    try {
-      await axios.delete(
-        `${import.meta.env.VITE_API_URL}/api/street_arts/${id}`
-      );
-
-      setOeuvres((prevOeuvres) =>
-        prevOeuvres.filter((oeuvre) => oeuvre.id !== id)
-      );
-      toast.success("Oeuvre supprimée avec succès !");
-    } catch (err) {
-      console.error(err);
-      toast.error(
-        "Une erreur s'est produite lors de la suppression de l'œuvre."
-      );
-    }
+  const handleDeleteOeuvre = (id) => {
+    // Supprimer l'œuvre
+    axios
+      .delete(`${import.meta.env.VITE_API_URL}/api/street_arts/${id}`)
+      .then(() => {
+        setOeuvres((prevOeuvres) =>
+          prevOeuvres.filter((oeuvre) => oeuvre.id !== id)
+        );
+        toast.success("Oeuvre supprimée avec succès !");
+      })
+      .catch((err) => {
+        console.error(err);
+        toast.error(
+          "Une erreur s'est produite lors de la suppression de l'œuvre."
+        );
+      });
   };
 
-  const handleDeleteUser = async (id) => {
+  const handleDeleteUser = (id) => {
     // Pouvoir supprimer un user
-    try {
-      await axios.delete(`${import.meta.env.VITE_API_URL}/api/users/${id}`);
-
-      setUsers((prevUsers) => prevUsers.filter((user) => user.id !== id));
-      toast.success("Utilisateur supprimé avec succès !");
-    } catch (err) {
-      console.error(err);
-      toast.error(
-        "Une erreur s'est produite lors de la suppression de l'utilisateur."
-      );
-    }
+    axios
+      .delete(`${import.meta.env.VITE_API_URL}/api/users/${id}`)
+      .then(() => {
+        setUsers((prevUsers) => prevUsers.filter((user) => user.id !== id));
+        toast.success("Utilisateur supprimé avec succès !");
+      })
+      .catch((err) => {
+        console.error(err);
+        toast.error(
+          "Une erreur s'est produite lors de la suppression de l'utilisateur."
+        );
+      });
   };
 
-  const handleDeleteMessage = async (id) => {
+  const handleDeleteMessage = (id) => {
     // Pouvoir supprimer les messages reçus
-    try {
-      axios.delete(`${import.meta.env.VITE_API_URL}/api/contacts/${id}`);
-
-      setMessages((prevMessages) =>
-        prevMessages.filter((message) => message.id !== id)
-      );
-      toast.success("Message supprimé avec succès!");
-    } catch (err) {
-      console.error(err);
-      toast.error(
-        "Une erreur s'est produite lors de la suppression du message."
-      );
-    }
+    axios
+      .delete(`${import.meta.env.VITE_API_URL}/api/contacts/${id}`)
+      .then(() => {
+        setMessages((prevMessages) =>
+          prevMessages.filter((message) => message.id !== id)
+        );
+        toast.success("Message supprimé avec succès!");
+      })
+      .catch((err) => {
+        console.error(err);
+        toast.error(
+          "Une erreur s'est produite lors de la suppression du message."
+        );
+      });
   };
 
   return (

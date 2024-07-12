@@ -17,17 +17,15 @@ export default function Gallery() {
   const matchesLg = useMediaQuery(theme.breakpoints.up("lg"));
   const matchesMin770 = useMediaQuery("(min-width: 770px)");
 
-  const { VITE_API_URL } = import.meta.env;
-
   useEffect(() => {
-    fetch(`${VITE_API_URL}/api/street_arts`)
+    fetch("http://127.0.0.1:3310/api/street_arts")
       .then((response) => response.json())
       .then((data) => {
         const validData = data.filter((streetArt) => streetArt.is_valid === 1);
         setStreetArts(validData);
       })
       .catch((error) => console.error("Error fetching street arts:", error));
-  }, [VITE_API_URL]);
+  }, []);
 
   const getCols = () => {
     if (matchesLg) return 4;

@@ -8,7 +8,7 @@ function Footer() {
         target="_blank"
         rel="noreferrer"
       >
-        <img src={GithubIcon} alt="Icône de Github" className="githubIcon" />
+        <img src={GithubIcon} alt="Icône de Github" className="github-icon" />
       </a>
       <li>© Copyright NPM Code</li>
     </nav>
