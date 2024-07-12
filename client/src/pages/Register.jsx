@@ -10,7 +10,6 @@ function Register() {
   const [registerForm, setRegisterForm] = useState({
     firstname: "",
     lastname: "",
-    email: "",
     password: "",
     confirmPassword: "",
     roles_id: "2",

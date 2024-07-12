@@ -1,21 +1,19 @@
-import { useEffect, useState } from "react";
 import axios from "axios";
+import { useEffect, useState } from "react";
 
 function Ranking() {
   const [datas, setDatas] = useState([]);
 
-  const { VITE_API_URL } = import.meta.env;
-
   useEffect(() => {
     axios
-      .get(`${VITE_API_URL}/api/users`)
+      .get(`http://127.0.0.1:3310/api/users`)
       .then((results) => {
         const sortedData = results.data.sort((a, b) => b.points - a.points);
         setDatas(sortedData);
         console.info(results);
       })
       .catch((err) => console.info(err));
-  }, [VITE_API_URL]);
+  }, []);
 
   return (
     <section className="table-container">
