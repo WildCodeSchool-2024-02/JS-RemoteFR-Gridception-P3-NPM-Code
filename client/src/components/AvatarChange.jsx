@@ -10,6 +10,7 @@ import { InputText } from "primereact/inputtext";
 import Change from "../assets/images/icon_change_avatar.png";
 import Users from "../assets/images/user_profil.png";
 
+
 export default function AvatarChange() {
   const [imageCrop, setImageCrop] = useState(false);
   const [profile, setProfile] = useState({ avatar: "" });
@@ -66,6 +67,7 @@ export default function AvatarChange() {
         <img className="avatar" src={imgAvatar} alt="avatar" />
       </button>
       <h1 className="user-name">{`${loggedUser.firstname} ${loggedUser.lastname}`}</h1>
+      <p className="points">{loggedUser.points}</p>
 
       <Dialog
         visible={imageCrop}

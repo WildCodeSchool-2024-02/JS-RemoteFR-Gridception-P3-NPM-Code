@@ -1,5 +1,6 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -27,7 +28,7 @@ const theme = createTheme({
   },
 });
 
-export default function AnchorTemporaryDrawer() {
+export default function AnchorTemporaryDrawer({ loggedUser }) {
   const [state, setState] = React.useState({
     right: false,
   });
@@ -122,6 +123,31 @@ export default function AnchorTemporaryDrawer() {
           ))}
         </Link>
       </List>
+      {loggedUser?.roles_id === 1 ? (
+        <>
+          <Divider />
+          <List>
+            <Link to="/admin">
+              {["Admin"].map((text) => (
+                <ListItem key={text} disablePadding>
+                  <ListItemButton>
+                    <ListItemIcon>
+                      <img
+                        src={tetrisyellow2}
+                        alt="admin icon"
+                        className="drawer-icon"
+                      />
+                    </ListItemIcon>
+                    <ListItemText primary={text} />
+                  </ListItemButton>
+                </ListItem>
+              ))}
+            </Link>
+          </List>
+        </>
+      ) : (
+        ""
+      )}
     </Box>
   );
 
@@ -151,3 +177,10 @@ export default function AnchorTemporaryDrawer() {
     </ThemeProvider>
   );
 }
+
+AnchorTemporaryDrawer.propTypes = {
+  loggedUser: PropTypes.shape({
+    id: PropTypes.number,
+    roles_id: PropTypes.number,
+  }).isRequired,
+};
