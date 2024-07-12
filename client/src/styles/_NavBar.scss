@@ -23,13 +23,13 @@
   }
 }
 
-.navIcon {
+.nav-icon {
   width: 4rem;
   padding: 6px 12px 6px 12px;
   filter: drop-shadow(10px 7px 10px rgb(71, 1, 92));
 }
 
-.addArt {
+.add-art {
   width: 7rem;
   padding: 8px 10px 0 10px;
   filter: drop-shadow(2px 2px 5px rgb(71, 1, 92));
@@ -49,22 +49,22 @@
     justify-content: space-between;
     top: 0;
   }
-  .navbarTop {
+  .navbar-top {
     display: flex;
     list-style: none;
   }
 
-  .navbarContent {
+  .navbar-content {
     display: flex;
     align-items: center;
     padding-right: 4rem;
   }
 
-  .navbarContent > a {
+  .navbar-content > a {
     font-size: calc(0.5rem + 1vw);
   }
 
-  .logoDesktop {
+  .logo-desktop {
     width: 6rem;
   }
 }
