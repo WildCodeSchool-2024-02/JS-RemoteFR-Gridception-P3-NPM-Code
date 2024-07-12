@@ -3,20 +3,19 @@ import axios from "axios";
 import { useOutletContext } from "react-router-dom";
 
 import Avatar from "react-avatar-edit";
-import { Button } from "primereact/button";
-import { Dialog } from "primereact/dialog";
 import { InputText } from "primereact/inputtext";
+import { Dialog } from "primereact/dialog";
+import { Button } from "primereact/button";
 
-import Change from "../assets/images/icon_change_avatar.png";
 import Users from "../assets/images/user_profil.png";
-
-import "../styles/AvatarChange.scss";
+import Change from "../assets/images/icon_change_avatar.png";
 
 export default function AvatarChange() {
   const [imageCrop, setImageCrop] = useState(false);
-  const [profile, setProfile] = useState({ avatar: "" });
-  const [pView, setPView] = useState(null);
+
   const [src] = useState(false);
+  const [profile, setProfile] = useState(false);
+  const [pView, setPView] = useState(null);
 
   const { loggedUser } = useOutletContext();
 
@@ -34,9 +33,8 @@ export default function AvatarChange() {
   const onCrop = (imageCropped) => {
     setPView(imageCropped);
   };
-
   const saveCropImage = () => {
-    setProfile({ avatar: pView });
+    setProfile(pView);
     setImageCrop(false);
   };
 
@@ -56,13 +54,13 @@ export default function AvatarChange() {
         email: loggedUser.email,
       })
       .then((res) => {
-        console.info(`Reponse du Put: ${res}`);
+        console.info(res);
       })
       .catch((err) => console.info(err));
   }, [profile, loggedUser]);
 
   return (
-    <section className="avatar-container">
+    <section className="AvatarContainer">
       <button type="button" onClick={() => setImageCrop(true)}>
         <img className="change" src={Change} alt="boutton changement avatar" />
         <img className="avatar" src={imgAvatar} alt="avatar" />
@@ -72,7 +70,7 @@ export default function AvatarChange() {
       <Dialog
         visible={imageCrop}
         onHide={() => setImageCrop(false)}
-        className="dialog-container"
+        className="DialogContainer"
       >
         <div>
           <Avatar
@@ -80,11 +78,10 @@ export default function AvatarChange() {
             height={200}
             onCrop={onCrop}
             onClose={onClose}
-            scale={1.2}
             src={src}
           />
 
-          <div className="button-save-avatar">
+          <div className="ButtonSaveAvatar">
             <Button
               onClick={saveCropImage}
               label="Sauvegarde"

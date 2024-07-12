@@ -1,6 +1,6 @@
-import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 import { useOutletContext } from "react-router-dom";
+import axios from "axios";
 
 import { Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
 import { styled } from "@mui/material/styles";
@@ -112,7 +112,7 @@ function Profile() {
               <Typography variant="h2">Mes Oeuvres</Typography>
             </AccordionTitle>
             <AccordionElements>
-              <div className="my-street-art">
+              <div className="myArtStreet ">
                 {picturesStreetArt.map((picture) => (
                   <img
                     key={picture.id}

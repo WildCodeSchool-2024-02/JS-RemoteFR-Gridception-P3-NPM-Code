@@ -1,5 +1,4 @@
 import axios from "axios";
-
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
@@ -20,17 +19,20 @@ function StreetArt() {
       <article className="street-art-details">
         <div className="title-pic">
           <h1>{streetArt.title}</h1>
-          <img src={streetArt.file} alt="" />
-        </div>
-        <div className="separator">'</div>
-        <div className="street-art-desc">
-          <h2> Artiste </h2>
-          <p className="para-street-art">
-            {!streetArt.artist ? "Artiste Inconnu" : streetArt.artist}
-          </p>
-          <h3>Description</h3>
-          <p className="para-street-art">{streetArt.description}</p>
-          <p>localisation</p>
+          <div className="image-container">
+            <img src={streetArt.file} alt="" />
+            <div className="overlay">
+              <div className="text">
+                <h2> Artiste </h2>
+                <p className="para-street-art">
+                  {!streetArt.artist ? "Artiste Inconnu" : streetArt.artist}
+                </p>
+                <h3>Description</h3>
+                <p className="para-street-art">{streetArt.description}</p>
+                <p>Localisation</p>
+              </div>
+            </div>
+          </div>
         </div>
       </article>
     </section>

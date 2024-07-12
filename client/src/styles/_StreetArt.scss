@@ -30,6 +30,7 @@
       padding-bottom: 1.5rem;
     }
   }
+
   .para-street-art {
     color: var(--white-font);
     margin: 0.5rem;
@@ -56,7 +57,9 @@
     display: flex;
     flex-direction: row;
     gap: 4.5rem;
+
     .title-pic {
+      position: relative; // Ajouté pour la position de l'overlay
       text-align: center;
 
       h1 {
@@ -65,16 +68,58 @@
         margin: 0 0 2rem 0;
       }
 
-      img {
-        width: 70%;
+      .image-container {
+        position: relative;
+        display: inline-block;
+        width: 70%; // Ajustement de la largeur
         max-height: 70vh;
-        border-radius: 5px;
-        padding: 0;
+
+        img {
+          width: 100%;
+          height: auto;
+          border-radius: 5px;
+          display: block;
+        }
+
+        .overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: rgba(0, 0, 0, 0.5); // Ajustez la transparence ici
+          color: white;
+          opacity: 0;
+          transition: opacity 0.5s ease;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+
+          .text {
+            padding: 20px;
+
+            h2,
+            h3 {
+              margin-bottom: 10px;
+            }
+
+            p {
+              margin-bottom: 10px;
+            }
+          }
+        }
+
+        &:hover .overlay {
+          opacity: 1;
+        }
       }
     }
+
     .street-art-desc {
       text-align: left;
       font-size: 2rem;
+
       .para-street-art {
         margin: 0;
       }

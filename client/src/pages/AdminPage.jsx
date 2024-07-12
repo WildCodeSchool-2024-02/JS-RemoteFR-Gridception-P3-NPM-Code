@@ -5,10 +5,10 @@ import "react-toastify/dist/ReactToastify.css";
 
 import Valid from "../assets/images/validate.png";
 import Delete from "../assets/images/delete.png";
-import OeuvresToValidate from "../assets/images/oeuvreattente.png"
+import OeuvresToValidate from "../assets/images/oeuvreattente.png";
 import UsersIcon from "../assets/images/listeusers.png";
-import Messages from "../assets/images/messages.png"
-import AllOeuvres from "../assets/images/alloeuvres.png"
+import Messages from "../assets/images/messages.png";
+import AllOeuvres from "../assets/images/alloeuvres.png";
 
 function AdminPage() {
   const [selectedSection, setSelectedSection] = useState("oeuvres-to-validate");
@@ -53,75 +53,96 @@ function AdminPage() {
     }
   }, [selectedSection]);
 
-  const handleValidateOeuvre = (id) => {
-    axios
-      .put(`${import.meta.env.VITE_API_URL}/api/street_arts/validate/${id}`, {
-        is_valid: 1,
-      })
-      .then(() => {
-        setOeuvres((prevOeuvres) =>
-          prevOeuvres.filter((oeuvre) => oeuvre.id !== id)
-        );
-        toast.success("Oeuvre validée !");
-      })
-      .catch((err) => {
-        console.error(err);
-        toast.error(
-          "Une erreur s'est produite lors de la validation de l'œuvre."
-        );
-      });
+  const handleValidateOeuvre = async (id) => {
+    try {
+      const result = await axios.put(
+        `${import.meta.env.VITE_API_URL}/api/street_arts/validate/${id}`,
+        {
+          is_valid: 1,
+        }
+      );
+
+      const userToUpdate = await axios.get(
+        `${import.meta.env.VITE_API_URL}/api/users/${result.data.userToCredit}`
+      );
+
+      const updatedDatas = {
+        id: userToUpdate.data.id,
+        firstname: userToUpdate.data.firstname,
+        lastname: userToUpdate.data.lastname,
+        email: userToUpdate.data.email,
+        city: userToUpdate.data.city,
+        avatar: userToUpdate.data.avatar,
+        points: userToUpdate.data.points + 10,
+        roles_id: userToUpdate.data.roles_id,
+      };
+
+      await axios.put(
+        `${import.meta.env.VITE_API_URL}/api/users/${result.data.userToCredit}`,
+        updatedDatas
+      );
+
+      setOeuvres((prevOeuvres) =>
+        prevOeuvres.filter((oeuvre) => oeuvre.id !== id)
+      );
+
+      toast.success("Oeuvre validée !");
+    } catch (err) {
+      console.error(err);
+      toast.error(
+        "Une erreur s'est produite lors de la validation de l'œuvre."
+      );
+    }
   };
 
-  const handleDeleteOeuvre = (id) => {
-    // Supprimer l'œuvre
-    axios
-      .delete(`${import.meta.env.VITE_API_URL}/api/street_arts/${id}`)
-      .then(() => {
-        setOeuvres((prevOeuvres) =>
-          prevOeuvres.filter((oeuvre) => oeuvre.id !== id)
-        );
-        toast.success("Oeuvre supprimée avec succès !");
-      })
-      .catch((err) => {
-        console.error(err);
-        toast.error(
-          "Une erreur s'est produite lors de la suppression de l'œuvre."
-        );
-      });
+  const handleDeleteOeuvre = async (id) => {
+    try {
+      await axios.delete(
+        `${import.meta.env.VITE_API_URL}/api/street_arts/${id}`
+      );
+
+      setOeuvres((prevOeuvres) =>
+        prevOeuvres.filter((oeuvre) => oeuvre.id !== id)
+      );
+      toast.success("Oeuvre supprimée avec succès !");
+    } catch (err) {
+      console.error(err);
+      toast.error(
+        "Une erreur s'est produite lors de la suppression de l'œuvre."
+      );
+    }
   };
 
-  const handleDeleteUser = (id) => {
+  const handleDeleteUser = async (id) => {
     // Pouvoir supprimer un user
-    axios
-      .delete(`${import.meta.env.VITE_API_URL}/api/users/${id}`)
-      .then(() => {
-        setUsers((prevUsers) => prevUsers.filter((user) => user.id !== id));
-        toast.success("Utilisateur supprimé avec succès !");
-      })
-      .catch((err) => {
-        console.error(err);
-        toast.error(
-          "Une erreur s'est produite lors de la suppression de l'utilisateur."
-        );
-      });
+    try {
+      await axios.delete(`${import.meta.env.VITE_API_URL}/api/users/${id}`);
+
+      setUsers((prevUsers) => prevUsers.filter((user) => user.id !== id));
+      toast.success("Utilisateur supprimé avec succès !");
+    } catch (err) {
+      console.error(err);
+      toast.error(
+        "Une erreur s'est produite lors de la suppression de l'utilisateur."
+      );
+    }
   };
 
-  const handleDeleteMessage = (id) => {
+  const handleDeleteMessage = async (id) => {
     // Pouvoir supprimer les messages reçus
-    axios
-      .delete(`${import.meta.env.VITE_API_URL}/api/contacts/${id}`)
-      .then(() => {
-        setMessages((prevMessages) =>
-          prevMessages.filter((message) => message.id !== id)
-        );
-        toast.success("Message supprimé avec succès!");
-      })
-      .catch((err) => {
-        console.error(err);
-        toast.error(
-          "Une erreur s'est produite lors de la suppression du message."
-        );
-      });
+    try {
+      axios.delete(`${import.meta.env.VITE_API_URL}/api/contacts/${id}`);
+
+      setMessages((prevMessages) =>
+        prevMessages.filter((message) => message.id !== id)
+      );
+      toast.success("Message supprimé avec succès!");
+    } catch (err) {
+      console.error(err);
+      toast.error(
+        "Une erreur s'est produite lors de la suppression du message."
+      );
+    }
   };
 
   return (
@@ -176,30 +197,29 @@ function AdminPage() {
 
       {selectedSection === "oeuvres-to-validate" && (
         <section className="oeuvres-content">
-          <h1 className="main-title-admin-section">Oeuvres en attente:</h1>
+          <h1 className="main-title-admin-section">Oeuvres en attente :</h1>
           <article className="oeuvre-cards-container">
             {oeuvres.map((oeuvre) => (
               <div key={oeuvre.id} className="oeuvre-card">
                 <h2>{oeuvre.title}</h2>
                 <img src={oeuvre.file} alt={oeuvre.title} />
-                <h3>Artiste: {oeuvre.artist}</h3>
-                <h3>Description: </h3>
+                <h3>Artiste : {oeuvre.artist}</h3>
+                <h3>Description : </h3>
                 <p>{oeuvre.description}</p>
                 <button
                   type="button"
                   className="button-to-validate"
                   onClick={() => handleValidateOeuvre(oeuvre.id)}
-                >Valider l'oeuvre
-                  <img src={Valid} alt="Valider" />
-                  
+                >
+                  Valider l'oeuvre <img src={Valid} alt="Valider" />
                 </button>
+
                 <button
                   type="button"
                   className="button-to-refuse"
                   onClick={() => handleDeleteOeuvre(oeuvre.id)}
-                >Refuser l'oeuvre
-                  <img src={Delete} alt="Ne pas valider" />
-                  
+                >
+                  Refuser l'oeuvre <img src={Delete} alt="Ne pas valider" />
                 </button>
               </div>
             ))}
@@ -209,7 +229,7 @@ function AdminPage() {
 
       {selectedSection === "users-infos" && (
         <section className="users-content-admin">
-          <h1 className="main-title-admin-section">Liste des utilisateurs:</h1>
+          <h1 className="main-title-admin-section">Liste des utilisateurs :</h1>
           <article className="user-cards-container">
             {users.map((user) => (
               <div key={user.id} className="user-card">
@@ -225,7 +245,7 @@ function AdminPage() {
                   className="button-to-delete"
                   onClick={() => handleDeleteUser(user.id)}
                 >
-                  Supprimer l'utilisateur
+                  Supprimer l'utilisateur{" "}
                   <img src={Delete} alt="Ne pas valider" />
                 </button>
               </div>
@@ -235,7 +255,7 @@ function AdminPage() {
       )}
       {selectedSection === "messages-infos" && (
         <section className="messages-infos-content">
-          <h1 className="main-title-admin-section">Messages reçus:</h1>
+          <h1 className="main-title-admin-section">Messages reçus :</h1>
           <article className="message-cards-container">
             {messages.map((message) => (
               <div key={message.id} className="message-card">
@@ -247,8 +267,7 @@ function AdminPage() {
                   className="button-message-delete"
                   onClick={() => handleDeleteMessage(message.id)}
                 >
-                  Supprimer le message
-                  <img src={Delete} alt="Ne pas valider" />
+                  Supprimer le message <img src={Delete} alt="Ne pas valider" />
                 </button>
               </div>
             ))}
@@ -257,22 +276,21 @@ function AdminPage() {
       )}
       {selectedSection === "toutes-les-oeuvres" && (
         <section className="oeuvres-content">
-          <h1 className="main-title-admin-section">Toutes les oeuvres:</h1>
+          <h1 className="main-title-admin-section">Toutes les oeuvres :</h1>
           <article className="oeuvre-cards-container">
             {oeuvres.map((oeuvre) => (
               <div key={oeuvre.id} className="oeuvre-card">
                 <h2>{oeuvre.title}</h2>
                 <img src={oeuvre.file} alt={oeuvre.title} />
-                <h3>Artiste: {oeuvre.artist}</h3>
-                <h3>Description: </h3>
+                <h3>Artiste : {oeuvre.artist}</h3>
+                <h3>Description : </h3>
                 <p>{oeuvre.description}</p>
                 <button
                   type="button"
                   className="button-to-refuse"
                   onClick={() => handleDeleteOeuvre(oeuvre.id)}
-                >Supprimer l'oeuvre
-                  <img src={Delete} alt="Ne pas valider" />
-                  
+                >
+                  Supprimer l'oeuvre <img src={Delete} alt="Ne pas valider" />
                 </button>
               </div>
             ))}

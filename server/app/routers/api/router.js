@@ -6,7 +6,7 @@ const router = express.Router();
 // Import And Use Routers Here
 /* ************************************************************************* */
 
-const catagoriesRouter = require("./categories/CategoriesRouter");
+const categoriesRouter = require("./categories/CategoriesRouter");
 const contactsRouter = require("./contacts/ContactsRouter");
 const streetArtsRouter = require("./street_arts/Street_ArtsRouter");
 const usersRouter = require("./users/UsersRouter");
@@ -15,7 +15,7 @@ const rolesRouter = require("./roles/RolesRouter");
 // const adminRouter = require("./admin/AdminRouter")
 
 router.use("/contacts", contactsRouter);
-router.use("/categories", catagoriesRouter);
+router.use("/categories", categoriesRouter);
 router.use("/street_arts", streetArtsRouter);
 router.use("/users", usersRouter);
 router.use("/pictures", picturesRouter);

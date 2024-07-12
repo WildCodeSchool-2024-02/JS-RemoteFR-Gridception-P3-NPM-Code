@@ -10,18 +10,10 @@ const router = express.Router();
 /* ************************************************************************* */
 
 // Import item-related actions
-const {
-  upload,
-} = require("../../../controllers/uploadActions");
-
-
-
+const { upload } = require("../../../controllers/uploadActions");
 
 // Route to upload an item
-router.post("/", uploadPicture.single("file"), upload)
-
-
-
+router.post("/", uploadPicture.single("file"), upload);
 
 /* ************************************************************************* */
 

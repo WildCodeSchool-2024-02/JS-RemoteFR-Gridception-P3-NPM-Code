@@ -34,7 +34,7 @@ function UpdateInfoUser({ dialogRef }) {
       return;
     }
     try {
-      axios
+      await axios
         .put(`${import.meta.env.VITE_API_URL}/api/users/${loggedUser?.id}`, {
           roles_id: loggedUser.roles_id,
           firstname: informations.firstname || loggedUser.firstname,

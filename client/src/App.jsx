@@ -47,7 +47,7 @@ function App() {
 
   const handleNavigate = () => {
     if (loggedUser.id) {
-      navigate("/add");
+      navigate("/utilisateur/add");
     } else {
       setShowLoginPopup(true);
     }

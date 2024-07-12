@@ -1,18 +1,18 @@
-.main-desktop > .map-container {
+.mainDesktop > .map-container {
   width: 100vw;
   height: 95vh;
   z-index: 1000;
 }
-
 // NE PAS AFFICHER LE TEXTE ET LE BOUTONS
-.add-street-art {
+
+.addStreetArt {
   display: none;
 }
 
 // VERSION DESKTOP
 
 @media (min-width: 770px) {
-  .main-desktop {
+  .mainDesktop {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -21,7 +21,7 @@
   }
 
   //PARTIE DES TEXTES
-  .home-text-content {
+  .homeTextContent {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -29,18 +29,18 @@
     margin: 2rem 2rem 0 2rem;
   }
 
-  .main-title {
+  .mainTitle {
     font-size: calc(2.5rem + 0.8vw);
     color: var(--primary-text-color);
     margin: 0;
   }
 
-  .second-title {
+  .secondTitle {
     font-size: calc(1.5rem + 0.8vw);
     color: #63d1ff;
   }
 
-  .add-street-art {
+  .addStreetArt {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -49,7 +49,7 @@
 
   //PARTIE MAP
 
-  .main-desktop > .map-container {
+  .mainDesktop > .map-container {
     width: 55vw;
     height: 65vh;
     border-radius: 25px;
@@ -63,10 +63,9 @@
   align-items: center;
   text-align: center;
   margin: 0;
-  width: 10rem;
 
-  .imgpopup-container {
-    width: 7rem;
+  .popupimg-container {
+    width: 10rem;
     height: auto;
   }
   .button-popup-container {
@@ -75,7 +74,7 @@
     width: 10rem;
   }
 }
-.popup-title {
+.popuptitle {
   font-family: var(--primary-text-color);
   font-size: 1rem;
 }
@@ -84,13 +83,13 @@
   padding: 0;
 }
 
+.imgpopup-container {
+  width: auto;
+  height: 5rem;
+  margin-bottom: 1rem;
+}
+
 .button-container {
   display: flex;
   flex-direction: row;
-
-  a {
-    img {
-      width: 3rem;
-    }
-  }
 }
