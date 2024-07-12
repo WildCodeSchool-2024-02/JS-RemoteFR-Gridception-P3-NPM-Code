@@ -29,15 +29,29 @@ function NavBar({ loggedUser, handleNavigate }) {
                 <img src={UserIcon} alt="page profil" className="nav-icon" />
               </NavLink>
             </li>
-            <li>
-              <NavLink to="/add">
-                <img
-                  src={AddIcon2}
-                  alt="ajouter un street art"
-                  className="add-art"
-                />
-              </NavLink>
-            </li>
+
+            {loggedUser?.id !== undefined ? (
+              <li>
+                <NavLink to="/utilisateur/add">
+                  <img
+                    src={AddIcon2}
+                    alt="ajouter un street art"
+                    className="add-art"
+                  />
+                </NavLink>
+              </li>
+            ) : (
+              <li>
+                <NavLink onClick={handleNavigate}>
+                  <img
+                    src={AddIcon2}
+                    alt="ajouter un street art"
+                    className="add-art"
+                  />
+                </NavLink>
+              </li>
+            )}
+
             <li>
               <NavLink to="/classement">
                 <img
@@ -49,7 +63,7 @@ function NavBar({ loggedUser, handleNavigate }) {
             </li>
             <li>
               <StyledEngineProvider injectFirst>
-                <Drawer />
+                <Drawer loggedUser={loggedUser} />
               </StyledEngineProvider>
             </li>
           </menu>
@@ -85,22 +99,7 @@ function NavBar({ loggedUser, handleNavigate }) {
           <li className="navbar-content">
             <NavLink to="/contact">Contact</NavLink>
           </li>
-          {/* {loggedUser?.id === undefined ? (
-            <li className="navbar-content">
-              <button type="button" onClick={handleNavigate}>
-                Se Connecter
-              </button>
-            </li>
-          ) : (
-            <li className="navbar-content">
-              <NavLink to="/profil">Mon Compte</NavLink>
-            </li>
-          )} */}
-          {loggedUser?.id !== undefined && loggedUser.roles_id === 3 ? (
-            <li className="navbar-content">admin</li>
-          ) : (
-            ""
-          )}
+
           {loggedUser?.id !== undefined && loggedUser.roles_id !== 3 ? (
             <li className="navbar-content">
               <NavLink to="/utilisateur/profil">Mon Compte</NavLink>
