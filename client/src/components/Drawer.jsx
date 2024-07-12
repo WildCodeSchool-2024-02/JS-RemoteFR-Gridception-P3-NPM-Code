@@ -24,7 +24,7 @@ import tetrisyellow2 from "../assets/images/tetrisyellow2.png";
 // theme personnalisé pour la font Fugaz One
 const theme = createTheme({
   typography: {
-    fontFamily: "Fugaz One, Arial, sans-serif",
+    fontFamily: "Chakra Petch, sans-serif",
   },
 });
 
