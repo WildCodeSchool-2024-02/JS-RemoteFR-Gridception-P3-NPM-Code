@@ -3,70 +3,85 @@ import ReactDOM from "react-dom/client";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import "./styles/import.scss";
 import App from "./App";
-import Home from "./pages/Home";
+import About from "./pages/About";
 import AddStreetArts from "./pages/AddStreetArts";
 import Contact from "./pages/Contact";
 import Gallery from "./pages/Gallery";
-import About from "./pages/About";
+import Home from "./pages/Home";
+import NotFound from "./pages/NotFound";
 import Profile from "./pages/Profile";
 import Ranking from "./pages/Ranking";
 import Register from "./pages/Register";
-import NotFound from "./pages/NotFound";
 import StreetArt from "./pages/StreetArt";
-import AddPictures from "./pages/AddPictures";
+
+import UserPages from "./components/Protection/UserPages";
+import AdminPages from "./components/Protection/AdminPages";
+
+import "./styles/import.scss";
+import AdminPage from "./pages/AdminPage";
 
 const router = createBrowserRouter([
   {
-    path: "/",
     element: <App />,
     children: [
       {
-        path: "/",
+        path: "",
         element: <Home />,
       },
       {
-        path: "/add",
-        element: <AddStreetArts />,
-      },
-      {
-        path: "/addpictures",
-        element: <AddPictures />,
-      },
-      {
-        path: "/Contact",
+        path: "contact",
         element: <Contact />,
       },
       {
-        path: "/Galerie",
+        path: "galerie",
         element: <Gallery />,
       },
       {
-        path: "/About",
+        path: "a_propos",
         element: <About />,
       },
       {
-        path: "/Profil",
-        element: <Profile />,
-      },
-      {
-        path: "/Classement",
+        path: "classement",
         element: <Ranking />,
       },
       {
-        path: "/Inscription",
+        path: "inscription",
         element: <Register />,
       },
       {
-        path: "/streetArt",
+        path: "streetArt/:id",
         element: <StreetArt />,
       },
+      {
+        path: "*",
+        element: <NotFound />,
+      },
+      {
+        path: "utilisateur",
+        element: <UserPages />,
+        children: [
+          {
+            path: "add",
+            element: <AddStreetArts />,
+          },
+          {
+            path: "profil",
+            element: <Profile />,
+          },
+        ],
+      },
+      {
+        path: "admin",
+        element: <AdminPages />,
+        children: [
+          {
+            path: "",
+            element: <AdminPage />,
+          },
+        ],
+      },
     ],
-  },
-  {
-    path: "/*",
-    element: <NotFound />,
   },
 ]);
 

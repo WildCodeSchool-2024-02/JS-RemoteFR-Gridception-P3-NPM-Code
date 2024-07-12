@@ -1,28 +1,33 @@
-import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import Box from "@mui/material/Box";
+import IconButton from "@mui/material/IconButton";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 import ImageListItemBar from "@mui/material/ImageListItemBar";
-import IconButton from "@mui/material/IconButton";
 import InfoIcon from "@mui/icons-material/Info";
-import Box from "@mui/material/Box";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 
 export default function Gallery() {
-  const [pictures, setPictures] = useState([]);
+  const [streetArts, setStreetArts] = useState([]);
   const theme = useTheme();
   const matchesSm = useMediaQuery(theme.breakpoints.up("sm"));
   const matchesMd = useMediaQuery(theme.breakpoints.up("md"));
   const matchesLg = useMediaQuery(theme.breakpoints.up("lg"));
   const matchesMin770 = useMediaQuery("(min-width: 770px)");
 
+  const { VITE_API_URL } = import.meta.env;
+
   useEffect(() => {
-    fetch("http://127.0.0.1:3310/api/pictures")
+    fetch(`${VITE_API_URL}/api/street_arts`)
       .then((response) => response.json())
-      .then((data) => setPictures(data))
-      .catch((error) => console.error("Error fetching pictures:", error));
-  }, []);
+      .then((data) => {
+        const validData = data.filter((streetArt) => streetArt.is_valid === 1);
+        setStreetArts(validData);
+      })
+      .catch((error) => console.error("Error fetching street arts:", error));
+  }, [VITE_API_URL]);
 
   const getCols = () => {
     if (matchesLg) return 4;
@@ -53,22 +58,23 @@ export default function Gallery() {
         cols={getCols()}
         gap={20}
       >
-        {pictures.length > 0 ? (
-          pictures.map((picture) => (
-            <Link to="/streetArt" key="link">
-              <ImageListItem key={picture.id} cols={1} rows={1}>
+        {streetArts.length > 0 ? (
+          streetArts.map((streetArt) => (
+            <Link to={`/streetArt/${streetArt.id}`} key={streetArt.id}>
+              <ImageListItem key={streetArt.id} cols={1} rows={1}>
                 <img
-                  srcSet={`${picture.url}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                  src={`${picture.url}?w=248&fit=crop&auto=format`}
-                  alt={picture.name}
+                  srcSet={`${streetArt.file}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                  src={`${streetArt.file}?w=248&fit=crop&auto=format`}
+                  alt={streetArt.title}
                   loading="lazy"
+                  style={{ maxHeight: "100%", objectFit: "cover" }}
                 />
                 <ImageListItemBar
-                  title={picture.name}
+                  title={streetArt.title}
                   actionIcon={
                     <IconButton
                       sx={{ color: "rgba(255, 255, 255, 0.54)" }}
-                      aria-label={`info about ${picture.name}`}
+                      aria-label={`info about ${streetArt.title}`}
                     >
                       <InfoIcon />
                     </IconButton>

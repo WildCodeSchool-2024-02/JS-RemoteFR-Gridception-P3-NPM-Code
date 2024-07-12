@@ -70,6 +70,24 @@ const readByPictures = async (req, res, next) => {
   }
 };
 
+const readById = async (req, res, next) => {
+  try {
+    // Fetch a specific streetArt from the database based on the provided ID
+    const streetArt = await tables.streetArts.readById(req.params.id);
+
+    // If the streetArt is not found, respond with HTTP 404 (Not Found)
+    // Otherwise, respond with the streetArt in JSON format
+    if (streetArt == null) {
+      res.sendStatus(404);
+    } else {
+      res.json(streetArt);
+    }
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
+
 // The E of BREAD - Edit (Update) operation
 
 const edit = async (req, res, next) => {
@@ -84,6 +102,18 @@ const edit = async (req, res, next) => {
     res.sendStatus(204);
   } catch (err) {
     // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
+
+const editValidation = async (req, res, next) => {
+  const streetArt = { ...req.body, id: req.params.id };
+
+  try {
+    const result = await tables.streetArts.updateValidation(streetArt);
+
+    res.status(200).json(result);
+  } catch (err) {
     next(err);
   }
 };
@@ -126,7 +156,10 @@ module.exports = {
   browseByPictures,
   read,
   readByPictures,
+  readById,
   edit,
+
+  editValidation,
   add,
   destroy,
 };

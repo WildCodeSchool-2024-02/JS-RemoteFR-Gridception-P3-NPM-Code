@@ -1,4 +1,7 @@
-import * as React from "react";
+import { Fragment, useState } from "react";
+import { Link } from "react-router-dom";
+import { PropTypes } from "prop-types";
+
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import Button from "@mui/material/Button";
@@ -11,24 +14,21 @@ import ListItemText from "@mui/material/ListItemText";
 import CssBaseline from "@mui/material/CssBaseline";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-import { Link } from "react-router-dom";
-
 import tetrispurple from "../assets/images/tetrispurple.png";
 import tetrispurple2 from "../assets/images/tetrispurple2.png";
 import tetrisyellow2 from "../assets/images/tetrisyellow2.png";
-// import tetrisyellow from "../assets/images/tetrisyellow.png";
 import dot from "../assets/images/dot_icon.png";
 import logo from "../assets/images/logo.png";
 
 // theme personnalisé pour la font Fugaz One
 const theme = createTheme({
   typography: {
-    fontFamily: "Fugaz One, Arial, sans-serif",
+    fontFamily: "Chakra Petch, sans-serif",
   },
 });
 
-export default function AnchorTemporaryDrawer() {
-  const [state, setState] = React.useState({
+export default function AnchorTemporaryDrawer({ loggedUser }) {
+  const [state, setState] = useState({
     right: false,
   });
 
@@ -56,13 +56,12 @@ export default function AnchorTemporaryDrawer() {
         width: anchor === "top" || anchor === "bottom" ? "auto" : 200,
         zIndex: 1200,
       }}
-      role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <div className="drawerLogTitle">
         <h1 className="drawerTitle">Street Art</h1>
-        <img src={logo} alt="logo du site " className="logoInDrawer" />
+        <img src={logo} alt="logo du site" className="logoInDrawer" />
         <h2 className="drawerTitle2">Hunter</h2>
       </div>
       <List>
@@ -122,6 +121,31 @@ export default function AnchorTemporaryDrawer() {
           ))}
         </Link>
       </List>
+      {loggedUser?.roles_id === 1 ? (
+        <>
+          <Divider />
+          <List>
+            <Link to="/admin">
+              {["Admin"].map((text) => (
+                <ListItem key={text} disablePadding>
+                  <ListItemButton>
+                    <ListItemIcon>
+                      <img
+                        src={tetrisyellow2}
+                        alt="admin icon"
+                        className="drawer-icon"
+                      />
+                    </ListItemIcon>
+                    <ListItemText primary={text} />
+                  </ListItemButton>
+                </ListItem>
+              ))}
+            </Link>
+          </List>
+        </>
+      ) : (
+        ""
+      )}
     </Box>
   );
 
@@ -130,7 +154,7 @@ export default function AnchorTemporaryDrawer() {
       <CssBaseline />
       <div className="drawerButtonContainer">
         {["right"].map((anchor) => (
-          <React.Fragment key={anchor}>
+          <Fragment key={anchor}>
             <Button
               onClick={toggleDrawer(anchor, true)}
               className="drawerButton"
@@ -145,9 +169,16 @@ export default function AnchorTemporaryDrawer() {
             >
               {list(anchor)}
             </Drawer>
-          </React.Fragment>
+          </Fragment>
         ))}
       </div>
     </ThemeProvider>
   );
 }
+
+AnchorTemporaryDrawer.propTypes = {
+  loggedUser: PropTypes.shape({
+    id: PropTypes.number,
+    roles_id: PropTypes.number,
+  }).isRequired,
+};

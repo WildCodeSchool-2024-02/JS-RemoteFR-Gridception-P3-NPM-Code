@@ -1,0 +1,161 @@
+.popup-overlay {
+  z-index: 1000;
+  position: absolute;
+  margin-top: 1rem;
+}
+
+.loginform-container {
+  margin: auto;
+  width: 80vw;
+  max-width: 1200px;
+  background-color: color-mix(in srgb, var(--primary-color) 90%, transparent);
+  border: 2px solid transparent;
+  padding: 32px 16px;
+  font-size: 14px;
+  font-family: inherit;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-sizing: border-box;
+  border-radius: 16px;
+  background-size: 200% 100%;
+  animation: gradient 5s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.loginform-container button:active {
+  scale: 0.95;
+}
+
+.loginform-container .logoMobile {
+  height: 75px;
+  width: 75px;
+  align-self: center;
+}
+
+.loginform-container .loginform {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.loginform-container .loginform-group {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.loginform-container .loginform-group label {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--primary-font);
+  font-size: 15px;
+}
+
+.loginform-container .loginform-group input {
+  width: 100%;
+  border-radius: 8px;
+  color: black;
+  font-family: inherit;
+  font-size: 10px;
+  background-color: var(--input-background-color);
+  border: 1px solid #414141;
+  box-shadow: #000000 0px 7px 10px -5px inset;
+}
+
+.loginform-container .loginform-group input::placeholder {
+  opacity: 0.5;
+}
+
+.loginform-container .loginform-group input:focus {
+  outline: none;
+  border-color: #e81cff;
+}
+
+.loginform-container .loginform-submit-btn {
+  display: flex;
+  justify-content: center;
+  font-family: inherit;
+  color: white;
+  font-weight: 600;
+  width: 50%;
+  max-width: 200px;
+  background: var(--button-color);
+  border: 1px solid #414141;
+  padding: 10px 50px;
+  font-size: 12px;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: #000000 0px 7px 10px -5px inset;
+  border-radius: 6px;
+  margin: 0 auto;
+  margin-top: 1rem;
+}
+
+.loginform-container .loginform-submit-btn:hover {
+  background-color: #fff;
+  border-color: #fff;
+  color: var(--button-color);
+}
+
+// DESKTOP VERSION
+
+@media (min-width: 770px) {
+  .loginform-container {
+    max-width: 20vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+
+    .loginform {
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+      align-content: center;
+    }
+  }
+
+  .loginform-container .loginform-group {
+    gap: 10px;
+  }
+
+  .loginform-container .loginform-group input {
+    width: 15vw;
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+  .loginform-container .loginform-group label {
+    margin-bottom: 2px;
+    font-size: 20px;
+  }
+
+  .loginform-container .loginform-submit-btn {
+    width: 15vw;
+    margin-top: 5rem;
+  }
+
+  .loginform-register {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  .logoform-desktop {
+    width: 96px;
+  }
+}

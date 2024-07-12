@@ -34,7 +34,7 @@ class UsersRepository extends AbstractRepository {
   async read(id) {
     // Execute the SQL SELECT query to retrieve a specific users by its ID
     const [rows] = await this.database.query(
-      `select * from ${this.table} where id = ?`,
+      `select id, roles_id, firstname, lastname, avatar, points, city, email from ${this.table} where id = ?`,
       [id]
     );
 
@@ -53,9 +53,8 @@ class UsersRepository extends AbstractRepository {
   // The U of CRUD - Update operation
 
   async update(users) {
-    // Execute the SQL UPDATE query to update a specific category
     const [result] = await this.database.query(
-      `update ${this.table} set roles_id = ?, firstname = ?, lastname = ?, avatar = ?, points = ?, city = ?, email = ?, password = ? where id = ?`,
+      `update ${this.table} set roles_id = ?, firstname = ?, lastname = ?, avatar = ?, points = ?, city = ?, email = ? where id = ?`,
       [
         users.roles_id,
         users.firstname,
@@ -64,7 +63,6 @@ class UsersRepository extends AbstractRepository {
         users.points,
         users.city,
         users.email,
-        users.password,
         users.id,
       ]
     );
@@ -76,9 +74,22 @@ class UsersRepository extends AbstractRepository {
   // The D of CRUD - Delete operation
 
   async delete(id) {
-    // Execute the SQL DELETE query to delete a specific category
+    await this.database.query(
+      `DELETE FROM pictures WHERE street_arts_id IN (SELECT id FROM street_arts WHERE users_id = ?)`,
+      [id]
+    );
+
+    await this.database.query(
+      `DELETE FROM street_arts_categories WHERE street_arts_id IN (SELECT id FROM street_arts WHERE users_id = ?)`,
+      [id]
+    );
+
+    await this.database.query(`DELETE FROM street_arts WHERE users_id = ?`, [
+      id,
+    ]);
+
     const [result] = await this.database.query(
-      `delete from ${this.table} where id = ?`,
+      `DELETE FROM ${this.table} WHERE id = ?`,
       [id]
     );
 

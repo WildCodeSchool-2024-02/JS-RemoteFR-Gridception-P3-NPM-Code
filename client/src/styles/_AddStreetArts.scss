@@ -56,6 +56,30 @@ label {
   height: 4.5rem;
 }
 
+.suggestions-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border: 1px solid #414141;
+  border-radius: 8px;
+  background-color: var(--input-background-color);
+  max-height: 150px;
+  overflow-y: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.suggestions-list li {
+  padding: 8px 12px;
+  cursor: pointer;
+  font-family: var(--second-font);
+  color: black;
+  &:hover,
+  &:focus {
+    background-color: var(--button-color);
+    color: var(--white-font);
+  }
+}
+
 @media (min-width: 770px) {
   .add-picture {
     margin: 1rem 30rem 0 30rem;
