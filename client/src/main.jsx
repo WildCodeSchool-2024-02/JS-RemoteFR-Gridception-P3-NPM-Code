@@ -3,8 +3,8 @@ import ReactDOM from "react-dom/client";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import About from "./pages/About";
 import App from "./App";
+import About from "./pages/About";
 import AddStreetArts from "./pages/AddStreetArts";
 import Contact from "./pages/Contact";
 import Gallery from "./pages/Gallery";

@@ -10,8 +10,6 @@ import { InputText } from "primereact/inputtext";
 import Change from "../assets/images/icon_change_avatar.png";
 import Users from "../assets/images/user_profil.png";
 
-import "../styles/AvatarChange.scss";
-
 export default function AvatarChange() {
   const [imageCrop, setImageCrop] = useState(false);
   const [profile, setProfile] = useState({ avatar: "" });
