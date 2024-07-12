@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
 import { useOutletContext } from "react-router-dom";
+import axios from "axios";
 
 import Avatar from "react-avatar-edit";
 import { InputText } from "primereact/inputtext";
@@ -66,6 +66,7 @@ export default function AvatarChange() {
         <img className="avatar" src={imgAvatar} alt="avatar" />
       </button>
       <h1 className="user-name">{`${loggedUser.firstname} ${loggedUser.lastname}`}</h1>
+      <p className="points">{loggedUser.points}</p>
 
       <Dialog
         visible={imageCrop}

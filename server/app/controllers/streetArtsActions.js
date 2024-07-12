@@ -107,17 +107,13 @@ const edit = async (req, res, next) => {
 };
 
 const editValidation = async (req, res, next) => {
-  // Extract the category data from the request body and params
   const streetArt = { ...req.body, id: req.params.id };
 
   try {
-    // Update the category in the database
-    await tables.streetArts.updateValidation(streetArt);
+    const result = await tables.streetArts.updateValidation(streetArt);
 
-    // Respond with HTTP 204 (No Content)
-    res.sendStatus(204);
+    res.status(200).json(result);
   } catch (err) {
-    // Pass any errors to the error-handling middleware
     next(err);
   }
 };
@@ -162,7 +158,7 @@ module.exports = {
   readByPictures,
   readById,
   edit,
-  
+
   editValidation,
   add,
   destroy,

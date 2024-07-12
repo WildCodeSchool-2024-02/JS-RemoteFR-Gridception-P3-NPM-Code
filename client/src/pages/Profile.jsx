@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from "react";
-import { useOutletContext } from "react-router-dom";
 import axios from "axios";
+import { useEffect, useRef, useState } from "react";
+import { Link, useOutletContext } from "react-router-dom";
 
 import { Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
 import { styled } from "@mui/material/styles";
@@ -34,7 +34,8 @@ const AccordionElements = styled(AccordionDetails)(({ theme }) => ({
 }));
 
 function Profile() {
-  const { handleLogout, loggedUser } = useOutletContext();
+  const { loggedUser, handleLogout } = useOutletContext();
+
   const dialogRef = useRef(null);
   const [expanded, setExpanded] = useState("");
   const handleChange = (panel) => (event, newExpanded) => {
@@ -98,6 +99,8 @@ function Profile() {
             />
           ))}
         </div>
+
+        <Link to="/utilisateur/add">Ajouter une œuvre</Link>
       </article>
 
       {/* Profil section for mobile */}
@@ -112,7 +115,7 @@ function Profile() {
               <Typography variant="h2">Mes Oeuvres</Typography>
             </AccordionTitle>
             <AccordionElements>
-              <div className="myArtStreet ">
+              <div className="my-street-art">
                 {picturesStreetArt.map((picture) => (
                   <img
                     key={picture.id}
