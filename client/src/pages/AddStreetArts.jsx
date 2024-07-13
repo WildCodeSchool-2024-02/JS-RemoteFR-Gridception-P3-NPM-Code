@@ -16,7 +16,6 @@ function AddStreetArts() {
     latitude: "",
     longitude: "",
     address: "",
-    main_url: "",
     is_valid: 0,
   });
 
