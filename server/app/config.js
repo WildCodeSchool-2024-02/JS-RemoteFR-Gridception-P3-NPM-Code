@@ -110,10 +110,7 @@ app.use("/api", apiRouter);
 // Code a commenter pour faire marcher les images
 
 const reactBuildPath = path.join(__dirname, "/../../client/dist");
-const publicFolderPath = path.join(
-  __dirname,
-  "https://npm-code.remote-6.wilders.dev/public"
-);
+const publicFolderPath = path.join(__dirname, "/../public");
 
 // Serve react resources
 app.use(express.static(reactBuildPath));
