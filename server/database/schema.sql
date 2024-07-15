@@ -42,6 +42,11 @@ create table street_arts (
     is_valid BOOLEAN NOT NULL
 );
 
+INSERT INTO street_arts (users_id, file, title, description, artist, latitude, longitude, is_valid) 
+VALUES
+(2, 'https://www.visitelyon.fr/wp-content/uploads/2021/03/mur-canuts-croix-rousse-lyon-4-scaled.jpeg', 'Le Mur des Canuts', 'Une célèbre fresque murale à Lyon représentant l\'histoire et les habitants de la ville.', 'Inconnu', 45.763, 4.831, 1);
+
+
 create table pictures (
     ID INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     Foreign Key (street_arts_id) REFERENCES street_arts (id),
