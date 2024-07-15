@@ -100,7 +100,7 @@ function NavBar({ loggedUser, handleNavigate }) {
             <NavLink to="/contact">Contact</NavLink>
           </li>
 
-          {loggedUser?.id !== undefined && loggedUser.roles_id !== 3 ? (
+          {loggedUser?.id !== undefined && loggedUser.roles_id !== 2 ? (
             <li className="navbar-content">
               <NavLink to="/utilisateur/profil">Mon Compte</NavLink>
             </li>
