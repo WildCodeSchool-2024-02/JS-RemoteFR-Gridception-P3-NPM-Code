@@ -8,6 +8,7 @@ import Tetris from "../assets/images/Tetris.gif";
 
 function Register() {
   const [registerForm, setRegisterForm] = useState({
+    pseudo: "",
     firstname: "",
     lastname: "",
     password: "",
@@ -68,6 +69,19 @@ function Register() {
       </div>
       <form className="form">
         <div className="form-left">
+          <div className="form-group">
+            <label htmlFor="firstname">Pseudo</label>
+            <input
+              required
+              name="pseudo"
+              id="pseudo"
+              type="text"
+              minLength={3}
+              maxLength={50}
+              onChange={handleRegisterChange}
+              value={registerForm.pseudo}
+            />
+          </div>
           <div className="form-group">
             <label htmlFor="firstname">Prénom</label>
             <input
@@ -133,6 +147,7 @@ function Register() {
             onClick={(e) => {
               e.preventDefault();
               if (
+                registerForm.pseudo !== "" &&
                 registerForm.firstname !== "" &&
                 registerForm.lastname !== "" &&
                 registerForm.email !== "" &&
@@ -149,6 +164,7 @@ function Register() {
                     .then((res) => {
                       notifySuccess();
                       setRegisterForm({
+                        pseudo: "",
                         firstname: "",
                         lastname: "",
                         email: "",
