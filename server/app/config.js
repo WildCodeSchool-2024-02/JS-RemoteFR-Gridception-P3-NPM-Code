@@ -107,6 +107,8 @@ app.use("/api", apiRouter);
 // 1. Uncomment the lines related to serving static files and redirecting unhandled requests.
 // 2. Ensure that the `reactBuildPath` points to the correct directory where your client's build artifacts are located.
 
+// Code a commenter pour faire marcher les images
+
 const reactBuildPath = path.join(__dirname, "/../../client/dist");
 const publicFolderPath = path.join(__dirname, "/../public");
 
@@ -125,7 +127,6 @@ app.get("*", (req, res) => {
     res.sendFile(path.join(reactBuildPath, "index.html"));
   }
 });
-
 
 
 /* ************************************************************************* */
