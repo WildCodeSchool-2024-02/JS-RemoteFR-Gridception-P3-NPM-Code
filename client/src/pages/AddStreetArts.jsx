@@ -1,11 +1,12 @@
 import axios from "axios";
 import { useState } from "react";
-import { useOutletContext } from "react-router-dom";
+import { useOutletContext, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function AddStreetArts() {
   const { loggedUser } = useOutletContext();
+  const navigate = useNavigate();
 
   const [streetArtForm, setStreetArtForm] = useState({
     users_id: loggedUser.id,
@@ -73,8 +74,8 @@ function AddStreetArts() {
     setAddressSuggestions([]);
   };
 
-  const notifySuccess = () =>
-    toast.success("Street Art reçu, en attente de validation ! Merci !", {
+  const notifySuccess = () => {
+    toast.success("Street Art reçu, en attente de validation ! Vous allez être redirigé vers l'accueil !", {
       position: "bottom-right",
       autoClose: 5000,
       hideProgressBar: false,
@@ -84,6 +85,11 @@ function AddStreetArts() {
       progress: undefined,
       theme: "light",
     });
+
+    setTimeout(() => {
+      navigate("/");
+    }, 5000);
+  };
 
   const notifyError = (message) =>
     toast.error(
