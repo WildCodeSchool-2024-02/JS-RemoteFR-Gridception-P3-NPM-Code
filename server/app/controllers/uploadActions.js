@@ -24,6 +24,8 @@ const upload = (req, res) => {
   // Chemin complet pour le nouveau fichier
   const newFilePath = path.join("public", "uploadedPicture", newFileName);
 
+  const url = process.env.MAIN_URL || process.env.CLIENT_URL;
+
   // Renommage et déplacement du fichier
   return fs.rename(req.file.path, newFilePath, (err) => {
     if (err) {
@@ -31,7 +33,7 @@ const upload = (req, res) => {
     } else {
       res.status(203).json({
         msg: "Upload success",
-        url: `${process.env.MAIN_URL}/public/uploadedPicture/${newFileName}`,
+        url: `${url}/public/uploadedPicture/${newFileName}`,
       });
     }
   });
