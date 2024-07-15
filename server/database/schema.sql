@@ -58,6 +58,9 @@ CREATE TABLE contacts (
   fullname VARCHAR(155) NOT NULL,
   mail VARCHAR(80) NOT NULL,
   message TEXT NOT NULL
+) ;
 
-
-) 
+-- INSERT INTO street_arts (users_id, file, title, description, artist, latitude, longitude, is_valid) VALUES (1, 'https://cdn.pixabay.com/photo/2013/12/17/20/10/bubbles-230014_1280.jpg', 'Art urbain de Paris', 'Une magnifique pièce de street art au cœur de Paris.', 'nAfiP', 75.2297244, -25.7825577, 1);
+-- INSERT INTO street_arts (users_id, file, title, description, artist, latitude, longitude, is_valid) VALUES (1, 'https://cdn.pixabay.com/photo/2013/12/17/20/10/bubbles-230014_1280.jpg', 'Mur de Graffiti', 'Un mur couvert de graffitis vibrants et colorés.', 'BTdMUEyFha', -81.4485227, 154.2849801, 1);
+-- INSERT INTO street_arts (users_id, file, title, description, artist, latitude, longitude, is_valid) VALUES (1, 'https://cdn.pixabay.com/photo/2013/12/17/20/10/bubbles-230014_1280.jpg', 'Fresque colorée', 'Une fresque colorée qui illumine la rue.', 'XQfuPkwo', -70.594771, -173.277025, 1);
+-- INSERT INTO street_arts (users_id, file, title, description, artist, latitude, longitude, is_valid) VALUES (1, 'https://cdn.pixabay.com/photo/2013/12/17/20/10/bubbles-230014_1280.jpg', 'Tag artistique', 'Un tag artistique sur un vieux bâtiment.', 'AUCWV', 56.3639157, -142.8291898, 1);
