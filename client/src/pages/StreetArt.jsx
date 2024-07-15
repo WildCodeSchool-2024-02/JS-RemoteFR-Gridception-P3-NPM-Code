@@ -14,15 +14,29 @@ function StreetArt() {
       });
   }, [id]);
 
+  useEffect(() => {
+    const imageContainer = document.querySelector(".image-container");
+
+    const showOverlay = () => {
+      imageContainer.classList.add("show-overlay");
+      setTimeout(() => {
+        imageContainer.classList.remove("show-overlay");
+      }, 5000);
+    };
+
+    showOverlay();
+  }, []);
+
   return (
     <section className="street-art-component">
       <article className="street-art-details">
         <div className="title-pic">
-          <h1>{streetArt.title}</h1>
+          <h1 className="title-mobile">{streetArt.title}</h1>
           <div className="image-container">
             <img src={streetArt.file} alt="" />
             <div className="overlay">
               <div className="text">
+                <h1 className="title-desktop">{streetArt.title}</h1>
                 <h2> Artiste </h2>
                 <p className="para-street-art">
                   {!streetArt.artist ? "Artiste Inconnu" : streetArt.artist}

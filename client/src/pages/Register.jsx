@@ -1,16 +1,20 @@
 import axios from "axios";
 import { useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import logo from "../assets/images/logo.png";
 import Tetris from "../assets/images/Tetris.gif";
 
 function Register() {
+  const navigate = useNavigate();
+
   const [registerForm, setRegisterForm] = useState({
     pseudo: "",
     firstname: "",
     lastname: "",
+    email: "",
     password: "",
     confirmPassword: "",
     roles_id: "2",
@@ -21,8 +25,8 @@ function Register() {
     setRegisterForm({ ...registerForm, [name]: value });
   };
 
-  const notifySuccess = () =>
-    toast.success("Inscription réussie !", {
+  const notifySuccess = () => {
+    toast.success("Inscription réussie ! Vous allez être rediriger vers la page d'accueil", {
       position: "bottom-right",
       autoClose: 3000,
       hideProgressBar: false,
@@ -33,9 +37,15 @@ function Register() {
       theme: "light",
     });
 
-  const notifyError = () =>
+    setTimeout(() => {
+      navigate("/");
+    }, 4000);
+  };
+
+  const notifyError = (message) =>
     toast.error(
-      "Il nous manque une information, vérifiez que vous avez rempli tous les champs",
+      message ||
+        "Il nous manque une information, vérifiez que vous avez rempli tous les champs",
       {
         position: "bottom-right",
         autoClose: 3000,
@@ -47,6 +57,46 @@ function Register() {
         theme: "light",
       }
     );
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (
+      registerForm.pseudo !== "" &&
+      registerForm.firstname !== "" &&
+      registerForm.lastname !== "" &&
+      registerForm.email !== "" &&
+      registerForm.password !== "" &&
+      registerForm.confirmPassword !== ""
+    ) {
+      if (registerForm.password === registerForm.confirmPassword) {
+        axios
+          .post(`${import.meta.env.VITE_API_URL}/api/users`, registerForm)
+          .then((res) => {
+            notifySuccess();
+            setRegisterForm({
+              pseudo: "",
+              firstname: "",
+              lastname: "",
+              email: "",
+              password: "",
+              confirmPassword: "",
+              roles_id: 2,
+            });
+            console.info(res);
+          })
+          .catch((err) => {
+            console.error(err);
+          });
+      } else {
+        notifyError("Les mots de passe ne correspondent pas !");
+      }
+    } else {
+      notifyError(
+        "Il nous manque une information, vérifiez que vous avez rempli tous les champs"
+      );
+    }
+  };
+
   return (
     <section className="form-container">
       <img
@@ -67,10 +117,10 @@ function Register() {
         <span className="letter">O</span>
         <span className="letter">N</span>
       </div>
-      <form className="form">
+      <form className="form" onSubmit={handleSubmit}>
         <div className="form-left">
           <div className="form-group">
-            <label htmlFor="firstname">Pseudo</label>
+            <label htmlFor="pseudo">Pseudo</label>
             <input
               required
               name="pseudo"
@@ -144,48 +194,6 @@ function Register() {
           <button
             type="submit"
             className="form-submit-btn"
-            onClick={(e) => {
-              e.preventDefault();
-              if (
-                registerForm.pseudo !== "" &&
-                registerForm.firstname !== "" &&
-                registerForm.lastname !== "" &&
-                registerForm.email !== "" &&
-                registerForm.password !== "" &&
-                registerForm.confirmPassword !== ""
-              ) {
-                if (registerForm.password === registerForm.confirmPassword) {
-                  axios
-                    .post(
-                      `${import.meta.env.VITE_API_URL}/api/users`,
-
-                      registerForm
-                    )
-                    .then((res) => {
-                      notifySuccess();
-                      setRegisterForm({
-                        pseudo: "",
-                        firstname: "",
-                        lastname: "",
-                        email: "",
-                        password: "",
-                        confirmPassword: "",
-                        roles_id: 2,
-                      });
-                      console.info(res);
-                    })
-                    .catch((err) => {
-                      console.error(err);
-                    });
-                } else {
-                  notifyError("Les mots de passe ne correspondent pas !");
-                }
-              } else {
-                notifyError(
-                  "Il nous manque une information, vérifiez que vous avez rempli tous les champs"
-                );
-              }
-            }}
           >
             S'enregistrer
           </button>
