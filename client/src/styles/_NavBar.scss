@@ -67,4 +67,7 @@
   .logo-desktop {
     width: 6rem;
   }
+  .logo-desktop:hover {
+    filter: brightness(1.2);
+  }
 }

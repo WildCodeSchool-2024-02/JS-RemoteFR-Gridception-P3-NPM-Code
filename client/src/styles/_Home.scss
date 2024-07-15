@@ -64,6 +64,7 @@
   text-align: center;
   margin: 0;
   width: 10rem;
+  border-radius: 10px;
 
   .imgpopup-container {
     width: 7rem;
@@ -90,7 +91,11 @@
 
   a {
     img {
-      width: 3rem;
+      width: 2.5rem;
     }
   }
+}
+
+.button-add:hover {
+  filter: brightness(1.2);
 }
