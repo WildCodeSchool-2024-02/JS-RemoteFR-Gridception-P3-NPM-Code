@@ -31,7 +31,7 @@ const upload = (req, res) => {
     } else {
       res.status(203).json({
         msg: "Upload success",
-        url: `http://localhost:3310/public/uploadedPicture/${newFileName}`,
+        url: `${import.meta.env.MAIN_URL}/public/uploadedPicture/${newFileName}`,
       });
     }
   });
