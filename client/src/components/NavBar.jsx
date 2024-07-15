@@ -24,11 +24,22 @@ function NavBar({ loggedUser, handleNavigate }) {
               </NavLink>
             </li>
 
-            <li>
-              <NavLink to="/utilisateur/profil">
-                <img src={UserIcon} alt="page profil" className="nav-icon" />
-              </NavLink>
-            </li>
+           {loggedUser?.id !== undefined ? (
+             <li>
+             <NavLink to="/utilisateur/profil">
+               <img src={UserIcon} alt="page profil" className="nav-icon" />
+             </NavLink>
+           </li>
+           ):
+           (  <li>
+            <NavLink onClick={handleNavigate}>
+              <img
+                src={UserIcon}
+                alt="ajouter un street art"
+                className="nav-icon"
+              />
+            </NavLink>
+          </li>)}
 
             {loggedUser?.id !== undefined ? (
               <li>
