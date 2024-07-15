@@ -23,6 +23,18 @@
   animation: gradient 5s ease infinite;
 }
 
+.close-button {
+  top: 20px;
+  right: 20px;
+  background-color: var(--button-color);
+  border: none;
+  color: var(--primary-text-color);
+  font-size: 20px;
+  cursor: pointer;
+  align-self: flex-end;
+  border-radius: 90px;
+}
+
 @keyframes gradient {
   0% {
     background-position: 0% 50%;
