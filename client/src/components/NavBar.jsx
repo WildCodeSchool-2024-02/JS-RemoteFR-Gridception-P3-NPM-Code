@@ -24,11 +24,22 @@ function NavBar({ loggedUser, handleNavigate }) {
               </NavLink>
             </li>
 
-            <li>
-              <NavLink to="/utilisateur/profil">
-                <img src={UserIcon} alt="page profil" className="nav-icon" />
-              </NavLink>
-            </li>
+           {loggedUser?.id !== undefined ? (
+             <li>
+             <NavLink to="/utilisateur/profil">
+               <img src={UserIcon} alt="page profil" className="nav-icon" />
+             </NavLink>
+           </li>
+           ):
+           (  <li>
+            <NavLink onClick={handleNavigate}>
+              <img
+                src={UserIcon}
+                alt="ajouter un street art"
+                className="nav-icon"
+              />
+            </NavLink>
+          </li>)}
 
             {loggedUser?.id !== undefined ? (
               <li>
@@ -100,7 +111,7 @@ function NavBar({ loggedUser, handleNavigate }) {
             <NavLink to="/contact">Contact</NavLink>
           </li>
 
-          {loggedUser?.id !== undefined && loggedUser.roles_id !== 3 ? (
+          {loggedUser?.id !== undefined && loggedUser.roles_id !== 2 ? (
             <li className="navbar-content">
               <NavLink to="/utilisateur/profil">Mon Compte</NavLink>
             </li>

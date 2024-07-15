@@ -48,6 +48,13 @@ function LoginPopup() {
   return (
     <div className="popup-overlay">
       <div className="loginform-container">
+        <button
+          className="close-button"
+          type="button"
+          onClick={() => setShowLoginPopup(false)}
+        >
+          ×
+        </button>
         <img src={Logo} alt="Street art hunter" className="logoform-desktop" />
         <form onSubmit={handleLogin} className="loginform-group">
           <label htmlFor="email">Adresse E-Mail</label>

@@ -29,7 +29,6 @@ function StreetArt() {
                 </p>
                 <h3>Description</h3>
                 <p className="para-street-art">{streetArt.description}</p>
-                <p>Localisation</p>
               </div>
             </div>
           </div>

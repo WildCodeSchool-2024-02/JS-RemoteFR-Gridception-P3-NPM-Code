@@ -113,31 +113,21 @@ const reactBuildPath = path.join(__dirname, "/../../client/dist");
 const publicFolderPath = path.join(__dirname, "/../public");
 
 // Serve react resources
-
 app.use(express.static(reactBuildPath));
 
 // Serve server resources
-
 app.get("*.*", express.static(publicFolderPath, { maxAge: "1y" }));
 
 // Redirect unhandled requests to the react index file
-
-app.get("*", (_, res) => {
-  res.sendFile(path.join(reactBuildPath, "/index.html"));
-});
-
-// Code qui fait marcher les images
-
-/* app.get("*", (req, res) => {
+app.get("*", (req, res) => {
   if (req.path.includes("public")) {
     const urlpath = req.path.split("/");
     res.sendFile(path.join(__dirname, "..", "public", urlpath[2], urlpath[3]));
   } else {
-    res.sendFile(
-      path.join(__dirname, "..", "..", "frontend", "dist", "index.html")
-    );
+    res.sendFile(path.join(reactBuildPath, "index.html"));
   }
-}); */
+});
+
 
 /* ************************************************************************* */
 
