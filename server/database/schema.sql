@@ -8,6 +8,7 @@ create table users (
     id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
     Foreign Key (roles_id) REFERENCES roles (id),
     roles_id INT NOT NULL,
+    pseudo VARCHAR(80) NOT NULL,
     firstname VARCHAR(80) NOT NULL,
     lastname VARCHAR(80) NOT NULL,
     avatar LONGTEXT,
@@ -16,6 +17,12 @@ create table users (
     email VARCHAR(255) NOT NULL unique,
     password VARCHAR(255) NOT NULL
 );
+
+INSERT INTO roles (name)
+VALUES ('Admin'), ('Utilisateur');
+
+INSERT INTO users (roles_id, pseudo, firstname, lastname, avatar, points, city, email, password)
+VALUES (1,'ELGOAT' ,'toto', 'le GOAT', 'https://www.pngmart.com/files/21/Admin-Profile-Vector-PNG-Clipart.png', 0, 'Partout', 'toto@toto.com', '$argon2id$v=19$m=65536,t=5,p=1$FkjcCc0+F15P0N5TLh3ndQ$FkttWmV6YpXwaqtjrKfALtaYkwyHv2ongXDP/C6bvY4');
 
 create table street_arts (
     id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
@@ -58,9 +65,5 @@ CREATE TABLE contacts (
   fullname VARCHAR(155) NOT NULL,
   mail VARCHAR(80) NOT NULL,
   message TEXT NOT NULL
-) ;
+)
 
--- INSERT INTO street_arts (users_id, file, title, description, artist, latitude, longitude, is_valid) VALUES (1, 'https://cdn.pixabay.com/photo/2013/12/17/20/10/bubbles-230014_1280.jpg', 'Art urbain de Paris', 'Une magnifique pièce de street art au cœur de Paris.', 'nAfiP', 75.2297244, -25.7825577, 1);
--- INSERT INTO street_arts (users_id, file, title, description, artist, latitude, longitude, is_valid) VALUES (1, 'https://cdn.pixabay.com/photo/2013/12/17/20/10/bubbles-230014_1280.jpg', 'Mur de Graffiti', 'Un mur couvert de graffitis vibrants et colorés.', 'BTdMUEyFha', -81.4485227, 154.2849801, 1);
--- INSERT INTO street_arts (users_id, file, title, description, artist, latitude, longitude, is_valid) VALUES (1, 'https://cdn.pixabay.com/photo/2013/12/17/20/10/bubbles-230014_1280.jpg', 'Fresque colorée', 'Une fresque colorée qui illumine la rue.', 'XQfuPkwo', -70.594771, -173.277025, 1);
--- INSERT INTO street_arts (users_id, file, title, description, artist, latitude, longitude, is_valid) VALUES (1, 'https://cdn.pixabay.com/photo/2013/12/17/20/10/bubbles-230014_1280.jpg', 'Tag artistique', 'Un tag artistique sur un vieux bâtiment.', 'AUCWV', 56.3639157, -142.8291898, 1);

@@ -38,7 +38,7 @@ function AdminPage() {
       axios
         .get(`${import.meta.env.VITE_API_URL}/api/users`)
         .then((results) => {
-          setUsers(results.data);
+          setUsers(results.data.filter((user) => user.roles_id === 2));
         })
         .catch((err) => console.info(err));
     }
@@ -68,6 +68,7 @@ function AdminPage() {
 
       const updatedDatas = {
         id: userToUpdate.data.id,
+        pseudo: userToUpdate.data.id,
         firstname: userToUpdate.data.firstname,
         lastname: userToUpdate.data.lastname,
         email: userToUpdate.data.email,
@@ -204,25 +205,35 @@ function AdminPage() {
             {oeuvres.map((oeuvre) => (
               <div key={oeuvre.id} className="oeuvre-card">
                 <h2>{oeuvre.title}</h2>
-                <img src={oeuvre.file} alt={oeuvre.title} />
+                <img
+                  className="picture-oeuvre"
+                  src={oeuvre.file}
+                  alt={oeuvre.title}
+                />
                 <h3>Artiste : {oeuvre.artist}</h3>
                 <h3>Description : </h3>
                 <p>{oeuvre.description}</p>
-                <button
-                  type="button"
-                  className="button-to-validate"
-                  onClick={() => handleValidateOeuvre(oeuvre.id)}
-                >
-                  Valider l'oeuvre <img src={Valid} alt="Valider" />
-                </button>
+                <div className="boutons-validate-refuse">
+                  <button
+                    type="button"
+                    className="button-to-validate"
+                    onClick={() => handleValidateOeuvre(oeuvre.id)}
+                  >
+                    <img
+                      src={Valid}
+                      alt="Valider"
+                      className="logo-to-validate-refuse"
+                    />
+                  </button>
 
-                <button
-                  type="button"
-                  className="button-to-refuse"
-                  onClick={() => handleDeleteOeuvre(oeuvre.id)}
-                >
-                  Refuser l'oeuvre <img src={Delete} alt="Ne pas valider" />
-                </button>
+                  <button
+                    type="button"
+                    className="button-to-refuse"
+                    onClick={() => handleDeleteOeuvre(oeuvre.id)}
+                  >
+                    <img src={Delete} alt="Ne pas valider" />
+                  </button>
+                </div>
               </div>
             ))}
           </article>
@@ -239,16 +250,20 @@ function AdminPage() {
                   src={user.avatar}
                   alt={`${user.firstname} ${user.lastname}`}
                 />
+                <h2>{user.pseudo}</h2>
                 <h2>
                   {user.firstname} {user.lastname}
                 </h2>
                 <button
                   type="button"
-                  className="button-to-delete"
+                  className="button-delete-users"
                   onClick={() => handleDeleteUser(user.id)}
                 >
-                  Supprimer l'utilisateur{" "}
-                  <img src={Delete} alt="Ne pas valider" />
+                  {" "}
+                  ""
+                  <svg viewBox="0 0 448 512" className="svgIcon">
+                    <path d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z" />
+                  </svg>
                 </button>
               </div>
             ))}
@@ -266,10 +281,14 @@ function AdminPage() {
                 <h3>Email :{message.mail}</h3>
                 <button
                   type="button"
-                  className="button-message-delete"
-                  onClick={() => handleDeleteMessage(message.id)}
+                  className="button-delete-users"
+                  onClick={() => handleDeleteMessage(messages.id)}
                 >
-                  Supprimer le message <img src={Delete} alt="Ne pas valider" />
+                  {" "}
+                  ""
+                  <svg viewBox="0 0 448 512" className="svgIcon">
+                    <path d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z" />
+                  </svg>
                 </button>
               </div>
             ))}
@@ -283,16 +302,24 @@ function AdminPage() {
             {oeuvres.map((oeuvre) => (
               <div key={oeuvre.id} className="oeuvre-card">
                 <h2>{oeuvre.title}</h2>
-                <img src={oeuvre.file} alt={oeuvre.title} />
+                <img
+                  src={oeuvre.file}
+                  alt={oeuvre.title}
+                  className="picture-oeuvre"
+                />
                 <h3>Artiste : {oeuvre.artist}</h3>
                 <h3>Description : </h3>
                 <p>{oeuvre.description}</p>
                 <button
                   type="button"
-                  className="button-to-refuse"
+                  className="button-delete-users"
                   onClick={() => handleDeleteOeuvre(oeuvre.id)}
                 >
-                  Supprimer l'oeuvre <img src={Delete} alt="Ne pas valider" />
+                  {" "}
+                  ""
+                  <svg viewBox="0 0 448 512" className="svgIcon">
+                    <path d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z" />
+                  </svg>
                 </button>
               </div>
             ))}
