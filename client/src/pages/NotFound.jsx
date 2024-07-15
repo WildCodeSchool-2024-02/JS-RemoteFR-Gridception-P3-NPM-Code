@@ -14,7 +14,11 @@ function NotFound() {
       </p>
       <p className="output">
         S'il vous plaît, essayez de retourner en arrière ou{" "}
-        <Link to="/">retourner à la page d'accueil</Link>.
+        <Link to="/">
+          <button className="return-home-button-404" type="button">
+            Retourner à l'accueil
+          </button>
+        </Link>
       </p>
       <p className="output">Bonne chance.</p>
     </section>
