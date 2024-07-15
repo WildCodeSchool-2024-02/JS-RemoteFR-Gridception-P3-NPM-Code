@@ -22,7 +22,12 @@ INSERT INTO roles (name)
 VALUES ('Admin'), ('Utilisateur');
 
 INSERT INTO users (roles_id, pseudo, firstname, lastname, avatar, points, city, email, password)
-VALUES (1,'ELGOAT' ,'toto', 'le GOAT', 'https://www.pngmart.com/files/21/Admin-Profile-Vector-PNG-Clipart.png', 0, 'Partout', 'toto@toto.com', '$argon2id$v=19$m=65536,t=5,p=1$FkjcCc0+F15P0N5TLh3ndQ$FkttWmV6YpXwaqtjrKfALtaYkwyHv2ongXDP/C6bvY4');
+VALUES (1,'ELGOAT' ,'toto', 'le GOAT', 'https://www.pngmart.com/files/21/Admin-Profile-Vector-PNG-Clipart.png', 0, 'Partout', 'toto@toto.com', '$argon2id$v=19$m=65536,t=5,p=1$FkjcCc0+F15P0N5TLh3ndQ$FkttWmV6YpXwaqtjrKfALtaYkwyHv2ongXDP/C6bvY4'), 
+(2, 'Le J', 'Nicolas', 'Juchereau', 'https://www.pngmart.com/files/21/Admin-Profile-Vector-PNG-Clipart.png', 0, 'Nîmes', 'nicoj@gmail.com', '$argon2id$v=19$m=65536,t=5,p=1$FkjcCc0+F15P0N5TLh3ndQ$FkttWmV6YpXwaqtjrKfALtaYkwyHv2ongXDP/C6bvY4'),
+(2, 'Pedro', 'Pierre', 'Delarocque', 'https://www.pngmart.com/files/21/Admin-Profile-Vector-PNG-Clipart.png', 0, 'Tours', 'pedro@gmail.com', '$argon2id$v=19$m=65536,t=5,p=1$FkjcCc0+F15P0N5TLh3ndQ$FkttWmV6YpXwaqtjrKfALtaYkwyHv2ongXDP/C6bvY4'),
+(2, 'MegMayo', 'Mégane', 'Authemayou', 'https://www.pngmart.com/files/21/Admin-Profile-Vector-PNG-Clipart.png', 0, 'Tours', 'meg@gmail.com', '$argon2id$v=19$m=65536,t=5,p=1$FkjcCc0+F15P0N5TLh3ndQ$FkttWmV6YpXwaqtjrKfALtaYkwyHv2ongXDP/C6bvY4'),
+(2, 'Le G', 'Nicolas', 'Gerin', 'https://www.pngmart.com/files/21/Admin-Profile-Vector-PNG-Clipart.png', 0, 'Les Grottes', 'nicog@gmail.com', '$argon2id$v=19$m=65536,t=5,p=1$FkjcCc0+F15P0N5TLh3ndQ$FkttWmV6YpXwaqtjrKfALtaYkwyHv2ongXDP/C6bvY4'),
+(2, 'XamTV', 'Maxime', 'Maussion', 'https://www.pngmart.com/files/21/Admin-Profile-Vector-PNG-Clipart.png', 0, 'Sisteron', 'max@gmail.com', '$argon2id$v=19$m=65536,t=5,p=1$FkjcCc0+F15P0N5TLh3ndQ$FkttWmV6YpXwaqtjrKfALtaYkwyHv2ongXDP/C6bvY4');
 
 create table street_arts (
     id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
