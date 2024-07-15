@@ -110,7 +110,10 @@ app.use("/api", apiRouter);
 // Code a commenter pour faire marcher les images
 
 const reactBuildPath = path.join(__dirname, "/../../client/dist");
-const publicFolderPath = path.join(__dirname, "/../public");
+const publicFolderPath = path.join(
+  __dirname,
+  "https://npm-code.remote-6.wilders.dev/public"
+);
 
 // Serve react resources
 app.use(express.static(reactBuildPath));
@@ -128,8 +131,7 @@ app.get("*", (req, res) => {
   }
 });
 
-
-/* ************************************************************************* */
+/* ***************************************.********************************** */
 
 // Middleware for Error Logging (Uncomment to enable)
 // Important: Error-handling middleware should be defined last, after other app.use() and routes calls.
