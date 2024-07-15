@@ -12,9 +12,10 @@ class UsersRepository extends AbstractRepository {
   async create(users) {
     // Execute the SQL INSERT query to add a new users to the "users" table
     const [result] = await this.database.query(
-      `insert into ${this.table} (roles_id, firstname, lastname, avatar, points, city, email, password) values (?, ?, ?, ?, ?, ?, ?, ?)`,
+      `insert into ${this.table} (roles_id, pseudo, firstname, lastname, avatar, points, city, email, password) values (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       [
         users.roles_id,
+        users.pseudo,
         users.firstname,
         users.lastname,
         users.avatar,
@@ -34,7 +35,7 @@ class UsersRepository extends AbstractRepository {
   async read(id) {
     // Execute the SQL SELECT query to retrieve a specific users by its ID
     const [rows] = await this.database.query(
-      `select id, roles_id, firstname, lastname, avatar, points, city, email from ${this.table} where id = ?`,
+      `select id, roles_id, pseudo, firstname, lastname, avatar, points, city, email from ${this.table} where id = ?`,
       [id]
     );
 
@@ -65,9 +66,10 @@ class UsersRepository extends AbstractRepository {
 
   async update(users) {
     const [result] = await this.database.query(
-      `update ${this.table} set roles_id = ?, firstname = ?, lastname = ?, avatar = ?, points = ?, city = ?, email = ? where id = ?`,
+      `update ${this.table} set roles_id = ?, pseudo = ?, firstname = ?, lastname = ?, avatar = ?, points = ?, city = ?, email = ? where id = ?`,
       [
         users.roles_id,
+        users.pseudo,
         users.firstname,
         users.lastname,
         users.avatar,

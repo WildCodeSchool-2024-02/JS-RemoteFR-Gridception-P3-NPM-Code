@@ -15,7 +15,7 @@
   font-family: var(--primary-font);
 }
 
-// LES BOUTONS
+// Les boutons pour selectionner ce que l'admin affiche
 
 .select-admin-content-button {
   display: flex;
@@ -23,7 +23,6 @@
   justify-content: space-around;
   height: 80px;
   width: 95%;
-  margin-bottom: 2rem;
   border-radius: 50px;
   background-color: white;
   box-shadow:
@@ -73,7 +72,7 @@
     inset 10px 10px 15px rgba(0, 0, 0, 0.218);
 }
 
-// FENETRE DU CONTENU TEXTE
+// Fenêtre du contenu dans le carré
 
 .oeuvres-content,
 .users-content-admin,
@@ -104,6 +103,8 @@
   }
 }
 
+// Pour les oeuvres à valider
+
 .oeuvre-cards-container {
   display: flex;
   flex-wrap: wrap;
@@ -116,12 +117,13 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
+  justify-content: space-around;
   width: 85%;
   padding: 1rem;
   border: 2px solid white;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  img {
+  .picture-oeuvre {
     width: 100%;
     height: 30%;
     object-fit: contain;
@@ -140,20 +142,32 @@
   }
 }
 
+.boutons-validate-refuse {
+  display: flex;
+  justify-content: center;
+}
+
 .button-to-validate,
 .button-to-refuse {
-  display: flex;
-  align-items: center;
   background: none;
-  background-color: var(--white-font);
-  border-radius: 10px;
   margin: 1rem;
+  color: white;
+  border: none;
+  padding: 10px 20px;
   cursor: pointer;
-  transition: transform 0.2s;
-  :hover {
-    transform: scale(1.1);
+  img {
+    transition: all 0.3s ease;
   }
 }
+
+.button-to-validate:hover,
+.button-to-refuse:hover {
+  img {
+    transform: scale(2);
+  }
+}
+
+// Pour la liste des users
 
 .user-cards-container {
   display: flex;
@@ -166,6 +180,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around;
   text-align: center;
   width: 150px;
   border: 2px solid white;
@@ -205,6 +220,8 @@
   }
 }
 
+// Pour les messages reçus
+
 .message-cards-container {
   display: flex;
   flex-wrap: wrap;
@@ -215,6 +232,7 @@
 .message-card {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   text-align: left;
   width: 75vw;
   border: 2px solid var(--white-font);
@@ -230,22 +248,68 @@
   }
 }
 
-.button-message-delete {
+// Button delete messages, users, et toute les oeuvres
+
+.button-delete-users {
+  color: transparent;
+  font-size: 0rem;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  box-shadow:
+    10px 10px 15px rgba(0, 0, 0, 0.151),
+    10px 10px 15px rgba(0, 0, 0, 0.218);
+  background: linear-gradient(45deg, #cf6efb, #4f29cd);
+  border: none;
+  font-weight: 600;
   display: flex;
-  justify-content: center;
   align-items: center;
-  background: none;
-  background-color: var(--white-font);
-  border-radius: 10px;
+  text-align: center;
+  justify-content: center;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
   cursor: pointer;
-  transition: transform 0.2s;
-  :hover {
-    transform: scale(1.1);
-  }
-  img {
-    width: 80px;
-    height: 80px;
-  }
+  transition-duration: 0.3s;
+  overflow: hidden;
+  position: relative;
+}
+
+.svgIcon {
+  width: 12px;
+  transition-duration: 0.3s;
+}
+
+.svgIcon path {
+  fill: white;
+}
+
+.button-delete-users:hover {
+  width: 140px;
+  border-radius: 50px;
+  transition-duration: 0.3s;
+  background-color: rgb(255, 69, 69);
+  align-items: center;
+}
+
+.button-delete-users:hover .svgIcon {
+  width: 50px;
+  transition-duration: 0.3s;
+  transform: translateY(60%);
+}
+
+.button-delete-users::before {
+  position: absolute;
+  top: -20px;
+  content: "Supprimer";
+  color: white;
+  transition-duration: 0.3s;
+  font-size: 2px;
+}
+
+.button-delete-users:hover::before {
+  font-size: 13px;
+  opacity: 1;
+  transform: translateY(30px);
+  transition-duration: 0.3s;
 }
 
 // Version DESKTOP //
@@ -329,7 +393,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     img {
       width: 100%;
-      height: 30%;
+      height: 100%;
       object-fit: contain;
     }
     h2 {

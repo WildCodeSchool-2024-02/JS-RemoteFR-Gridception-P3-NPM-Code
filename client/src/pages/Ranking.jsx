@@ -31,9 +31,7 @@ function Ranking() {
         <tbody>
           {datas.map((data) => (
             <tr key={data.id}>
-              <td className="joueur">
-                {data.firstname} {data.lastname}{" "}
-              </td>
+              <td className="joueur">{data.pseudo} </td>
               <td className="points">{data.points}</td>
             </tr>
           ))}
