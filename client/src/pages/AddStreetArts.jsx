@@ -75,16 +75,19 @@ function AddStreetArts() {
   };
 
   const notifySuccess = () => {
-    toast.success("Street Art reçu, en attente de validation ! Vous allez être redirigé vers l'accueil !", {
-      position: "bottom-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
+    toast.success(
+      "Street Art reçu, en attente de validation ! Vous allez être redirigé vers l'accueil !",
+      {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      }
+    );
 
     setTimeout(() => {
       navigate("/");

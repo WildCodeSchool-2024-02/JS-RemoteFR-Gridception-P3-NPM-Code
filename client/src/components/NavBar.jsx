@@ -10,9 +10,9 @@ import Home from "../assets/images/home.png";
 import Logo from "../assets/images/logo.png";
 import TrophyIcon from "../assets/images/trophy_icon.png";
 import UserIcon from "../assets/images/user_icon.png";
+import Logout from "../assets/images/logout.png";
 
-// eslint-disable-next-line react/prop-types
-function NavBar({ loggedUser, handleNavigate }) {
+function NavBar({ loggedUser, handleNavigate, handleLogout }) {
   return (
     <>
       <section className="navbar-logo-container">
@@ -75,7 +75,7 @@ function NavBar({ loggedUser, handleNavigate }) {
             </li>
             <li>
               <StyledEngineProvider injectFirst>
-                <Drawer loggedUser={loggedUser} />
+                <Drawer loggedUser={loggedUser} handleLogout={handleLogout} />
               </StyledEngineProvider>
             </li>
           </menu>
@@ -90,31 +90,46 @@ function NavBar({ loggedUser, handleNavigate }) {
             className="logo-desktop"
           />
         </NavLink>
+
+        <li className="navbar-content">
+          <NavLink to="/a_propos">À propos</NavLink>
+        </li>
+        <li className="navbar-content">
+          <NavLink to="/galerie">Galerie</NavLink>
+        </li>
+        <li className="navbar-content">
+          <NavLink to="/classement">Classement</NavLink>
+        </li>
+        <li className="navbar-content">
+          <NavLink to="/contact">Contact</NavLink>
+        </li>
+
         <nav className="navbar-top">
           {loggedUser?.roles_id === 1 ? (
             <li className="navbar-content">
               <NavLink to="/admin">Admin</NavLink>
+              <button
+                type="button"
+                onClick={() => handleLogout()}
+                className="button-to-deconnect-nav"
+              >
+                <img src={Logout} alt="logo pour se déconnecter" />
+              </button>
             </li>
           ) : (
             ""
           )}
 
-          <li className="navbar-content">
-            <NavLink to="/a_propos">À propos</NavLink>
-          </li>
-          <li className="navbar-content">
-            <NavLink to="/galerie">Galerie</NavLink>
-          </li>
-          <li className="navbar-content">
-            <NavLink to="/classement">Classement</NavLink>
-          </li>
-          <li className="navbar-content">
-            <NavLink to="/contact">Contact</NavLink>
-          </li>
-
           {loggedUser?.id !== undefined && loggedUser.roles_id === 2 ? (
             <li className="navbar-content">
               <NavLink to="/utilisateur/profil">Mon Compte</NavLink>
+              <button
+                type="button"
+                onClick={() => handleLogout()}
+                className="button-to-deconnect-nav"
+              >
+                <img src={Logout} alt="logo pour se déconnecter" />
+              </button>
             </li>
           ) : (
             ""
@@ -139,5 +154,7 @@ NavBar.propTypes = {
     id: PropTypes.number,
     roles_id: PropTypes.number,
   }).isRequired,
+  handleNavigate: PropTypes.func.isRequired,
+  handleLogout: PropTypes.func.isRequired,
 };
 export default NavBar;
