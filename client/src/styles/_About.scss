@@ -26,7 +26,7 @@
   align-items: center;
   justify-content: space-around;
   border-radius: 50px;
-  border: 3px solid transparent;
+  border: 2px solid transparent;
   background:
     linear-gradient(#ffffffb4, #ffffffb4) padding-box,
     linear-gradient(145deg, transparent 35%, #e81cfffa, #40c9ff) border-box;
@@ -72,7 +72,7 @@
     5px 5px 10px rgba(0, 0, 0, 0.218);
   background: linear-gradient(45deg, #cf6efb, #4f29cd);
   color: rgb(255, 255, 255);
-  transform: translateY(-4px);
+  transform: translateY(-3px);
   height: 70px;
 }
 

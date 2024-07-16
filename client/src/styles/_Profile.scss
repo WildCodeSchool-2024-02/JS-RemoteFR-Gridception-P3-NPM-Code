@@ -60,7 +60,7 @@
   justify-content: center;
   align-self: center;
   font-family: inherit;
-  color: white;
+  color: var(--primary-text-color);
   font-weight: 600;
   width: 60%;
   background: var(--button-color);
@@ -136,7 +136,6 @@
     background:
       linear-gradient(#c34cf6b4, #c34cf6b4) padding-box,
       linear-gradient(145deg, transparent 35%, #e81cfffa, #40c9ff) border-box;
-
     border: 2px solid transparent;
     padding: 1rem;
     font-size: 1rem;
@@ -175,7 +174,6 @@
     flex-direction: column;
     text-align: center;
     margin: 1rem;
-
     width: 60vw;
     height: 60vh;
     background:
@@ -221,5 +219,12 @@
 
   .change {
     height: 2rem;
+  }
+  .li-email {
+    margin-bottom: 1rem;
+  }
+  .my-profil {
+    margin-top: 2rem;
+    border-radius: 30%;
   }
 }

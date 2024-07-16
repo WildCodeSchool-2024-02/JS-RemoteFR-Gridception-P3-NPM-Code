@@ -3,6 +3,7 @@
   text-align: center;
   text-shadow: var(--text-shadow);
   color: var(--primary-text-color);
+  margin: 0;
 }
 
 .avatar-container {
@@ -18,6 +19,7 @@
   }
   .button-avatar {
     width: 2rem;
+    margin-top: 2rem;
   }
 }
 
@@ -76,6 +78,7 @@
   }
   .user-name {
     font-size: 1.7rem;
+    margin: 0;
   }
 }
 
