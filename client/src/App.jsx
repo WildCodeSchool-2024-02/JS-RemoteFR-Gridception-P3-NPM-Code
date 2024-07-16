@@ -71,6 +71,7 @@ function App() {
         showLoginPopup={showLoginPopup}
         setLoggedUser={setLoggedUser}
         handleNavigate={handleNavigate}
+        handleLogout={handleLogout}
       />
       <Outlet
         context={{

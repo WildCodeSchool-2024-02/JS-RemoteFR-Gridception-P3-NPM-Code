@@ -19,16 +19,16 @@ import logo from "../assets/images/logo.png";
 import tetrispurple from "../assets/images/tetrispurple.png";
 import tetrispurple2 from "../assets/images/tetrispurple2.png";
 import tetrisyellow2 from "../assets/images/tetrisyellow2.png";
-// import tetrisyellow from "../assets/images/tetrisyellow.png";
+import LogoutIcon from "../assets/images/logout.png";
 
-// theme personnalisé pour la font Fugaz One
+// thème personnalisé pour la font Fugaz One
 const theme = createTheme({
   typography: {
     fontFamily: "Chakra Petch, sans-serif",
   },
 });
 
-export default function AnchorTemporaryDrawer({ loggedUser }) {
+export default function AnchorTemporaryDrawer({ loggedUser, handleLogout }) {
   const [state, setState] = React.useState({
     right: false,
   });
@@ -123,30 +123,26 @@ export default function AnchorTemporaryDrawer({ loggedUser }) {
           ))}
         </Link>
       </List>
-      {loggedUser?.roles_id === 1 ? (
+      {loggedUser?.id !== undefined && (
         <>
           <Divider />
           <List>
-            <Link to="/admin">
-              {["Admin"].map((text) => (
-                <ListItem key={text} disablePadding>
-                  <ListItemButton>
-                    <ListItemIcon>
-                      <img
-                        src={tetrisyellow2}
-                        alt="admin icon"
-                        className="drawer-icon"
-                      />
-                    </ListItemIcon>
-                    <ListItemText primary={text} />
-                  </ListItemButton>
-                </ListItem>
-              ))}
-            </Link>
+            {["Se déconnecter"].map((text) => (
+              <ListItem key={text} disablePadding>
+                <ListItemButton onClick={handleLogout}>
+                  <ListItemIcon>
+                    <img
+                      src={LogoutIcon}
+                      alt="logout icon"
+                      className="drawer-icon"
+                    />
+                  </ListItemIcon>
+                  <ListItemText primary={text} />
+                </ListItemButton>
+              </ListItem>
+            ))}
           </List>
         </>
-      ) : (
-        ""
       )}
     </Box>
   );
@@ -183,4 +179,5 @@ AnchorTemporaryDrawer.propTypes = {
     id: PropTypes.number,
     roles_id: PropTypes.number,
   }).isRequired,
+  handleLogout: PropTypes.func.isRequired,
 };

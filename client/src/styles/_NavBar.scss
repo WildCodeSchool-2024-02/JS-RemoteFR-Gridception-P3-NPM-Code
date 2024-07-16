@@ -46,8 +46,7 @@
   }
   .navbar-desktop {
     display: flex;
-    justify-content: space-between;
-    top: 0;
+    justify-content: space-around;
   }
   .navbar-top {
     display: flex;
@@ -57,7 +56,6 @@
   .navbar-content {
     display: flex;
     align-items: center;
-    padding-right: 4rem;
   }
 
   .navbar-content > a {
@@ -68,6 +66,14 @@
     width: 6rem;
   }
   .logo-desktop:hover {
+    filter: brightness(1.2);
+  }
+  .button-to-deconnect-nav {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  .button-to-deconnect-nav :hover {
     filter: brightness(1.2);
   }
 }

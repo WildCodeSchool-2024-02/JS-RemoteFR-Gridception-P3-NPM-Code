@@ -45,8 +45,22 @@ function LoginPopup() {
     }
   };
 
+  const handleKeyDown = (event) => {
+    if (event.key === "Escape") {
+      setShowLoginPopup(false);
+    }
+  };
+
   return (
     <div className="popup-overlay">
+      <div
+        className="popup-background"
+        onClick={() => setShowLoginPopup(false)}
+        onKeyDown={handleKeyDown}
+        role="button"
+        tabIndex={0}
+        aria-label="Close popup"
+      />
       <div className="loginform-container">
         <button
           className="close-button"
