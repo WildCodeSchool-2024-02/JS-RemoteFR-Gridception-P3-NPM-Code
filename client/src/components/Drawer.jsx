@@ -127,8 +127,8 @@ export default function AnchorTemporaryDrawer({ loggedUser, handleLogout }) {
         <>
           <Divider />
           <List>
-            {["Se déconnecter"].map((text) => (
-              <ListItem key={text} disablePadding>
+            {["Déconnexion"].map((text) => (
+              <ListItem key={text} disablePadding className="logout-text">
                 <ListItemButton onClick={handleLogout}>
                   <ListItemIcon>
                     <img
