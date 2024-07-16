@@ -1,7 +1,5 @@
 .user-name {
   font-size: 1.5rem;
-  margin: 0.5rem;
-  margin-top: 0;
   text-align: center;
   text-shadow: var(--text-shadow);
   color: var(--primary-text-color);
@@ -18,12 +16,14 @@
     border: 0;
     border-radius: 50%;
   }
+  .button-avatar {
+    width: 2rem;
+  }
 }
 
 .avatar {
   width: 9rem;
   height: 9rem;
-  object-fit: contain;
 }
 
 .change {
@@ -82,5 +82,4 @@
 // points
 .points {
   text-align: center;
-  color: var(--primary-text-color);
 }

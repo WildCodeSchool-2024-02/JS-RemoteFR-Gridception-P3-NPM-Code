@@ -66,8 +66,8 @@ function Profile() {
 
         <article className="my-informations">
           <ul>
-            <li> pseudo: {loggedUser.pseudo}</li>
-            <li> email : {loggedUser.email}</li>
+            <li> Pseudo : {loggedUser.pseudo}</li>
+            <li> Email : {loggedUser.email}</li>
           </ul>
           <button
             type="button"
@@ -92,8 +92,9 @@ function Profile() {
             />
           ))}
         </div>
-
-        <Link to="/utilisateur/add">Ajouter une œuvre</Link>
+        <button type="button" className="button-add-oeuvre-into-profil">
+          <Link to="/utilisateur/add">Ajouter une œuvre</Link>
+        </button>
       </article>
 
       {/* Profil section for mobile */}
@@ -132,7 +133,7 @@ function Profile() {
             <AccordionElements>
               <article className="my-informations-mobile">
                 <ul>
-                  <li> email : {loggedUser.email}</li>
+                  <li> Email : {loggedUser.email}</li>
                   <li> ville : {loggedUser.city}</li>
                 </ul>
                 <button

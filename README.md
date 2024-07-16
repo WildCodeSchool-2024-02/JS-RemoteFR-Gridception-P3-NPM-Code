@@ -28,21 +28,21 @@ Nous devons réaliser un application qui permet d'ajouter des street art en se s
 - L'administrateur pourra accéder au panel d'administration.
 - L'administrateur pourra accéder à la liste des utilisateurs et la liste des street arts.
 - L'administrateur pourra valider des oeuvres et traiter les signalements d'oeuvres disparu.
-- L'administrateur pourra créer des pages artistes.
+- L'administrateur pourra accéder aux messages reçus depuis "contact".
 
 ### 📝 Dans cette version:
 
-- Les pages sont fonctionnels
+- Créer un compte / Se connecter
 - Il est possible d'ajouter un street art
+- Possibilté de changer ses infos personnels
+- Les pages sont fonctionnels
 - la version desktop est fonctionnel
+- Voir le classement
 
 ### 🔜 A venir:
 
-- Créer un compte / Se connecter
 - Ajouter des photos supplémentaires aux oeuvres dèja présentes
-- Possibilté de changer ses infos personnels
 - Envoyer un message pour signaler une oeuvre
-- Voir le classement
 
 ## 🏗️ Structure de l'application
 
@@ -67,7 +67,7 @@ v0.5 en cours
 ![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)
 ![HTML5](https://img.shields.io/badge/-HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/-CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
 
 ## 💻 Modélisation de la base de données
 
