@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -18,24 +18,31 @@ function Register() {
     password: "",
     confirmPassword: "",
     roles_id: "2",
+    cgu: false,
   });
 
   const handleRegisterChange = (event) => {
-    const { name, value } = event.target;
-    setRegisterForm({ ...registerForm, [name]: value });
+    const { name, value, type, checked } = event.target;
+    setRegisterForm({
+      ...registerForm,
+      [name]: type === "checkbox" ? checked : value,
+    });
   };
 
   const notifySuccess = () => {
-    toast.success("Inscription réussie ! Vous allez être rediriger vers la page d'accueil", {
-      position: "bottom-right",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
+    toast.success(
+      "Inscription réussie ! Vous allez être redirigé vers la page d'accueil",
+      {
+        position: "bottom-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      }
+    );
 
     setTimeout(() => {
       navigate("/");
@@ -66,7 +73,8 @@ function Register() {
       registerForm.lastname !== "" &&
       registerForm.email !== "" &&
       registerForm.password !== "" &&
-      registerForm.confirmPassword !== ""
+      registerForm.confirmPassword !== "" &&
+      registerForm.cgu
     ) {
       if (registerForm.password === registerForm.confirmPassword) {
         axios
@@ -81,6 +89,7 @@ function Register() {
               password: "",
               confirmPassword: "",
               roles_id: 2,
+              cgu: false,
             });
             console.info(res);
           })
@@ -124,6 +133,7 @@ function Register() {
             <input
               required
               name="pseudo"
+              className="label-grey"
               id="pseudo"
               type="text"
               minLength={3}
@@ -138,6 +148,7 @@ function Register() {
               required
               name="firstname"
               id="firstname"
+              className="label-grey"
               type="text"
               minLength={3}
               maxLength={50}
@@ -150,6 +161,7 @@ function Register() {
             <input
               required
               name="lastname"
+              className="label-grey"
               id="lastname"
               type="text"
               minLength={3}
@@ -163,6 +175,7 @@ function Register() {
             <input
               required
               name="email"
+              className="label-grey"
               id="email"
               type="email"
               onChange={handleRegisterChange}
@@ -174,6 +187,7 @@ function Register() {
             <input
               required
               name="password"
+              className="label-grey"
               id="password"
               type="password"
               onChange={handleRegisterChange}
@@ -185,16 +199,29 @@ function Register() {
             <input
               required
               name="confirmPassword"
+              className="label-grey"
               id="confirmPassword"
               type="password"
               onChange={handleRegisterChange}
               value={registerForm.confirmPassword}
             />
           </div>
-          <button
-            type="submit"
-            className="form-submit-btn"
-          >
+          <div className="form-group form-group-checkbox">
+            <label htmlFor="cgu">
+              J'accepte les{" "}
+              <Link to="/a_propos">conditions générales d'utilisation</Link>
+            </label>
+            <input
+              required
+              name="cgu"
+              className="label-checkbox"
+              id="cgu"
+              type="checkbox"
+              onChange={handleRegisterChange}
+              checked={registerForm.cgu}
+            />
+          </div>
+          <button type="submit" className="form-submit-btn">
             S'enregistrer
           </button>
         </div>
