@@ -11,7 +11,7 @@
   padding: 32px 16px;
   font-size: 14px;
   font-family: inherit;
-  color: var(--primary-white);
+  color: var(--white-font);
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -65,7 +65,7 @@
 .form-container-contact .form-group-contact label {
   display: block;
   margin-bottom: 5px;
-  color: var(--primary-font);
+  color: var(--white-font);
   font-weight: 600;
   font-size: 12px;
 }
