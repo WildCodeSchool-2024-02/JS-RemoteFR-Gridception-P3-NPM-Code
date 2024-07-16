@@ -34,7 +34,7 @@ const AccordionElements = styled(AccordionDetails)(({ theme }) => ({
 }));
 
 function Profile() {
-  const { loggedUser, handleLogout } = useOutletContext();
+  const { loggedUser } = useOutletContext();
 
   const dialogRef = useRef(null);
   const [expanded, setExpanded] = useState("");
@@ -61,13 +61,6 @@ function Profile() {
       <div className="profil-informations">
         <article className="my-profil">
           <AvatarChange />
-          <button
-            type="button"
-            onClick={() => handleLogout()}
-            className="button-profil"
-          >
-            DECO
-          </button>
         </article>
         {/* Profil section for laptop */}
 

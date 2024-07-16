@@ -24,7 +24,7 @@ const upload = (req, res) => {
   // Chemin complet pour le nouveau fichier
   const newFilePath = path.join("public", "uploadedPicture", newFileName);
 
-  const url = process.env.MAIN_URL || process.env.CLIENT_URL;
+  const url = process.env.MAIN_URL || process.env.SECOND_URL; // mettre en commentaire le process.env.MAIN_URL en local
 
   // Renommage et déplacement du fichier
   return fs.rename(req.file.path, newFilePath, (err) => {

@@ -78,6 +78,15 @@
   scale: 0.95;
 }
 
+.avatar {
+  width: 150px;
+  height: 150px;
+}
+
+.change {
+  height: 2rem;
+}
+
 // media queri destop
 
 @media (min-width: 770px) {
@@ -175,7 +184,7 @@
       overflow: scroll;
 
       img {
-        width: 5rem;
+        width: 10rem;
         margin: 1rem;
       }
     }
@@ -188,7 +197,12 @@
     ul {
       li {
         font-size: 1.5rem;
+        color: var(--primary-font);
       }
     }
+  }
+
+  .change {
+    height: 2rem;
   }
 }
