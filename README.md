@@ -83,7 +83,9 @@ v1.1 en cours
 
 ## 💻 Modélisation de la base de données
 
+<p align="center"> 
 <img src="./client/src/assets/screen/bdd.png">
+</p>
 
 ## 🛠️ Setup & utilisation
 
