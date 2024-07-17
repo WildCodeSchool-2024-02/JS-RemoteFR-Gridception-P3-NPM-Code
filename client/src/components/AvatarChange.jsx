@@ -48,6 +48,7 @@ export default function AvatarChange() {
         ...profile,
         roles_id: loggedUser.roles_id,
         firstname: loggedUser.firstname,
+        pseudo: loggedUser.pseudo,
         lastname: loggedUser.lastname,
         points: loggedUser.points,
         city: loggedUser.city,
@@ -66,8 +67,8 @@ export default function AvatarChange() {
         type="button"
         onClick={() => setImageCrop(true)}
       >
-        <img className="change" src={Change} alt="boutton changement avatar" />
         <img className="avatar" src={imgAvatar} alt="avatar" />
+        <img className="change" src={Change} alt="boutton changement avatar" />
       </button>
       <h1 className="user-name">{`${loggedUser.firstname} ${loggedUser.lastname}`}</h1>
       <p className="points">{loggedUser.points} Points</p>
