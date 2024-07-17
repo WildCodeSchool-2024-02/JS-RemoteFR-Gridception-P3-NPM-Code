@@ -61,12 +61,16 @@ export default function AvatarChange() {
 
   return (
     <section className="avatar-container">
-      <button type="button" onClick={() => setImageCrop(true)}>
+      <button
+        className="button-avatar"
+        type="button"
+        onClick={() => setImageCrop(true)}
+      >
         <img className="change" src={Change} alt="boutton changement avatar" />
         <img className="avatar" src={imgAvatar} alt="avatar" />
       </button>
       <h1 className="user-name">{`${loggedUser.firstname} ${loggedUser.lastname}`}</h1>
-      <p className="points">{loggedUser.points}</p>
+      <p className="points">{loggedUser.points} Points</p>
 
       <Dialog
         visible={imageCrop}

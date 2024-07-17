@@ -62,15 +62,12 @@ function LoginPopup() {
         aria-label="Close popup"
       />
       <div className="loginform-container">
-        <button
-          className="close-button"
-          type="button"
-          onClick={() => setShowLoginPopup(false)}
-        >
-          ×
-        </button>
-        <img src={Logo} alt="Street art hunter" className="logoform-desktop" />
         <form onSubmit={handleLogin} className="loginform-group">
+          <img
+            src={Logo}
+            alt="Street art hunter"
+            className="logoform-desktop"
+          />
           <label htmlFor="email">Adresse E-Mail</label>
           <input
             required
@@ -95,7 +92,7 @@ function LoginPopup() {
             type="submit"
             onClick={handleLogin}
           >
-            Se connecter
+            Connexion
           </button>
           <div className="loginform-register">
             <p>Pas de Compte ?</p>
@@ -107,6 +104,13 @@ function LoginPopup() {
               S'enregistrer
             </Link>
           </div>
+          <button
+            className="close-button"
+            type="button"
+            onClick={() => setShowLoginPopup(false)}
+          >
+            ×
+          </button>
         </form>
       </div>
     </div>
