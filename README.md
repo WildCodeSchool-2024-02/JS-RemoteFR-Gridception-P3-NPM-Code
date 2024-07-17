@@ -6,7 +6,7 @@
 
 ## 💡 Le concept
 
-Nous devons réaliser un application qui permet d'ajouter des street art en se servant de la localisation.
+Une application qui permet d'ajouter des street arts en se servant de la localisation. L'objectif est de gagner le plus de points possible en postant des oeuvres. 
 
 ## 📱 Aperçu version mobile : 
 
@@ -24,27 +24,28 @@ Nous devons réaliser un application qui permet d'ajouter des street art en se s
 
 ### 👥 Partie Visiteur:
 
-- L'utilisateur pourra s'inscire ou se connecter.
-- L'utilisateur pourra se situer sur une carte interactive et voir les oeuvres de street art autour de lui.
-- L'utilisateur pourra accéder aux pages instructions, et au classement général.
+- L'utilisateur peut s'inscire ou se connecter.
+- L'utilisateur peut se situer sur une carte interactive et voir les oeuvres de street art autour de lui.
+- L'utilisateur peut accéder aux pages instructions, et au classement général.
 
 ### 🔒 Partie Utilisateur connecté:
 
-- L'utilisateur pourra se déconnecter.
-- L'utilisateur pourra modifier son profil (mettre à jour ses informations, changer sa photo de profil)
-- L'utilisateur pourra ajouter un street art, signaler qu'une oeuvre n'existe plus.
-- L'utilisateur pourra gagner des points en fonction de son activité sur le site.
+- L'utilisateur peut se déconnecter.
+- L'utilisateur peut modifier son profil (mettre à jour ses informations, changer sa photo de profil).
+- L'utilisateur peut ajouter un street art.
+- L'utilisateur peut gagner des points en fonction de son activité sur le site.
 
 ### 🛡️ Partie Administrateur:
 
-- L'administrateur pourra accéder au panel d'administration.
-- L'administrateur pourra accéder à la liste des utilisateurs et la liste des street arts.
-- L'administrateur pourra valider des oeuvres et traiter les signalements d'oeuvres disparu.
-- L'administrateur pourra accéder aux messages reçus depuis "contact".
+- L'administrateur peut accéder au panel d'administration.
+- L'administrateur peut accéder à la liste des utilisateurs et la liste des street arts.
+- L'administrateur peut valider des oeuvres et traiter les signalements d'oeuvres disparu.
+- L'administrateur peut accéder aux messages reçus depuis "contact".
 
 ### 📝 Dans cette version:
 
 - Créer un compte / Se connecter
+- Se géolocaliser sur une carte
 - Il est possible d'ajouter un street art
 - Possibilté de changer ses infos personnels
 - Les pages sont fonctionnels
@@ -54,7 +55,6 @@ Nous devons réaliser un application qui permet d'ajouter des street art en se s
 ### 🔜 A venir:
 
 - Ajouter des photos supplémentaires aux oeuvres dèja présentes
-- Envoyer un message pour signaler une oeuvre
 
 ## 🏗️ Structure de l'application
 
@@ -71,7 +71,7 @@ graph TD;
 
 ## 📈 Statut du projet
 
-v0.5 en cours
+v1.1 en cours
 
 ## Technos utilisé
 
@@ -82,6 +82,8 @@ v0.5 en cours
 ![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
 
 ## 💻 Modélisation de la base de données
+
+<img src="./client/src/assets/screen/bdd.png">
 
 ## 🛠️ Setup & utilisation
 
