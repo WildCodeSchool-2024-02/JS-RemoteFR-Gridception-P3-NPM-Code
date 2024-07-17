@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 5rem;
+  margin-top: 3rem;
 
   label {
     font-size: calc(1.5rem + 1vw);
@@ -14,7 +14,7 @@
 .profile-section-mobile {
   text-align: center;
   min-width: 85vw;
-  margin: 5rem 2rem 2rem 2rem;
+  margin: 2rem 2rem 2rem 2rem;
   h2 {
     color: var(--primary-text-color);
     font-size: calc(1rem + 1vw);
@@ -25,12 +25,17 @@
 }
 .my-street-art {
   display: grid;
+  justify-items: center;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
+  width: 21rem;
+  height: 15rem;
 
   img {
     margin: 0.5rem;
     width: 8rem;
+    height: 10rem;
+    object-fit: cover;
   }
 }
 .profile-section {
@@ -44,55 +49,30 @@
 .my-informations-mobile {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-around;
+  height: 13rem;
   ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    padding: 0;
     list-style: none;
     margin: 0;
 
     li {
-      font-size: 1.5rem;
+      font-size: 1.2rem;
     }
   }
 }
 
-.button-profil {
-  display: flex;
-  justify-content: center;
-  align-self: center;
-  font-family: inherit;
-  color: var(--primary-text-color);
-  font-weight: 600;
-  width: 60%;
-  background: var(--button-color);
-  border: 1px solid #414141;
-  padding: 12px 16px;
-  font-size: inherit;
-  gap: 0.5rem;
-  margin: 1rem;
-  cursor: pointer;
-  box-shadow: #000000 0px 7px 10px -5px inset;
-  border-radius: 6px;
-}
-
-.button-profil :active {
-  scale: 0.95;
-}
-
-.avatar {
-  width: 150px;
-  height: 150px;
-}
-
-.change {
-  height: 2rem;
-}
-
+.button-profil,
 .button-add-oeuvre-into-profil {
   display: flex;
   justify-content: center;
   align-self: center;
   font-family: inherit;
-  color: white;
+  color: var(--white-font);
   font-weight: 600;
   width: 60%;
   background: var(--button-color);
@@ -104,6 +84,29 @@
   cursor: pointer;
   box-shadow: #000000 0px 7px 10px -5px inset;
   border-radius: 6px;
+}
+.button-add-oeuvre-into-profil {
+  a {
+    color: var(--white-font);
+  }
+}
+
+.button :active {
+  scale: 0.95;
+}
+
+.button-profil:hover {
+  background-color: #fff;
+  border-color: #fff;
+  color: var(--button-color);
+}
+
+.button-add-oeuvre-into-profil:hover {
+  background-color: #fff;
+  border-color: #fff;
+  a {
+    color: var(--button-color);
+  }
 }
 // media queri destop
 
@@ -137,7 +140,6 @@
       linear-gradient(#c34cf6b4, #c34cf6b4) padding-box,
       linear-gradient(145deg, transparent 35%, #e81cfffa, #40c9ff) border-box;
     border: 2px solid transparent;
-    padding: 1rem;
     font-size: 1rem;
     font-family: inherit;
     color: var(--primary-text-color);
@@ -146,6 +148,10 @@
     border-radius: 16px;
     background-size: 200% 100%;
     animation: gradient 5s ease infinite;
+
+    .my-profil {
+      padding: 0;
+    }
 
     .my-profil,
     .my-informations {
@@ -167,6 +173,10 @@
     .button-profil {
       width: 85%;
     }
+
+    .street-art-profil {
+      position: relative;
+    }
   }
 
   .profile-section {
@@ -180,7 +190,7 @@
       linear-gradient(#c34cf6b4, #c34cf6b4) padding-box,
       linear-gradient(145deg, transparent 35%, #e81cfffa, #40c9ff) border-box;
     border: 2px solid transparent;
-    padding: 32px 16px;
+    padding: 1rem;
     font-size: 14px;
     font-family: inherit;
     color: white;
@@ -195,35 +205,68 @@
     }
 
     .my-street-art {
-      display: grip;
-      grid-template-columns: 1fr 1fr 1fr;
       overflow: scroll;
+      width: auto;
+      height: 22rem;
 
       img {
-        width: 10rem;
-        margin: 1rem;
+        height: 13rem;
+        width: 15rem;
+        margin: 0.5rem;
+      }
+    }
+    .street-art-profil {
+      position: relative;
+      .overlay-profil {
+        position: absolute;
+        margin: 0.8rem 0.5rem;
+        height: 20%;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        p {
+          color: var(--primary-text-color);
+          padding: 20px;
+          margin-bottom: 10px;
+        }
+      }
+      &:hover .overlay-profil {
+        opacity: 1;
       }
     }
   }
 }
 
-@media (min-width: 1400px) {
+@media (min-width: 1200px) {
   .my-informations {
     padding-bottom: 1rem;
     ul {
       li {
+        font-size: 1.5rem;
         color: var(--primary-font);
       }
     }
   }
+  .my-street-art {
+    grid-template-columns: 1fr 1fr 1fr;
+    width: auto;
+    height: 22rem;
 
-  .change {
-    height: 2rem;
+    img {
+      height: 13rem;
+      width: 13rem;
+      margin: 0.5rem;
+    }
   }
-  .li-email {
-    margin-bottom: 1rem;
-  }
+
   .my-profil {
-    margin-top: 2rem;
+    margin-top: 0.5rem;
   }
 }

@@ -40,6 +40,18 @@
 .title-desktop {
   display: none;
 }
+.street-art-picture {
+  position: relative;
+  a {
+    color: white;
+  }
+  .info-picture-profil {
+    position: absolute;
+    left: 110px;
+    top: 0;
+    z-index: 10000;
+  }
+}
 
 @media (min-width: 770px) {
   .street-art-component {
