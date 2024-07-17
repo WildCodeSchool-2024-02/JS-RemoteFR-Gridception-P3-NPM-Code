@@ -5,6 +5,7 @@ import { Link, useOutletContext } from "react-router-dom";
 import { Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
+import InfoIcon from "@mui/icons-material/Info";
 
 import AvatarChange from "../components/AvatarChange";
 import UpdateInfoUser from "../components/UpdateInfoUser";
@@ -88,11 +89,14 @@ function Profile() {
         <h2>Mes Oeuvres</h2>
         <div className="my-street-art">
           {picturesStreetArt.map((streetArt) => (
-            <img
-              key={streetArt.id}
-              src={streetArt.file}
-              alt={streetArt.title}
-            />
+            <div key={streetArt.id} className="street-art-profil">
+              <img src={streetArt.file} alt={streetArt.title} />
+              <div className="overlay-profil">
+                <Link to={`/streetArt/${streetArt.id}`} key={streetArt.id}>
+                  <p>Voir plus</p>
+                </Link>
+              </div>
+            </div>
           ))}
         </div>
         <button type="button" className="button-add-oeuvre-into-profil">
@@ -114,11 +118,14 @@ function Profile() {
             <AccordionElements>
               <div className="my-street-art">
                 {picturesStreetArt.map((picture) => (
-                  <img
-                    key={picture.id}
-                    src={picture.file}
-                    alt={picture.title}
-                  />
+                  <div key={picture.id} className="street-art-picture">
+                    <Link to={`/streetArt/${picture.id}`} key={picture.id}>
+                      <div className="info-picture-profil">
+                        <InfoIcon fontSize="large" />
+                      </div>
+                    </Link>
+                    <img src={picture.file} alt={picture.title} />
+                  </div>
                 ))}
               </div>
             </AccordionElements>

@@ -25,6 +25,7 @@
 }
 .my-street-art {
   display: grid;
+  justify-items: center;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   width: 21rem;
@@ -172,6 +173,10 @@
     .button-profil {
       width: 85%;
     }
+
+    .street-art-profil {
+      position: relative;
+    }
   }
 
   .profile-section {
@@ -200,7 +205,6 @@
     }
 
     .my-street-art {
-      justify-items: center;
       overflow: scroll;
       width: auto;
       height: 22rem;
@@ -211,6 +215,32 @@
         margin: 0.5rem;
       }
     }
+    .street-art-profil {
+      position: relative;
+      .overlay-profil {
+        position: absolute;
+        margin: 0.8rem 0.5rem;
+        height: 20%;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        p {
+          color: var(--primary-text-color);
+          padding: 20px;
+          margin-bottom: 10px;
+        }
+      }
+      &:hover .overlay-profil {
+        opacity: 1;
+      }
+    }
   }
 }
 
@@ -219,6 +249,7 @@
     padding-bottom: 1rem;
     ul {
       li {
+        font-size: 1.5rem;
         color: var(--primary-font);
       }
     }
