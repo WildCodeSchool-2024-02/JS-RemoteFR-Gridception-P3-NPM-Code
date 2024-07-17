@@ -24,10 +24,27 @@
   height: 80px;
   width: 95%;
   border-radius: 50px;
-  background-color: white;
-  box-shadow:
-    -10px -15px 15px rgba(255, 255, 255, 0.5),
-    10px 10px 25px rgba(70, 70, 70, 0.5);
+  border: 2px solid transparent;
+  background:
+    linear-gradient(#ffffffb4, #ffffffb4) padding-box,
+    linear-gradient(145deg, transparent 35%, #e81cfffa, #40c9ff) border-box;
+
+  background-size: 200% 100%;
+  animation: gradient 5s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .select-admin-content-button input[type="radio"] {
@@ -88,18 +105,7 @@
   overflow-y: auto;
   font-family: var(--second-font);
   &::-webkit-scrollbar {
-    width: 12px;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: var(--primary-color);
-    border-radius: 10px;
-    border: 3px solid #cf6efb;
-  }
-
-  &::-webkit-scrollbar-track {
-    background-color: #e0e0e0;
-    border-radius: 10px;
+    display: none;
   }
 }
 
@@ -135,10 +141,12 @@
   h3 {
     font-size: 1.5rem;
     color: var(--primary-text-color);
+    margin: 0;
   }
   p {
     font-size: 1rem;
     color: var(--white-font);
+    margin: 0;
   }
 }
 
