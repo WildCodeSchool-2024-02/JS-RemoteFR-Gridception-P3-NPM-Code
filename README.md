@@ -8,6 +8,18 @@
 
 Nous devons réaliser un application qui permet d'ajouter des street art en se servant de la localisation.
 
+## 📱 Aperçu version mobile : 
+
+<p> align="center"> 
+<img src="./client/src/assets/screen/homescreenmobil.png"> <img src="./client/src/assets/screen/connexionscreenmobil.png"><img src="./client/src/assets/screen/addscreenmobil.png"><img src="./client/src/assets/screen/galeriescreenmobil.png"><img src="./client/src/assets/screen/aboutscreenmobil.png"><img src="./client/src/assets/screen/adminscreenmobil.png">
+</p>
+
+## 🖥️ Aperçu version desktop : 
+
+<p> align="center"> 
+<img src="./client/src/assets/screen/homescreendesktop.png"> <img src="./client/src/assets/screen/connexionscreendesktop.png"><img src="./client/src/assets/screen/addscreendesktop.png"><img src="./client/src/assets/screen/galeriescreendesktop.png"><img src="./client/src/assets/screen/aboutscreendesktop.png"><img src="./client/src/assets/screen/adminscreendesktop.png">
+</p>
+
 ## 🛠️ Fonctionnalités:
 
 ### 👥 Partie Visiteur:
