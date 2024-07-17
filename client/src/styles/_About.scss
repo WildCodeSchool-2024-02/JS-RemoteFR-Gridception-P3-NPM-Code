@@ -4,6 +4,7 @@
   height: 90vh;
   justify-content: space-evenly;
   align-items: center;
+  margin-top: 2rem;
 }
 
 .main-title-content {
@@ -25,10 +26,27 @@
   align-items: center;
   justify-content: space-around;
   border-radius: 50px;
-  background-color: white;
-  box-shadow:
-    -10px -15px 15px rgba(255, 255, 255, 0.5),
-    10px 10px 25px rgba(70, 70, 70, 0.5);
+  border: 2px solid transparent;
+  background:
+    linear-gradient(#ffffffb4, #ffffffb4) padding-box,
+    linear-gradient(145deg, transparent 35%, #e81cfffa, #40c9ff) border-box;
+
+  background-size: 200% 100%;
+  animation: gradient 5s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .select-content-button input[type="radio"] {
@@ -38,7 +56,7 @@
 .select-label-about {
   width: 100%;
   text-align: center;
-  font-size: calc(0.7rem + 1.5vw);
+  font-size: calc(0.7rem + 1.2vw);
   font-weight: 600;
   font-family: var(--second-font);
   padding: 18px 15px;
@@ -50,11 +68,11 @@
 
 .select-content-button input[type="radio"]:checked + label {
   box-shadow:
-    10px 10px 15px rgba(0, 0, 0, 0.151),
-    10px 10px 15px rgba(0, 0, 0, 0.218);
+    5px 5px 10px rgba(0, 0, 0, 0.151),
+    5px 5px 10px rgba(0, 0, 0, 0.218);
   background: linear-gradient(45deg, #cf6efb, #4f29cd);
-  color: white;
-  transform: translateY(-4px);
+  color: rgb(255, 255, 255);
+  transform: translateY(-3px);
   height: 70px;
 }
 
@@ -76,27 +94,37 @@
   border-radius: 10px;
   text-align: left;
   color: var(--white-font);
-  background-color: rgba(194, 76, 246, 0.6);
+  border: 2px solid transparent;
+  background:
+    linear-gradient(#c34cf6b4, #c34cf6b4) padding-box,
+    linear-gradient(145deg, transparent 35%, #e81cfffa, #40c9ff) border-box;
+
+  background-size: 200% 100%;
+  animation: gradient 5s ease infinite;
   overflow-y: auto;
   font-family: var(--second-font);
   &::-webkit-scrollbar {
-    width: 12px;
+    display: none;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
   }
 
-  &::-webkit-scrollbar-thumb {
-    background-color: var(--primary-color);
-    border-radius: 10px;
-    border: 3px solid #cf6efb;
+  50% {
+    background-position: 100% 50%;
   }
 
-  &::-webkit-scrollbar-track {
-    background-color: #e0e0e0;
-    border-radius: 10px;
+  100% {
+    background-position: 0% 50%;
   }
 }
 
 .description-game {
   text-align: center;
+  font-size: 1.5rem;
   margin: 1.5rem;
 }
 

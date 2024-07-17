@@ -13,6 +13,37 @@ import UserIcon from "../assets/images/user_icon.png";
 import Logout from "../assets/images/logout.png";
 
 function NavBar({ loggedUser, handleNavigate, handleLogout }) {
+  let userLink;
+  if (loggedUser?.id !== undefined && loggedUser.roles_id === 2) {
+    userLink = (
+      <li>
+        <NavLink to="/utilisateur/profil">
+          <img src={UserIcon} alt="page profil" className="nav-icon" />
+        </NavLink>
+      </li>
+    );
+  } else if (loggedUser?.id !== undefined && loggedUser.roles_id === 1) {
+    userLink = (
+      <li>
+        <NavLink to="/admin">
+          <img src={UserIcon} alt="page admin" className="nav-icon" />
+        </NavLink>
+      </li>
+    );
+  } else {
+    userLink = (
+      <li>
+        <NavLink onClick={handleNavigate}>
+          <img
+            src={UserIcon}
+            alt="ajouter un street art"
+            className="nav-icon"
+          />
+        </NavLink>
+      </li>
+    );
+  }
+
   return (
     <>
       <section className="navbar-logo-container">
@@ -23,25 +54,7 @@ function NavBar({ loggedUser, handleNavigate, handleLogout }) {
                 <img src={Home} alt="Icône page accueil" className="nav-icon" />
               </NavLink>
             </li>
-
-            {loggedUser?.id !== undefined ? (
-              <li>
-                <NavLink to="/utilisateur/profil">
-                  <img src={UserIcon} alt="page profil" className="nav-icon" />
-                </NavLink>
-              </li>
-            ) : (
-              <li>
-                <NavLink onClick={handleNavigate}>
-                  <img
-                    src={UserIcon}
-                    alt="ajouter un street art"
-                    className="nav-icon"
-                  />
-                </NavLink>
-              </li>
-            )}
-
+            {userLink}
             {loggedUser?.id !== undefined ? (
               <li>
                 <NavLink to="/utilisateur/add">
@@ -63,7 +76,6 @@ function NavBar({ loggedUser, handleNavigate, handleLogout }) {
                 </NavLink>
               </li>
             )}
-
             <li>
               <NavLink to="/classement">
                 <img

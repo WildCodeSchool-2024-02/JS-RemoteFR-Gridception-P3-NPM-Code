@@ -5,10 +5,14 @@ import "react-toastify/dist/ReactToastify.css";
 
 import Valid from "../assets/images/validate.png";
 import Delete from "../assets/images/delete.png";
-import OeuvresToValidate from "../assets/images/oeuvreattente.png";
-import UsersIcon from "../assets/images/listeusers.png";
-import Messages from "../assets/images/messages.png";
-import AllOeuvres from "../assets/images/alloeuvres.png";
+import OeuvresToValidateWhite from "../assets/images/oeuvreattentewhite.png";
+import OeuvresToValidateBlack from "../assets/images/oeuvreattenteblack.png";
+import UsersIconWhite from "../assets/images/listeuserswhite.png";
+import UsersIconBlack from "../assets/images/listeusersblack.png";
+import MessagesWhite from "../assets/images/messageswhite.png";
+import MessageBlack from "../assets/images/messagesblack.png";
+import AllOeuvresBlack from "../assets/images/alloeuvresblack.png";
+import AllOeuvresWhite from "../assets/images/alloeuvreswhite.png";
 
 function AdminPage() {
   const [selectedSection, setSelectedSection] = useState("oeuvres-to-validate");
@@ -160,7 +164,14 @@ function AdminPage() {
           onChange={() => setSelectedSection("oeuvres-to-validate")}
         />
         <label htmlFor="value-admin-1" className="select-label-admin">
-          <img src={OeuvresToValidate} alt="User Icon" />
+          <img
+            src={
+              selectedSection === "oeuvres-to-validate"
+                ? OeuvresToValidateWhite
+                : OeuvresToValidateBlack
+            }
+            alt="User Icon"
+          />
           <span className="label-text">Oeuvres en attente</span>
         </label>
         <input
@@ -171,7 +182,14 @@ function AdminPage() {
           onChange={() => setSelectedSection("users-infos")}
         />
         <label htmlFor="value-admin-2" className="select-label-admin">
-          <img src={UsersIcon} alt="User Icon" />
+          <img
+            src={
+              selectedSection === "users-infos"
+                ? UsersIconWhite
+                : UsersIconBlack
+            }
+            alt="User Icon"
+          />
           <span className="label-text">Utilisateurs</span>
         </label>
         <input
@@ -182,7 +200,14 @@ function AdminPage() {
           onChange={() => setSelectedSection("messages-infos")}
         />
         <label htmlFor="value-admin-3" className="select-label-admin">
-          <img src={Messages} alt="User Icon" />
+          <img
+            src={
+              selectedSection === "messages-infos"
+                ? MessagesWhite
+                : MessageBlack
+            }
+            alt="User Icon"
+          />
           <span className="label-text">Messages</span>
         </label>
         <input
@@ -193,7 +218,14 @@ function AdminPage() {
           onChange={() => setSelectedSection("toutes-les-oeuvres")}
         />
         <label htmlFor="value-admin-4" className="select-label-admin">
-          <img src={AllOeuvres} alt="User Icon" />
+          <img
+            src={
+              selectedSection === "toutes-les-oeuvres"
+                ? AllOeuvresWhite
+                : AllOeuvresBlack
+            }
+            alt="Oeuvres valide Icon"
+          />
           <span className="label-text">Toutes les oeuvres</span>
         </label>
       </section>
