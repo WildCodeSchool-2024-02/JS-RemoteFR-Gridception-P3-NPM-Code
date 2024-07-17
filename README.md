@@ -10,14 +10,14 @@ Nous devons réaliser un application qui permet d'ajouter des street art en se s
 
 ## 📱 Aperçu version mobile : 
 
-<p> align="center"> 
+<p align="center"> 
 <img src="./client/src/assets/screen/homescreenmobil.png"> <img src="./client/src/assets/screen/connexionscreenmobil.png"><img src="./client/src/assets/screen/addscreenmobil.png"><img src="./client/src/assets/screen/galeriescreenmobil.png"><img src="./client/src/assets/screen/aboutscreenmobil.png"><img src="./client/src/assets/screen/adminscreenmobil.png">
 </p>
 
 ## 🖥️ Aperçu version desktop : 
 
-<p> align="center"> 
-<img src="./client/src/assets/screen/homescreendesktop.png"> <img src="./client/src/assets/screen/connexionscreendesktop.png"><img src="./client/src/assets/screen/addscreendesktop.png"><img src="./client/src/assets/screen/galeriescreendesktop.png"><img src="./client/src/assets/screen/aboutscreendesktop.png"><img src="./client/src/assets/screen/adminscreendesktop.png">
+<p align="center"> 
+<img src="./client/src/assets/screen/homescreendesktop.png"> <img src="./client/src/assets/screen/connexionscreendesktop.png" height="500px"><img src="./client/src/assets/screen/addscreendesktop.png" height="500px"><img src="./client/src/assets/screen/galeriescreendesktop.png" height="500px"><img src="./client/src/assets/screen/aboutscreendesktop.png" height="500px"><img src="./client/src/assets/screen/adminscreendesktop.png" height="500px">
 </p>
 
 ## 🛠️ Fonctionnalités:
