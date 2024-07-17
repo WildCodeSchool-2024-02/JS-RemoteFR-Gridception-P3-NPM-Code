@@ -69,14 +69,18 @@ function UpdateInfoUser({ dialogRef }) {
 
   return (
     <dialog className="popup-informations" ref={dialogRef}>
-      <div className="loginform-container">
+      <div className="change-information-container">
         <CloseIcon
           onClick={() => {
             dialogRef.current?.close();
           }}
         />
-        <img src={Logo} alt="Street art hunter" className="logoform-desktop" />
-        <form onSubmit={handleInformations} className="loginform-group">
+        <img
+          src={Logo}
+          alt="Street art hunter"
+          className="logo-information-desktop"
+        />
+        <form onSubmit={handleInformations} className="logo-information-group">
           <label htmlFor="firstname">Prénom</label>
           <input
             name="firstname"
@@ -117,7 +121,7 @@ function UpdateInfoUser({ dialogRef }) {
 }
 
 UpdateInfoUser.propTypes = {
-  dialogRef: PropTypes.string.isRequired,
+  dialogRef: PropTypes.objectOf(PropTypes.string).isRequired,
   current: PropTypes.element.isRequired,
 };
 

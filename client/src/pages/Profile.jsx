@@ -31,6 +31,8 @@ const AccordionElements = styled(AccordionDetails)(({ theme }) => ({
   padding: theme.spacing(2),
   backgroundColor: "color-mix(in srgb, var(--primary-color) 80%, transparent)",
   borderRadius: "10px",
+  height: "15rem",
+  overflow: "scroll",
 }));
 
 function Profile() {
@@ -67,7 +69,8 @@ function Profile() {
         <article className="my-informations">
           <ul>
             <li> Pseudo : {loggedUser.pseudo}</li>
-            <li className="li-email"> Email : {loggedUser.email}</li>
+            <li> Email : {loggedUser.email}</li>
+            <li> ville : {loggedUser.city}</li>
           </ul>
           <button
             type="button"
@@ -76,7 +79,7 @@ function Profile() {
               dialogRef.current?.showModal();
             }}
           >
-            Modifier mes informations
+            Modifier mon profil
           </button>
         </article>
       </div>
@@ -133,6 +136,7 @@ function Profile() {
             <AccordionElements>
               <article className="my-informations-mobile">
                 <ul>
+                  <li> Pseudo : {loggedUser.pseudo}</li>
                   <li> Email : {loggedUser.email}</li>
                   <li> ville : {loggedUser.city}</li>
                 </ul>
@@ -143,7 +147,7 @@ function Profile() {
                     dialogRef.current?.showModal();
                   }}
                 >
-                  Modifier mes informations
+                  Modifier mon profil
                 </button>
               </article>
             </AccordionElements>
