@@ -8,7 +8,8 @@ function Ranking() {
     axios
       .get(`http://127.0.0.1:3310/api/users`)
       .then((results) => {
-        const sortedData = results.data.sort((a, b) => b.points - a.points);
+        const filteredData = results.data.filter(user => user.id !== 1);
+        const sortedData = filteredData.sort((a, b) => b.points - a.points);
         setDatas(sortedData);
         console.info(results);
       })
