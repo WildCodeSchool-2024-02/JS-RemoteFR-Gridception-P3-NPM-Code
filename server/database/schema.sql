@@ -24,12 +24,12 @@ VALUES ('Admin'), ('Utilisateur');
 INSERT INTO users (roles_id, pseudo, firstname, lastname, avatar, points, city, email, password)
 VALUES 
 -- Créer l'admin et quelques utilisateurs 
-(1,'ELGOAT' ,'toto', 'le GOAT', 'https://image.noelshack.com/fichiers/2024/29/2/1721137848-avatardusite.png', 0, 'Partout', 'toto@toto.com', '$argon2id$v=19$m=65536,t=5,p=1$FkjcCc0+F15P0N5TLh3ndQ$FkttWmV6YpXwaqtjrKfALtaYkwyHv2ongXDP/C6bvY4'), 
-(2, 'Le J', 'Nicolas', 'Juchereau', 'https://image.noelshack.com/fichiers/2024/29/2/1721137848-avatardusite.png', 0, 'Nîmes', 'nicoj@gmail.com', '$argon2id$v=19$m=65536,t=5,p=1$FkjcCc0+F15P0N5TLh3ndQ$FkttWmV6YpXwaqtjrKfALtaYkwyHv2ongXDP/C6bvY4'),
-(2, 'Pedro', 'Pierre', 'Delarocque', 'https://image.noelshack.com/fichiers/2024/29/2/1721137848-avatardusite.png', 0, 'Tours', 'pedro@gmail.com', '$argon2id$v=19$m=65536,t=5,p=1$FkjcCc0+F15P0N5TLh3ndQ$FkttWmV6YpXwaqtjrKfALtaYkwyHv2ongXDP/C6bvY4'),
-(2, 'MegMayo', 'Mégane', 'Authemayou', 'https://image.noelshack.com/fichiers/2024/29/2/1721137848-avatardusite.png', 0, 'Tours', 'meg@gmail.com', '$argon2id$v=19$m=65536,t=5,p=1$FkjcCc0+F15P0N5TLh3ndQ$FkttWmV6YpXwaqtjrKfALtaYkwyHv2ongXDP/C6bvY4'),
-(2, 'Le G', 'Nicolas', 'Gerin', 'https://image.noelshack.com/fichiers/2024/29/2/1721137848-avatardusite.png', 0, 'Les Grottes', 'nicog@gmail.com', '$argon2id$v=19$m=65536,t=5,p=1$FkjcCc0+F15P0N5TLh3ndQ$FkttWmV6YpXwaqtjrKfALtaYkwyHv2ongXDP/C6bvY4'),
-(2, 'XamTV', 'Maxime', 'Maussion', 'https://image.noelshack.com/fichiers/2024/29/2/1721137848-avatardusite.png', 0, 'Sisteron', 'max@gmail.com', '$argon2id$v=19$m=65536,t=5,p=1$FkjcCc0+F15P0N5TLh3ndQ$FkttWmV6YpXwaqtjrKfALtaYkwyHv2ongXDP/C6bvY4');
+(1,'ELGOAT' ,'toto', 'le GOAT', 'https://image.noelshack.com/fichiers/2024/29/2/1721137848-avatardusite.png', 10, 'Partout', 'toto@toto.com', '$argon2id$v=19$m=65536,t=5,p=1$FkjcCc0+F15P0N5TLh3ndQ$FkttWmV6YpXwaqtjrKfALtaYkwyHv2ongXDP/C6bvY4'), 
+(2, 'Le J', 'Nicolas', 'Juchereau', 'https://image.noelshack.com/fichiers/2024/29/2/1721137848-avatardusite.png', 10, 'Nîmes', 'nicoj@gmail.com', '$argon2id$v=19$m=65536,t=5,p=1$FkjcCc0+F15P0N5TLh3ndQ$FkttWmV6YpXwaqtjrKfALtaYkwyHv2ongXDP/C6bvY4'),
+(2, 'Pedro', 'Pierre', 'Delarocque', 'https://image.noelshack.com/fichiers/2024/29/2/1721137848-avatardusite.png', 10, 'Tours', 'pedro@gmail.com', '$argon2id$v=19$m=65536,t=5,p=1$FkjcCc0+F15P0N5TLh3ndQ$FkttWmV6YpXwaqtjrKfALtaYkwyHv2ongXDP/C6bvY4'),
+(2, 'MegMayo', 'Mégane', 'Authemayou', 'https://image.noelshack.com/fichiers/2024/29/2/1721137848-avatardusite.png', 10, 'Tours', 'meg@gmail.com', '$argon2id$v=19$m=65536,t=5,p=1$FkjcCc0+F15P0N5TLh3ndQ$FkttWmV6YpXwaqtjrKfALtaYkwyHv2ongXDP/C6bvY4'),
+(2, 'Le G', 'Nicolas', 'Gerin', 'https://image.noelshack.com/fichiers/2024/29/2/1721137848-avatardusite.png', 10, 'Les Grottes', 'nicog@gmail.com', '$argon2id$v=19$m=65536,t=5,p=1$FkjcCc0+F15P0N5TLh3ndQ$FkttWmV6YpXwaqtjrKfALtaYkwyHv2ongXDP/C6bvY4'),
+(2, 'XamTV', 'Maxime', 'Maussion', 'https://image.noelshack.com/fichiers/2024/29/2/1721137848-avatardusite.png', 10, 'Sisteron', 'max@gmail.com', '$argon2id$v=19$m=65536,t=5,p=1$FkjcCc0+F15P0N5TLh3ndQ$FkttWmV6YpXwaqtjrKfALtaYkwyHv2ongXDP/C6bvY4');
 
 create table street_arts (
     id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
