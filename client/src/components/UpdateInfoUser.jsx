@@ -96,14 +96,14 @@ function UpdateInfoUser({ dialogRef }) {
             onChange={handleInformationsChange}
           />
 
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email">E-mail</label>
           <input
             name="email"
             id="email"
             type="email"
             onChange={handleInformationsChange}
           />
-          <label htmlFor="city">City</label>
+          <label htmlFor="city">Ville</label>
           <input
             name="city"
             id="city"

@@ -106,6 +106,36 @@ v1.1 en cours
 
 - N'oubliez pas de créer vos fichiers .env pour le frontend et le backend en copiant les fichiers .env.sample de chaque répertoire.
 
+## 📡 Déploiement : 
+
+### Déploiement avec Traefik
+⚠️ Conditions préalables : Vous devez avoir installé et configuré Traefik sur votre VPS au préalable. https://github.com/WildCodeSchool/vps-traefik-starter-kit/
+
+Pour le déploiement, vous devez aller dans secrets → app actions sur le repo github pour insérer via New repository secret :
+
+SSH_HOST : adresse IP de votre VPS
+SSH_USER : login SSH de votre VPS
+SSH_PASSWORD : Mot de passe de connexion SSH à votre VPS
+Et une variable publique de l'onglet /settings/variables/actions :
+
+PROJECT_NAME : le nom du projet utilisé pour créer le sous-domaine.
+⚠️ Attention : les underscores ne sont pas autorisés. Ils peuvent causer des problèmes avec le certificat let's encrypt
+
+Utilisez ce même onglet pour ajouter les autres variables d'environnement nécessaires au projet s'il y en a.
+
+Seul le backend sera accessible. Le chemin racine "/" redirigera vers le dossier dist de votre frontend. Afin de permettre cela, veuillez décommenter la ligne comme expliqué dans backend/src/app.js (Ligne 102). Comme le backend servira le frontend, la variable globale VITE_BACKEND_URL sera définie avec une chaîne vide.
+
+Votre URL sera https://${PROJECT-NAME}.${subdomain}.wilders.dev/.
+
+### A propos de la base de données
+La base de données est automatiquement déployée avec le nom de votre repo. Pendant la construction du projet (docker-entry.sh), la commande node migrate.js est exécutée dans le backend. Si vous voulez ensemencer automatiquement votre base de données en utilisant le script seed.js, remplacez la commande build sur votre backend/package.json par node migrate.js && node seed.js.
+
+### A propos des ressources publiques (images, polices...)
+N'utilisez pas de dossier public sur votre frontend. Ce dossier ne sera pas accessible en ligne. Vous pouvez déplacer vos ressources publiques dans le dossier backend/public. Préférez static assets lorsque c'est possible.
+
+### A propos des logs
+Si vous voulez accéder aux logs de votre projet en ligne (pour suivre le déploiement ou pour surveiller une erreur de bug), connectez-vous à votre VPS (ssh user@host). Ensuite, allez sur votre projet spécifique et lancez `docker compose logs -t -f.
+
 ### 🔧 Outils utilisé :
 
 - _Concurrently_ : Permet de lancer plusieurs commandes simultanément dans la même interface de ligne de commande (CLI).

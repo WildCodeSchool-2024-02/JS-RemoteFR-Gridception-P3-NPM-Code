@@ -95,7 +95,7 @@ function LoginPopup() {
             Connexion
           </button>
           <div className="loginform-register">
-            <p>Pas de Compte ?</p>
+            <p>Pas de Compte ?&nbsp;</p>
             <Link
               to="/inscription"
               onClick={() => setShowLoginPopup(false)}
