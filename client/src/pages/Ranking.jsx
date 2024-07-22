@@ -6,7 +6,7 @@ function Ranking() {
 
   useEffect(() => {
     axios
-      .get(`http://127.0.0.1:3310/api/users`)
+      .get(`${import.meta.env.VITE_API_URL}/api/users`)
       .then((results) => {
         const filteredData = results.data.filter(user => user.id !== 1);
         const sortedData = filteredData.sort((a, b) => b.points - a.points);

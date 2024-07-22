@@ -70,8 +70,8 @@ function Profile() {
         <article className="my-informations">
           <ul>
             <li> Pseudo : {loggedUser.pseudo}</li>
-            <li> Email : {loggedUser.email}</li>
-            <li> ville : {loggedUser.city}</li>
+            <li> E-mail : {loggedUser.email}</li>
+            <li> Ville : {loggedUser.city}</li>
           </ul>
           <button
             type="button"
