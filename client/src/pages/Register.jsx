@@ -15,6 +15,7 @@ function Register() {
     firstname: "",
     lastname: "",
     email: "",
+    avatar: "https://image.noelshack.com/fichiers/2024/29/2/1721137848-avatardusite.png",
     password: "",
     confirmPassword: "",
     roles_id: "2",

@@ -8,7 +8,6 @@ import { Dialog } from "primereact/dialog";
 import { InputText } from "primereact/inputtext";
 
 import Change from "../assets/images/icon_change_avatar.png";
-import Users from "../assets/images/user_profil.png";
 
 export default function AvatarChange() {
   const [imageCrop, setImageCrop] = useState(false);
@@ -18,13 +17,14 @@ export default function AvatarChange() {
 
   const { loggedUser } = useOutletContext();
 
-  let imgAvatar = Users;
+  let imgAvatar = loggedUser.avatar;
 
   if (profile?.avatar) {
     imgAvatar = profile.avatar;
   } else if (loggedUser.avatar) {
     imgAvatar = loggedUser.avatar;
   }
+
 
   const onClose = () => {
     setPView(null);
