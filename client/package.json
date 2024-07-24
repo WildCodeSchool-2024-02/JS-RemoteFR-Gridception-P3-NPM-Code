@@ -15,8 +15,6 @@
     "axios": "^1.7.2",
     "dotenv": "^16.4.5",
     "jwt-decode": "^4.0.0",
-    "leaflet": "^1.9.4",
-    "leaflet.locatecontrol": "^0.81.1",
     "lottie-react": "^2.4.0",
     "mapbox-gl": "^3.4.0",
     "primereact": "^10.6.6",

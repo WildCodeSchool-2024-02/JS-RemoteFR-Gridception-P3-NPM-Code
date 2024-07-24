@@ -16,6 +16,7 @@ function Register() {
     lastname: "",
     email: "",
     avatar: "https://image.noelshack.com/fichiers/2024/29/2/1721137848-avatardusite.png",
+    points: "0",
     password: "",
     confirmPassword: "",
     roles_id: "2",
@@ -222,7 +223,7 @@ function Register() {
               checked={registerForm.cgu}
             />
           </div>
-          <button type="submit" className="form-submit-btn">
+          <button type="submit" className="form-submit-register-btn">
             S'enregistrer
           </button>
         </div>

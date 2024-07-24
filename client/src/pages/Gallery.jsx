@@ -21,7 +21,9 @@ export default function Gallery() {
     fetch(`${import.meta.env.VITE_API_URL}/api/street_arts`)
       .then((response) => response.json())
       .then((data) => {
-        const validData = data.filter((streetArt) => streetArt.is_valid === 1);
+        const validData = data
+          .filter((streetArt) => streetArt.is_valid === 1)
+          .sort((a, b) => b.id - a.id);
         setStreetArts(validData);
       })
       .catch((error) => console.error("Error fetching street arts:", error));
