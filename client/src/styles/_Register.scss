@@ -90,7 +90,7 @@
   border-radius: 4px;
 }
 
-.form-submit-btn {
+.form-submit-register-btn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -105,7 +105,7 @@
   border-radius: 6px;
 }
 
-.form-submit-btn:hover {
+.form-submit-register-btn:hover {
   background-color: #fff;
   border-color: #fff;
   color: var(--button-color);
@@ -194,7 +194,7 @@
     }
   }
 
-  .form-submit-btn {
+  .form-submit-register-btn {
     width: 100%;
   }
 
