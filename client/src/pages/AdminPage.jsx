@@ -34,7 +34,9 @@ function AdminPage() {
       axios
         .get(`${import.meta.env.VITE_API_URL}/api/street_arts`)
         .then((results) => {
-          setOeuvres(results.data.filter((oeuvre) => oeuvre.is_valid === 1));
+          setOeuvres(results.data
+            .filter((oeuvre) => oeuvre.is_valid === 1)
+            .sort((a, b) => b.id - a.id));
         })
         .catch((err) => console.info(err));
     }
