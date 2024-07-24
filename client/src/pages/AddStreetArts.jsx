@@ -79,7 +79,7 @@ function AddStreetArts() {
       "Street Art reçu, en attente de validation ! Vous allez être redirigé vers l'accueil !",
       {
         position: "bottom-right",
-        autoClose: 5000,
+        autoClose: 3000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -91,7 +91,7 @@ function AddStreetArts() {
 
     setTimeout(() => {
       navigate("/");
-    }, 5000);
+    }, 4000);
   };
 
   const notifyError = (message) =>
@@ -100,7 +100,7 @@ function AddStreetArts() {
         "Il nous manque une information, vérifie que tu as rempli tous les champs",
       {
         position: "bottom-right",
-        autoClose: 4000,
+        autoClose: 3500,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -273,7 +273,7 @@ function AddStreetArts() {
                 </ul>
               )}
             </section>
-            <button type="submit" className="form-submit-btn">
+            <button type="submit" className="form-submit-add-btn">
               Envoyer
             </button>
           </div>

@@ -223,7 +223,7 @@ function Register() {
               checked={registerForm.cgu}
             />
           </div>
-          <button type="submit" className="form-submit-btn">
+          <button type="submit" className="form-submit-register-btn">
             S'enregistrer
           </button>
         </div>
